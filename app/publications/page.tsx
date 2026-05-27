@@ -1,8 +1,23 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { highlights, peerReviewedPapers, conferenceProceedings, books, bookChapters, technicalReports } from './data';
 import { SectionHeading, PaperList, ProceedingList, BookCard, ChapterList, ReportList } from './components';
+import cover1 from './papers/1.jpg';
+import cover2 from './papers/2.gif';
+import cover3 from './papers/3.jpg';
+import cover4 from './papers/4.jpg';
+import cover5 from './papers/5.png';
+import cover6 from './papers/6.png';
+import cover7 from './papers/7.jpg';
+import cover8 from './papers/8.jpg';
+import cover9 from './papers/9.jpg';
+import cover10 from './papers/10.jpg';
+import cover11 from './papers/11.jpg';
+import cover12 from './papers/12.png';
+import cover13 from './papers/13.jpg';
+import cover14 from './papers/14.jpg';
 
 function SectionBanner({
   id,
@@ -65,6 +80,131 @@ function SectionBanner({
         <div className="mt-4 rounded-b-2xl bg-white p-6">
           {children}
         </div>
+      </div>
+    </div>
+  );
+}
+
+const sliderImages = [
+  cover1,
+  cover2,
+  cover3,
+  cover4,
+  cover5,
+  cover6,
+  cover7,
+  cover8,
+  cover9,
+  cover10,
+  cover11,
+  cover12,
+  cover13,
+  cover14,
+];
+
+function ImageSlider() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(4);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(4);
+      }
+    };
+
+    updateSlides();
+    window.addEventListener('resize', updateSlides);
+    return () => window.removeEventListener('resize', updateSlides);
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [slidesToShow]);
+
+  const totalPages = Math.ceil(sliderImages.length / slidesToShow);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = window.setInterval(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 3000);
+    return () => window.clearInterval(interval);
+  }, [isPaused, totalPages]);
+
+  const visibleSlides = sliderImages.slice(currentPage * slidesToShow, currentPage * slidesToShow + slidesToShow);
+
+  const prevSlide = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  const nextSlide = () => setCurrentPage((prev) => (prev + 1) % totalPages);
+
+  return (
+    <div className="mb-12">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        {/* <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Publication Covers</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">Publication image slider</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+            Browse publication covers in a responsive slider that preserves every image ratio.
+          </p>
+        </div> */}
+      </div>
+
+      <div
+        className="relative mt-8 overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 px-4 py-8"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <button
+          onClick={prevSlide}
+          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900"
+          aria-label="Previous slide"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div className="relative overflow-hidden">
+          <div className="flex items-center justify-center gap-4 transition-all duration-500">
+            {visibleSlides.map((src, index) => (
+              <div key={index} className="mx-auto flex h-[320px] w-full max-w-[220px] flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-4 shadow-sm">
+                <Image
+                  src={src}
+                  alt={`Publication cover ${currentPage * slidesToShow + index + 1}`}
+                  width={220}
+                  height={320}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900"
+          aria-label="Next slide"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="mt-5 flex justify-center gap-2">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(index)}
+            className={`h-2.5 w-2.5 rounded-full transition ${index === currentPage ? 'bg-sky-700' : 'bg-slate-300'}`}
+            aria-label={`Go to slide group ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -169,6 +309,8 @@ export default function Publications() {
         >
           <ReportList reports={technicalReports} />
         </SectionBanner>
+
+        <ImageSlider />
       </section>
     </main>
   );
