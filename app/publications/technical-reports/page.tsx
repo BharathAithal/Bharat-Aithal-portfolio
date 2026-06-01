@@ -6,7 +6,7 @@ export default function TechnicalReportsPage() {
   return (
     <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
       <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+        <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-100">
           <div className="max-w-4xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
               Publications
@@ -27,7 +27,7 @@ export default function TechnicalReportsPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+      <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-200">
         <SectionHeading eyebrow="Technical Reports" title="Reports & institutional publications" />
         <div className="mt-7">
           <ReportList reports={technicalReports} />

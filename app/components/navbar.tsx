@@ -23,7 +23,7 @@ export default function Navbar() {
           href="/"
           className="text-xl font-black tracking-tight text-slate-900 transition hover:text-sky-600"
         >
-          bharat.
+          bharath.
         </Link>
 
         <nav className="hidden flex-1 flex-wrap items-center justify-end gap-2 md:flex">
@@ -35,11 +35,10 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                  isActive
+                className={`rounded-full px-4 py-2 text-sm font-medium transition ${isActive
                     ? "bg-sky-50 text-sky-600"
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>

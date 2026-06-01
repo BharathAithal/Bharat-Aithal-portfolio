@@ -38,7 +38,7 @@ export function PaperList({ papers }: { papers: Publication[] }) {
       {papers.map((paper, index) => (
         <li
           key={`${paper.title}-${paper.year}`}
-          className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr] sm:gap-5"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -91,7 +91,7 @@ export function ProceedingList({ proceedings }: { proceedings: ConferenceProceed
       {proceedings.map((proc, index) => (
         <li
           key={`${proc.title}-${proc.date}`}
-          className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -120,7 +120,7 @@ export function ProceedingList({ proceedings }: { proceedings: ConferenceProceed
 
 export function BookCard({ book, index }: { book: Book; index: number }) {
   return (
-    <div className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6">
+    <div className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl">
       <p className="text-sm font-semibold tracking-[0.16em] text-sky-700">
         {String(index + 1).padStart(2, '0')}
       </p>
@@ -145,7 +145,7 @@ export function ChapterList({ chapters }: { chapters: BookChapter[] }) {
       {chapters.map((ch, index) => (
         <li
           key={`${ch.title}-${ch.year}`}
-          className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -184,7 +184,7 @@ export function ReportList({ reports }: { reports: TechnicalReport[] }) {
       {reports.map((rep, index) => (
         <li
           key={`${rep.title}-${rep.year}`}
-          className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}

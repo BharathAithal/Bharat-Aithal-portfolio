@@ -104,7 +104,7 @@ export default function ResearchArea() {
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
                 <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_21rem] lg:px-8 lg:py-16">
-                    <div className="max-w-4xl">
+                    <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Research Areas
                         </p>
@@ -117,7 +117,7 @@ export default function ResearchArea() {
                         </p>
                     </div>
 
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0">
+                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                             Portfolio Overview
                         </p>
@@ -135,7 +135,7 @@ export default function ResearchArea() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
                 <div className="mb-8 flex items-end justify-between border-b border-slate-300 pb-5">
                     <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                         Ten Research Areas
@@ -149,7 +149,7 @@ export default function ResearchArea() {
                     {researchAreas.map((area) => (
                         <article
                             key={area.number}
-                            className="grid gap-5 border-b border-slate-300 py-7 lg:grid-cols-[5rem_minmax(16rem,0.85fr)_minmax(15rem,0.8fr)_20rem] lg:items-center lg:gap-8 lg:py-8"
+                            className="group grid gap-5 border-b border-slate-300 py-7 lg:grid-cols-[5rem_minmax(16rem,0.85fr)_minmax(15rem,0.8fr)_20rem] lg:items-center lg:gap-8 lg:py-8 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
                         >
                             <p className="text-lg font-semibold tracking-[0.22em] text-sky-700">
                                 {area.number}
@@ -168,13 +168,13 @@ export default function ResearchArea() {
                                 {area.description}
                             </p>
 
-                            <div className="relative h-48 border border-slate-200 bg-slate-200 lg:h-40">
+                            <div className="relative h-48 overflow-hidden border border-slate-200 bg-slate-200 lg:h-40">
                                 <Image
                                     src={area.image}
                                     alt={area.imageAlt}
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 320px"
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                             </div>
                         </article>

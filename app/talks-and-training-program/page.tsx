@@ -358,7 +358,7 @@ function ActivityList({ activities }: { activities: Activity[] }) {
     return (
         <ol className="divide-y divide-slate-200 border-b border-slate-300">
             {activities.map((activity, index) => (
-                <li key={`${activity.title}-${activity.date}`} className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5">
+                <li key={`${activity.title}-${activity.date}`} className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4 group">
                     <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                         {String(index + 1).padStart(2, '0')}
                     </span>
@@ -386,7 +386,7 @@ export default function TalksAndTraining() {
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
                 <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
-                    <div className="max-w-4xl">
+                    <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Talks & Training Programs
                         </p>
@@ -400,7 +400,7 @@ export default function TalksAndTraining() {
                         </p>
                     </div>
 
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0">
+                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                             Program Overview
                         </p>
@@ -418,7 +418,7 @@ export default function TalksAndTraining() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
                 <SectionHeading
                     eyebrow="Conferences"
                     title="Keynote Addresses & Sessions Chaired"
@@ -428,7 +428,7 @@ export default function TalksAndTraining() {
                     {conferenceRoles.map((activity, index) => (
                         <li
                             key={activity.title}
-                            className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6"
+                            className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl"
                         >
                             <div className="flex items-start justify-between gap-4">
                                 <p className="text-sm font-semibold tracking-[0.16em] text-sky-700">

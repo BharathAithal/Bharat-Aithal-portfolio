@@ -300,7 +300,7 @@ function SectionHeading({
 
 function StudentRow({ student, index }: { student: DoctoralStudent; index: number }) {
     return (
-        <li className="grid gap-3 py-6 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+        <li className="group grid gap-3 py-6 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4">
             <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                 {String(index + 1).padStart(2, '0')}
             </span>
@@ -311,7 +311,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     <img
                         src={student.images[0]}
                         alt={student.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">
@@ -362,7 +362,7 @@ export default function ResearchGroup() {
             {/* Hero */}
             <section className="border-b border-slate-200 bg-white">
                 <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
-                    <div className="max-w-4xl">
+                    <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Research Group
                         </p>
@@ -377,7 +377,7 @@ export default function ResearchGroup() {
                         </p>
                     </div>
 
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0">
+                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                             Group Overview
                         </p>
@@ -400,7 +400,7 @@ export default function ResearchGroup() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
                 {/* Doctoral Students (Current and Previous) */}
                 <SectionHeading
                     eyebrow="Doctoral Students"
@@ -423,7 +423,7 @@ export default function ResearchGroup() {
                         {postdocFellows.map((fellow, index) => (
                             <li
                                 key={fellow.name}
-                                className="grid gap-3 py-5 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start"
+                                className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
                             >
                                 <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                                     {String(index + 1).padStart(2, '0')}
@@ -433,7 +433,7 @@ export default function ResearchGroup() {
                                         <img
                                             src={fellow.images[0]}
                                             alt={fellow.name}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">
@@ -504,12 +504,12 @@ export default function ResearchGroup() {
                             {alumniPG.map((name, index) => (
                                 <li
                                     key={name}
-                                    className="flex items-center gap-4 py-3"
+                                    className="flex items-center gap-4 py-3 transition-transform duration-200 hover:translate-x-1 hover:text-slate-900 group"
                                 >
                                     <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <span className="text-sm text-slate-700">{name}</span>
+                                    <span className="text-sm text-slate-700 transition-colors duration-200 group-hover:text-slate-900">{name}</span>
                                 </li>
                             ))}
                         </ul>
@@ -525,12 +525,12 @@ export default function ResearchGroup() {
                             {summerInterns.map((name, index) => (
                                 <li
                                     key={`${name}-${index}`}
-                                    className="flex items-center gap-4 py-3"
+                                    className="flex items-center gap-4 py-3 transition-transform duration-200 hover:translate-x-1 hover:text-slate-900 group"
                                 >
                                     <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <span className="text-sm text-slate-700">{name}</span>
+                                    <span className="text-sm text-slate-700 transition-colors duration-200 group-hover:text-slate-900">{name}</span>
                                 </li>
                             ))}
                         </ul>
