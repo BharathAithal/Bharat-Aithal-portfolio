@@ -285,7 +285,7 @@ function SectionHeading({
 
 function StudentRow({ student, index }: { student: DoctoralStudent; index: number }) {
     return (
-        <li className="grid gap-3 py-6 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+        <li className="group grid gap-3 py-6 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4">
             <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                 {String(index + 1).padStart(2, '0')}
             </span>
@@ -298,7 +298,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         alt={student.name}
                         width={112}
                         height={96}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">

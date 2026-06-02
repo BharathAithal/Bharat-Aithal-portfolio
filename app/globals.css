@@ -30,3 +30,109 @@ body {
 a {
   text-decoration: none;
 }
+
+/* Custom Keyframes & Animations */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 25s linear infinite;
+}
+
+/* Hover Gradient Text Effect */
+.hover-gradient-text {
+  background: linear-gradient(to right, #0f172a, #0f172a 50%, #0284c7 50%, #6366f1);
+  background-size: 200% 100%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-gradient-text:hover {
+  background-position: -100% 0;
+}
+
+/* Floating Backdrop Blur Animations */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(30px, -25px) scale(1.1) rotate(3deg);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-25px, 35px) scale(0.9) rotate(-4deg);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(25px, 20px) scale(1.05) rotate(2deg);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 25s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 28s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-3 22s ease-in-out infinite;
+}
+
+
