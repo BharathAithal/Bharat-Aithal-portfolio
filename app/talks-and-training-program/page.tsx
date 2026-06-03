@@ -358,7 +358,7 @@ function ActivityList({ activities }: { activities: Activity[] }) {
     return (
         <ol className="divide-y divide-slate-200 border-b border-slate-300">
             {activities.map((activity, index) => (
-                <li key={`${activity.title}-${activity.date}`} className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4 group">
+                <li key={`${activity.title}-${activity.date}`} className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4 group">
                     <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                         {String(index + 1).padStart(2, '0')}
                     </span>
@@ -385,15 +385,18 @@ export default function TalksAndTraining() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
+                <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:gap-10 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
-                            Talks & Training Programs
+                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                            Talks &amp; Training Programs
                         </p>
-                        <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                        <h1
+                            className="font-bold leading-[1.1] tracking-tight text-slate-950"
+                            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+                        >
                             Sharing geospatial knowledge in classrooms and conferences
                         </h1>
-                        <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Keynote addresses, invited lectures, hands-on training and
                             conference leadership focused on urban dynamics, remote sensing,
                             environmental management and open geospatial technologies.
