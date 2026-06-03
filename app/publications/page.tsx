@@ -51,9 +51,10 @@ function SectionBanner({
     <div className="mb-6">
       <button
         onClick={onToggle}
-        className="group relative flex w-full items-center justify-between overflow-hidden rounded-2xl p-6 text-left transition-all duration-300 hover:shadow-md"
+        className="group relative flex w-full items-center justify-between overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-md sm:p-6"
         aria-expanded={open}
         aria-controls={`section-${id}`}
+        style={{ minHeight: '60px' }}
       >
         <div
           className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
@@ -62,7 +63,12 @@ function SectionBanner({
         <div className="absolute inset-0 bg-black/45 transition-colors duration-300 group-hover:bg-black/40" aria-hidden />
         <div className="relative z-10">
           {eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white">{eyebrow}</p>}
-          <h3 className="mt-2 text-2xl font-semibold text-white">{title}</h3>
+          <h3
+            className="mt-1 font-semibold text-white sm:mt-2"
+            style={{ fontSize: 'clamp(1.1rem, 3vw, 1.5rem)' }}
+          >
+            {title}
+          </h3>
         </div>
         <svg
           className={`relative z-10 h-6 w-6 text-white transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
@@ -112,10 +118,10 @@ function ImageSlider() {
 
   useEffect(() => {
     const updateSlides = () => {
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 768) {
         setSlidesToShow(1);
       } else if (window.innerWidth < 1024) {
-        setSlidesToShow(2);
+        setSlidesToShow(3);
       } else {
         setSlidesToShow(4);
       }
@@ -148,24 +154,21 @@ function ImageSlider() {
   return (
     <div className="mb-12">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        {/* <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Publication Covers</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">Publication image slider</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-            Browse publication covers in a responsive slider that preserves every image ratio.
-          </p>
-        </div> */}
+        {/* header commented out */}
       </div>
 
       <div
         className="relative mt-8 overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 px-4 py-8"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
         <button
           onClick={prevSlide}
-          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900"
+          className="absolute left-3 top-1/2 z-20 -translate-y-1/2 flex items-center justify-center rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900 active:scale-95"
           aria-label="Previous slide"
+          style={{ minWidth: '44px', minHeight: '44px' }}
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
@@ -173,9 +176,17 @@ function ImageSlider() {
         </button>
 
         <div className="relative overflow-hidden">
-          <div className="flex items-center justify-center gap-4 transition-all duration-500">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 transition-all duration-500">
             {visibleSlides.map((src, index) => (
-              <div key={index} className="mx-auto flex h-[320px] w-full max-w-[220px] flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-4 shadow-sm">
+              <div
+                key={index}
+                className="flex items-center justify-center overflow-hidden rounded-2xl bg-white shadow-sm flex-shrink-0 p-3 sm:p-4"
+                style={{
+                  width: slidesToShow === 1 ? '100%' : `calc((100% - ${(slidesToShow - 1) * 12}px) / ${slidesToShow})`,
+                  maxWidth: slidesToShow === 1 ? '260px' : '220px',
+                  aspectRatio: '3/4'
+                }}
+              >
                 <Image
                   src={src}
                   alt={`Publication cover ${currentPage * slidesToShow + index + 1}`}
@@ -190,8 +201,9 @@ function ImageSlider() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900"
+          className="absolute right-3 top-1/2 z-20 -translate-y-1/2 flex items-center justify-center rounded-full bg-slate-900/75 p-3 text-white shadow-lg transition hover:bg-slate-900 active:scale-95"
           aria-label="Next slide"
+          style={{ minWidth: '44px', minHeight: '44px' }}
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6" />
@@ -199,15 +211,11 @@ function ImageSlider() {
         </button>
       </div>
 
-      <div className="mt-5 flex justify-center gap-2">
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentPage(index)}
-            className={`h-2.5 w-2.5 rounded-full transition ${index === currentPage ? 'bg-sky-700' : 'bg-slate-300'}`}
-            aria-label={`Go to slide group ${index + 1}`}
-          />
-        ))}
+      {/* Slide counter — replaces dots */}
+      <div className="slide-counter" aria-live="polite" aria-atomic="true">
+        <span className="current-slide">{currentPage + 1}</span>
+        {' / '}
+        <span className="total-slides">{totalPages}</span>
       </div>
     </div>
   );
@@ -215,7 +223,7 @@ function ImageSlider() {
 
 export default function Publications() {
   const [open, setOpen] = useState<Record<string, boolean>>({
-    papers: true,
+    papers: false,
     proceedings: false,
     books: false,
     chapters: false,
@@ -227,15 +235,18 @@ export default function Publications() {
   return (
     <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
       <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:gap-10 lg:px-8 lg:py-16">
           <div className="max-w-4xl animate-fade-in-up delay-100">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
               Research Output
             </p>
-            <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            <h1
+              className="font-bold leading-[1.1] tracking-tight text-slate-950"
+              style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+            >
               Publications
             </h1>
-            <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
               Explore peer-reviewed journal articles, conference proceedings, books, book chapters and technical reports organized into focused publication categories.
             </p>
           </div>
@@ -286,7 +297,7 @@ export default function Publications() {
           open={!!open.books}
           onToggle={() => toggle('books')}
         >
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {books.map((book, idx) => (
               <BookCard key={`${book.title}-${book.year}`} book={book} index={idx} />
             ))}

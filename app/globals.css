@@ -12,12 +12,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
+/* =========================================
+   BOX SIZING — GLOBAL
+   ========================================= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/* =========================================
+   BASE RESETS
+   ========================================= */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -25,14 +35,138 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 a {
   text-decoration: none;
 }
 
-/* Custom Keyframes & Animations */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* =========================================
+   TEXT OVERFLOW PREVENTION
+   ========================================= */
+p, h1, h2, h3, h4, h5, h6, span, li, dt, dd, a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: none;          /* no forced hyphenation like "work-shops" */
+  max-width: 100%;
+}
+
+/* =========================================
+   FLUID TYPOGRAPHY — use clamp() inline on headings per page.
+   Global rules avoided here to not conflict with Tailwind utilities.
+   ========================================= */
+
+/* =========================================
+   LISTS — prevent numbers/bullets flush to edge
+   Only applied to actual bullet/numbered lists, not Tailwind divide-y lists.
+   ========================================= */
+li {
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   OVERFLOW PREVENTION — main content areas
+   ========================================= */
+main {
+  overflow-x: hidden;
+}
+
+/* Safe-area insets for notched devices (iPhone X+) */
+body > main {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* =========================================
+   GLOBAL SECTION SAFE PADDING
+   Ensures list content never bleeds to the screen edge on any page.
+   Tailwind px-4 on inner wrappers gives 16px, but we add an extra
+   minimum guard here for sections that might be direct children of main.
+   ========================================= */
+main > section,
+main > div {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   MOBILE EDGE PADDING — 320px+
+   ========================================= */
+@media (max-width: 767px) {
+  /* Ensure nothing touches screen edge */
+  .page-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Touch targets */
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Nav links in the sidebar */
+  nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* =========================================
+   TABLET PADDING — 768px+
+   ========================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* =========================================
+   DESKTOP CONTAINER — 1024px+
+   ========================================= */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* =========================================
+   BUTTONS & INTERACTIVE
+   ========================================= */
+button,
+.btn,
+a.button {
+  min-height: 44px;
+  cursor: pointer;
+}
+
+/* Smooth transitions for color/bg — does not interfere with transforms */
+a, button {
+  transition-property: color, background-color, border-color, box-shadow, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* =========================================
+   CUSTOM KEYFRAMES & ANIMATIONS
+   ========================================= */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -56,21 +190,13 @@ a {
 .delay-500 { animation-delay: 500ms; }
 
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes spin-reverse-slow {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
 }
 
 .animate-spin-slow {
@@ -81,7 +207,9 @@ a {
   animation: spin-reverse-slow 25s linear infinite;
 }
 
-/* Hover Gradient Text Effect */
+/* =========================================
+   HOVER GRADIENT TEXT EFFECT
+   ========================================= */
 .hover-gradient-text {
   background: linear-gradient(to right, #0f172a, #0f172a 50%, #0284c7 50%, #6366f1);
   background-size: 200% 100%;
@@ -95,44 +223,171 @@ a {
   background-position: -100% 0;
 }
 
-/* Floating Backdrop Blur Animations */
+/* =========================================
+   FLOATING BACKGROUND ANIMATIONS
+   ========================================= */
 @keyframes float-1 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  50% {
-    transform: translate(30px, -25px) scale(1.1) rotate(3deg);
-  }
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  50%       { transform: translate(30px, -25px) scale(1.1) rotate(3deg); }
 }
 
 @keyframes float-2 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
-  }
-  50% {
-    transform: translate(-25px, 35px) scale(0.9) rotate(-4deg);
-  }
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  50%       { transform: translate(-25px, 35px) scale(0.9) rotate(-4deg); }
 }
 
 @keyframes float-3 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  50%       { transform: translate(25px, 20px) scale(1.05) rotate(2deg); }
+}
+
+.animate-float-1 { animation: float-1 25s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 28s ease-in-out infinite; }
+.animate-float-3 { animation: float-3 22s ease-in-out infinite; }
+
+/* =========================================
+   MOBILE SIDEBAR / NAVBAR
+   ========================================= */
+.sidebar-overlay {
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* =========================================
+   IMAGE SLIDER — RESPONSIVE
+   ========================================= */
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+/* Mobile: 1 image full width */
+.slide-item {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Tablet: 3 images */
+@media (min-width: 768px) {
+  .slide-item {
+    width: 33.333%;
   }
-  50% {
-    transform: translate(25px, 20px) scale(1.05) rotate(2deg);
+}
+
+/* Desktop: 4-5 images */
+@media (min-width: 1024px) {
+  .slide-item {
+    width: 22%;
   }
 }
 
-.animate-float-1 {
-  animation: float-1 25s ease-in-out infinite;
+.slide-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
 }
 
-.animate-float-2 {
-  animation: float-2 28s ease-in-out infinite;
+/* =========================================
+   SLIDE COUNTER (replaces dots)
+   ========================================= */
+.slide-counter {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+  user-select: none;
 }
 
-.animate-float-3 {
-  animation: float-3 22s ease-in-out infinite;
+/* =========================================
+   PEOPLE CARDS — RESPONSIVE
+   ========================================= */
+
+/* Mobile: image on top, text below */
+.person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
 }
 
+.person-card-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  overflow: hidden;
+}
 
+.person-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Tablet & Desktop: text LEFT, image RIGHT */
+@media (min-width: 768px) {
+  .person-card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .person-card-image {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* =========================================
+   IMAGE CONTAINERS
+   ========================================= */
+.image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================
+   UTILITY CLASSES
+   ========================================= */
+.text-hero {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.text-section-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.7;
+}
+
+/* Disable transitions on page load */
+.no-transition * {
+  transition: none !important;
+}

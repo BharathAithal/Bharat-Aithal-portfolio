@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Image as IKImage, ImageKitProvider } from '@imagekit/next';
-import image from 'next/image';
 
 type DoctoralStudent = {
     name: string;
@@ -285,60 +284,104 @@ function SectionHeading({
 
 function StudentRow({ student, index }: { student: DoctoralStudent; index: number }) {
     return (
-        <li className="group grid gap-3 py-6 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4">
-            <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
-                {String(index + 1).padStart(2, '0')}
-            </span>
-
-            {/* Image or Placeholder */}
-            <div className="hidden sm:block h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
-                {student.images && student.images.length > 0 ? (
-                    <IKImage
-                        src={student.images[0]}
-                        alt={student.name}
-                        width={112}
-                        height={96}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">
-                        Photo
+        <li className="group py-6 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4">
+            {/* Mobile layout: number + name + image inline, then details below */}
+            <div className="flex items-start gap-3 sm:hidden">
+                <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
+                    {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="font-semibold leading-7 text-slate-950 text-base">{student.name}</h3>
+                        {student.status === 'Awarded' && (
+                            <span className="border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
+                                PhD Awarded
+                            </span>
+                        )}
+                    </div>
+                    <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
+                    <p className="mt-0.5 text-xs text-slate-500">{student.qualification}</p>
+                    {student.thesisTitle && (
+                        <p className="mt-2 text-sm leading-6 text-slate-600 italic">&ldquo;{student.thesisTitle}&rdquo;</p>
+                    )}
+                    {student.currentJob && (
+                        <p className="mt-1 text-sm text-slate-600">{student.currentJob}</p>
+                    )}
+                    {student.email && (
+                        <a href={`mailto:${student.email}`} className="mt-1 inline-block text-sm text-sky-600 hover:underline break-all">
+                            {student.email}
+                        </a>
+                    )}
+                    <p className="mt-2 text-xs font-medium text-slate-400">{student.tenure}</p>
+                </div>
+                {student.images && student.images.length > 0 && (
+                    <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded">
+                        <IKImage
+                            src={student.images[0]}
+                            alt={student.name}
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 )}
             </div>
 
-            <div>
-                <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-semibold leading-7 text-slate-950">{student.name}</h3>
-                    {student.status === 'Awarded' && (
-                        <span className="border border-emerald-100 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
-                            PhD Awarded
-                        </span>
+            {/* Desktop/tablet layout */}
+            <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+                <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
+                    {String(index + 1).padStart(2, '0')}
+                </span>
+
+                <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
+                    {student.images && student.images.length > 0 ? (
+                        <IKImage
+                            src={student.images[0]}
+                            alt={student.name}
+                            width={112}
+                            height={96}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">
+                            Photo
+                        </div>
                     )}
                 </div>
-                <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
-                <p className="mt-1 text-sm text-slate-500">{student.qualification}</p>
-                {student.thesisTitle && (
-                    <p className="mt-2 text-sm leading-7 text-slate-600 italic">
-                        &ldquo;{student.thesisTitle}&rdquo;
-                    </p>
-                )}
-                {student.currentJob && (
-                    <p className="mt-2 text-sm text-slate-600">{student.currentJob}</p>
-                )}
-                {student.email && (
-                    <a
-                        href={`mailto:${student.email}`}
-                        className="mt-1 inline-block text-sm text-sky-600 hover:underline"
-                    >
-                        {student.email}
-                    </a>
-                )}
-            </div>
 
-            <p className="text-sm font-medium text-slate-500 sm:text-right whitespace-nowrap">
-                {student.tenure}
-            </p>
+                <div>
+                    <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="font-semibold leading-7 text-slate-950">{student.name}</h3>
+                        {student.status === 'Awarded' && (
+                            <span className="border border-emerald-100 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
+                                PhD Awarded
+                            </span>
+                        )}
+                    </div>
+                    <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
+                    <p className="mt-1 text-sm text-slate-500">{student.qualification}</p>
+                    {student.thesisTitle && (
+                        <p className="mt-2 text-sm leading-7 text-slate-600 italic">
+                            &ldquo;{student.thesisTitle}&rdquo;
+                        </p>
+                    )}
+                    {student.currentJob && (
+                        <p className="mt-2 text-sm text-slate-600">{student.currentJob}</p>
+                    )}
+                    {student.email && (
+                        <a
+                            href={`mailto:${student.email}`}
+                            className="mt-1 inline-block text-sm text-sky-600 hover:underline break-all"
+                        >
+                            {student.email}
+                        </a>
+                    )}
+                </div>
+
+                <p className="text-sm font-medium text-slate-500 text-right whitespace-nowrap">
+                    {student.tenure}
+                </p>
+            </div>
         </li>
     );
 }
@@ -350,8 +393,40 @@ interface CarouselItem {
 
 function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const itemsPerView = 5;
+    const [itemsPerView, setItemsPerView] = useState(5);
+    const [isPaused, setIsPaused] = useState(false);
+
+    // Responsive items per view
+    useEffect(() => {
+        const updateItemsPerView = () => {
+            if (window.innerWidth < 640) {
+                setItemsPerView(1);
+            } else if (window.innerWidth < 1024) {
+                setItemsPerView(3);
+            } else {
+                setItemsPerView(5);
+            }
+        };
+        updateItemsPerView();
+        window.addEventListener('resize', updateItemsPerView);
+        return () => window.removeEventListener('resize', updateItemsPerView);
+    }, []);
+
+    // Reset to first slide when items per view changes
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [itemsPerView]);
+
     const totalSlides = Math.ceil(items.length / itemsPerView);
+
+    // Auto-rotation
+    useEffect(() => {
+        if (isPaused || totalSlides <= 1) return;
+        const interval = window.setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % totalSlides);
+        }, 3500);
+        return () => window.clearInterval(interval);
+    }, [isPaused, totalSlides]);
 
     const currentItems = items.slice(
         currentIndex * itemsPerView,
@@ -368,15 +443,22 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
 
     return (
         <div className="mt-7">
-            <div className="relative">
+            <div
+                className="relative"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+            >
                 {/* Left Arrow */}
                 <button
                     onClick={handlePrev}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 z-10 p-2 rounded-full hover:bg-slate-200 transition"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full bg-white shadow-md border border-slate-200 hover:bg-slate-100 transition active:scale-95"
                     aria-label="Previous slide"
+                    style={{ width: '40px', height: '40px', minWidth: '40px', minHeight: '40px' }}
                 >
                     <svg
-                        className="w-6 h-6 text-slate-700"
+                        className="w-5 h-5 text-slate-700"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -391,27 +473,31 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                 </button>
 
                 {/* Carousel Items */}
-                <div className="flex gap-4 px-4">
+                <div className={`grid gap-3 px-12 ${
+                    itemsPerView === 1 ? 'grid-cols-1' :
+                    itemsPerView === 3 ? 'grid-cols-3' :
+                    'grid-cols-5'
+                }`}>
                     {currentItems.map((item, idx) => (
                         <div
                             key={`${item.name}-${currentIndex}-${idx}`}
-                            className="flex-1 min-w-0"
+                            className="min-w-0"
                         >
                             <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full">
-                                {/* Image Container - Fixed Height */}
-                                <div className="h-40 bg-slate-50 flex items-center justify-center flex-shrink-0 overflow-hidden relative">
+                                {/* Image Container */}
+                                <div className="relative bg-slate-50 overflow-hidden" style={{ aspectRatio: '4/3' }}>
                                     {item.image ? (
                                         <IKImage
                                             src={item.image}
                                             alt={item.name}
                                             fill
-                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 25vw, 20vw"
+                                            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 30vw, 18vw"
                                             className="object-cover"
                                         />
                                     ) : (
-                                        <div className="w-5/6 h-5/6 border-2 border-dashed border-slate-300 rounded flex items-center justify-center p-2">
-                                            <div className="text-center">
-                                                <p className="text-xs text-slate-500 font-medium break-words line-clamp-2">
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-5/6 h-5/6 border-2 border-dashed border-slate-300 rounded flex items-center justify-center p-2">
+                                                <p className="text-xs text-slate-500 font-medium text-center break-words">
                                                     {item.name}
                                                 </p>
                                             </div>
@@ -419,8 +505,8 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                                     )}
                                 </div>
 
-                                {/* Item Name - Fixed Section */}
-                                <div className="px-3 py-3 border-t border-slate-200 bg-white">
+                                {/* Item Name */}
+                                <div className="px-2 py-2 border-t border-slate-200 bg-white">
                                     <p className="text-xs font-semibold text-slate-900 truncate">
                                         {item.name}
                                     </p>
@@ -433,11 +519,12 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                 {/* Right Arrow */}
                 <button
                     onClick={handleNext}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 z-10 p-2 rounded-full hover:bg-slate-200 transition"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full bg-white shadow-md border border-slate-200 hover:bg-slate-100 transition active:scale-95"
                     aria-label="Next slide"
+                    style={{ width: '40px', height: '40px', minWidth: '40px', minHeight: '40px' }}
                 >
                     <svg
-                        className="w-6 h-6 text-slate-700"
+                        className="w-5 h-5 text-slate-700"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -452,20 +539,14 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                 </button>
             </div>
 
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2 mt-6">
-                {Array.from({ length: totalSlides }).map((_, idx) => (
-                    <button
-                        key={idx}
-                        onClick={() => setCurrentIndex(idx)}
-                        className={`w-2 h-2 rounded-full transition ${idx === currentIndex
-                            ? 'bg-sky-700'
-                            : 'bg-slate-300 hover:bg-slate-400'
-                            }`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                    />
-                ))}
-            </div>
+            {/* Slide counter — replaces dots */}
+            {totalSlides > 1 && (
+                <div className="slide-counter" aria-live="polite" aria-atomic="true">
+                    <span className="current-slide">{currentIndex + 1}</span>
+                    {' / '}
+                    <span className="total-slides">{totalSlides}</span>
+                </div>
+            )}
         </div>
     );
 }
@@ -478,15 +559,18 @@ export default function ResearchGroup() {
             <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
                 {/* Hero */}
                 <section className="border-b border-slate-200 bg-white">
-                    <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
+                    <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16 lg:gap-10">
                         <div className="max-w-4xl">
-                            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                                 Research Group
                             </p>
-                            <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                            <h1
+                                className="font-bold leading-[1.1] tracking-tight text-slate-950"
+                                style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+                            >
                                 Doctoral students, fellows and alumni
                             </h1>
-                            <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                                 Current and previous doctoral researchers, postdoctoral fellows,
                                 and alumni working across urban remote sensing, disaster
                                 management, land surface modelling, and open geospatial
@@ -498,7 +582,7 @@ export default function ResearchGroup() {
                             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                                 Group Overview
                             </p>
-                            <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
+                            <dl className="mt-5 divide-y divide-slate-200 border-y border-slate-200">
                                 {highlights.map((item) => (
                                     <div
                                         key={item.label}
@@ -517,7 +601,7 @@ export default function ResearchGroup() {
                     </div>
                 </section>
 
-                <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+                <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16 overflow-x-hidden">
                     {/* Doctoral Students (Current and Previous) */}
                     <SectionHeading
                         eyebrow="Doctoral Students"
@@ -540,37 +624,42 @@ export default function ResearchGroup() {
                             {postdocFellows.map((fellow, index) => (
                                 <li
                                     key={fellow.name}
-                                    className="grid gap-3 py-5 sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start"
+                                    className="py-5"
                                 >
-                                    <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <div className="hidden sm:block h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
-                                        {fellow.images && fellow.images.length > 0 ? (
-                                            <IKImage
-                                                src={fellow.images[0]}
-                                                alt={fellow.name}
-                                                width={112}
-                                                height={96}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">
-                                                Photo
+                                    {/* Mobile */}
+                                    <div className="flex items-start gap-3 sm:hidden">
+                                        <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
+                                            {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
+                                            <p className="mt-1 text-sm leading-6 text-slate-600">{fellow.currentJob}</p>
+                                            <p className="mt-1 text-xs font-medium text-slate-400">{fellow.tenure}</p>
+                                        </div>
+                                        {fellow.images && fellow.images.length > 0 && (
+                                            <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded">
+                                                <IKImage src={fellow.images[0]} alt={fellow.name} width={64} height={64} className="w-full h-full object-cover" />
                                             </div>
                                         )}
                                     </div>
-                                    <div>
-                                        <h3 className="font-semibold leading-7 text-slate-950">
-                                            {fellow.name}
-                                        </h3>
-                                        <p className="mt-1 text-sm leading-7 text-slate-600">
-                                            {fellow.currentJob}
-                                        </p>
+                                    {/* Desktop */}
+                                    <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+                                        <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
+                                            {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                        <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
+                                            {fellow.images && fellow.images.length > 0 ? (
+                                                <IKImage src={fellow.images[0]} alt={fellow.name} width={112} height={96} className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">Photo</div>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
+                                            <p className="mt-1 text-sm leading-7 text-slate-600">{fellow.currentJob}</p>
+                                        </div>
+                                        <p className="text-sm font-medium leading-7 text-slate-500 text-right">{fellow.tenure}</p>
                                     </div>
-                                    <p className="text-sm font-medium leading-7 text-slate-500 sm:text-right">
-                                        {fellow.tenure}
-                                    </p>
                                 </li>
                             ))}
                         </ol>
@@ -586,7 +675,7 @@ export default function ResearchGroup() {
                         {researchAssistants.length === 0 ? (
                             <div className="mt-7 p-6 bg-slate-100 rounded border border-slate-300">
                                 <div className="flex flex-col sm:flex-row gap-4 items-start">
-                                    <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden hidden sm:block">
+                                    <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
                                         <IKImage
                                             src={researchAssistantImage}
                                             alt="Research Assistant"

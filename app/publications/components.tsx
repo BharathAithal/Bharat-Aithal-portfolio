@@ -38,7 +38,7 @@ export function PaperList({ papers }: { papers: Publication[] }) {
       {papers.map((paper, index) => (
         <li
           key={`${paper.title}-${paper.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -91,7 +91,7 @@ export function ProceedingList({ proceedings }: { proceedings: ConferenceProceed
       {proceedings.map((proc, index) => (
         <li
           key={`${proc.title}-${proc.date}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -145,7 +145,7 @@ export function ChapterList({ chapters }: { chapters: BookChapter[] }) {
       {chapters.map((ch, index) => (
         <li
           key={`${ch.title}-${ch.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -184,7 +184,7 @@ export function ReportList({ reports }: { reports: TechnicalReport[] }) {
       {reports.map((rep, index) => (
         <li
           key={`${rep.title}-${rep.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
+          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}

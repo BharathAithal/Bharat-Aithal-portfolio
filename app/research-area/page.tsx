@@ -103,15 +103,18 @@ export default function ResearchArea() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_21rem] lg:px-8 lg:py-16">
+                <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_21rem] lg:gap-10 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Research Areas
                         </p>
-                        <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                        <h1
+                            className="font-bold leading-[1.1] tracking-tight text-slate-950"
+                            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+                        >
                             Urban intelligence, climate and geospatial research
                         </h1>
-                        <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Ten research areas spanning urban data, city morphology, surface
                             heat dynamics, remote sensing and environmental planning.
                         </p>
@@ -149,33 +152,58 @@ export default function ResearchArea() {
                     {researchAreas.map((area) => (
                         <article
                             key={area.number}
-                            className="group grid gap-5 border-b border-slate-300 py-7 lg:grid-cols-[5rem_minmax(16rem,0.85fr)_minmax(15rem,0.8fr)_20rem] lg:items-center lg:gap-8 lg:py-8 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4"
+                            className="group border-b border-slate-300 py-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg lg:py-8"
                         >
-                            <p className="text-lg font-semibold tracking-[0.22em] text-sky-700">
-                                {area.number}
-                            </p>
-
-                            <div>
-                                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                                    {area.category}
-                                </p>
-                                <h3 className="text-xl font-semibold leading-8 tracking-tight text-slate-950 sm:text-2xl">
-                                    {area.title}
-                                </h3>
+                            {/* Mobile/tablet: stacked layout */}
+                            <div className="grid gap-4 lg:hidden">
+                                <div className="flex items-start gap-4">
+                                    <p className="text-base font-semibold tracking-[0.22em] text-sky-700 shrink-0">
+                                        {area.number}
+                                    </p>
+                                    <div className="flex-1 min-w-0">
+                                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                                            {area.category}
+                                        </p>
+                                        <h3 className="text-lg font-semibold leading-7 tracking-tight text-slate-950">
+                                            {area.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div className="relative w-full overflow-hidden border border-slate-200 bg-slate-200" style={{ aspectRatio: '16/9' }}>
+                                    <Image
+                                        src={area.image}
+                                        alt={area.imageAlt}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 320px"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <p className="text-sm leading-7 text-slate-600">{area.description}</p>
                             </div>
 
-                            <p className="text-sm leading-7 text-slate-600">
-                                {area.description}
-                            </p>
-
-                            <div className="relative h-48 overflow-hidden border border-slate-200 bg-slate-200 lg:h-40">
-                                <Image
-                                    src={area.image}
-                                    alt={area.imageAlt}
-                                    fill
-                                    sizes="(max-width: 1024px) 100vw, 320px"
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
+                            {/* Desktop: 4-column grid */}
+                            <div className="hidden lg:grid lg:grid-cols-[5rem_minmax(16rem,0.85fr)_minmax(15rem,0.8fr)_20rem] lg:items-center lg:gap-8 lg:hover:px-4 lg:-mx-4">
+                                <p className="text-lg font-semibold tracking-[0.22em] text-sky-700">
+                                    {area.number}
+                                </p>
+                                <div>
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                                        {area.category}
+                                    </p>
+                                    <h3 className="text-xl font-semibold leading-8 tracking-tight text-slate-950 sm:text-2xl">
+                                        {area.title}
+                                    </h3>
+                                </div>
+                                <p className="text-sm leading-7 text-slate-600">{area.description}</p>
+                                <div className="relative h-40 overflow-hidden border border-slate-200 bg-slate-200">
+                                    <Image
+                                        src={area.image}
+                                        alt={area.imageAlt}
+                                        fill
+                                        sizes="320px"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                </div>
                             </div>
                         </article>
                     ))}
