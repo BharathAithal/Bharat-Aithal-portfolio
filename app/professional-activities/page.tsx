@@ -62,6 +62,10 @@ const coordinatedCourses = [
         title: 'Do It Yourself Lab',
         detail: '2020 - Present',
     },
+    {
+        title: 'Life Skills',
+        detail: 'Course Coordinator',
+    },
 ];
 
 const reviewerJournals = [
@@ -79,25 +83,22 @@ const reviewerJournals = [
     'SpringerPlus',
 ];
 
+// Board affiliations — three new entries at top, existing four below
 const editorialBoards = [
+    'Scientific Report – Area Editor',
+    'Indian Journal of Remote Sensing – Area Editor',
+    'PLOS Climate – Subject Editor',
     'Imperial International Journal',
     'International Journal of Computer Sciences and its Applications',
     'SF Journal of Environmental and Earth Science, Science Forecast Publication',
     'Open Urban Studies and Demography Journal',
 ];
 
-const highlights = [
-    { value: '09', label: 'Professional Memberships' },
-    { value: '06', label: 'Coordinated Courses & Labs' },
-    { value: '12', label: 'Reviewing Venues' },
-    { value: '04', label: 'Editorial Roles' },
-];
-
 export default function ProfessionalActivities() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:gap-10 lg:px-8 lg:py-16">
+                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Professional Activities
@@ -114,22 +115,6 @@ export default function ProfessionalActivities() {
                             geospatial science, environment and urban infrastructure.
                         </p>
                     </div>
-
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                            Engagement Overview
-                        </p>
-                        <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
-                            {highlights.map((item) => (
-                                <div key={item.label} className="flex items-center justify-between gap-5 py-4">
-                                    <dt className="text-sm leading-6 text-slate-600">{item.label}</dt>
-                                    <dd className="shrink-0 text-lg font-semibold text-slate-950">
-                                        {item.value}
-                                    </dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </aside>
                 </div>
             </section>
 

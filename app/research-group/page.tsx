@@ -7,6 +7,8 @@ type DoctoralStudent = {
     name: string;
     status: 'Awarded' | 'Current';
     tenure: string;
+    startYear: string;
+    endYear: string; // 'current' for ongoing students
     researchArea: string;
     qualification: string;
     thesisTitle?: string;
@@ -18,6 +20,8 @@ type DoctoralStudent = {
 type PostdocFellow = {
     name: string;
     tenure: string;
+    startYear: string;
+    endYear: string;
     currentJob: string;
     images?: string[];
 };
@@ -30,6 +34,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Tanaya Sarmah',
         status: 'Awarded',
         tenure: 'Autumn 2016 – Spring 2021',
+        startYear: '2016',
+        endYear: '2021',
         researchArea: 'Disaster Research – Urban Floods',
         qualification: 'M.U.R.P. (Town & Regional Planning)',
         thesisTitle:
@@ -41,6 +47,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Chandan M C',
         status: 'Awarded',
         tenure: 'Spring 2016 – Spring 2021',
+        startYear: '2016',
+        endYear: '2021',
         researchArea: 'Urban Pattern Data Mining and Modelling',
         qualification: 'M.Tech. (Remote Sensing and GIS)',
         thesisTitle:
@@ -52,6 +60,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Prakash P S',
         status: 'Awarded',
         tenure: 'Spring 2017 – Autumn 2021',
+        startYear: '2017',
+        endYear: '2021',
         researchArea: 'Building Extraction Using Deep Learning Methods',
         qualification: 'M.Tech. (Remote Sensing and GIS)',
         thesisTitle: 'Urban Structure Extraction Using Soft Computing Techniques',
@@ -63,6 +73,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Nimish Gupta',
         status: 'Awarded',
         tenure: 'Autumn 2017 – Autumn 2022',
+        startYear: '2017',
+        endYear: '2022',
         researchArea: 'Land Surface Temperature Modelling',
         qualification: 'M.Tech. (Environmental Science and Technology)',
         thesisTitle:
@@ -75,6 +87,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Aishwarya Narendr',
         status: 'Awarded',
         tenure: 'Spring 2018 – Autumn 2023',
+        startYear: '2018',
+        endYear: '2023',
         researchArea: 'Disaster Management in Coastal Regions',
         qualification: 'MCP',
         thesisTitle:
@@ -87,6 +101,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Ram Thilak',
         status: 'Current',
         tenure: 'Autumn 2018 –',
+        startYear: '2018',
+        endYear: 'current',
         researchArea: 'Hyperspectral Image Segmentation and Classification',
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
         currentJob: 'Assistant Professor, Reva Institute of Technology',
@@ -97,17 +113,21 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Madhumita Dey',
         status: 'Awarded',
         tenure: 'Autumn 2020 – Autumn 2024',
+        startYear: '2020',
+        endYear: '2024',
         researchArea: 'Feature Extraction of Transport Infrastructure',
         qualification: 'Integrated Geoinformatics (B.Tech – M.Tech)',
         thesisTitle:
             'Developing a Framework for Road Feature Information Extraction from Remotely Sensed Data',
-        currentJob: 'Assistant Professor, Amity University',
+        currentJob: 'Research Scientist, TCS',
         images: [`${RS_FOLDER}/7.png`],
     },
     {
         name: 'Aniruddha Khatua',
         status: 'Awarded',
         tenure: 'Autumn 2021 – Autumn 2025',
+        startYear: '2021',
+        endYear: '2025',
         researchArea: 'Transport Emission Analysis Using RS Techniques',
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
         thesisTitle:
@@ -119,6 +139,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Anita Gautam',
         status: 'Current',
         tenure: 'Autumn 2021 –',
+        startYear: '2021',
+        endYear: 'current',
         researchArea: 'Urban Remote Sensing',
         qualification: 'M.Tech, Remote Sensing',
         email: 'gautama076@kgpian.iitkgp.ac.in',
@@ -126,8 +148,10 @@ const doctoralStudents: DoctoralStudent[] = [
     },
     {
         name: 'Anurag Aman Kaushal',
-        status: 'Current',
-        tenure: 'Autumn 2021 –',
+        status: 'Awarded',
+        tenure: 'Autumn 2021 – Autumn 2026',
+        startYear: '2021',
+        endYear: '2026',
         researchArea:
             'Scientific Validation of Vastu Shastra Through Building IEQ and Energy Efficiency Studies',
         qualification: 'M.Arch, School of Planning and Architecture, Bhopal',
@@ -140,6 +164,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Rajesh Singh Rana',
         status: 'Current',
         tenure: 'Autumn 2024 –',
+        startYear: '2024',
+        endYear: 'current',
         researchArea: 'Land Surface Temperature and Heat',
         qualification: 'M.Sc, Remote Sensing & GIS',
         email: 'rajeshsr.24@kgpian.iitkgp.ac.in',
@@ -149,6 +175,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Apratim Bhattacharya',
         status: 'Current',
         tenure: 'Autumn 2024 –',
+        startYear: '2024',
+        endYear: 'current',
         researchArea: 'Urban Sensing and Development of Onboard Analytics',
         qualification:
             'M.Tech, Infrastructure Design and Management, IIT Kharagpur; M.Tech, Geoinformatics, IIEST Shibpur',
@@ -159,6 +187,8 @@ const doctoralStudents: DoctoralStudent[] = [
         name: 'Sukanya Mukherjee',
         status: 'Current',
         tenure: 'Autumn 2025 –',
+        startYear: '2025',
+        endYear: 'current',
         researchArea: 'Flood Analytics and Hazard',
         qualification:
             'M.Sc, Geography, University of Calcutta; M.Tech, Remote Sensing and GIS, Indian Institute of Remote Sensing',
@@ -171,6 +201,8 @@ const postdocFellows: PostdocFellow[] = [
     {
         name: 'Dr. Vinay S',
         tenure: 'March 2020 – July 2021',
+        startYear: '2020',
+        endYear: '2021',
         currentJob: 'Associate Professor, Alva Institute of Technology, Mangalore',
         images: [`${RS_FOLDER}/14.jpg`],
     },
@@ -256,6 +288,10 @@ const highlights = [
     { value: '34', label: 'Alumni (Post Graduates)' },
 ];
 
+function yearRange(startYear: string, endYear: string): string {
+    return endYear === 'current' ? `${startYear} – current` : `${startYear} – ${endYear}`;
+}
+
 function SectionHeading({
     eyebrow,
     title,
@@ -283,9 +319,11 @@ function SectionHeading({
 }
 
 function StudentRow({ student, index }: { student: DoctoralStudent; index: number }) {
+    const range = yearRange(student.startYear, student.endYear);
+
     return (
         <li className="group py-6 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4">
-            {/* Mobile layout: number + name + image inline, then details below */}
+            {/* Mobile layout */}
             <div className="flex items-start gap-3 sm:hidden">
                 <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
                     {String(index + 1).padStart(2, '0')}
@@ -300,12 +338,18 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         )}
                     </div>
                     <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
-                    <p className="mt-0.5 text-xs text-slate-500">{student.qualification}</p>
+                    <p className="mt-0.5 text-xs text-slate-500">
+                        {student.qualification}
+                        <span className="ml-2 text-slate-400">({range})</span>
+                    </p>
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-6 text-slate-600 italic">&ldquo;{student.thesisTitle}&rdquo;</p>
                     )}
                     {student.currentJob && (
-                        <p className="mt-1 text-sm text-slate-600">{student.currentJob}</p>
+                        <p className="mt-1 text-sm text-slate-600">
+                            <span className="font-semibold text-slate-700">Current Position:</span>{' '}
+                            {student.currentJob}
+                        </p>
                     )}
                     {student.email && (
                         <a href={`mailto:${student.email}`} className="mt-1 inline-block text-sm text-sky-600 hover:underline break-all">
@@ -328,7 +372,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
             </div>
 
             {/* Desktop/tablet layout */}
-            <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+            <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr] sm:gap-5 sm:items-start">
                 <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                     {String(index + 1).padStart(2, '0')}
                 </span>
@@ -359,14 +403,20 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         )}
                     </div>
                     <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
-                    <p className="mt-1 text-sm text-slate-500">{student.qualification}</p>
+                    <p className="mt-1 text-sm text-slate-500">
+                        {student.qualification}
+                        <span className="ml-2 text-slate-400">({range})</span>
+                    </p>
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-7 text-slate-600 italic">
                             &ldquo;{student.thesisTitle}&rdquo;
                         </p>
                     )}
                     {student.currentJob && (
-                        <p className="mt-2 text-sm text-slate-600">{student.currentJob}</p>
+                        <p className="mt-2 text-sm text-slate-600">
+                            <span className="font-semibold text-slate-700">Current Position:</span>{' '}
+                            {student.currentJob}
+                        </p>
                     )}
                     {student.email && (
                         <a
@@ -377,10 +427,6 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         </a>
                     )}
                 </div>
-
-                <p className="text-sm font-medium text-slate-500 text-right whitespace-nowrap">
-                    {student.tenure}
-                </p>
             </div>
         </li>
     );
@@ -391,12 +437,11 @@ interface CarouselItem {
     image?: string;
 }
 
-function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
+function Carousel({ items }: { items: CarouselItem[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerView, setItemsPerView] = useState(5);
     const [isPaused, setIsPaused] = useState(false);
 
-    // Responsive items per view
     useEffect(() => {
         const updateItemsPerView = () => {
             if (window.innerWidth < 640) {
@@ -412,14 +457,12 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
         return () => window.removeEventListener('resize', updateItemsPerView);
     }, []);
 
-    // Reset to first slide when items per view changes
     useEffect(() => {
         setCurrentIndex(0);
     }, [itemsPerView]);
 
     const totalSlides = Math.ceil(items.length / itemsPerView);
 
-    // Auto-rotation
     useEffect(() => {
         if (isPaused || totalSlides <= 1) return;
         const interval = window.setInterval(() => {
@@ -457,18 +500,8 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                     aria-label="Previous slide"
                     style={{ width: '40px', height: '40px', minWidth: '40px', minHeight: '40px' }}
                 >
-                    <svg
-                        className="w-5 h-5 text-slate-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 19l-7-7 7-7"
-                        />
+                    <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
@@ -479,12 +512,8 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                     'grid-cols-5'
                 }`}>
                     {currentItems.map((item, idx) => (
-                        <div
-                            key={`${item.name}-${currentIndex}-${idx}`}
-                            className="min-w-0"
-                        >
+                        <div key={`${item.name}-${currentIndex}-${idx}`} className="min-w-0">
                             <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full">
-                                {/* Image Container */}
                                 <div className="relative bg-slate-50 overflow-hidden" style={{ aspectRatio: '4/3' }}>
                                     {item.image ? (
                                         <IKImage
@@ -504,8 +533,6 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                                         </div>
                                     )}
                                 </div>
-
-                                {/* Item Name */}
                                 <div className="px-2 py-2 border-t border-slate-200 bg-white">
                                     <p className="text-xs font-semibold text-slate-900 truncate">
                                         {item.name}
@@ -523,23 +550,12 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
                     aria-label="Next slide"
                     style={{ width: '40px', height: '40px', minWidth: '40px', minHeight: '40px' }}
                 >
-                    <svg
-                        className="w-5 h-5 text-slate-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
+                    <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
             </div>
 
-            {/* Slide counter — replaces dots */}
             {totalSlides > 1 && (
                 <div className="slide-counter" aria-live="polite" aria-atomic="true">
                     <span className="current-slide">{currentIndex + 1}</span>
@@ -553,13 +569,11 @@ function Carousel({ items, title }: { items: CarouselItem[]; title?: string }) {
 
 export default function ResearchGroup() {
     return (
-        <ImageKitProvider
-            urlEndpoint="https://ik.imagekit.io/krishdheniya"
-        >
+        <ImageKitProvider urlEndpoint="https://ik.imagekit.io/krishdheniya">
             <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
                 {/* Hero */}
                 <section className="border-b border-slate-200 bg-white">
-                    <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16 lg:gap-10">
+                    <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                         <div className="max-w-4xl">
                             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                                 Research Group
@@ -577,32 +591,11 @@ export default function ResearchGroup() {
                                 technologies.
                             </p>
                         </div>
-
-                        <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0">
-                            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                                Group Overview
-                            </p>
-                            <dl className="mt-5 divide-y divide-slate-200 border-y border-slate-200">
-                                {highlights.map((item) => (
-                                    <div
-                                        key={item.label}
-                                        className="flex items-center justify-between gap-5 py-4"
-                                    >
-                                        <dt className="text-sm leading-6 text-slate-600">
-                                            {item.label}
-                                        </dt>
-                                        <dd className="shrink-0 text-lg font-semibold text-slate-950">
-                                            {item.value}
-                                        </dd>
-                                    </div>
-                                ))}
-                            </dl>
-                        </aside>
                     </div>
                 </section>
 
                 <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16 overflow-x-hidden">
-                    {/* Doctoral Students (Current and Previous) */}
+                    {/* Doctoral Students */}
                     <SectionHeading
                         eyebrow="Doctoral Students"
                         title="Doctoral Students (Current and Previous)"
@@ -622,10 +615,7 @@ export default function ResearchGroup() {
                         />
                         <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
                             {postdocFellows.map((fellow, index) => (
-                                <li
-                                    key={fellow.name}
-                                    className="py-5"
-                                >
+                                <li key={fellow.name} className="py-5">
                                     {/* Mobile */}
                                     <div className="flex items-start gap-3 sm:hidden">
                                         <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
@@ -633,8 +623,13 @@ export default function ResearchGroup() {
                                         </span>
                                         <div className="flex-1 min-w-0">
                                             <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
-                                            <p className="mt-1 text-sm leading-6 text-slate-600">{fellow.currentJob}</p>
-                                            <p className="mt-1 text-xs font-medium text-slate-400">{fellow.tenure}</p>
+                                            <p className="mt-0.5 text-sm text-slate-500">
+                                                <span className="text-slate-400">({fellow.tenure})</span>
+                                            </p>
+                                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                                                <span className="font-semibold text-slate-700">Current Position:</span>{' '}
+                                                {fellow.currentJob}
+                                            </p>
                                         </div>
                                         {fellow.images && fellow.images.length > 0 && (
                                             <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded">
@@ -643,7 +638,7 @@ export default function ResearchGroup() {
                                         )}
                                     </div>
                                     {/* Desktop */}
-                                    <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr_auto] sm:gap-5 sm:items-start">
+                                    <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr] sm:gap-5 sm:items-start">
                                         <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
@@ -656,9 +651,14 @@ export default function ResearchGroup() {
                                         </div>
                                         <div>
                                             <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
-                                            <p className="mt-1 text-sm leading-7 text-slate-600">{fellow.currentJob}</p>
+                                            <p className="mt-1 text-sm text-slate-500">
+                                                <span className="text-slate-400">({fellow.tenure})</span>
+                                            </p>
+                                            <p className="mt-1 text-sm leading-7 text-slate-600">
+                                                <span className="font-semibold text-slate-700">Current Position:</span>{' '}
+                                                {fellow.currentJob}
+                                            </p>
                                         </div>
-                                        <p className="text-sm font-medium leading-7 text-slate-500 text-right">{fellow.tenure}</p>
                                     </div>
                                 </li>
                             ))}
@@ -719,7 +719,7 @@ export default function ResearchGroup() {
                             description="Completed and current internship scholars contributing to the group's research initiatives."
                         />
                         <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 sm:divide-x sm:divide-slate-200">
-                            {/* Left column — first half */}
+                            {/* Left column */}
                             <ol className="sm:pr-10">
                                 {summerInterns
                                     .slice(0, Math.ceil(summerInterns.length / 2))
@@ -738,7 +738,7 @@ export default function ResearchGroup() {
                                     ))}
                             </ol>
 
-                            {/* Right column — second half */}
+                            {/* Right column */}
                             <ol className="sm:pl-10 mt-0">
                                 {summerInterns
                                     .slice(Math.ceil(summerInterns.length / 2))

@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { highlights, peerReviewedPapers, conferenceProceedings, books, bookChapters, technicalReports } from './data';
+import { peerReviewedPapers, conferenceProceedings, books, bookChapters, technicalReports } from './data';
 import { SectionHeading, PaperList, ProceedingList, BookCard, ChapterList, ReportList } from './components';
 import cover1 from './papers/1.jpg';
 import cover2 from './papers/2.gif';
@@ -235,7 +235,7 @@ export default function Publications() {
   return (
     <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
       <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:gap-10 lg:px-8 lg:py-16">
+        <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
           <div className="max-w-4xl animate-fade-in-up delay-100">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
               Research Output
@@ -250,20 +250,6 @@ export default function Publications() {
               Explore peer-reviewed journal articles, conference proceedings, books, book chapters and technical reports organized into focused publication categories.
             </p>
           </div>
-
-          <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-              Publication Overview
-            </p>
-            <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
-              {highlights.map((item) => (
-                <div key={item.label} className="flex items-center justify-between gap-5 py-4">
-                  <dt className="text-sm leading-6 text-slate-600">{item.label}</dt>
-                  <dd className="shrink-0 text-lg font-semibold text-slate-950">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
         </div>
       </section>
 

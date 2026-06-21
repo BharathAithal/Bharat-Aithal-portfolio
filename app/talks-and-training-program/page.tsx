@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, type ReactNode } from 'react';
+
 type Activity = {
     title: string;
     context: string;
@@ -240,6 +244,12 @@ const coursesConducted: Activity[] = [
 
 const handsOnWorkshops: Activity[] = [
     {
+        title: 'Using GRASS and QGIS for Natural Resources Management through Free & Open Source Geospatial Technologies (FOSS4G)',
+        context:
+            'Indian Institute of Science, Bangalore, India',
+        date: '9-13 April 2018',
+    },
+    {
         title: 'Big Data for Better Governance',
         context: 'Promoting data-driven policy making and governance in West Bengal',
         date: '28-29 November 2017',
@@ -321,63 +331,88 @@ const organizedConferences: Activity[] = [
     },
 ];
 
-const highlights = [
-    { value: '07', label: 'Keynotes & Chaired Sessions' },
-    { value: '23', label: 'Invited Lectures' },
-    { value: '17', label: 'Courses & Workshops' },
-    { value: '06', label: 'Outreach & Conferences' },
-];
-
-function SectionHeading({
+// ——————————————————————————————————
+// Accordion component
+// ——————————————————————————————————
+function AccordionSection({
     eyebrow,
     title,
     description,
+    children,
+    defaultOpen = false,
 }: {
     eyebrow: string;
     title: string;
     description?: string;
+    children: ReactNode;
+    defaultOpen?: boolean;
 }) {
+    const [open, setOpen] = useState(defaultOpen);
+
     return (
-        <div className="border-b border-slate-300 pb-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
-                {eyebrow}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
-                {title}
-            </h2>
-            {description && (
-                <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
-                    {description}
-                </p>
+        <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button
+                onClick={() => setOpen((o) => !o)}
+                className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-slate-50"
+                aria-expanded={open}
+            >
+                <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
+                        {eyebrow}
+                    </p>
+                    <h2 className="mt-1 text-lg font-semibold tracking-tight text-slate-950">
+                        {title}
+                    </h2>
+                    {description && (
+                        <p className="mt-1 text-sm text-slate-500">{description}</p>
+                    )}
+                </div>
+                <svg
+                    className={`h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${open ? 'rotate-180' : 'rotate-0'}`}
+                    viewBox="0 0 20 20"
+                    fill="none"
+                >
+                    <path d="M5 8L10 13L15 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+
+            {open && (
+                <div className="border-t border-slate-100 px-6 pb-6 pt-4">
+                    {children}
+                </div>
             )}
         </div>
     );
 }
 
-function ActivityList({ activities }: { activities: Activity[] }) {
+function BulletList({ activities }: { activities: Activity[] }) {
     return (
-        <ol className="divide-y divide-slate-200 border-b border-slate-300">
-            {activities.map((activity, index) => (
-                <li key={`${activity.title}-${activity.date}`} className="grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4 group">
-                    <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
-                        {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div>
-                        <h3 className="font-semibold leading-7 text-slate-950">
-                            {activity.title}
-                        </h3>
-                        <p className="mt-1 text-sm leading-7 text-slate-600">
-                            {activity.context}
-                        </p>
+        <ul className="space-y-4">
+            {activities.map((activity) => (
+                <li
+                    key={`${activity.title}-${activity.date}`}
+                    className="flex gap-3 rounded-lg p-3 transition-colors duration-200 hover:bg-slate-50"
+                >
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-sky-400" aria-hidden="true" />
+                    <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-start justify-between gap-2">
+                            <p className="font-semibold leading-7 text-slate-900">
+                                {activity.title}
+                            </p>
+                            {activity.role && (
+                                <span className="shrink-0 border border-sky-100 bg-sky-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-sky-700 rounded-full">
+                                    {activity.role}
+                                </span>
+                            )}
+                        </div>
+                        <p className="mt-1 text-sm leading-6 text-slate-600">{activity.context}</p>
+                        {activity.date && (
+                            <p className="mt-1 text-xs font-medium text-slate-400">{activity.date}</p>
+                        )}
                     </div>
-                    {activity.date && (
-                        <p className="text-sm font-medium leading-7 text-slate-500 sm:text-right">
-                            {activity.date}
-                        </p>
-                    )}
                 </li>
             ))}
-        </ol>
+        </ul>
     );
 }
 
@@ -385,7 +420,7 @@ export default function TalksAndTraining() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_24rem] lg:gap-10 lg:px-8 lg:py-16">
+                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Talks &amp; Training Programs
@@ -402,104 +437,55 @@ export default function TalksAndTraining() {
                             environmental management and open geospatial technologies.
                         </p>
                     </div>
-
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                            Program Overview
-                        </p>
-                        <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
-                            {highlights.map((item) => (
-                                <div key={item.label} className="flex items-center justify-between gap-5 py-4">
-                                    <dt className="text-sm leading-6 text-slate-600">{item.label}</dt>
-                                    <dd className="shrink-0 text-lg font-semibold text-slate-950">
-                                        {item.value}
-                                    </dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </aside>
                 </div>
             </section>
 
             <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
-                <SectionHeading
-                    eyebrow="Conferences"
-                    title="Keynote Addresses & Sessions Chaired"
-                    description="Invited conference contributions and chaired thematic sessions in India and internationally."
-                />
-                <ol className="mt-7 grid gap-4 lg:grid-cols-2">
-                    {conferenceRoles.map((activity, index) => (
-                        <li
-                            key={activity.title}
-                            className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl"
-                        >
-                            <div className="flex items-start justify-between gap-4">
-                                <p className="text-sm font-semibold tracking-[0.16em] text-sky-700">
-                                    {String(index + 1).padStart(2, '0')}
-                                </p>
-                                <p className="border border-sky-100 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">
-                                    {activity.role}
-                                </p>
-                            </div>
-                            <h3 className="mt-5 text-lg font-semibold leading-8 text-slate-950">
-                                {activity.title}
-                            </h3>
-                            <p className="mt-3 grow text-sm leading-7 text-slate-600">
-                                {activity.context}
-                            </p>
-                            {activity.date && (
-                                <p className="mt-5 border-t border-slate-100 pt-4 text-sm font-medium text-slate-500">
-                                    {activity.date}
-                                </p>
-                            )}
-                        </li>
-                    ))}
-                </ol>
+                <div className="space-y-4">
+                    <AccordionSection
+                        eyebrow="Conferences"
+                        title="Keynote Addresses & Sessions Chaired"
+                        description="Invited conference contributions and chaired thematic sessions in India and internationally."
+                        defaultOpen
+                    >
+                        <BulletList activities={conferenceRoles} />
+                    </AccordionSection>
 
-                <div className="mt-14">
-                    <SectionHeading
+                    <AccordionSection
                         eyebrow="Invited / Guest Lectures"
                         title="Academic Lectures & Invited Contributions"
                         description="Lectures delivered across universities, professional workshops and continuing education programs."
-                    />
-                    <ActivityList activities={invitedLectures} />
-                </div>
+                    >
+                        <BulletList activities={invitedLectures} />
+                    </AccordionSection>
 
-                <div className="mt-14 grid gap-12 border-t border-slate-300 pt-12 lg:grid-cols-2 lg:gap-14">
-                    <section>
-                        <SectionHeading
-                            eyebrow="Courses Conducted"
-                            title="Courses & Faculty Engagements"
-                        />
-                        <ActivityList activities={coursesConducted} />
-                    </section>
+                    <AccordionSection
+                        eyebrow="Courses Conducted"
+                        title="Courses & Faculty Engagements"
+                    >
+                        <BulletList activities={coursesConducted} />
+                    </AccordionSection>
 
-                    <section>
-                        <SectionHeading
-                            eyebrow="Hands-on Training"
-                            title="Training Programs & Workshops"
-                            description="Using GRASS and QGIS for Natural Resources Management through Free & Open Source Geospatial Technologies (FOSS4G), Indian Institute of Science, Bangalore, India, 9-13 April 2018."
-                        />
-                        <ActivityList activities={handsOnWorkshops} />
-                    </section>
-                </div>
+                    <AccordionSection
+                        eyebrow="Hands-on Training"
+                        title="Training Programs & Workshops"
+                    >
+                        <BulletList activities={handsOnWorkshops} />
+                    </AccordionSection>
 
-                <div className="mt-14 grid gap-12 border-t border-slate-300 pt-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-14">
-                    <section>
-                        <SectionHeading
-                            eyebrow="Popular Talks"
-                            title="Public Engagement"
-                        />
-                        <ActivityList activities={popularTalks} />
-                    </section>
+                    <AccordionSection
+                        eyebrow="Popular Talks"
+                        title="Public Engagement"
+                    >
+                        <BulletList activities={popularTalks} />
+                    </AccordionSection>
 
-                    <section>
-                        <SectionHeading
-                            eyebrow="Conferences Organized"
-                            title="Conference Leadership"
-                        />
-                        <ActivityList activities={organizedConferences} />
-                    </section>
+                    <AccordionSection
+                        eyebrow="Conferences Organized"
+                        title="Conference Leadership"
+                    >
+                        <BulletList activities={organizedConferences} />
+                    </AccordionSection>
                 </div>
             </section>
         </main>

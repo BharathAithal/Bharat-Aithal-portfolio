@@ -1,89 +1,34 @@
-import Image from 'next/image';
+'use client';
 
-const projects = [
-    {
-        number: '01',
-        category: 'Urban Infrastructure',
-        title: 'Centre of Excellence on Energy Aware Urban Infrastructure',
-        agency: 'Science and Engineering Research Board (SERB)',
-        description:
-            'Advancing urban infrastructure planning with an emphasis on energy-aware systems and engineering.',
-        image: '/projects/energy-infrastructure.webp',
-        imageAlt: 'Energy-aware urban corridor with solar infrastructure and mass transit',
-    },
-    {
-        number: '02',
-        category: 'Climate and Society',
-        title: 'Study on Young Children and Climate',
-        agency: 'ICLEI - Local Governments for Sustainability',
-        description:
-            'Studying climate-related challenges and responses affecting young children in urban contexts.',
-        image: '/projects/children-climate.webp',
-        imageAlt: 'Children and an educator planting trees in a shaded city school garden',
-    },
-    {
-        number: '03',
-        category: 'Urban Transport',
-        title: 'Developing a Spatial Data Infrastructure with Application in Urban Transport',
-        agency: 'NRDMS',
-        description:
-            'Building a spatial-data foundation to support analysis and planning for urban mobility systems.',
-        image: '/projects/urban-transport-sdi.webp',
-        imageAlt: 'Transport researcher reviewing spatial maps beside an urban rail corridor',
-    },
-    {
-        number: '04',
-        category: 'Transport and Emissions',
-        title: 'Developing an Integrated Land Use-Transport-Emissions Model Utilizing Emerging Big Data Sources for Quantifying Energy and Environmental Impacts of Ridesharing Services',
-        agency: 'Apex Committee of SPARC',
-        description:
-            'Connecting mobility data, land use and emissions modelling to assess ridesharing impacts.',
-        image: '/projects/ridesharing-emissions.webp',
-        imageAlt: 'Busy mixed-use city corridor with cars, buses and pedestrians',
-    },
-    {
-        number: '05',
-        category: 'Smart Cities',
-        title: 'Planning Smart Cities: Urban Dynamics and Surface Temperature Extraction Using Hyperspectral Remote Sensing Data',
-        agency: 'Department of Science and Technology (DST), Government of West Bengal',
-        description:
-            'Using hyperspectral observations to investigate urban dynamics and surface temperature patterns.',
-        image: '/projects/hyperspectral-temperature.webp',
-        imageAlt: 'Hyperspectral sensing instrument observing a dense urban landscape',
-    },
-    {
-        number: '06',
-        category: 'Climate Resilience',
-        title: 'Scenario Based Projections of Future Land Use: A Spatially Explicit Knowledge Base for Climate Resilience',
-        agency: 'ISIRD, SRIC',
-        description:
-            'Producing spatially explicit land-use scenarios to strengthen climate-resilience planning.',
-        image: '/projects/land-use-resilience.webp',
-        imageAlt: 'Urban edge landscape with wetlands, agriculture and expanding development',
-    },
-    {
-        number: '07',
-        category: 'Decision Support',
-        title: 'Spatial Decision Support System for Select Smart Cities in India Using Nature Inspired Techniques',
-        agency: 'Science and Engineering Research Board (SERB)',
-        description:
-            'Supporting smart-city decisions through spatial analysis and nature-inspired computational techniques.',
-        image: '/projects/smart-city-decision-support.webp',
-        imageAlt: 'Urban planners examining city imagery and spatial information at a workstation',
-    },
+const projectTitles: string[] = [
+    'Centre of Excellence on Energy Aware Urban Infrastructure',
+    'Study on Young Children and Climate',
+    'Developing a Spatial Data Infrastructure with Application in Urban Transport',
+    'Developing an Integrated Land Use-Transport-Emissions Model Utilizing Emerging Big Data Sources for Quantifying Energy and Environmental Impacts of Ridesharing Services',
+    'Planning Smart Cities: Urban Dynamics and Surface Temperature Extraction Using Hyperspectral Remote Sensing Data',
+    'Scenario Based Projections of Future Land Use: A Spatially Explicit Knowledge Base for Climate Resilience',
+    'Spatial Decision Support System for Select Smart Cities in India Using Nature Inspired Techniques',
 ];
 
-const highlights = [
-    { value: '07', label: 'Funded Projects' },
-    { value: 'Urban + Climate', label: 'Primary Focus' },
-    { value: 'RS + SDSS', label: 'Methods' },
+const agencies: string[] = [
+    'Science and Engineering Research Board (SERB)',
+    'ICLEI — Local Governments for Sustainability',
+    'NRDMS',
+    'Apex Committee of SPARC',
+    'Department of Science and Technology (DST), Government of West Bengal',
+    'ISIRD, SRIC',
+    'Science and Engineering Research Board (SERB)',
 ];
+
+// Duplicate for seamless infinite scroll
+const marqueeAll = [...projectTitles, ...projectTitles];
 
 export default function Projects() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
+            {/* Page header */}
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 md:px-6 md:py-12 lg:grid-cols-[1fr_21rem] lg:gap-10 lg:px-8 lg:py-16">
+                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Projects
@@ -100,103 +45,60 @@ export default function Projects() {
                             decision support.
                         </p>
                     </div>
-
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                            Portfolio Overview
-                        </p>
-                        <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
-                            {highlights.map((item) => (
-                                <div key={item.label} className="flex items-center justify-between py-5">
-                                    <dt className="text-sm text-slate-600">{item.label}</dt>
-                                    <dd className="text-lg font-semibold text-slate-950">
-                                        {item.value}
-                                    </dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </aside>
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
-                <div className="mb-8 flex items-end justify-between border-b border-slate-300 pb-5">
-                    <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
-                        Seven Projects
-                    </h2>
-                    <p className="hidden text-sm text-slate-500 sm:block">
-                        Sponsored research and applied investigation
+            {/* Animated marquee */}
+            <section className="py-16 lg:py-24 overflow-hidden animate-fade-in-up delay-200">
+                <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8 mb-10">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700 text-center">
+                        Funded Research
                     </p>
+                    <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 text-center">
+                        Project Portfolio
+                    </h2>
                 </div>
 
-                <div className="border-t border-slate-300">
-                    {projects.map((project) => (
-                        <article
-                            key={project.number}
-                            className="group border-b border-slate-300 py-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg lg:py-8"
-                        >
-                            {/* Mobile/tablet: stacked */}
-                            <div className="grid gap-4 lg:hidden">
-                                <div className="flex items-start gap-4">
-                                    <p className="text-base font-semibold tracking-[0.22em] text-sky-700 shrink-0">
-                                        {project.number}
-                                    </p>
-                                    <div className="flex-1 min-w-0">
-                                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                                            {project.category}
-                                        </p>
-                                        <h3 className="text-lg font-semibold leading-7 tracking-tight text-slate-950">
-                                            {project.title}
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="relative w-full overflow-hidden border border-slate-200 bg-slate-200" style={{ aspectRatio: '16/9' }}>
-                                    <Image
-                                        src={project.image}
-                                        alt={project.imageAlt}
-                                        fill
-                                        sizes="100vw"
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                </div>
-                                <p className="text-sm leading-7 text-slate-600">{project.description}</p>
-                                <div className="border-t border-slate-200 pt-4">
-                                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Supported By</p>
-                                    <p className="mt-2 text-sm font-medium leading-6 text-slate-800">{project.agency}</p>
-                                </div>
+                {/* Single marquee row — all project titles */}
+                <div className="relative flex overflow-hidden mb-4" aria-hidden="true">
+                    <div className="flex animate-marquee-left gap-4 whitespace-nowrap">
+                        {marqueeAll.map((name, i) => (
+                            <div
+                                key={`m-${i}`}
+                                className="inline-flex shrink-0 items-center rounded-2xl border border-sky-100 bg-white px-6 py-4 shadow-sm"
+                                style={{ maxWidth: '480px' }}
+                            >
+                                <span className="mr-3 h-2 w-2 rounded-full bg-sky-400 shrink-0" />
+                                <span className="text-sm font-bold text-slate-900 whitespace-normal leading-6">
+                                    {name}
+                                </span>
                             </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-                            {/* Desktop: 4-column grid */}
-                            <div className="hidden lg:grid lg:grid-cols-[5rem_minmax(20rem,1fr)_minmax(16rem,0.82fr)_20rem] lg:items-center lg:gap-8 lg:hover:px-4 lg:-mx-4">
-                                <p className="text-lg font-semibold tracking-[0.22em] text-sky-700">
-                                    {project.number}
-                                </p>
-                                <div>
-                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                                        {project.category}
-                                    </p>
-                                    <h3 className="text-xl font-semibold leading-8 tracking-tight text-slate-950">
-                                        {project.title}
-                                    </h3>
-                                </div>
-                                <div>
-                                    <p className="text-sm leading-7 text-slate-600">{project.description}</p>
-                                    <div className="mt-4 border-t border-slate-200 pt-4">
-                                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Supported By</p>
-                                        <p className="mt-2 text-sm font-medium leading-6 text-slate-800">{project.agency}</p>
-                                    </div>
-                                </div>
-                                <div className="relative h-44 overflow-hidden border border-slate-200 bg-slate-200">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.imageAlt}
-                                        fill
-                                        sizes="320px"
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    />
-                                </div>
+            {/* Staggered card grid with agency */}
+            <section className="mx-auto w-full max-w-7xl px-4 pb-16 md:px-6 lg:px-8 lg:pb-24 animate-fade-in-up delay-300">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {projectTitles.map((title, index) => (
+                        <div
+                            key={title}
+                            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-sky-200"
+                        >
+                            <div className="absolute right-4 top-4 text-5xl font-black text-slate-50 select-none group-hover:text-sky-50 transition-colors duration-300">
+                                {String(index + 1).padStart(2, '0')}
                             </div>
-                        </article>
+                            <div className="relative">
+                                <div className="mb-3 h-1 w-8 rounded-full bg-sky-400 transition-all duration-300 group-hover:w-12" />
+                                <p className="font-bold leading-7 text-slate-900 text-base">
+                                    {title}
+                                </p>
+                                <p className="mt-3 border-t border-slate-100 pt-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                                    {agencies[index]}
+                                </p>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </section>
