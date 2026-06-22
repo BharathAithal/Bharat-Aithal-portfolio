@@ -15,15 +15,19 @@ export default function Home() {
       <section className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:py-16 md:px-6 lg:grid-cols-[1fr_0.95fr] lg:gap-14 lg:px-8 lg:py-20">
         {/* Text content */}
         <div className="relative max-w-2xl text-center lg:text-left lg:-mt-10">
-          <p className="mb-3 text-xl font-semibold tracking-tight text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl animate-fade-in-up delay-100">
-            Hello, I&apos;m
-          </p>
+
+
+          {/* Name + Group title */}
           <h1
-            className="hover-gradient-text font-black uppercase tracking-[0.08em] animate-fade-in-up delay-200 cursor-default inline-block"
-            style={{ fontSize: 'clamp(2.5rem, 10vw, 4.5rem)' }}
+            className="hover-gradient-text font-black tracking-tight animate-fade-in-up delay-200 cursor-default inline-block leading-[1.1]"
+            style={{ fontSize: 'clamp(1.8rem, 6vw, 3.5rem)' }}
           >
-            Bharath
+            Prof. Bharath Haidas Aithal
           </h1>
+          <p className="mt-2 text-base font-semibold tracking-wide text-sky-700 sm:text-lg animate-fade-in-up delay-300">
+            Energy and Urban Research Group
+          </p>
+
           <p className="mt-5 text-base leading-8 text-slate-500 sm:text-lg animate-fade-in-up delay-300 max-w-xl mx-auto lg:mx-0">
             Researcher, educator, and builder focused on clear academic work,
             collaborative research, practical projects, and thoughtful training
@@ -46,6 +50,20 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
+
+            {/* NPTEL SWAYAM Course button */}
+            <a
+              href="https://onlinecourses.nptel.ac.in/e-learning/preview/noc21_de11"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-600 hover:shadow-lg hover:shadow-amber-500/30 active:scale-95 w-full justify-center sm:w-auto"
+            >
+              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span>NPTEL SWAYAM Course</span>
+            </a>
+
             <Link
               href="/contact"
               className="rounded-full border border-slate-200 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white hover:shadow-md active:scale-95 w-full justify-center flex sm:w-auto"

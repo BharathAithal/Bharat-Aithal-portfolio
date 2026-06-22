@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/research-area", label: "Research Area" },
@@ -39,18 +40,33 @@ export default function Navbar() {
     <>
       {/* ── HEADER ── */}
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-3 md:px-6 lg:px-8">
-          {/* Logo */}
+        <div className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-2 md:px-6 lg:px-8">
+
+          {/* IIT Kharagpur logo — extreme left */}
+          <Link href="/" className="shrink-0" aria-label="Home">
+            <div className="relative h-9 w-9">
+              <Image
+                src="https://ik.imagekit.io/krishdheniya/images/alumni/iitkgp-logo.jpg"
+                alt="IIT Kharagpur"
+                fill
+                sizes="36px"
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
+
+          {/* Site wordmark */}
           <Link
             href="/"
-            className="shrink-0 text-xl font-black tracking-tight text-slate-900 hover:text-sky-600"
+            className="shrink-0 text-lg font-black tracking-tight text-slate-900 hover:text-sky-600"
             style={{ minHeight: "44px", display: "flex", alignItems: "center" }}
           >
             bharath.
           </Link>
 
           {/* Desktop nav — visible at 1024px+ */}
-          <nav className="hidden flex-1 flex-wrap items-center justify-end gap-1 lg:flex lg:gap-2">
+          <nav className="hidden flex-1 flex-wrap items-center justify-center gap-1 lg:flex lg:gap-1">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -58,7 +74,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-2 text-sm font-medium lg:px-4 ${
+                  className={`rounded-full px-3 py-2 text-sm font-medium lg:px-3 ${
                     isActive
                       ? "bg-sky-50 text-sky-600"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
@@ -70,18 +86,13 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Hamburger — visible below 1024px, HIDDEN when drawer is open.
-              The × close button lives ONLY inside the drawer panel.
-              When isOpen: visibility:hidden so it takes no space-pointer-event
-              but doesn't cause layout shift (unlike display:none). */}
+          {/* Hamburger — visible below 1024px */}
           <button
             onClick={() => setIsOpen(true)}
             className="hamburger-btn ml-auto flex items-center justify-center rounded-lg hover:bg-slate-100 lg:hidden"
             style={{
               width: "44px",
               height: "44px",
-              // Hide completely when drawer is open — the X inside the drawer
-              // is the only close mechanism, so hamburger must disappear.
               visibility: isOpen ? "hidden" : "visible",
               pointerEvents: isOpen ? "none" : "auto",
             }}
@@ -90,7 +101,6 @@ export default function Navbar() {
             aria-controls="mobile-sidebar"
             tabIndex={isOpen ? -1 : 0}
           >
-            {/* Hamburger icon — always 3 lines, never turns into X */}
             <svg
               viewBox="0 0 24 24"
               className="h-6 w-6 text-slate-700"
@@ -106,11 +116,21 @@ export default function Navbar() {
               <path d="M4 18h16" />
             </svg>
           </button>
+
+          {/* EURG logo — extreme right (desktop only) */}
+          <div className="relative hidden h-8 w-20 shrink-0 lg:block">
+            <Image
+              src="https://ik.imagekit.io/krishdheniya/images/alumni/eurg-logo.png"
+              alt="Energy and Urban Research Group"
+              fill
+              sizes="80px"
+              className="object-contain object-right"
+            />
+          </div>
         </div>
       </header>
 
       {/* ── BACKDROP OVERLAY ── */}
-      {/* Tap anywhere outside the drawer to close it */}
       <div
         aria-hidden="true"
         onClick={() => setIsOpen(false)}
@@ -134,15 +154,26 @@ export default function Navbar() {
           transition: "transform 0.3s ease-in-out",
         }}
       >
-        {/* Drawer header — logo + SINGLE × close button */}
+        {/* Drawer header — logos + close button */}
         <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="text-xl font-black tracking-tight text-slate-900 hover:text-sky-600"
-          >
-            bharath.
-          </Link>
+          <div className="flex items-center gap-3">
+            <div className="relative h-8 w-8 shrink-0">
+              <Image
+                src="https://ik.imagekit.io/krishdheniya/images/alumni/iitkgp-logo.jpg"
+                alt="IIT Kharagpur"
+                fill
+                sizes="32px"
+                className="object-contain"
+              />
+            </div>
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="text-xl font-black tracking-tight text-slate-900 hover:text-sky-600"
+            >
+              bharath.
+            </Link>
+          </div>
 
           {/* THE ONLY CLOSE BUTTON */}
           <button
@@ -188,6 +219,19 @@ export default function Navbar() {
             );
           })}
         </nav>
+
+        {/* EURG logo at bottom of mobile drawer */}
+        <div className="absolute bottom-6 left-0 right-0 flex justify-center px-6">
+          <div className="relative h-10 w-32">
+            <Image
+              src="https://ik.imagekit.io/krishdheniya/images/alumni/eurg-logo.png"
+              alt="Energy and Urban Research Group"
+              fill
+              sizes="128px"
+              className="object-contain"
+            />
+          </div>
+        </div>
       </div>
     </>
   );
