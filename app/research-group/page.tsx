@@ -17,6 +17,11 @@ type PostdocFellow = {
     images?: string[];
 };
 
+type PredocFellow = {
+    name: string;
+    tenure: string;
+};
+
 const doctoralStudents: DoctoralStudent[] = [
     {
         name: 'Tanaya Sarmah',
@@ -192,6 +197,25 @@ const postdocFellows: PostdocFellow[] = [
     },
 ];
 
+const predocFellows: PredocFellow[] = [
+    {
+        name: 'Sanjana Kumbhare',
+        tenure: '2024-2025',
+    },
+    {
+        name: 'Yogeshwari Shankar Bagh',
+        tenure: '2026-2027',
+    },
+    {
+        name: 'Jagruti Dasarapu',
+        tenure: '2026-2027',
+    },
+    {
+        name: 'Anwesha De',
+        tenure: '2026-2027',
+    },
+];
+
 const researchAssistants: string[] = [];
 
 const researchAssistantImage = 'https://lh3.googleusercontent.com/sitesv/AA5AbUDb8MoXgi_Nhas4uTZqR_mndUnv4chD7QjPot0ZKum-X2T7FakjSgFjzSLqJBBq6uwWz7H3vOiy8gDwErsIr5JRiLje5eELY1sb6qxHfO4aPOppf-kRSu7t_JFAR9hjVLHYLBKng3heE8VMUGEG18sO388v83-cbdzgWIGwMwJ9noJaKSqTYdOhEf0E2Tv6FTYJapkZJHzyNBToQ1KpQvEVIrg7pmRILsVDwqA=w1280';
@@ -233,6 +257,10 @@ const alumniPG: string[] = [
 ];
 
 const summerInterns: string[] = [
+    'Dalia Pal',
+    'Shreyajyoti Mohanta',
+    'Monmi Sarma',
+    'Parvati M',
     'Shrawani S',
     'Bhumikha P',
     'Satarupa M',
@@ -491,6 +519,35 @@ export default function ResearchGroup() {
                             ))}
                         </ol>
                     )}
+                </div>
+
+                {/* Predoc Nptel Fellows */}
+                <div className="mt-14 border-t border-slate-300 pt-12">
+                    <SectionHeading
+                        eyebrow="Predoctoral Research"
+                        title="Predoc Nptel Fellows"
+                        description="Predoctoral fellows working under the NPTEL fellowship program."
+                    />
+                    <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
+                        {predocFellows.map((fellow, index) => (
+                            <li
+                                key={fellow.name}
+                                className="flex items-center justify-between gap-4 py-4 transition-transform duration-200 hover:translate-x-1 group px-4 -mx-4 rounded-lg hover:bg-slate-100/50"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                    <span className="text-sm font-semibold text-slate-900 group-hover:text-sky-700 transition-colors duration-200">
+                                        {fellow.name}
+                                    </span>
+                                </div>
+                                <span className="text-sm font-medium text-slate-500">
+                                    {fellow.tenure}
+                                </span>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
 
                 {/* Alumni & Interns */}
