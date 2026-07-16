@@ -376,136 +376,771 @@ export const conferenceProceedings: ConferenceProceeding[] = [
     title: 'Semantic Segmentation of High-Resolution Satellite images: a Deep Learning Approach.',
     conference: 'ISG-ISRS National Symposium 2021',
     location: 'India',
-    date: 'December 2021',
+    date: 'December 2021'
   },
   {
-    authors: 'Nimish, G., Bharath, H.A.',
+    authors: 'Nimish, G., Bharath., H.A.',
     title: 'Effects of rising urban temperatures on the residents – A case study of Kolkata Metropolitan Region.',
-    conference: 'International Conference on Spatial Planning and Sustainable Development, Nanjing University',
+    conference: 'International Conference 2021 on Spatial Planning and Sustainable Development, Nanjing University',
     location: 'China',
-    date: 'November 2021',
+    date: 'November 2021'
   },
   {
     authors: 'Vinay, S., Bharath, H.A.',
     title: 'Inundation Exposure Assessment of Coastal Island using High Resolution remote sensing data.',
     conference: '5th WCDM',
     location: 'Delhi, India',
-    date: 'November 2021',
+    date: 'November 2021'
   },
   {
     authors: 'Aishwarya, N., Bharath, H.A.',
     title: 'Multivariate building damage model for scenario based flood risk assessment.',
     conference: 'FOSS4G 2021',
     location: 'Nepal',
-    date: 'November 2021',
+    date: 'November 2021'
   },
   {
     authors: 'Prakash, P.S., Mansi, Bharath, H.A.',
     title: 'Experimentation with Generative Adversarial Networks for Building Extraction from a Very High-Resolution Remote Sensing Imageries.',
     conference: 'FOSS4G 2021',
     location: 'Nepal',
-    date: 'November 2021',
+    date: 'November 2021'
   },
   {
     authors: 'Prakash, P.S., Mansi, Bharath, H.A.',
     title: 'Change detection in urban built-up volume using deep learning based segmentation techniques.',
     conference: 'SPIE Remote Sensing',
-    date: 'September 2021',
+    date: 'September 2021'
   },
   {
     authors: 'Prakash, P.S., Bharath, H.A.',
     title: 'A Deep Learning Based Approach For Rooftop Solar Potential Estimation Of A City: A Case Study Of Indian Metropolis.',
     conference: 'IGARSS 2021',
     location: 'Brussels, Belgium',
-    date: 'July 2021',
+    date: 'July 2021'
   },
   {
     authors: 'Vishal, S., Prakash, P.S., Bharath, H.A.',
     title: 'Deep learning-based building rooftop extraction and classification from remote sensing imagery.',
     conference: '17th International Conference on Computers in Urban Planning and Urban Management',
     location: 'Helsinki',
-    date: 'June 2021',
+    date: 'June 2021'
   },
   {
-    authors: 'Chandan, M.C., Bharath, H.A.',
+    authors: 'Nishanth, G., Nimish, G., Bharath., H.A.',
+    title: 'Deriving Relationship Between Urbanization and Land Surface Temperature.',
+    conference: '16th International Conference on Computers in Urban Planning and Urban Management',
+    location: 'Helsinki',
+    date: 'June 2021'
+  },
+  {
+    authors: 'Vinay, S., Bharath., H.A.',
+    title: 'Flood risk forecasting for sustainable coastal management at regional scale.',
+    conference: 'Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future',
+    date: 'June 2021'
+  },
+  {
+    authors: 'Madhumita, D., Bharath., H.A.',
+    title: 'Review of Road Feature Extraction for Sustainable Mobility.',
+    conference: 'Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future',
+    date: 'June 2021'
+  },
+  {
+    authors: 'Vinay, S., Bharath., H.A.',
+    title: 'Multi-Criteria Decision Analysis of Coastal Inundation at Regional scale.',
+    conference: 'EGU general assembly 2021',
+    date: 'April 2021',
+    note: 'https://doi.org/10.5194/egusphere-egu21-6963'
+  },
+  {
+    authors: 'Aishwarya, N., Sutapa, D., Bharath., H.A.',
+    title: 'Damage-cost assessment of vernacular buildings against coastal flooding.',
+    conference: 'EGU 2021',
+    date: 'April 2021',
+    note: 'https://doi.org/10.5194/egusphere-egu21-829'
+  },
+  {
+    authors: 'Prakash, P.S., Mansi, U., Bharath, H.A.',
+    title: 'Deep Learning based architectures for semantic segmentation of aerial imagery.',
+    conference: '2nd International Conference on Unmanned Aerial System in Geomatics - 2021',
+    location: 'IIT Roorkee Delhi, India',
+    date: 'April 2021'
+  },
+  {
+    authors: 'Vinay, S., Bharath., H.A.',
+    title: 'Role of local sea level rise on disaster exposure in Coastal Island.',
+    conference: 'Lake 2020',
+    location: 'India',
+    date: 'December 2020'
+  },
+  {
+    authors: 'Mohit, V., Chandan, M.C., Bharath., H.A.',
+    title: 'Developing a Urban Web-Based Spatial Decision Support System (SDSS): a case study.',
+    conference: 'Lake 2020',
+    location: 'India',
+    date: 'December 2020'
+  },
+  {
+    authors: 'Vishal, S., Prakash, P.S., Bharath, H.A.',
+    title: 'Solar Using Machine Learning.',
+    conference: 'ISRSNS 2020',
+    location: 'Gujarat, India',
+    date: 'December 2020'
+  },
+  {
+    authors: 'Prakash, P.S., Vishal, S., Bharath, H.A.',
+    title: 'UAV Based Sensor Data for Efficient 3D Building Extraction Using Machine Learning.',
+    conference: 'ISRSNS 2020',
+    location: 'Gujarat, India',
+    date: 'December 2020'
+  },
+  {
+    authors: 'Abhimanyu, S., Chandan, M.C., Bharath., H.A.',
+    title: 'Urban growth analysis and modelling based on socio-economic agents using Cellular Automata.',
+    conference: 'INGARSS 2020',
+    location: 'India',
+    date: 'December 2020'
+  },
+  {
+    authors: 'Nishanth, G., Nimish, G., Bharath., H.A.',
+    title: 'Using FOSS to estimate the Land Surface Temperature.',
+    conference: 'FOSS4G Korea 2020',
+    location: 'Seoul',
+    date: 'November 2020'
+  },
+  {
+    authors: 'Chandan, M.C., Abhimanyu, S., Bharath., H.A.',
+    title: 'Land Use Analysis and Modelling based on Agents using Cellular Automata.',
+    conference: 'ACRS 2020',
+    location: 'China',
+    date: 'November 2020'
+  },
+  {
+    authors: 'Aishwarya, N., Parul, S., Bharath., H.A.',
+    title: 'A Parametric Approach For Coastal Flood Risks Assessment By Integrating Hazard Data And Micro-Level Aspects Of Rural Vulnerability: Case Of Sagar Island, West Bengal.',
+    conference: 'ACRS 2020',
+    location: 'China',
+    date: 'November 2020'
+  },
+  {
+    authors: 'Chandan, M.C., Bharath., H.A.',
     title: 'Integration of genetic algorithm and agent-based model to visualize near realistic sustainable urban growth: a comparative study.',
     conference: 'IGARSS 2020',
     location: 'USA',
-    date: 'July 2020',
+    date: 'July 2020'
   },
   {
-    authors: 'Nimish, G., Bharath, H.A.',
+    authors: 'Nimish, G., Bharath., H.A.',
     title: 'Forecasting land surface temperature using artificial neural network.',
     conference: 'IGARSS 2020',
     location: 'USA',
-    date: 'July 2020',
+    date: 'July 2020'
   },
   {
-    authors: 'Bharath, H.A., Chandan, M.C., Nimish, G., Prakash, P.S.',
-    title: 'Modelling and characterizing the urban growth pattern in Silicon Valley by establishing a relationship with LST and Building footprint.',
-    conference: 'AGU Fall Meeting',
+    authors: 'Prakash, P.S., Bharath, H.A.',
+    title: 'Assessment of urban built-up volume using geospatial methods: a case study of Bangalore.',
+    conference: 'IGARSS 2020',
     location: 'USA',
-    date: 'December 2018',
+    date: 'July 2020'
+  },
+  {
+    authors: 'Sowmya, K.D., Prakash, P.S., Bharath, H.A.',
+    title: 'Urban surface simulation through image-to-image translation deep learning algorithm using optical aerial imagery.',
+    conference: 'IGARSS 2020',
+    location: 'USA',
+    date: 'July 2020'
+  },
+  {
+    authors: 'Prakash, P.S., Bharath, H.A.',
+    title: 'Rooftop solar potential estimation using UAV through deep learning for efficient infrastructure development.',
+    conference: 'ASCE 2020',
+    location: 'Kolkata, India',
+    date: 'March 2020'
+  },
+  {
+    authors: 'Lalilta, A., Nimish, G., Bharath., H.A.',
+    title: 'Land use pattern anlysis and Land Surface Temperature extraction: A case study of Kolkata.',
+    conference: 'Indicon 2019',
+    location: 'Gujarat, India',
+    date: 'December 2019'
+  },
+  {
+    authors: 'Nimish, G., Bharath, H.A.',
+    title: 'Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore.',
+    conference: '5th International Conference on Countermeasures to Urban Heat Islands, International Institute of Information Technology - Hyderabad',
+    location: 'India',
+    date: 'December 2019'
+  },
+  {
+    authors: 'Chandan, M.C., Nimish, G., Bharath, H.A.',
+    title: 'Mapping and assessing spatial forms of Urban Expansion through spatio-temporal metrics and modelling the future urban growth.',
+    conference: 'International Conference on Future Cities (ICFC-2019)',
+    location: 'IIT Roorkee, India',
+    date: 'December 2019'
+  },
+  {
+    authors: 'Bharath, H.A.',
+    title: 'Developing a Spatial Data Infrastructure through Urban observatory for Sustainable Urban Development.',
+    conference: 'National conference on Storing Energy for sustainable future- future energy in an Isolated world- 35th National convention of Electrical Engineers',
+    location: 'Chennai, India',
+    date: 'November 2019'
+  },
+  {
+    authors: 'Chandan, M.C., Aadithyaa, J.S., Prakash, P.S., Bharath., H.A.',
+    title: 'Integration of Particle swarm optimization with SLEUTH for Urban growth pattern visualisation.',
+    conference: '55th International Society of City and Regional Planners congress (55th ISOCARP-2019)',
+    location: 'Indonesia',
+    date: 'September 2019'
+  },
+  {
+    authors: 'Chandan, M.C., Bharath., H.A.',
+    title: 'Exploring Urbanization Pattern Change – A Case of Two Metro Cities of India.',
+    conference: 'NASA SARI LULCC meet - Land Use/Cover Changes, Environment and Emissions in South/Southeast Asia – An International Regional Science Meeting',
+    location: 'Johor Bahru, Malaysia',
+    date: 'July 2019'
+  },
+  {
+    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
+    title: 'Quantitative Measurement, Analysis of Land Use Change through Spatio-Temporal Pattern and Modelling.',
+    conference: '16th International Conference on Computers in Urban Planning and Urban Management',
+    location: 'China',
+    date: 'July 2019'
+  },
+  {
+    authors: 'Akshit, S., Bharath., H.A.',
+    title: 'Integrated System Dynamics Cellular Automata Housing Allocation model to understand housing demand and supply.',
+    conference: '49th Urban Affairs Conference',
+    location: 'California, USA',
+    date: 'April 2019'
+  },
+  {
+    authors: 'Nimish, G., Chandan, M.C., Prakash, P.S., Bharath., H.A.',
+    title: 'Characterizing the relationship between land use pattern and land surface temperature with automated built up extraction: Process, pattern and modelling.',
+    conference: 'EGU General Assembly 2019',
+    location: 'Vienna, Austria',
+    date: 'April 2019'
+  },
+  {
+    authors: 'Prakash, P.S., Satrupa, M., Bharath., H.A.',
+    title: 'Automatic extraction of building features from UAV using artificial neural networks.',
+    conference: '1st International Conference on Unmanned Aerial System in Geomatics - 2019',
+    location: 'IIT Roorkee Delhi, India',
+    date: 'April 2019'
+  },
+  {
+    authors: 'Sudeep, B., Nimish, G., Bharath., H.A.',
+    title: 'Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore.',
+    conference: 'International Conference on Smart Cities: Opportunities and Challenges, Jamia Millia Islamia',
+    location: 'New Delhi, India',
+    date: 'March 2019'
+  },
+  {
+    authors: 'Satrupa, M., Enosh D., Aishwarya, N., Bharath., H.A.',
+    title: 'Development of Flood Inundation Map Using Geospatial Techniques.',
+    conference: 'Climate Change Impacts, Vulnerabilities, and Adaptation: Emphasis on India and Neighbourhood (CCIVA 2019), International Institute of Technology Kharagpur',
+    location: 'India',
+    date: 'February 2019'
+  },
+  {
+    authors: 'Aishwarya, N., Das, S., Bharath, H.A.',
+    title: 'Adaptive capacity assessment of a region against flood vulnerability using GIS and remote sensing.',
+    conference: '4thWCDM: 4th World congress on Disaster management',
+    location: 'Bombay, India',
+    date: '2019'
+  },
+  {
+    authors: 'Ramachandra, T.V., Deepthi, H., Bharath, H. A., Venugopal, R., Joshi, N.V.',
+    title: 'Bioethanol from Estuarine Macroalgae, West Coast of Karnataka, India.',
+    conference: '35th Annual Symposium on Space Science and Technology',
+    location: 'IISc, India',
+    date: 'January 2019'
+  },
+  {
+    authors: 'Bharath., H.A., Chandan, M.C., Nimish, G., Prakash, P.S.',
+    title: 'Modelling and characterizing the urban growth pattern in Silicon Valley by establishing a relationship with LST and Building footprint.',
+    conference: 'AGU fall meeting',
+    location: 'USA',
+    date: 'December 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
+    title: 'Addressing sustainable agenda challenge through analysis of LST, GHG emissions and visualisation of urban growth in two Megacities of India.',
+    conference: 'AGU fall meeting',
+    location: 'USA',
+    date: 'December 2018'
+  },
+  {
+    authors: 'Prakash, P.S., Bharath., H.A.',
+    title: 'Building rooftop extraction and estimation of solar energy capabilities using machine learning.',
+    conference: 'National Symposium is Advancements in Geospatial Technology for Societal Benefits',
+    location: 'Ahmedabad, India',
+    date: 'December 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
+    title: 'Analyzing Urban Spatial Patterns and Trend of Future Urban Expansion Using SLEUTH.',
+    conference: 'FOSS 4G Asia',
+    location: 'Sri Lanka',
+    date: 'December 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Bharath., H.A.',
+    title: 'Analysis and modelling of impervious land-use expansion using remote sensing and GIS in Coimbatore, India.',
+    conference: 'Lake 2018',
+    location: 'India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
+    title: 'Modelling Urban transition using Cellular Automata based Sleuth modelling.',
+    conference: 'IEEE SSCI',
+    location: 'Bangalore, India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Prakash, P.S., Soumya, K.D., Bharath., H.A.',
+    title: 'Urban building extraction using satellite imagery through Machine learning.',
+    conference: 'IEEE SSCI',
+    location: 'Bangalore, India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
+    title: 'Understanding current and future landuse dynamics with land Surface temperature alterations: a case study of chandigarh.',
+    conference: 'ISPRS technical commission v Education & outreach Geospatial technology - pixel to people- ISPRS annals',
+    location: 'Dehradun, India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Prakash, P.S., Bharath., H.A.',
+    title: 'Machine Learning for urban structure extraction using optical satellite data.',
+    conference: 'NatSYM 2018',
+    location: 'India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Bharath., H.A.',
+    title: 'Exploring spatial trends of urban growth and modelling the change of land use in Varanasi: A Case of Spiritual Capital of India.',
+    conference: 'NatSYM 2018',
+    location: 'India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
+    title: 'Satellite land surface temperature and urbansiation: Mapping modelling and understanding the trends of change.',
+    conference: 'NatSYM 2018',
+    location: 'India',
+    date: 'November 2018'
+  },
+  {
+    authors: 'Soumya, K.S., Prakash, P.S., Bharath, H. A.',
+    title: 'Automatic identification of plant species through a convolutional neural network model for UAV mounted digital Cameras.',
+    conference: 'ACRS 2018',
+    location: 'Kaula Lampur, Malaysia',
+    date: 'October 2018'
+  },
+  {
+    authors: 'Gaurav, S., Shafia, A., Bharath, H. A.',
+    title: 'Urban growth pattern with urban flood and temperature vulnerability using AI: a case study of Delhi.',
+    conference: '9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing',
+    location: 'Kuala Lumpur, Malaysia',
+    date: 'April 2018'
+  },
+  {
+    authors: 'Shafia, A., Gaurav, S., Bharath, H. A.',
+    title: 'Urban growth modelling using Cellular Automata coupled with alnd cover indices for Kolkata Metropolitan region.',
+    conference: '9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing',
+    location: 'Kuala Lumpur, Malaysia',
+    date: 'April 2018'
+  },
+  {
+    authors: 'Shafia, A., Nimish G., Bharath, H. A.',
+    title: 'Dynamics of Land Surface Temperature with changing Land-Use: Building a climate resilient smart city.',
+    conference: 'International Conference for Convergence in Technology(I2CT 2018)',
+    location: 'Pune, India',
+    date: 'April 2018'
+  },
+  {
+    authors: 'Gaurav, S., Chandan, M.C., Bharath, H. A.',
+    title: 'Combined Spatial Multi-criteria approach for assessing and mapping urban flood vulnerable zones in capital region of India.',
+    conference: 'International Conference for Convergence in Technology(I2CT 2018)',
+    location: 'Pune, India',
+    date: 'April 2018'
   },
   {
     authors: 'Bharath, H.A.',
     title: 'Urbanisation and city expansion threats: Pattern, Process and Modelling.',
     conference: '105th Indian Science Congress 2018',
     location: 'Manipur, India',
-    date: 'March 2018',
+    date: 'March 2018'
   },
   {
-    authors: 'Chandan, M.C., Bharath, H.A., Ramachandra, T.V.',
-    title: 'Integrated approach to visualize urban growth: case study of rapidly urbanising city.',
-    conference: 'International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones',
-    location: 'Kolkata, India',
-    date: 'January 2017',
-    note: 'Best Paper Award',
+    authors: 'Ramachandra, T. V., Jefferey, M.S., Bharath., H.A., Bharath S.',
+    title: 'Micro level analysis of Environmentally disastrous urbanization in Bangalore.',
+    conference: 'International Workshop on Biodiversity & Climate Change 2018',
+    location: 'Kharagpur, India',
+    date: 'Febraury 2018',
+    note: '2nd Best Oral presented paper'
   },
   {
-    authors: 'Nimish, G., Shafia, A., Chandan, M.C., Bharath, H.A.',
+    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
+    title: 'Monitoring and modelling of spatiotemporal change in land use and understanding its impact on land surface temperature.',
+    conference: 'International Workshop on Biodiversity & Climate Change 2018',
+    location: 'Kharagpur, India',
+    date: 'Febraury 2018'
+  },
+  {
+    authors: 'Ramachandra, T. V., Jefferey, M.S., Bharath, H. A., Vinay, S.',
+    title: 'Geo-visualisation of landscape dynamics in the proposed mega industrial corridor.',
+    conference: 'International Workshop on Biodiversity & Climate Change 2018',
+    location: 'Kharagpur, India',
+    date: 'Febraury 2018'
+  },
+  {
+    authors: 'Shafia, A., Gaurav, S., Chandan, M.C., Bharath, H. A.',
+    title: 'Visualising urban growth pattern through agent and urban environmental factor(s) based modelling framework: A case study of Delhi.',
+    conference: 'International Workshop on Biodiversity & Climate Change 2018',
+    location: 'Kharagpur, India',
+    date: 'Febraury 2018'
+  },
+  {
+    authors: 'Dharini, J., Bharath, H.A., Arkopal, G., Joy, S.',
+    title: 'Application of Geospatial techniques to explore linkages between urban growth and cultural setting of a Historical city.',
+    conference: 'NRSC user interaction meet, Geospatial World Forum 2018',
+    location: 'Hyderabad, India',
+    date: 'January 2018'
+  },
+  {
+    authors: 'Chandan, M.C., Dharini, J., Bharath, H. A.',
+    title: 'Understanding Resilience and Sustainable Urban Growth through Land Use Simulation: Case Study of Emerging Metrocity of India.',
+    conference: 'ASCE India conference 2017',
+    location: 'Delhi, India',
+    date: 'December 2017'
+  },
+  {
+    authors: 'Nimish G., Shafia, A., Chandan, M.C., Bharath, H. A.',
     title: 'Monitoring land use/cover change and Land surface temperature.',
     conference: 'Second Regional Science & Technology Congress',
     location: 'West Bengal, India',
     date: 'November 2017',
-    note: 'Best Paper Award',
+    note: 'Best Paper Award'
   },
   {
-    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
-    title: 'Landscape dynamics modelling through integrated Markov, Fuzzy-AHP and Cellular Automata.',
-    conference: 'IEEE IGARSS 2014',
-    location: 'Quebec City, Canada',
-    date: 'July 2014',
+    authors: 'Dharini, J., Chandan, M.C., Bharath, H. A.',
+    title: 'Exposition of land Use Dynamics of Coimbatore City Using Geo-informatics.',
+    conference: 'Second Regional Science & Technology Congress',
+    location: 'West Bengal, India',
+    date: 'November 2017'
   },
   {
-    authors: 'Bharath, H.A., Vishwanath, Bhat, Ramachandra, T.V.',
-    title: 'Spatial Patterns of Urban Growth with Globalization in India\'s Silicon Valley.',
-    conference: 'National Conference on Open Source GIS: Opportunities and Challenges, IIT (BHU)',
-    location: 'Varanasi',
-    date: 'October 2015',
-    note: 'Best Paper Award',
+    authors: 'Chandan M.C., Gaurav Singh, Bharath, H. A.',
+    title: 'Urban growth characterization using Geospatial technologies.',
+    conference: 'Second Regional Science & Technology Congress',
+    location: 'West Bengal, India',
+    date: 'Nov. 2017'
+  },
+  {
+    authors: 'Chandan, M.C., Aishwarya, N., Nimish, G., Bharath, H. A.',
+    title: 'Multi temporal urban growth characterization using Geospatial technologies.',
+    conference: '38th Asian Conference on Remote Sensing (ACRS 2017)',
+    location: 'Delhi, India',
+    date: 'October 2017'
+  },
+  {
+    authors: 'Brigit, M.B., Bharath, H.A., Nityanandam, Y., Ramachandra, T.V.',
+    title: 'Analysis of landscape dynamics in the Pune-Mumbai industrial corridor.',
+    conference: 'International Conference on urban geoinformatics, TERI University',
+    location: 'Delhi, India',
+    date: 'February 2017'
+  },
+  {
+    authors: 'Chandan, M. C., Bharath, H.A., Ramachandra, T.V.',
+    title: 'Integrated approach to visualize urban growth: case study of rapidly urbanising city.',
+    conference: 'International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones',
+    location: 'Kolkata, India',
+    date: 'January 2017',
+    note: 'Best Paper Award'
+  },
+  {
+    authors: 'Chandan, M.C., Vinay, S., Bharath, H.A., Ramachandra, T.V.',
+    title: 'Land use assessment and urban growth monitoring in Hyderabad region, India.',
+    conference: 'Lake 2016, Alva’s college',
+    location: 'Moodabidri, India',
+    date: 'December 2016'
+  },
+  {
+    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
+    title: 'Comparative assessment of Agent based and Rule based models for urban growth visualization.',
+    conference: 'Kerala Environment Congress 2016, Energy Management Centre – Kerala',
+    location: 'India',
+    date: 'November 2016'
+  },
+  {
+    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Shashishankar, A.',
+    title: 'Landscape Status and Hydrological Regime of Aghanashini River Basin.',
+    conference: 'SWWEM-2016-International Conference & Exhibition On Best Practices in Sustainable Water, Waste Water & Energy Management, IISc',
+    location: 'Bangalore',
+    date: 'August 2016'
+  },
+  {
+    authors: 'Vinay, S., Bharath, H. A., Chandran, M. D. S., Shashishankar, A., Ramachandra, T. V.',
+    title: 'Linkages between catchment landscape dynamics and the natural flow regime.',
+    conference: 'ICEE 2016',
+    location: 'Coimbatore, Tamilnadu, India',
+    date: 'June 2016'
+  },
+  {
+    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Kumar, U., Venugopal, K. R., Joshi, N.V.',
+    title: 'Modelling and Visualization of Urban Trajectory in 4 cities of India.',
+    conference: 'IISc- ISRO-STC 2016, IISc',
+    location: 'Bangalore, India',
+    date: 'January 2016'
   },
   {
     authors: 'Bharath, H.A., Ramachandra, T.V.',
+    title: 'Future of Indian cities: Looking at spatial growth perspective – Smart cities and Planning.',
+    conference: 'Livable Habitat & Sustainable Infrastructure: a key to smart growth, Hyatt Regency',
+    location: 'Kolkata, India',
+    date: 'January 2016'
+  },
+  {
+    authors: 'Bharath, H. A., Ramachandra, T.V.',
+    title: 'Green to Grey: Bangalore.',
+    conference: 'International LCLUC Regional Science Team Meeting in South and Southeast Asia, organized by NASA',
+    location: 'Yangon University, Yangon, Myanmar',
+    date: 'January 2016',
+    note: 'Poster'
+  },
+  {
+    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
+    title: 'Landscape dynamics modelling through integrated Markov, Fuzzy-AHP and Cellular Automata.',
+    conference: 'International Geoscience and Remote Sensing Symposium (IEEE IGARSS 2014), Quebec City convention centre',
+    location: 'Quebec, Canada',
+    date: 'July 2014'
+  },
+  {
+    authors: 'Bharath, H.A., Vishwanath, Bhat, Ramachandra, T.V.',
+    title: 'Spatial Patterns of Urban Growth with Globalization in India’s Silicon Valley.',
+    conference: 'National Conference on Open Source GIS: Opportunities and Challenges Department of Civil Engineering, IIT (BHU)',
+    location: 'Varanasi',
+    date: 'October 2015',
+    note: 'Best paper award'
+  },
+  {
+    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
+    title: 'Prediction of Spatial Patterns of Urban Dynamics in Pune, India.',
+    conference: 'IEEE-Indicon 2014',
+    location: 'Pune, Maharastra, India',
+    date: 'December 2014'
+  },
+  {
+    authors: 'Ramachandra, T.V., Chandan, M. C., Bharath, H. A., Vinay, S., Sellers, J.M., Venugopal, K. R.',
+    title: 'Monitoring and modelling patterns of urban growth in Chennai, India.',
+    conference: 'NRSC UIM 2015',
+    location: 'Hyderabad, Telagana, India',
+    date: 'January 2015'
+  },
+  {
+    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Bharath, S., Shashishankar, A.',
+    title: 'Landscape Status and Hydrological Regime: Insights to Linkages in Sharavati and Varada Catchments, Central Western Ghats.',
+    conference: 'NRSC UIM 2015',
+    location: 'Hyderabad, Telagana, India',
+    date: 'January 2015'
+  },
+  {
+    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Venugopal, K. R., Joshi, N.V.',
+    title: 'Geospatial scenario based modelling of urban revolution in five major cities in India.',
+    conference: 'IISc- STC 2015',
+    location: 'Bangalore, Karnataka, India',
+    date: 'January 2015'
+  },
+  {
+    authors: 'Ramachandra, T.V., Bharath, H. A., Venugopal, K. R.',
+    title: 'Modelling and geo-visulaisation of urban growth, India.',
+    conference: 'Lake 2014',
+    location: 'Uttara Kannada, Karnataka, India',
+    date: 'November 2014'
+  },
+  {
+    authors: 'Chandan, M. C., Bharath, H. A., Ramachandra, T.V., Venugopal, K. R.',
+    title: 'Quantifying urbanisation using geospatial data and spatial metrics-a case study of Madras.',
+    conference: 'Lake 2014',
+    location: 'Uttara Kannada, Karnataka, India',
+    date: 'November 2014'
+  },
+  {
+    authors: 'Ramachandra, T.V., Bharath, H. A., Tarun, K.K., Venugopal, K. R.',
+    title: 'Modelling of urban dynamics: a case study of Bhopal and its environs, India.',
+    conference: 'Lake 2014',
+    location: 'Uttara Kannada, Karnataka, India',
+    date: 'November 2014'
+  },
+  {
+    authors: 'Shweta, G., Swati, G., Bharath, H. A., Ramachandra, T.V.',
+    title: 'Land use dynamics of central and Southern Western Ghats.',
+    conference: 'Lake 2014',
+    location: 'Uttara Kannada, Karnataka, India',
+    date: 'November 2014'
+  },
+  {
+    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Bharath, S., Shashishankar, A.',
+    title: 'Environmental flow assessment in the rivers originating at the Western Ghats.',
+    conference: 'Lake 2014',
+    location: 'Uttara Kannada, Karnataka, India',
+    date: 'November 2014'
+  },
+  {
+    authors: 'Ramachandra, T.V., Nupur, N., Vinay, S., Bharath, H. A.',
+    title: 'Modeling Hydrologic regime of Lakshmanatirtha watershed, Cauvery River.',
+    conference: 'IEEE-GHTC-SAS 2014',
+    location: 'Trivandrum, Kerala, India',
+    date: 'September 2014'
+  },
+  {
+    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Joshi, N. V., Kumar, U., Venugopal, R. K.',
+    title: 'Modelling Urban Revolution in Greater Bangalore, India.',
+    conference: '30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
+    location: 'Bangalore',
+    date: 'November 2013'
+  },
+  {
+    authors: 'Vinay, S., Bharath, S, Bharath, H.A., Ramachandra, T.V.',
+    title: 'Hydrologic model with landscape dynamics for drought monitoring.',
+    conference: 'Joint International Workshop of ISPRS on Geospatial Data for Disaster and Risk Reduction',
+    location: 'Hyderabad, India',
+    date: 'November 2013'
+  },
+  {
+    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
+    title: 'Modelling and Simulation of Urbanization in Greater Bangalore.',
+    conference: 'National Geospatial Data Infrastructure 2013, IIT Bombay',
+    location: 'Mumbai, India',
+    date: 'November 2013'
+  },
+  {
+    authors: 'Bharath, H.A., Ramachandra. T.V.',
+    title: 'Visualisation of urbanisation patterns in Greater Bangalore, India.',
+    conference: 'CES in house symposium, New Biological Science Auditorium, Indian Institute of Science',
+    location: 'Bangalore',
+    date: 'November 2013'
+  },
+  {
+    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
+    title: 'Prediction of Land use dynamics in the rapidly urbanising landscape using land change modeller.',
+    conference: 'Fourth International Joint Conference on Advances in Engineering and Technology, AET 2013',
+    location: 'NCR Delhi, India',
+    date: 'December 2013'
+  },
+  {
+    authors: 'Bharath, H.A., Ramachandra. T.V.',
     title: 'Measuring urban sprawl in Tier II cities of Karnataka, India.',
     conference: 'IEEE Global Humanitarian Technology Conference: South Asia Satellite (IEEE-GHTC-SAS)',
-    location: 'Trivandrum, Kerala',
-    date: 'August 2013',
+    location: 'Techno Park, Trivandrum, Kerala, India',
+    date: 'August 2013'
+  },
+  {
+    authors: 'Bharath, H.A., Vinay S., Ramachandra. T.V.',
+    title: 'Comprehension of temporal land use dynamics in urbanising landscape.',
+    conference: '2ND National Remote Sensing Users Meet, NRSC',
+    location: 'Hyderabad, India',
+    date: 'February 2013'
+  },
+  {
+    authors: 'Bharath, S., Bharath, H.A., Sannadurgappa, D., Ramachandra, T. V.',
+    title: 'Landscape Dynamics through Spatial Metrics.',
+    conference: 'India GeoSpatial Conference, Epicentre',
+    location: 'Gurgaon, India',
+    date: 'February 2012'
+  },
+  {
+    authors: 'Bharath, H.A., Bharath, S., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V.',
+    title: 'Spatial patterns of urbanization in Mysore: Emerging Tier II City in Karnataka.',
+    conference: 'National Remote Sensing Users Meet, NRSC',
+    location: 'Hyderabad, India',
+    date: 'February 2012'
   },
   {
     authors: 'Bharath, H.A., Sannadurgappa, D., Ramachandra, T.V.',
-    title: 'Urban growth monitoring through spatio-temporal analysis.',
-    conference: 'Lake 2010: Wetlands, Biodiversity and Climate Change',
-    location: 'Indian Institute of Science, Bangalore',
-    date: 'December 2010',
+    title: 'Simulation of Urban dynamics through Spatial Metrics.',
+    conference: 'Student Symposium, Centre for Sustainable Technologies, IISc',
+    location: 'Bangalore, India',
+    date: 'May 2012'
   },
   {
-    authors: 'Bharath, H.A., Kumar, U., Ramachandra, T.V.',
-    title: 'Fusion of multi resolution remote sensing data for urban sprawl analysis.',
-    conference: 'COSMAR 2009',
-    location: 'Indian Institute of Science, Bangalore',
-    date: 'November 2009',
+    authors: 'Bharath, H.A., Ramachandra, T. V.',
+    title: 'Spatial Pattern analysis of two urbanising Tier II cities in Karnataka using open source GIS - GRASS.',
+    conference: 'OSGEO-INDIA: FOSS4G 2012- First National Conference "Open Source Geospatial Resources to Spearhead Development and Growth", IIIT Hyderabad',
+    date: 'October 2012'
   },
+  {
+    authors: 'Bharath, S, Bharath, H.A., Rajan, K. S., Ramachandra, T. V.',
+    title: 'Cost effective mapping, monitoring and visualisation of spatial patterns of urbanisation using FOSS.',
+    conference: 'OSGEO-INDIA: FOSS4G 2012- first national conference "Open Source Geospatial Resources to Spearhead Development and Growth", IIIT Hyderabad',
+    date: 'October 2012'
+  },
+  {
+    authors: 'Bharath, H.A., Sannadurgappa, D. Ramachandra, T.V.',
+    title: 'Status of wetlands in urbanising Tier II cities of Karnataka.',
+    conference: 'Lake 2012: Wetlands, National Conference on Conservation and Management of Wetland Ecosystems, School of Environmental Sciences, M. G. University',
+    location: 'Kerala, India',
+    date: 'November 2012'
+  },
+  {
+    authors: 'Vinay S, Bharath, H.A., and Ramachandra, T.V.',
+    title: 'Spatio Temporal dynamics of Raichur City.',
+    conference: 'Lake 2012: National Conference on Conservation and Management of Wetland Ecosystems, School of Environmental Sciences, M. G. University',
+    location: 'Kerala, India',
+    date: 'November 2012'
+  },
+  {
+    authors: 'Bharath, H.A., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V.',
+    title: 'Spatial patterns of urbanization in an emerging Tier II City, Mysore.',
+    conference: 'Samanway 2012, Indian Institute of Science',
+    location: 'Bangalore, India',
+    date: 'March 2012'
+  },
+  {
+    authors: 'Bharath, H.A., Bharath, S., Sannadurgappa, D., Ramachandra, T. V.',
+    title: 'Effectiveness of landscape Spatial Metrics with reference to the Spatial Resolutions of Remote Sensing Data.',
+    conference: 'India Conference on Geo-spatial Technologies & Applications 2012, IIT Bombay',
+    location: 'Mumbai, India',
+    date: 'April 2012'
+  },
+  {
+    authors: 'Subash Chandran, M. D., Rao, G. R., Prakash Mesta, Bharath, H.A., Kumar, U., Ramachandra, T. V.',
+    title: 'Landslides in coastal Uttara Kannada: Management towards risk reduction.',
+    conference: 'Disaster, Risk Vulnerablity Conference 2011, School of Environmental Sciences, Mahatma Gandhi University',
+    location: 'India',
+    date: 'March 2011'
+  },
+  {
+    authors: 'Ramachandra, T. V., Bharath, H.A., Vinay, S., Kumar, U., Joshi, N. V., Venugopal Rao.',
+    title: 'Modelling Urbanisation pattern.',
+    conference: '30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
+    location: 'Bangalore, India',
+    date: 'November 2010'
+  },
+  {
+    authors: 'Bharath, H. A., Sannadurgappa, D., Ramachandra, T.V.',
+    title: 'Urban growth monitoring through spatio-temporal analysis.',
+    conference: 'Lake 2010: Wetlands, Biodiversity and Climate change, Satish Dhawan Auditorium, Indian Institute of Science',
+    location: 'Bangalore',
+    date: 'December 2011'
+  },
+  {
+    authors: 'Ramachandra T. V., Kumar, U., Bharath H. A., Diwakar P. G., Joshi, N. V.',
+    title: 'Landslide Susceptible Locations in Western Ghats: Prediction through open Modeller.',
+    conference: '26th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
+    location: 'Bangalore, India',
+    date: 'January 2010'
+  },
+  {
+    authors: 'Bharath, H. A., Kumar, U., Ramachandra T. V.',
+    title: 'Fusion of multi resolution remote sensing data for urban sprawl analysis.',
+    conference: 'COSMAR 2009, Department of Management Studies, Indian Institute of Science',
+    location: 'Bangalore, India',
+    date: 'November 2009'
+  }
 ];
 
 export const books: Book[] = [

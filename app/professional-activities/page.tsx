@@ -62,6 +62,10 @@ const coordinatedCourses = [
         title: 'Do It Yourself Lab',
         detail: '2020 - Present',
     },
+    {
+        title: 'Life Skills',
+        detail: 'Course Coordinator',
+    },
 ];
 
 const reviewerJournals = [
@@ -79,54 +83,38 @@ const reviewerJournals = [
     'SpringerPlus',
 ];
 
+// Board affiliations — three new entries at top, existing four below
 const editorialBoards = [
+    'Scientific Report – Area Editor',
+    'Indian Journal of Remote Sensing – Area Editor',
+    'PLOS Climate – Subject Editor',
     'Imperial International Journal',
     'International Journal of Computer Sciences and its Applications',
     'SF Journal of Environmental and Earth Science, Science Forecast Publication',
     'Open Urban Studies and Demography Journal',
 ];
 
-const highlights = [
-    { value: '09', label: 'Professional Memberships' },
-    { value: '06', label: 'Coordinated Courses & Labs' },
-    { value: '12', label: 'Reviewing Venues' },
-    { value: '04', label: 'Editorial Roles' },
-];
-
 export default function ProfessionalActivities() {
     return (
         <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
             <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1fr_24rem] lg:px-8 lg:py-16">
+                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
                             Professional Activities
                         </p>
-                        <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                        <h1
+                            className="font-bold leading-[1.1] tracking-tight text-slate-950"
+                            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+                        >
                             Academic service and professional engagement
                         </h1>
-                        <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Contributions through professional societies, course coordination,
                             journal peer review and editorial-board responsibilities across
                             geospatial science, environment and urban infrastructure.
                         </p>
                     </div>
-
-                    <aside className="border-t-2 border-slate-900 pt-6 lg:border-t-0 lg:border-l lg:border-slate-200 lg:pl-8 lg:pt-0 animate-fade-in-up delay-200">
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-                            Engagement Overview
-                        </p>
-                        <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
-                            {highlights.map((item) => (
-                                <div key={item.label} className="flex items-center justify-between gap-5 py-4">
-                                    <dt className="text-sm leading-6 text-slate-600">{item.label}</dt>
-                                    <dd className="shrink-0 text-lg font-semibold text-slate-950">
-                                        {item.value}
-                                    </dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </aside>
                 </div>
             </section>
 
@@ -149,12 +137,12 @@ export default function ProfessionalActivities() {
                             {memberships.map((membership, index) => (
                                 <li
                                     key={membership.organization}
-                                    className="grid grid-cols-[2.5rem_1fr] gap-3 py-5 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4 group"
+                                    className="grid grid-cols-[2.5rem_1fr] gap-3 py-5 transition-all duration-300 hover:bg-slate-100/50 rounded-lg group"
                                 >
                                     <span className="pt-1 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <div>
+                                    <div className="min-w-0">
                                         <h3 className="font-semibold leading-7 text-slate-950">
                                             {membership.organization}
                                         </h3>
@@ -219,12 +207,12 @@ export default function ProfessionalActivities() {
                             {reviewerJournals.map((journal, index) => (
                                 <li
                                     key={journal}
-                                    className="flex gap-4 border-b border-slate-200 py-5 last:border-b-0 sm:odd:pr-6 sm:even:border-l sm:even:pl-6 transition-all duration-300 hover:bg-slate-100/50 hover:px-3 rounded-lg"
+                                    className="flex gap-4 border-b border-slate-200 py-5 last:border-b-0 sm:odd:pr-6 sm:even:border-l sm:even:pl-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg"
                                 >
                                     <span className="shrink-0 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <p className="text-sm font-medium leading-7 text-slate-800">
+                                    <p className="text-sm font-medium leading-7 text-slate-800 min-w-0 break-words">
                                         {journal}
                                     </p>
                                 </li>
@@ -247,11 +235,11 @@ export default function ProfessionalActivities() {
 
                         <ol className="divide-y divide-slate-200 border-b border-slate-300">
                             {editorialBoards.map((board, index) => (
-                                <li key={board} className="flex gap-4 py-6 transition-all duration-300 hover:bg-slate-100/50 hover:px-4 rounded-lg -mx-4 group">
+                                <li key={board} className="flex gap-4 py-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg group">
                                     <span className="shrink-0 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
-                                    <p className="font-medium leading-7 text-slate-800">{board}</p>
+                                    <p className="font-medium leading-7 text-slate-800 min-w-0 break-words">{board}</p>
                                 </li>
                             ))}
                         </ol>
