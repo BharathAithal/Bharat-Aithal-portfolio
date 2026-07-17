@@ -350,15 +350,27 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
     const range = yearRange(student.startYear, student.endYear);
 
     return (
-        <li className="group rounded-2xl py-6 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:hover:px-4">
+        <li className="group rounded-3xl border border-slate-200/70 bg-white/75 px-4 py-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md sm:px-5 sm:py-7">
             {/* Mobile layout */}
-            <div className="flex items-start gap-3 sm:hidden">
-                <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
-                    {String(index + 1).padStart(2, '0')}
-                </span>
-                <div className="flex-1 min-w-0">
+            <div className="grid grid-cols-[5rem_1fr] gap-4 sm:hidden">
+                <div className="h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+                    {student.images && student.images.length > 0 && (
+                        <IKImage
+                            src={student.images[0]}
+                            alt={student.name}
+                            width={80}
+                            height={80}
+                            className="h-full w-full object-cover"
+                        />
+                    )}
+                </div>
+
+                <div className="min-w-0">
+                    <span className="text-xs font-semibold tracking-[0.2em] text-sky-700">
+                        {String(index + 1).padStart(2, '0')}
+                    </span>
                     <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="font-semibold leading-7 text-slate-950 text-base">{student.name}</h3>
+                        <h3 className="text-base font-semibold leading-7 text-slate-950">{student.name}</h3>
                         {student.status === 'Awarded' && (
                             <span className="border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
                                 PhD Awarded
@@ -386,32 +398,21 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     )}
                     <p className="mt-2 text-xs font-medium text-slate-400">{student.tenure}</p>
                 </div>
-                {student.images && student.images.length > 0 && (
-                    <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-xl shadow-sm">
-                        <IKImage
-                            src={student.images[0]}
-                            alt={student.name}
-                            width={64}
-                            height={64}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                )}
             </div>
 
             {/* Desktop/tablet layout */}
-            <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr] sm:gap-5 sm:items-start">
+            <div className="hidden sm:grid sm:grid-cols-[2.6rem_9.75rem_1fr] sm:gap-6 sm:items-start">
                 <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                     {String(index + 1).padStart(2, '0')}
                 </span>
 
-                <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
+                <div className="h-28 w-32 shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
                     {student.images && student.images.length > 0 ? (
                         <IKImage
                             src={student.images[0]}
                             alt={student.name}
-                            width={112}
-                            height={96}
+                            width={128}
+                            height={112}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     ) : (
@@ -651,14 +652,19 @@ export default function ResearchGroup() {
                         />
                         <ol className="mt-7 divide-y divide-slate-200/80">
                             {postdocFellows.map((fellow, index) => (
-                                <li key={fellow.name} className="rounded-2xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:hover:px-4">
+                                    <li key={fellow.name} className="group rounded-3xl border border-slate-200/70 bg-white/75 px-4 py-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md sm:px-5 sm:py-7">
                                     {/* Mobile */}
-                                    <div className="flex items-start gap-3 sm:hidden">
-                                        <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
-                                            {String(index + 1).padStart(2, '0')}
-                                        </span>
-                                        <div className="flex-1 min-w-0">
-                                            <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
+                                        <div className="grid grid-cols-[5rem_1fr] gap-4 sm:hidden">
+                                            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+                                                {fellow.images && fellow.images.length > 0 && (
+                                                    <IKImage src={fellow.images[0]} alt={fellow.name} width={80} height={80} className="w-full h-full object-cover" />
+                                                )}
+                                            </div>
+                                            <div className="min-w-0">
+                                                <span className="text-xs font-semibold tracking-[0.2em] text-sky-700">
+                                                    {String(index + 1).padStart(2, '0')}
+                                                </span>
+                                                <h3 className="font-semibold leading-7 text-slate-950">{fellow.name}</h3>
                                             <p className="mt-0.5 text-sm text-slate-500">
                                                 <span className="text-slate-400">({fellow.tenure})</span>
                                             </p>
@@ -667,20 +673,15 @@ export default function ResearchGroup() {
                                                 {fellow.currentJob}
                                             </p>
                                         </div>
-                                        {fellow.images && fellow.images.length > 0 && (
-                                            <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-xl shadow-sm">
-                                                <IKImage src={fellow.images[0]} alt={fellow.name} width={64} height={64} className="w-full h-full object-cover" />
-                                            </div>
-                                        )}
                                     </div>
                                     {/* Desktop */}
-                                    <div className="hidden sm:grid sm:grid-cols-[2.6rem_8rem_1fr] sm:gap-5 sm:items-start">
+                                        <div className="hidden sm:grid sm:grid-cols-[2.6rem_9.75rem_1fr] sm:gap-6 sm:items-start">
                                         <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
-                                        <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
+                                        <div className="h-28 w-32 shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
                                             {fellow.images && fellow.images.length > 0 ? (
-                                                <IKImage src={fellow.images[0]} alt={fellow.name} width={112} height={96} className="w-full h-full object-cover" />
+                                                <IKImage src={fellow.images[0]} alt={fellow.name} width={128} height={112} className="w-full h-full object-cover" />
                                             ) : (
                                                 <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs tracking-wide uppercase">Photo</div>
                                             )}
@@ -739,17 +740,17 @@ export default function ResearchGroup() {
                         />
                         {researchAssistants.length === 0 ? (
                             <div className="polish-card mt-7 p-6 rounded-2xl">
-                                <div className="flex flex-col sm:flex-row gap-4 items-start">
-                                    <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
+                                <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+                                    <div className="h-28 w-full max-w-[12rem] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm sm:w-32">
                                         <IKImage
                                             src={researchAssistantImage}
                                             alt="Research Assistant"
-                                            width={112}
-                                            height={96}
+                                            width={128}
+                                            height={112}
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-                                    <div className="text-center sm:text-left">
+                                    <div className="text-center sm:text-left sm:pt-2">
                                         <p className="text-sm text-slate-600"></p>
                                     </div>
                                 </div>
