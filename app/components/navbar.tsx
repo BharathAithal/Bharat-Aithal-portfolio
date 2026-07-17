@@ -19,11 +19,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close sidebar on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   // Lock body scroll when sidebar is open
   useEffect(() => {
     if (isOpen) {

@@ -16,7 +16,7 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="border-b border-slate-300 pb-5">
+    <div className="border-b border-slate-300/80 pb-5">
       <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
         {eyebrow}
       </p>
@@ -34,11 +34,11 @@ export function SectionHeading({
 
 export function PaperList({ papers }: { papers: Publication[] }) {
   return (
-    <ol className="divide-y divide-slate-200 border-b border-slate-300">
+    <ol className="content-panel divide-y divide-slate-200/80 p-4 sm:p-6">
       {papers.map((paper, index) => (
         <li
           key={`${paper.title}-${paper.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
+          className="group grid gap-3 rounded-xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:grid-cols-[2.6rem_1fr] sm:gap-5 sm:hover:px-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -87,11 +87,11 @@ export function PaperList({ papers }: { papers: Publication[] }) {
 
 export function ProceedingList({ proceedings }: { proceedings: ConferenceProceeding[] }) {
   return (
-    <ol className="divide-y divide-slate-200 border-b border-slate-300">
+    <ol className="content-panel divide-y divide-slate-200/80 p-4 sm:p-6">
       {proceedings.map((proc, index) => (
         <li
           key={`${proc.title}-${proc.date}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
+          className="group grid gap-3 rounded-xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 sm:hover:px-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -120,7 +120,7 @@ export function ProceedingList({ proceedings }: { proceedings: ConferenceProceed
 
 export function BookCard({ book, index }: { book: Book; index: number }) {
   return (
-    <div className="flex flex-col border border-slate-200 bg-white p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl">
+    <div className="polish-card flex flex-col p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 rounded-xl">
       <p className="text-sm font-semibold tracking-[0.16em] text-sky-700">
         {String(index + 1).padStart(2, '0')}
       </p>
@@ -141,11 +141,11 @@ export function BookCard({ book, index }: { book: Book; index: number }) {
 
 export function ChapterList({ chapters }: { chapters: BookChapter[] }) {
   return (
-    <ol className="divide-y divide-slate-200 border-b border-slate-300">
+    <ol className="content-panel divide-y divide-slate-200/80 p-4 sm:p-6">
       {chapters.map((ch, index) => (
         <li
           key={`${ch.title}-${ch.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
+          className="group grid gap-3 rounded-xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 sm:hover:px-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}
@@ -180,11 +180,11 @@ export function ChapterList({ chapters }: { chapters: BookChapter[] }) {
 
 export function ReportList({ reports }: { reports: TechnicalReport[] }) {
   return (
-    <ol className="divide-y divide-slate-200 border-b border-slate-300">
+    <ol className="content-panel divide-y divide-slate-200/80 p-4 sm:p-6">
       {reports.map((rep, index) => (
         <li
           key={`${rep.title}-${rep.year}`}
-          className="group grid gap-3 py-5 sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4"
+          className="group grid gap-3 rounded-xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:grid-cols-[2.6rem_1fr_auto] sm:gap-5 sm:hover:px-4"
         >
           <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
             {String(index + 1).padStart(2, '0')}

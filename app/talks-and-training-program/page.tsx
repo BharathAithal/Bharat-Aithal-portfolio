@@ -350,10 +350,10 @@ function AccordionSection({
     const [open, setOpen] = useState(defaultOpen);
 
     return (
-        <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        <div className="polish-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5">
             <button
                 onClick={() => setOpen((o) => !o)}
-                className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-slate-50"
+                className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-white/60"
                 aria-expanded={open}
             >
                 <div>
@@ -377,7 +377,7 @@ function AccordionSection({
             </button>
 
             {open && (
-                <div className="border-t border-slate-100 px-6 pb-6 pt-4">
+                <div className="relative border-t border-slate-100 px-6 pb-6 pt-4">
                     {children}
                 </div>
             )}
@@ -391,7 +391,7 @@ function BulletList({ activities }: { activities: Activity[] }) {
             {activities.map((activity) => (
                 <li
                     key={`${activity.title}-${activity.date}`}
-                    className="flex gap-3 rounded-lg p-3 transition-colors duration-200 hover:bg-slate-50"
+                    className="flex gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm"
                 >
                     <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-sky-400" aria-hidden="true" />
                     <div className="min-w-0 flex-1">
@@ -418,11 +418,11 @@ function BulletList({ activities }: { activities: Activity[] }) {
 
 export default function TalksAndTraining() {
     return (
-        <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
-            <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+        <main className="page-shell">
+            <section className="page-hero">
+                <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                        <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
                             Talks &amp; Training Programs
                         </p>
                         <h1
@@ -440,7 +440,7 @@ export default function TalksAndTraining() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
+            <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
                 <div className="space-y-4">
                     <AccordionSection
                         eyebrow="Conferences"

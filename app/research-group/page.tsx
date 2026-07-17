@@ -330,7 +330,7 @@ function SectionHeading({
     description?: string;
 }) {
     return (
-        <div className="border-b border-slate-300 pb-5">
+        <div className="border-b border-slate-300/80 pb-5">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
                 {eyebrow}
             </p>
@@ -350,7 +350,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
     const range = yearRange(student.startYear, student.endYear);
 
     return (
-        <li className="group py-6 transition-all duration-300 hover:bg-slate-100/50 sm:hover:px-4 rounded-lg sm:-mx-4">
+        <li className="group rounded-2xl py-6 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:hover:px-4">
             {/* Mobile layout */}
             <div className="flex items-start gap-3 sm:hidden">
                 <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
@@ -387,7 +387,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     <p className="mt-2 text-xs font-medium text-slate-400">{student.tenure}</p>
                 </div>
                 {student.images && student.images.length > 0 && (
-                    <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded">
+                    <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-xl shadow-sm">
                         <IKImage
                             src={student.images[0]}
                             alt={student.name}
@@ -405,7 +405,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     {String(index + 1).padStart(2, '0')}
                 </span>
 
-                <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
+                <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
                     {student.images && student.images.length > 0 ? (
                         <IKImage
                             src={student.images[0]}
@@ -485,11 +485,8 @@ function Carousel({ items }: { items: CarouselItem[] }) {
         return () => window.removeEventListener('resize', updateItemsPerView);
     }, []);
 
-    useEffect(() => {
-        setCurrentIndex(0);
-    }, [itemsPerView]);
-
     const totalSlides = Math.ceil(items.length / itemsPerView);
+    const activeIndex = Math.min(currentIndex, Math.max(totalSlides - 1, 0));
 
     useEffect(() => {
         if (isPaused || totalSlides <= 1) return;
@@ -500,8 +497,8 @@ function Carousel({ items }: { items: CarouselItem[] }) {
     }, [isPaused, totalSlides]);
 
     const currentItems = items.slice(
-        currentIndex * itemsPerView,
-        (currentIndex + 1) * itemsPerView
+        activeIndex * itemsPerView,
+        (activeIndex + 1) * itemsPerView
     );
 
     const handlePrev = () => {
@@ -540,8 +537,8 @@ function Carousel({ items }: { items: CarouselItem[] }) {
                     'grid-cols-5'
                 }`}>
                     {currentItems.map((item, idx) => (
-                        <div key={`${item.name}-${currentIndex}-${idx}`} className="min-w-0">
-                            <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full">
+                        <div key={`${item.name}-${activeIndex}-${idx}`} className="min-w-0">
+                            <div className="polish-card rounded-2xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
                                 <div className="relative bg-slate-50 overflow-hidden" style={{ aspectRatio: '4/3' }}>
                                     {item.image ? (
                                         <IKImage
@@ -586,7 +583,7 @@ function Carousel({ items }: { items: CarouselItem[] }) {
 
             {totalSlides > 1 && (
                 <div className="slide-counter" aria-live="polite" aria-atomic="true">
-                    <span className="current-slide">{currentIndex + 1}</span>
+                    <span className="current-slide">{activeIndex + 1}</span>
                     {' / '}
                     <span className="total-slides">{totalSlides}</span>
                 </div>
@@ -598,12 +595,12 @@ function Carousel({ items }: { items: CarouselItem[] }) {
 export default function ResearchGroup() {
     return (
         <ImageKitProvider urlEndpoint="https://ik.imagekit.io/krishdheniya">
-            <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
+            <main className="page-shell">
                 {/* Hero */}
-                <section className="border-b border-slate-200 bg-white">
-                    <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
-                        <div className="max-w-4xl">
-                            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                <section className="page-hero">
+                    <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+                        <div className="max-w-4xl animate-fade-in-up delay-100">
+                            <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
                                 Research Group
                             </p>
                             <h1
@@ -619,17 +616,28 @@ export default function ResearchGroup() {
                                 technologies.
                             </p>
                         </div>
+                        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 animate-fade-in-up delay-200">
+                            {highlights.map((item) => (
+                                <div key={item.label} className="polish-card rounded-2xl px-5 py-4">
+                                    <p className="text-3xl font-black tracking-tight text-slate-950">{item.value}</p>
+                                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                                        {item.label}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
-                <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16 overflow-x-hidden">
+                <section className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16 overflow-x-hidden animate-fade-in-up delay-300">
+                    <div className="content-panel p-5 sm:p-7 lg:p-8">
                     {/* Doctoral Students */}
                     <SectionHeading
                         eyebrow="Doctoral Students"
                         title="Doctoral Students (Current and Previous)"
                         description="Current and previous doctoral researchers pursuing and having completed their research at IIT Kharagpur."
                     />
-                    <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
+                    <ol className="mt-7 divide-y divide-slate-200/80">
                         {doctoralStudents.map((student, index) => (
                             <StudentRow key={student.name} student={student} index={index} />
                         ))}
@@ -641,9 +649,9 @@ export default function ResearchGroup() {
                             eyebrow="Postdoctoral Research"
                             title="Postdoctoral Research Fellow"
                         />
-                        <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
+                        <ol className="mt-7 divide-y divide-slate-200/80">
                             {postdocFellows.map((fellow, index) => (
-                                <li key={fellow.name} className="py-5">
+                                <li key={fellow.name} className="rounded-2xl py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm sm:hover:px-4">
                                     {/* Mobile */}
                                     <div className="flex items-start gap-3 sm:hidden">
                                         <span className="text-sm font-semibold tracking-[0.14em] text-sky-700 shrink-0 pt-1">
@@ -660,7 +668,7 @@ export default function ResearchGroup() {
                                             </p>
                                         </div>
                                         {fellow.images && fellow.images.length > 0 && (
-                                            <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded">
+                                            <div className="h-16 w-16 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-xl shadow-sm">
                                                 <IKImage src={fellow.images[0]} alt={fellow.name} width={64} height={64} className="w-full h-full object-cover" />
                                             </div>
                                         )}
@@ -670,7 +678,7 @@ export default function ResearchGroup() {
                                         <span className="text-sm font-semibold tracking-[0.14em] text-sky-700">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
-                                        <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
+                                        <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
                                             {fellow.images && fellow.images.length > 0 ? (
                                                 <IKImage src={fellow.images[0]} alt={fellow.name} width={112} height={96} className="w-full h-full object-cover" />
                                             ) : (
@@ -700,11 +708,11 @@ export default function ResearchGroup() {
                             title="Predoc Nptel Fellows"
                             description="Predoctoral fellows working under the NPTEL fellowship program."
                         />
-                        <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
+                        <ol className="mt-7 divide-y divide-slate-200/80">
                             {predocFellows.map((fellow, index) => (
                                 <li
                                     key={fellow.name}
-                                    className="flex items-center justify-between gap-4 py-4 transition-transform duration-200 hover:translate-x-1 group px-4 -mx-4 rounded-lg hover:bg-slate-100/50"
+                                    className="flex items-center justify-between gap-4 py-4 transition-all duration-200 hover:translate-x-1 group px-4 rounded-xl hover:bg-white/80 hover:shadow-sm"
                                 >
                                     <div className="flex items-center gap-4">
                                         <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
@@ -730,9 +738,9 @@ export default function ResearchGroup() {
                             description="Research assistants currently supporting the group's initiatives."
                         />
                         {researchAssistants.length === 0 ? (
-                            <div className="mt-7 p-6 bg-slate-100 rounded border border-slate-300">
+                            <div className="polish-card mt-7 p-6 rounded-2xl">
                                 <div className="flex flex-col sm:flex-row gap-4 items-start">
-                                    <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden">
+                                    <div className="h-24 w-28 shrink-0 bg-slate-100 border border-slate-200 overflow-hidden rounded-2xl shadow-sm">
                                         <IKImage
                                             src={researchAssistantImage}
                                             alt="Research Assistant"
@@ -747,7 +755,7 @@ export default function ResearchGroup() {
                                 </div>
                             </div>
                         ) : (
-                            <ol className="mt-7 divide-y divide-slate-200 border-b border-slate-300">
+                            <ol className="mt-7 divide-y divide-slate-200/80">
                                 {researchAssistants.map((name, index) => (
                                     <li key={name} className="flex items-center gap-4 py-3">
                                         <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
@@ -775,7 +783,7 @@ export default function ResearchGroup() {
                             title="Summer and Thesis interns (Completed/Current)"
                             description="Completed and current internship scholars contributing to the group's research initiatives."
                         />
-                        <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 sm:divide-x sm:divide-slate-200">
+                        <div className="content-panel mt-7 grid grid-cols-1 p-4 sm:grid-cols-2 sm:divide-x sm:divide-slate-200">
                             {/* Left column */}
                             <ol className="sm:pr-10">
                                 {summerInterns
@@ -783,7 +791,7 @@ export default function ResearchGroup() {
                                     .map((name, idx) => (
                                         <li
                                             key={`left-${idx}`}
-                                            className="flex items-baseline gap-4 border-b border-slate-200 py-3"
+                                            className="flex items-baseline gap-4 border-b border-slate-200 py-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm rounded-xl px-2"
                                         >
                                             <span className="w-8 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
                                                 {String(idx + 1).padStart(2, '0')}
@@ -802,7 +810,7 @@ export default function ResearchGroup() {
                                     .map((name, idx) => (
                                         <li
                                             key={`right-${idx}`}
-                                            className="flex items-baseline gap-4 border-b border-slate-200 py-3"
+                                            className="flex items-baseline gap-4 border-b border-slate-200 py-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm rounded-xl px-2"
                                         >
                                             <span className="w-8 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
                                                 {String(Math.ceil(summerInterns.length / 2) + idx + 1).padStart(2, '0')}
@@ -814,6 +822,7 @@ export default function ResearchGroup() {
                                     ))}
                             </ol>
                         </div>
+                    </div>
                     </div>
                 </section>
             </main>

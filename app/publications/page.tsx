@@ -51,7 +51,7 @@ function SectionBanner({
     <div className="mb-6">
       <button
         onClick={onToggle}
-        className="group relative flex w-full items-center justify-between overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-md sm:p-6"
+        className="group relative flex w-full items-center justify-between overflow-hidden rounded-2xl p-5 text-left shadow-[0_18px_42px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(15,23,42,0.18)] sm:p-6"
         aria-expanded={open}
         aria-controls={`section-${id}`}
         style={{ minHeight: '60px' }}
@@ -86,7 +86,7 @@ function SectionBanner({
         style={{ maxHeight: maxH }}
         className="overflow-hidden transition-[max-height] duration-400"
       >
-        <div className="mt-4 rounded-b-2xl bg-white p-6">
+        <div className="content-panel mt-4 p-6">
           {children}
         </div>
       </div>
@@ -132,11 +132,8 @@ function ImageSlider() {
     return () => window.removeEventListener('resize', updateSlides);
   }, []);
 
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [slidesToShow]);
-
   const totalPages = Math.ceil(sliderImages.length / slidesToShow);
+  const activePage = Math.min(currentPage, Math.max(totalPages - 1, 0));
 
   useEffect(() => {
     if (isPaused) return;
@@ -146,7 +143,7 @@ function ImageSlider() {
     return () => window.clearInterval(interval);
   }, [isPaused, totalPages]);
 
-  const visibleSlides = sliderImages.slice(currentPage * slidesToShow, currentPage * slidesToShow + slidesToShow);
+  const visibleSlides = sliderImages.slice(activePage * slidesToShow, activePage * slidesToShow + slidesToShow);
 
   const prevSlide = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   const nextSlide = () => setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -158,7 +155,7 @@ function ImageSlider() {
       </div>
 
       <div
-        className="relative mt-8 overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 px-4 py-8"
+        className="content-panel relative mt-8 overflow-hidden px-4 py-8"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
@@ -180,7 +177,7 @@ function ImageSlider() {
             {visibleSlides.map((src, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center overflow-hidden rounded-2xl bg-white shadow-sm flex-shrink-0 p-3 sm:p-4"
+                className="polish-card flex items-center justify-center overflow-hidden rounded-2xl flex-shrink-0 p-3 transition-all duration-300 hover:-translate-y-1 sm:p-4"
                 style={{
                   width: slidesToShow === 1 ? '100%' : `calc((100% - ${(slidesToShow - 1) * 12}px) / ${slidesToShow})`,
                   maxWidth: slidesToShow === 1 ? '260px' : '220px',
@@ -213,7 +210,7 @@ function ImageSlider() {
 
       {/* Slide counter — replaces dots */}
       <div className="slide-counter" aria-live="polite" aria-atomic="true">
-        <span className="current-slide">{currentPage + 1}</span>
+        <span className="current-slide">{activePage + 1}</span>
         {' / '}
         <span className="total-slides">{totalPages}</span>
       </div>
@@ -233,11 +230,11 @@ export default function Publications() {
   const toggle = (key: string) => setOpen((s) => ({ ...s, [key]: !s[key] }));
 
   return (
-    <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+    <main className="page-shell">
+      <section className="page-hero">
+        <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
           <div className="max-w-4xl animate-fade-in-up delay-100">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+            <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
               Research Output
             </p>
             <h1
@@ -253,7 +250,7 @@ export default function Publications() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
+      <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
         <SectionHeading eyebrow="Publications" title="Journal Articles" />
 
         <SectionBanner

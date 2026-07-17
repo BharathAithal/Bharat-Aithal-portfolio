@@ -24,14 +24,10 @@ const academicIds = [
 
 export default function Contact() {
     return (
-        <main className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#f1f5f9_48%,#eef2f7_100%)] text-slate-900">
-            <div className="pointer-events-none absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sky-100/60 blur-3xl animate-float-1" />
-            <div className="pointer-events-none absolute right-[-6rem] top-32 h-80 w-80 rounded-full bg-violet-100/50 blur-3xl animate-float-2" />
-            <div className="pointer-events-none absolute bottom-16 left-1/3 h-52 w-52 rounded-full bg-cyan-50/70 blur-3xl animate-float-3" />
-
-            <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+        <main className="page-shell">
+            <section className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                 <div className="mb-8 max-w-3xl lg:mb-12 animate-fade-in-up delay-100">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">
+                    <p className="eyebrow-pill mb-3 text-sm font-semibold uppercase tracking-[0.24em]">
                          Contact
                     </p>
                     <h1
@@ -48,7 +44,7 @@ export default function Contact() {
 
                 <div className="grid items-start gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-7 animate-fade-in-up delay-200">
                     <div className="space-y-5">
-                        <article className="rounded-[1.5rem] border border-white/80 bg-white/75 p-7 shadow-[0_20px_45px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+                        <article className="polish-card rounded-[1.5rem] p-7 transition-all duration-300 hover:-translate-y-0.5">
                             <h2 className="text-2xl font-semibold text-slate-900">
                                 Office Information
                             </h2>
@@ -83,7 +79,7 @@ export default function Contact() {
                         </article>
 
                         <div className="grid gap-5 md:grid-cols-2">
-                            <article className="rounded-[1.5rem] border border-white/80 bg-white/75 p-6 shadow-[0_18px_40px_rgba(15,23,42,0.07)] backdrop-blur transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <article className="polish-card rounded-[1.5rem] p-6 transition-all duration-300 hover:-translate-y-1">
                                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">
                                     Phone
                                 </p>
@@ -95,7 +91,7 @@ export default function Contact() {
                                 </a>
                             </article>
 
-                            <article className="rounded-[1.5rem] border border-white/80 bg-white/75 p-6 shadow-[0_18px_40px_rgba(15,23,42,0.07)] backdrop-blur transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <article className="polish-card rounded-[1.5rem] p-6 transition-all duration-300 hover:-translate-y-1">
                                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600">
                                     Email
                                 </p>
@@ -108,7 +104,7 @@ export default function Contact() {
                             </article>
                         </div>
 
-                        <article className="rounded-[1.5rem] border border-white/80 bg-white/75 p-7 shadow-[0_20px_45px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+                        <article className="polish-card rounded-[1.5rem] p-7 transition-all duration-300 hover:-translate-y-0.5">
                             <h2 className="text-2xl font-semibold text-slate-900">
                                 Academic Profiles
                             </h2>
@@ -145,7 +141,7 @@ export default function Contact() {
                     </div>
 
                     <div className="space-y-5">
-                        <article className="overflow-hidden rounded-[1.5rem] border border-white/80 bg-white/75 shadow-[0_20px_45px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+                        <article className="polish-card overflow-hidden rounded-[1.5rem] transition-all duration-300 hover:-translate-y-0.5">
                             <div className="border-b border-slate-200/80 px-5 py-5 sm:px-7 sm:py-6">
                                 <h2 className="text-2xl font-semibold text-slate-900">
                                     Location Map
@@ -166,7 +162,7 @@ export default function Contact() {
                             </div>
                         </article>
 
-                        <article className="rounded-[1.5rem] border border-white/80 bg-white/75 p-7 shadow-[0_20px_45px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+                        <article className="polish-card rounded-[1.5rem] p-7 transition-all duration-300 hover:-translate-y-0.5">
                             <h2 className="text-2xl font-semibold text-slate-900">
                                 Quick Details
                             </h2>

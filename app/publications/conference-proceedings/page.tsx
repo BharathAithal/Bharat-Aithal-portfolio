@@ -4,11 +4,11 @@ import { SectionHeading, ProceedingList } from "../components";
 
 export default function ConferenceProceedingsPage() {
   return (
-    <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-100">
+    <main className="page-shell">
+      <section className="page-hero">
+        <div className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-100">
           <div className="max-w-4xl">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+            <p className="eyebrow-pill mb-5 text-xs font-semibold uppercase tracking-[0.3em]">
               Publications
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
@@ -27,7 +27,7 @@ export default function ConferenceProceedingsPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-200">
+      <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-200">
         <SectionHeading eyebrow="Conference Proceedings" title="Conference contributions" />
         <div className="mt-7">
           <ProceedingList proceedings={conferenceProceedings} />

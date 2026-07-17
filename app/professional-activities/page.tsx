@@ -96,11 +96,11 @@ const editorialBoards = [
 
 export default function ProfessionalActivities() {
     return (
-        <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
-            <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+        <main className="page-shell">
+            <section className="page-hero">
+                <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                        <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
                             Professional Activities
                         </p>
                         <h1
@@ -118,7 +118,8 @@ export default function ProfessionalActivities() {
                 </div>
             </section>
 
-            <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
+            <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
+                <div className="content-panel p-5 sm:p-7 lg:p-8">
                 <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
                     <section aria-labelledby="memberships-heading">
                         <div className="border-b border-slate-300 pb-5">
@@ -137,7 +138,7 @@ export default function ProfessionalActivities() {
                             {memberships.map((membership, index) => (
                                 <li
                                     key={membership.organization}
-                                    className="grid grid-cols-[2.5rem_1fr] gap-3 py-5 transition-all duration-300 hover:bg-slate-100/50 rounded-lg group"
+                                    className="grid grid-cols-[2.5rem_1fr] gap-3 py-5 transition-all duration-300 hover:bg-white/80 hover:shadow-sm rounded-xl group"
                                 >
                                     <span className="pt-1 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
@@ -172,7 +173,7 @@ export default function ProfessionalActivities() {
                             {coordinatedCourses.map((course, index) => (
                                 <li
                                     key={course.title}
-                                    className="border border-slate-200 bg-white p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-xl"
+                                    className="polish-card p-5 transition-all duration-300 hover:-translate-y-1 rounded-xl"
                                 >
                                     <p className="text-sm font-semibold tracking-[0.16em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
@@ -207,7 +208,7 @@ export default function ProfessionalActivities() {
                             {reviewerJournals.map((journal, index) => (
                                 <li
                                     key={journal}
-                                    className="flex gap-4 border-b border-slate-200 py-5 last:border-b-0 sm:odd:pr-6 sm:even:border-l sm:even:pl-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg"
+                                    className="flex gap-4 border-b border-slate-200 py-5 last:border-b-0 sm:odd:pr-6 sm:even:border-l sm:even:pl-6 transition-all duration-300 hover:bg-white/80 hover:shadow-sm rounded-xl"
                                 >
                                     <span className="shrink-0 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
@@ -235,7 +236,7 @@ export default function ProfessionalActivities() {
 
                         <ol className="divide-y divide-slate-200 border-b border-slate-300">
                             {editorialBoards.map((board, index) => (
-                                <li key={board} className="flex gap-4 py-6 transition-all duration-300 hover:bg-slate-100/50 rounded-lg group">
+                                <li key={board} className="flex gap-4 py-6 transition-all duration-300 hover:bg-white/80 hover:shadow-sm rounded-xl group">
                                     <span className="shrink-0 text-sm font-semibold tracking-[0.14em] text-sky-700">
                                         {String(index + 1).padStart(2, '0')}
                                     </span>
@@ -244,6 +245,7 @@ export default function ProfessionalActivities() {
                             ))}
                         </ol>
                     </section>
+                </div>
                 </div>
             </section>
         </main>

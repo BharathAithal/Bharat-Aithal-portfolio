@@ -25,12 +25,12 @@ const marqueeAll = [...projectTitles, ...projectTitles];
 
 export default function Projects() {
     return (
-        <main className="min-h-[calc(100vh-73px)] bg-slate-50 text-slate-900">
+        <main className="page-shell">
             {/* Page header */}
-            <section className="border-b border-slate-200 bg-white">
-                <div className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
+            <section className="page-hero">
+                <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">
+                        <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
                             Projects
                         </p>
                         <h1
@@ -49,7 +49,7 @@ export default function Projects() {
             </section>
 
             {/* Animated marquee */}
-            <section className="py-16 lg:py-24 overflow-hidden animate-fade-in-up delay-200">
+            <section className="relative z-10 py-16 lg:py-24 overflow-hidden animate-fade-in-up delay-200">
                 <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8 mb-10">
                     <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700 text-center">
                         Funded Research
@@ -65,7 +65,7 @@ export default function Projects() {
                         {marqueeAll.map((name, i) => (
                             <div
                                 key={`m-${i}`}
-                                className="inline-flex shrink-0 items-center rounded-2xl border border-sky-100 bg-white px-6 py-4 shadow-sm"
+                                className="polish-card inline-flex shrink-0 items-center rounded-2xl px-6 py-4 transition-all duration-300 hover:-translate-y-1"
                                 style={{ maxWidth: '480px' }}
                             >
                                 <span className="mr-3 h-2 w-2 rounded-full bg-sky-400 shrink-0" />
@@ -79,12 +79,12 @@ export default function Projects() {
             </section>
 
             {/* Staggered card grid with agency */}
-            <section className="mx-auto w-full max-w-7xl px-4 pb-16 md:px-6 lg:px-8 lg:pb-24 animate-fade-in-up delay-300">
+            <section className="page-container pb-16 md:px-6 lg:px-8 lg:pb-24 animate-fade-in-up delay-300">
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {projectTitles.map((title, index) => (
                         <div
                             key={title}
-                            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-sky-200"
+                            className="polish-card group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
                         >
                             <div className="absolute right-4 top-4 text-5xl font-black text-slate-50 select-none group-hover:text-sky-50 transition-colors duration-300">
                                 {String(index + 1).padStart(2, '0')}
