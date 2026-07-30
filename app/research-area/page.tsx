@@ -11,6 +11,8 @@ const researchAreaNames: string[] = [
     'Night Time Urban Data Analysis – Development of Automatic Classifiers',
     'Hyperspectral Urban Data Mining',
     'Environmental Analysis and Management',
+    'ML/DL Application in Urban Resilience and Pattern Recognition',
+    'Disaster Management'
 ];
 
 // Duplicate for seamless infinite scroll
@@ -31,11 +33,11 @@ export default function ResearchArea() {
                             className="font-bold leading-[1.1] tracking-tight text-slate-950"
                             style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
                         >
-                            Urban intelligence, climate and geospatial research
+                            Energy and Urban Research Group
                         </h1>
                         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Ten research areas spanning urban data, city morphology, surface
-                            heat dynamics, remote sensing and environmental planning.
+                            heat dynamics, remote sensing and environmental planning
                         </p>
                     </div>
                 </div>

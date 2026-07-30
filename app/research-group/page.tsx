@@ -12,9 +12,15 @@ type DoctoralStudent = {
     researchArea: string;
     qualification: string;
     thesisTitle?: string;
+    graduatingYear?: string; // Added per Section 8 updates
     currentJob?: string;
     email?: string;
     images?: string[];
+};
+
+type ThesisSubmitted = {
+    title: string;
+    note?: string;
 };
 
 type PostdocFellow = {
@@ -45,6 +51,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.U.R.P. (Town & Regional Planning)',
         thesisTitle:
             'A Methodology for Prioritizing Critical Infrastructures for Urban Flood-Prone Areas: A Case of Guwahati, Assam',
+        graduatingYear: '2021',
         currentJob: 'Assistant Professor, Indian Institute of Technology Roorkee',
         images: [`${RS_FOLDER}/1.jpg`],
     },
@@ -58,6 +65,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Tech. (Remote Sensing and GIS)',
         thesisTitle:
             'Urban Land Use Modelling and Developing a Framework of Spatial Decision Support System for Indian Cities',
+        graduatingYear: '2021',
         currentJob: 'Assistant Professor, National Institute of Technology Suratkal',
         images: [`${RS_FOLDER}/2.jpg`],
     },
@@ -70,6 +78,7 @@ const doctoralStudents: DoctoralStudent[] = [
         researchArea: 'Building Extraction Using Deep Learning Methods',
         qualification: 'M.Tech. (Remote Sensing and GIS)',
         thesisTitle: 'Urban Structure Extraction Using Soft Computing Techniques',
+        graduatingYear: '2021',
         currentJob:
             'Research Associate, Irish Centre for High End Computing (ICHEC), NUI Galway',
         images: [`${RS_FOLDER}/3.jpg`],
@@ -84,6 +93,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Tech. (Environmental Science and Technology)',
         thesisTitle:
             'Estimating and Forecasting Land Surface Temperature Responses to Altering Urban Landscape',
+        graduatingYear: '2021',
         currentJob:
             'Senior Associate, Adaptation and Risk Analysis Team, CSTEP',
         images: [`${RS_FOLDER}/4.jpg`],
@@ -98,6 +108,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'MCP',
         thesisTitle:
             'Flood Resilient Scenario Modelling (FReSMO) For Assessing Coastal Flood Risk Of Built Infrastructure',
+        graduatingYear: '2021',
         currentJob:
             'Analyst – Research and Knowledge Management, Coalition for Disaster Resilient Infrastructure',
         images: [`${RS_FOLDER}/5.jpg`],
@@ -110,6 +121,8 @@ const doctoralStudents: DoctoralStudent[] = [
         endYear: 'current',
         researchArea: 'Hyperspectral Image Segmentation and Classification',
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
+        thesisTitle: '[TBD — to be filled in by professor]',
+        graduatingYear: '2021',
         currentJob: 'Assistant Professor, Reva Institute of Technology',
         email: 'ramthilak@iitkgp.ac.in',
         images: [`${RS_FOLDER}/6.jpg`],
@@ -124,7 +137,8 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'Integrated Geoinformatics (B.Tech – M.Tech)',
         thesisTitle:
             'Developing a Framework for Road Feature Information Extraction from Remotely Sensed Data',
-        currentJob: 'Research Scientist, TCS',
+        graduatingYear: '2021',
+        currentJob: 'Research Scientist, Tata Consultancy Services (TCS)',
         images: [`${RS_FOLDER}/7.png`],
     },
     {
@@ -137,17 +151,20 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
         thesisTitle:
             'Developing Deep Learning-Based Methods for Enhanced Integration of Land Use and Transportation Model',
-        currentJob: 'Assistant Professor, SGT University',
+        graduatingYear: '2021',
+        currentJob: 'Assistant Professor, Shree Guru Gobind Singh Tricentenary University (SGT University)',
         images: [`${RS_FOLDER}/8.jpg`],
     },
     {
         name: 'Anita Gautam',
-        status: 'Current',
-        tenure: 'Autumn 2021 –',
+        status: 'Awarded',
+        tenure: 'Autumn 2021 – Autumn 2026',
         startYear: '2021',
-        endYear: 'current',
+        endYear: '2026',
         researchArea: 'Urban Remote Sensing',
         qualification: 'M.Tech, Remote Sensing',
+        thesisTitle: 'Urban Land Use Modelling with High-Resolution Remote Sensing Data: A Comprehensive Methodological Approach',
+        graduatingYear: '2026',
         email: 'gautama076@kgpian.iitkgp.ac.in',
         images: [`${RS_FOLDER}/9.jpg`],
     },
@@ -159,10 +176,11 @@ const doctoralStudents: DoctoralStudent[] = [
         endYear: '2026',
         researchArea:
             'Scientific Validation of Vastu Shastra Through Building IEQ and Energy Efficiency Studies',
-        qualification: 'M.Arch, School of Planning and Architecture, Bhopal',
+        qualification: 'M.Arch, School of Planning and Architecture Bhopal (SPA Bhopal)',
         thesisTitle:
             'Thermal Comfort in Vastu Compliant vs Vastu Non-Compliant Residential Buildings: Development of a Vastu Based Assessment Framework',
-        currentJob: 'Assistant Professor, SPA Bhopal',
+        graduatingYear: '2021',
+        currentJob: 'Assistant Professor, School of Planning and Architecture Bhopal (SPA Bhopal)',
         images: [`${RS_FOLDER}/10.jpg`],
     },
     {
@@ -199,6 +217,12 @@ const doctoralStudents: DoctoralStudent[] = [
             'M.Sc, Geography, University of Calcutta; M.Tech, Remote Sensing and GIS, Indian Institute of Remote Sensing',
         email: 'SUKANYAM10425@KGPIAN.IITKGP.AC.IN',
         images: [`${RS_FOLDER}/13.jpg`],
+    },
+];
+
+const thesisSubmitted: ThesisSubmitted[] = [
+    {
+        title: 'Urban Land Use Modelling with High-Resolution Remote Sensing Data: A Comprehensive Methodological Approach',
     },
 ];
 
@@ -385,6 +409,11 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-6 text-slate-600 italic">&ldquo;{student.thesisTitle}&rdquo;</p>
                     )}
+                    {student.graduatingYear && (
+                        <p className="mt-1 text-xs font-semibold text-emerald-700">
+                            Graduating Year: {student.graduatingYear}
+                        </p>
+                    )}
                     {student.currentJob && (
                         <p className="mt-1 text-sm text-slate-600">
                             <span className="font-semibold text-slate-700">Current Position:</span>{' '}
@@ -438,7 +467,12 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     </p>
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-7 text-slate-600 italic">
-                            &ldquo;{student.thesisTitle}&rdquo;
+                            <span className="font-semibold text-slate-700 not-italic">Thesis Title : </span>&ldquo;{student.thesisTitle}&rdquo;
+                        </p>
+                    )}
+                    {student.graduatingYear && (
+                        <p className="mt-1 text-xs font-semibold text-emerald-700">
+                            Graduating Year: {student.graduatingYear}
                         </p>
                     )}
                     {student.currentJob && (
@@ -614,7 +648,7 @@ export default function ResearchGroup() {
                                 Current and previous doctoral researchers, postdoctoral fellows,
                                 and alumni working across urban remote sensing, disaster
                                 management, land surface modelling, and open geospatial
-                                technologies.
+                                technologies
                             </p>
                         </div>
                         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 animate-fade-in-up delay-200">
@@ -823,6 +857,35 @@ export default function ResearchGroup() {
                                     ))}
                             </ol>
                         </div>
+                    </div>
+
+                    {/* Thesis Submitted */}
+                    <div className="mt-14 border-t border-slate-300 pt-12">
+                        <SectionHeading
+                            eyebrow="Thesis Submitted"
+                            title="Thesis Submitted"
+                            description="Doctoral theses submitted and under evaluation."
+                        />
+                        <ol className="mt-7 divide-y divide-slate-200/80">
+                            {thesisSubmitted.map((item, index) => (
+                                <li
+                                    key={item.title}
+                                    className="flex items-start gap-4 py-5 transition-all duration-200 hover:translate-x-1 group px-4 rounded-xl hover:bg-white/80 hover:shadow-sm"
+                                >
+                                    <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                    <div className="min-w-0">
+                                        <p className="text-sm font-semibold leading-7 text-slate-900 group-hover:text-sky-700 transition-colors duration-200 italic">
+                                            &ldquo;{item.title}&rdquo;
+                                        </p>
+                                        {item.note && (
+                                            <p className="mt-1 text-xs text-slate-500">{item.note}</p>
+                                        )}
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
                     </div>
                     </div>
                 </section>

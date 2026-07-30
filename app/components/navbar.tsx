@@ -57,7 +57,7 @@ export default function Navbar() {
             className="shrink-0 text-lg font-black tracking-tight text-slate-900 hover:text-sky-600"
             style={{ minHeight: "44px", display: "flex", alignItems: "center" }}
           >
-            bharath.
+            Bharath H Aithal
           </Link>
 
           {/* Desktop nav — visible at 1024px+ */}
@@ -166,7 +166,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="text-xl font-black tracking-tight text-slate-900 hover:text-sky-600"
             >
-              bharath.
+              Bharath H Aithal
             </Link>
           </div>
 

@@ -38,7 +38,7 @@ export default function Contact() {
                     </h1>
                     <p className="mt-4 text-base leading-8 text-slate-500 sm:text-lg">
                         Associate Professor, Ranbir &amp; Chitra Gupta School of Infrastructure
-                        Design and Management, IIT Kharagpur.
+                        Design and Management, IIT Kharagpur
                     </p>
                 </div>
 
