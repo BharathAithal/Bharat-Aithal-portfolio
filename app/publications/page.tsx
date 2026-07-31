@@ -288,7 +288,7 @@ export default function Publications() {
           id="papers"
           title="Journal(s)"
           eyebrow="Category 3"
-          bg="https://images.unsplash.com/photo-1526378725037-1d3f3a0f6c5f?q=80&w=1600&auto=format&fit=crop"
+          bg="https://ik.imagekit.io/krishdheniya/images/alumni/IMG-20260731-WA0009.jpg"
           open={!!open.papers}
           onToggle={() => toggle('papers')}
         >

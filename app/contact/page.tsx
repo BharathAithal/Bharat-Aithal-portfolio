@@ -11,10 +11,6 @@ const profileLinks = [
         label: "ORCID",
         href: "https://orcid.org/0000-0002-4323-6254",
     },
-    {
-        label: "SWAUT Website",
-        href: "http://swaut.co.in/about-us",
-    },
 ];
 
 const academicIds = [
