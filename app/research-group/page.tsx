@@ -5,7 +5,7 @@ import { Image as IKImage, ImageKitProvider } from '@imagekit/next';
 
 type DoctoralStudent = {
     name: string;
-    status: 'Awarded' | 'Current';
+    status: 'Awarded' | 'Current' | 'Thesis Submitted';
     tenure: string;
     startYear: string;
     endYear: string; // 'current' for ongoing students
@@ -16,11 +16,6 @@ type DoctoralStudent = {
     currentJob?: string;
     email?: string;
     images?: string[];
-};
-
-type ThesisSubmitted = {
-    title: string;
-    note?: string;
 };
 
 type PostdocFellow = {
@@ -93,7 +88,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Tech. (Environmental Science and Technology)',
         thesisTitle:
             'Estimating and Forecasting Land Surface Temperature Responses to Altering Urban Landscape',
-        graduatingYear: '2021',
+        graduatingYear: '2022',
         currentJob:
             'Senior Associate, Adaptation and Risk Analysis Team, CSTEP',
         images: [`${RS_FOLDER}/4.jpg`],
@@ -108,7 +103,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'MCP',
         thesisTitle:
             'Flood Resilient Scenario Modelling (FReSMO) For Assessing Coastal Flood Risk Of Built Infrastructure',
-        graduatingYear: '2021',
+        graduatingYear: '2023',
         currentJob:
             'Analyst – Research and Knowledge Management, Coalition for Disaster Resilient Infrastructure',
         images: [`${RS_FOLDER}/5.jpg`],
@@ -118,11 +113,10 @@ const doctoralStudents: DoctoralStudent[] = [
         status: 'Current',
         tenure: 'Autumn 2018 –',
         startYear: '2018',
-        endYear: 'current',
+        endYear: '2024',
         researchArea: 'Hyperspectral Image Segmentation and Classification',
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
-        thesisTitle: '[TBD — to be filled in by professor]',
-        graduatingYear: '2021',
+        graduatingYear: '2024',
         currentJob: 'Assistant Professor, Reva Institute of Technology',
         email: 'ramthilak@iitkgp.ac.in',
         images: [`${RS_FOLDER}/6.jpg`],
@@ -137,7 +131,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'Integrated Geoinformatics (B.Tech – M.Tech)',
         thesisTitle:
             'Developing a Framework for Road Feature Information Extraction from Remotely Sensed Data',
-        graduatingYear: '2021',
+        graduatingYear: '2024',
         currentJob: 'Research Scientist, Tata Consultancy Services (TCS)',
         images: [`${RS_FOLDER}/7.png`],
     },
@@ -151,20 +145,19 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Tech, Remote Sensing and Geographic Information System',
         thesisTitle:
             'Developing Deep Learning-Based Methods for Enhanced Integration of Land Use and Transportation Model',
-        graduatingYear: '2021',
+        graduatingYear: '2025',
         currentJob: 'Assistant Professor, Shree Guru Gobind Singh Tricentenary University (SGT University)',
         images: [`${RS_FOLDER}/8.jpg`],
     },
     {
         name: 'Anita Gautam',
-        status: 'Awarded',
-        tenure: 'Autumn 2021 – Autumn 2026',
+        status: 'Thesis Submitted',
+        tenure: 'Autumn 2021 –',
         startYear: '2021',
-        endYear: '2026',
+        endYear: 'current',
         researchArea: 'Urban Remote Sensing',
         qualification: 'M.Tech, Remote Sensing',
         thesisTitle: 'Urban Land Use Modelling with High-Resolution Remote Sensing Data: A Comprehensive Methodological Approach',
-        graduatingYear: '2026',
         email: 'gautama076@kgpian.iitkgp.ac.in',
         images: [`${RS_FOLDER}/9.jpg`],
     },
@@ -179,7 +172,7 @@ const doctoralStudents: DoctoralStudent[] = [
         qualification: 'M.Arch, School of Planning and Architecture Bhopal (SPA Bhopal)',
         thesisTitle:
             'Thermal Comfort in Vastu Compliant vs Vastu Non-Compliant Residential Buildings: Development of a Vastu Based Assessment Framework',
-        graduatingYear: '2021',
+        graduatingYear: '2026',
         currentJob: 'Assistant Professor, School of Planning and Architecture Bhopal (SPA Bhopal)',
         images: [`${RS_FOLDER}/10.jpg`],
     },
@@ -217,12 +210,6 @@ const doctoralStudents: DoctoralStudent[] = [
             'M.Sc, Geography, University of Calcutta; M.Tech, Remote Sensing and GIS, Indian Institute of Remote Sensing',
         email: 'SUKANYAM10425@KGPIAN.IITKGP.AC.IN',
         images: [`${RS_FOLDER}/13.jpg`],
-    },
-];
-
-const thesisSubmitted: ThesisSubmitted[] = [
-    {
-        title: 'Urban Land Use Modelling with High-Resolution Remote Sensing Data: A Comprehensive Methodological Approach',
     },
 ];
 
@@ -331,6 +318,9 @@ const summerInterns: string[] = [
     'Anoushka Anand',
     'Rhine Nath',
     'Aishwarya N',
+    'Krish Dheniya',
+    'Pranav Pathak',
+    'Sushabhan Majumdar',
 ];
 
 const highlights = [
@@ -400,6 +390,11 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                                 PhD Awarded
                             </span>
                         )}
+                        {student.status === 'Thesis Submitted' && (
+                            <span className="border border-blue-100 bg-blue-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700">
+                                Thesis Submitted
+                            </span>
+                        )}
                     </div>
                     <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
                     <p className="mt-0.5 text-xs text-slate-500">
@@ -457,6 +452,11 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         {student.status === 'Awarded' && (
                             <span className="border border-emerald-100 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
                                 PhD Awarded
+                            </span>
+                        )}
+                        {student.status === 'Thesis Submitted' && (
+                            <span className="border border-blue-100 bg-blue-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-blue-700">
+                                Thesis Submitted
                             </span>
                         )}
                     </div>
@@ -857,35 +857,6 @@ export default function ResearchGroup() {
                                     ))}
                             </ol>
                         </div>
-                    </div>
-
-                    {/* Thesis Submitted */}
-                    <div className="mt-14 border-t border-slate-300 pt-12">
-                        <SectionHeading
-                            eyebrow="Thesis Submitted"
-                            title="Thesis Submitted"
-                            description="Doctoral theses submitted and under evaluation."
-                        />
-                        <ol className="mt-7 divide-y divide-slate-200/80">
-                            {thesisSubmitted.map((item, index) => (
-                                <li
-                                    key={item.title}
-                                    className="flex items-start gap-4 py-5 transition-all duration-200 hover:translate-x-1 group px-4 rounded-xl hover:bg-white/80 hover:shadow-sm"
-                                >
-                                    <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <div className="min-w-0">
-                                        <p className="text-sm font-semibold leading-7 text-slate-900 group-hover:text-sky-700 transition-colors duration-200 italic">
-                                            &ldquo;{item.title}&rdquo;
-                                        </p>
-                                        {item.note && (
-                                            <p className="mt-1 text-xs text-slate-500">{item.note}</p>
-                                        )}
-                                    </div>
-                                </li>
-                            ))}
-                        </ol>
                     </div>
                     </div>
                 </section>
