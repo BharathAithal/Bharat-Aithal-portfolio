@@ -9,331 +9,639 @@ type Activity = {
     role?: string;
 };
 
+type PopularArticle = {
+    text: string;
+};
+
+// ——————————————————————————————————————
+// 1. Keynote Addresses & Sessions Chaired (12 items)
+// ——————————————————————————————————————
 const conferenceRoles: Activity[] = [
     {
-        title: 'Modelling and Development of Urban Corridors in India',
-        context: 'APN Indo-China Workshop, Chongqing, China',
+        title: '"Urbanisation in India: Through Technology Lenses"',
+        context: 'ICWEES 2025, NIT Puducherry, India',
+        date: 'April 2025',
+        role: 'Keynote Address',
+    },
+    {
+        title: '"Geospatial data and its Challenges"',
+        context: "LAKE 2024, Alva's Educational Institute, India",
+        date: 'November 2024',
+        role: 'Keynote Address',
+    },
+    {
+        title: '"TH2.R11: Large-Scale Earth Observation Data Management and Feature Extraction from Remote Sensing Images"',
+        context: 'IEEE IGARSS 2023, Pasadena, USA',
+        role: 'Session Chaired',
+    },
+    {
+        title: '"Development Model Simulation and Visualisation — A process of developing a Decision Support System"',
+        context: 'Lake 2020, Indian Institute of Science, Bangalore, India',
+        date: '30 December 2020',
+        role: 'Keynote Address',
+    },
+    {
+        title: '"Modelling and development of Urban corridors in India"',
+        context: 'APN Indo China workshop, Chongqing, China',
         date: '10 May 2017',
         role: 'Featured Address',
     },
     {
-        title: 'Vision Towards Development of an Urban Observatory - IIT Kharagpur',
+        title: '"Vision towards development of an Urban observatory – IIT Kharagpur"',
         context: "Lake 2016, Alva's College, Moodabidri, Karnataka, India",
         date: '29 December 2016',
         role: 'Keynote Address',
     },
     {
-        title: 'Technology and Nature: Insight into the Urban World Using Space Technologies',
+        title: 'Science and Education in Innovit 20xv',
+        context: 'Sri Aurobindo College for Women, Bangalore, India',
+        date: '1 September 2015',
+        role: 'Chief Guest',
+    },
+    {
+        title: '"Technology and Nature" — insight into urban world using Space Technologies',
         context:
             '2nd National Conference on Recent Advances in Computer Sciences (NCRACS-2015), Sri Krishna College of Engineering and Technology, Coimbatore, India',
         date: '16 April 2015',
         role: 'Keynote Address',
     },
     {
-        title: 'Modelling and Geo-visualisation of Urban Growth',
+        title: 'Theme 2: Research advances in computer technology',
+        context:
+            '2nd National Conference on Recent Advances in Computer Sciences (NCRACS-2015), Sri Krishna College of Engineering and Technology, Coimbatore, India',
+        role: 'Session Chaired',
+    },
+    {
+        title: '"Modelling and Geo-visualisation of Urban Growth"',
         context: 'Lake 2014, Sirsi, Karnataka, India',
         date: '15 November 2014',
         role: 'Keynote Address',
     },
     {
-        title: 'Research Advances in Computer Technology',
+        title: 'Theme: Urban Dynamics',
         context:
-            'Theme 2, 2nd National Conference on Recent Advances in Computer Sciences (NCRACS-2015), Sri Krishna College of Engineering and Technology, Coimbatore, India',
+            'Lake 2014, Conference on Conservation and Sustainable Management of Wetland Ecosystems in Western Ghats, Parisara Auditorium, Swarnavalli, Sirsi, Uttara Kannada, Karnataka, India',
         role: 'Session Chaired',
     },
     {
-        title: 'Urban Dynamics',
+        title:
+            'Theme 13: Open-source GIS, applications of Geo informatics in conservation and management',
         context:
-            'Lake 2014: Conference on Conservation and Sustainable Management of Wetland Ecosystems in Western Ghats, Parisara Auditorium, Swarnavalli, Sirsi, Uttara Kannada, Karnataka, India',
-        role: 'Session Chaired',
-    },
-    {
-        title: 'Open Source GIS: Applications of Geoinformatics in Conservation and Management',
-        context:
-            'Theme 13, Lake 2010: Wetlands, Biodiversity and Climate Change, CiSTUP Seminar Hall and Satish Dhawan Auditorium, Indian Institute of Science, Bangalore, India',
+            'CiSTUP Seminar Hall, Lake 2010: Wetlands, Biodiversity and Climate Change, Satish Dhawan Auditorium, Indian Institute of Science, Bangalore',
         date: '23 December 2010',
         role: 'Session Chaired',
     },
 ];
 
+// ——————————————————————————————————————
+// 2. Invited / Guest Lectures (40 items)
+// ——————————————————————————————————————
 const invitedLectures: Activity[] = [
     {
-        title: 'Fusion of Multi-resolution Data for Urban Sprawl Analysis',
+        title: '"Fusion of multi resolution data for urban sprawl analysis"',
         context:
-            'Open Source GIS in India Discussion Meeting, Centre for Infrastructure, Sustainable Transport and Urban Planning, Indian Institute of Science, Bangalore, India',
+            'Open-Source GIS in India Discussion Meeting, Centre for Infrastructure, Sustainable Transport and Urban Planning, Indian Institute of Science, Bangalore, India',
         date: '16 November 2009',
     },
     {
-        title: 'Urbanization and Sprawl',
+        title: '"Urbanization and Sprawl"',
         context:
             "Student's Symposium, Centre for Sustainable Technologies, Indian Institute of Science, Bangalore, India",
         date: '24 November 2010',
     },
     {
-        title: 'Geospatial Data Analysis: Techniques and Tools for Resource Management',
+        title:
+            '"Geospatial Data Analysis: Techniques and Tools for Resource Management"',
         context:
             'IISc-Microsoft Workshop, KSCST Seminar Hall, Indian Institute of Science, Bangalore, India',
         date: '9 February 2009',
     },
     {
-        title: 'Understanding Urban Dynamics Through Landscape Indices',
+        title: '"Understanding urban dynamics through Landscape indices"',
         context:
-            'CES In-house Symposium, New Biological Science Auditorium, Indian Institute of Science, Bangalore, India',
-        date: '2-3 November 2012',
+            'CES In-house Symposium, New Biological Science Auditorium, Indian Institute of Science, Bangalore',
+        date: '2–3 November 2012',
     },
     {
-        title: 'Environment Modeling and Simulation Through FOSS',
+        title: '"Environment modeling and simulation through FOSS"',
         context: 'Environmental Simulation and Modeling session, NCAR 2010, Hyderabad, India',
         date: '2010',
     },
     {
-        title: 'Digital Image Pre-processing, Satellite Data and Remote Sensing',
+        title: 'Lectures on Digital Image pre-processing, Satellite data, Remote sensing',
         context:
-            'Remote Sensing & GIS, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: '17-21 September 2010',
+            '"Remote Sensing & GIS", Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: '17–21 September 2010',
     },
     {
-        title: 'Environmental Impact Assessment: Documentation and Process',
+        title: 'Lectures on Environmental Impact Assessment and EIA documentation and process',
         context:
-            'Environmental Management, Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: '23-28 December 2010',
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: '23–28 December 2010',
     },
     {
-        title: 'Environmental Management System Standards and Management Techniques',
+        title:
+            'Lectures on Environmental Management System standards, Environmental Management techniques',
         context:
-            'Environmental Management, Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: '23-28 December 2011',
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: '23–28 December 2011',
     },
     {
-        title: 'Introduction to GRASS and Image Fusion',
+        title: 'Lectures on Introduction to GRASS, Introduction to Image fusion',
         context:
-            'Free and Open Source Software in FOSS4G, Centre for Infrastructure, Transportation and Urban Planning, Indian Institute of Science, Bangalore, India',
-        date: '1-5 May 2011',
+            '"Free and Open Source Software" in FOSS4G, Centre for Infrastructure, Transportation and Urban Planning, Indian Institute of Science, Bangalore, India',
+        date: '1–5 May 2011',
     },
     {
-        title: 'Life Cycle Assessment and Environmental Management System Standards',
+        title: 'Lectures on Life cycle assessment, Environmental Management System standards',
         context:
-            'Environmental Management, Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: 'August-December 2012',
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August–December 2012',
     },
     {
-        title: 'Urbanisation and Urban Sprawl Quantification',
+        title: '"Urbanisation, Urban sprawl quantification"',
         context: 'JAYAM College of Engineering, Dharmapuri, Tamil Nadu, India',
-        date: '26-28 June 2012',
+        date: '26–28 June 2012',
     },
     {
-        title: "A Bird's-eye View into Remote Sensing, Image Processing and Using GRASS",
+        title:
+            '"A Bird eye view into remote sensing, image processing and using GRASS"',
         context: 'KSCA, Bangalore, India',
         date: '3 November 2012',
     },
     {
-        title: 'Life Cycle Assessment and Environmental Management System Standards',
+        title: 'Lectures on Life cycle assessment, Environmental Management System standards',
         context:
-            'Environmental Management, Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: 'August-December 2013',
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August–December 2013',
     },
     {
-        title: 'Introduction and Applications of Remote Sensing and Image Processing',
-        context: 'Department of Civil Engineering, Karunya University, Coimbatore, India',
-        date: '10-13 January 2013',
+        title:
+            '"Introduction and applications of Remote sensing and Image processing"',
+        context: 'Civil Department, Karunya University, Coimbatore, India',
+        date: '10–13 January 2013',
     },
     {
-        title: 'Introduction to Remote Sensing and Free and Open Source Software: GRASS and QGIS',
+        title:
+            'Lectures on Introduction to Remote Sensing, free and open source software (GRASS, QGIS)',
         context:
-            'Using Free and Open Source Geospatial (FOSS4G) Tools Workshop, Indian Institute of Science, Bangalore, India',
-        date: '28 February 2014',
+            'Workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools", Indian Institute of Science, Bangalore, India',
+        date: '24–28 February 2014',
     },
     {
-        title: 'Understanding and Reading Maps',
+        title: 'Lectures on "Understanding and reading maps"',
         context:
-            'Using Free and Open Source Geospatial (FOSS4G) Tools Workshop, Indian Institute of Science, Bangalore, India',
+            'Workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools", Indian Institute of Science, Bangalore, India',
         date: '25 February 2014',
     },
     {
-        title: 'Digital Images, Processing and Application',
+        title: 'Lectures on "Digital Images, Processing and application"',
         context:
-            'Using Free and Open Source Geospatial (FOSS4G) Tools Workshop, Indian Institute of Science, Bangalore, India',
+            'Workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools", Indian Institute of Science, Bangalore, India',
         date: '27 February 2014',
     },
     {
-        title: 'Mapping of Earth Features',
+        title: 'Lectures on "Mapping of Earth Features"',
         context:
-            'Water & Environment - Interactive Session with School Teachers, New Bioscience Building, Indian Institute of Science, Bangalore, India',
+            'Workshop on "Water & Environment — Interactive Session with School Teachers", New Bioscience Building, Indian Institute of Science, Bangalore, India',
         date: '15 February 2014',
     },
     {
-        title: 'Urban Revolution and GHG Footprint in India',
+        title: '"Urban revolution and GHG footprint in India"',
         context:
-            'Urban Environmental Issues Workshop, CiSTUP, Indian Institute of Science, Bangalore, India',
-        date: '27-28 February 2015',
+            'Workshop on "Urban Environmental Issues", organized by CiSTUP, Indian Institute of Science, Bangalore',
+        date: '27–28 February 2015',
     },
     {
-        title: 'Life Cycle Assessment and Environmental Design',
+        title:
+            'Lectures on Life cycle assessment, Environmental design',
         context:
-            'Environmental Management, Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: 'August-December 2015',
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August–December 2015',
     },
     {
-        title: 'Smart Cities and Unplanned Urbanization',
+        title: '"Smart cities and Unplanned urbanization"',
         context: 'Civil Engineering, IIT Kanpur, Invited Guest Lecture',
         date: '23 November 2015',
     },
     {
-        title: 'Smart Cities: Urbanisation, Consequence and Mitigation',
+        title: '"Smart cities — Urbanisation, consequence and Mitigation"',
         context:
             'Ranbir and Chitra Gupta School of Infrastructure Design and Management, IIT Kharagpur, Invited Lecture',
         date: '21 December 2015',
     },
     {
-        title: 'Urban Observatories for Enhancing the Quality of Urban Life in India',
+        title:
+            'UK-India Joint Network on Sustainable Cities and Urbanization in India — Urban Observatories for Enhancing the Quality of Urban Life in India',
         context: 'UK-India Joint Network on Sustainable Cities and Urbanization in India',
         date: 'September 2016',
     },
+    {
+        title: '"Urban Transformation and Environmental Impact"',
+        context:
+            'Indian Institute of Science, Bangalore, Invited Guest Lecture in Environmental Management 2019',
+        date: 'December 2019',
+    },
+    {
+        title:
+            '"Geographic Information System and Mapping"',
+        context:
+            'Indian Institute of Science, Bangalore, Invited Lecture in Green Skill Development Program by Ministry of Environment and Forest Under ENVIS program',
+        date: 'January 2020',
+    },
+    {
+        title: 'Lectures on Advanced Geoinformatics',
+        context:
+            'MS. Ramaiah Institute of Technology, Bangalore, Invited Lecture in one week FDP on Advanced Surveying and Geoinformatics',
+        date: '24–29 August 2020',
+    },
+    {
+        title:
+            'Lectures on Environmental Management System standards, Environmental Management techniques',
+        context:
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August and December 15–20, 2021',
+    },
+    {
+        title:
+            'Lectures on Environmental Management System standards, Life Cycle Assessment',
+        context:
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August 15–20, 2022',
+    },
+    {
+        title: '"Coastal Flood Resilience through Geoinformatics"',
+        context:
+            'University of Allahabad, Prayagraj, Uttar Pradesh — Lecture in three days workshop on Satellite Earth Observation and Artificial Intelligence Role in Development of Disaster Resilient Infrastructure (EOAIDRI)',
+        date: 'November 2022',
+    },
+    {
+        title:
+            'Geospatial applications in Urban remote sensing using data science',
+        context:
+            'National Institute of Engineering, Mysore, Karnataka — Lecture in five days online summer school on "New Horizons in Remote Sensing: Basics and Beyond"',
+        date: '8–12 August 2023',
+    },
+    {
+        title:
+            'Lectures on Environmental Management System standards, Life Cycle Assessment',
+        context:
+            '"Environmental Management" Internet Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'August 15–20, 2023',
+    },
+    {
+        title:
+            '"Geoinformatics in Urban and Environmental planning — Applications and assessments"',
+        context:
+            '"Advances in Landslide Risk Assessment & Mitigation," funded by DRDO, DST, GoI., JSS Academy of Technical Education, Bangalore',
+        date: '12–13 September 2023',
+    },
+    {
+        title: '"Urban geoinformatics for SDG\'s"',
+        context:
+            "World GIS Day, Alva's Institute of Engineering & Technology",
+        date: '15 November 2023',
+    },
+    {
+        title:
+            '"Usage of Public Spaces and impact of Climate Change and worsening Air Quality on Young Children"',
+        context:
+            'Organised by ICLEI, Celebration Hall, Novotel Hotel, Guwahati',
+        date: '28 November 2023',
+    },
+    {
+        title: '"Data and Cities"',
+        context:
+            'Organised by SPA Foundation for Innovation and Research for Social Transformation',
+        date: '19 March 2024',
+    },
+    {
+        title:
+            '"Geospatial intelligence can enhance urban governance and drive sustainable urban development"',
+        context:
+            'Invited talk and round table organised by Indian Institute of Technology Tirupati Navavishkar I-Hub Foundation (IITTNiF) and the National Institute of Urban Affairs (NIUA)',
+        date: '5 April 2025',
+    },
+    {
+        title:
+            'Invited Lectures in "Advances and application of Remote Sensing technologies in Real life"',
+        context:
+            'Faculty Development Programme (FDP) on "AICE 2025: Advances in Intelligent Civil Engineering", Department of Civil Engineering, Madanapalle Institute of Technology & Science (MITS)',
+        date: 'September 2025',
+    },
+    {
+        title:
+            'Lectures on Environmental Management System standards, Life Cycle Assessment',
+        context:
+            '"Environmental Management" Internet-Based Distance Education Courses, Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: 'September 2025',
+    },
+    {
+        title: '"Urban growth — Lenses from the sky"',
+        context:
+            'Department of Geography, GeoUbva 2026, Varanasi, India',
+        date: 'January 2026',
+    },
+    {
+        title:
+            '"Geospatial Analytics in Urban assessment"',
+        context:
+            'Two-Day National Workshop on Geospatial Data Analytics using Machine Learning, Department of CSE, BIT Mesra, Jharkhand, India',
+        date: 'February 2026',
+    },
 ];
 
+// ——————————————————————————————————————
+// 3. Courses Conducted (15 items)
+// ——————————————————————————————————————
 const coursesConducted: Activity[] = [
     {
-        title: 'Using Free and Open Source Geospatial (FOSS4G) Tools',
-        context:
-            'Technical resource faculty, Indian Institute of Science, Bangalore, India',
-        date: '24-28 February 2014',
+        title:
+            'GSDP 2019-20: Green Skill Development Programme: Valuation of Ecosystem Goods and Services',
+        context: 'Technical resource faculty, Indian Institute of Science, Bangalore, India',
+        date: '25 Feb – 10 Mar 2020',
     },
     {
-        title: 'Geoinformatics: An Introduction',
-        context: 'Interaction with M.Tech students, IIITM-K, Trivandrum, Kerala, India',
-        date: '23-24 August 2013',
+        title:
+            'GSDP 2019-20: Green Skill Development Programme: Valuation of Ecosystem Goods and Services',
+        context: 'Technical resource faculty, Indian Institute of Science, Bangalore, India',
+        date: '1–15 January 2020',
     },
     {
-        title: 'Introduction to Remotely Sensed Data, GIS and Processing',
+        title:
+            'GIAN course on "Smart Urban Multimodal Transport Planning, Operations and Management"',
+        context: 'With Prof. Brian Park, University of Virginia, USA. IIT Kharagpur, India',
+        date: '8–12 July 2019',
+    },
+    {
+        title:
+            'AICTE workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools"',
+        context: 'Technical resource faculty, Indian Institute of Science, Bangalore, India',
+        date: '28–31 May 2019',
+    },
+    {
+        title:
+            'TEQUIP workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools"',
+        context: 'Technical resource faculty, Indian Institute of Science, Bangalore, India',
+        date: '28–31 May 2018',
+    },
+    {
+        title:
+            'AICTE workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools in Urban management"',
+        context: 'Indian Institute of Technology Kharagpur, India',
+        date: '28 Feb – 3 Mar 2019',
+    },
+    {
+        title:
+            'GIAN course on "Land Cover Land Use change and its Impacts on Climate"',
+        context: 'With Prof. Atul Jain, University of Illinois, USA. IIT Kharagpur, India',
+        date: '29 Oct – 2 Nov 2018',
+    },
+    {
+        title: 'Workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools"',
+        context: 'Technical resource faculty, Indian Institute of Science, Bangalore, India',
+        date: '24–28 February 2014',
+    },
+    {
+        title: '"Geoinformatics: An introduction"',
+        context: 'IIITM-K, Interaction with M.Tech Students, Trivandrum, Kerala',
+        date: '23–24 August 2013',
+    },
+    {
+        title: '"Introduction to Remotely sensed data, GIS and processing"',
         context: 'Faculty, RVR & JC College of Engineering, Guntur, Andhra Pradesh, India',
-        date: '2-5 June 2013',
+        date: '2–5 June 2013',
     },
     {
-        title: 'Use of GRASS in Image Analysis',
+        title: '"Use of GRASS in Image Analysis"',
         context: 'Technical resource person, IGTA 2012, IIT Bombay, Mumbai, India',
-        date: '12-13 April 2012',
+        date: '12–13 April 2012',
     },
     {
-        title: 'Remote Sensing and GIS',
+        title: '"Remote sensing and GIS"',
         context: 'Faculty, KITS College of Engineering, Guntur, Andhra Pradesh, India',
-        date: '10-15 November 2012',
+        date: '10–15 November 2012',
     },
     {
-        title: 'Free and Open Source Software for Geoinformatics',
+        title:
+            'Free and Open Source Software for geo informatics',
         context:
-            'Organiser and technical resource person, CiSTUP, Indian Institute of Science, Bangalore, India; lectures on GRASS, Google Earth Engine, remote sensing and image processing',
-        date: '1-5 April 2015',
+            'Organised and technical resource person, CiSTUP, Indian Institute of Science, Bangalore — lectures on GRASS, Google Earth Engine, Remote sensing, Image Processing',
+        date: '1–5 April 2015',
     },
     {
-        title: 'Biodiversity Awareness Workshop Using Open Source Geospatial (FOSS4G) Tools',
-        context: 'CCE Lecture Hall, Indian Institute of Science, Bangalore, India',
+        title:
+            'Biodiversity Awareness Workshop using Open Source Geospatial (FOSS4G) Tools',
+        context: 'CCE Lecture Hall, Indian Institute of Science, Bangalore',
         date: '20 August 2015',
     },
     {
-        title: 'Free & Open Source Geospatial Technologies for Urban Environment Applications',
+        title:
+            'Free & Open Source Geospatial Technologies (FOSS4G) for Urban Environment Applications',
         context:
-            'CCE Lecture Hall, Indian Institute of Science, Bangalore, India; lectures on open source software, GRASS, Google Earth Engine, remote sensing and image processing',
-        date: '21-24 August 2015',
-    },
-    {
-        title: 'Science and Education in Innovit 20XV',
-        context: 'Chief Guest, Sri Aurobindo College for Women, Bangalore, India',
-        date: '1 September 2015',
+            'CCE Lecture Hall, Indian Institute of Science, Bangalore — lectures on Open source software, GRASS, Google Earth Engine, Remote sensing, Image Processing',
+        date: '21–24 August 2015',
     },
 ];
 
+// ——————————————————————————————————————
+// 4. Hands-on Training / Workshops (10 items)
+// ——————————————————————————————————————
 const handsOnWorkshops: Activity[] = [
     {
-        title: 'Using GRASS and QGIS for Natural Resources Management through Free & Open Source Geospatial Technologies (FOSS4G)',
+        title:
+            'Technical training Programme for Bihar Govt — Geospatial data overview, UAV\'s and analysis',
         context:
-            'Indian Institute of Science, Bangalore, India',
-        date: '9-13 April 2018',
+            'Organised by Department of Architecture and Planning, IIT Kharagpur',
+        date: '12–17 February 2025',
     },
     {
-        title: 'Big Data for Better Governance',
-        context: 'Promoting data-driven policy making and governance in West Bengal',
-        date: '28-29 November 2017',
+        title:
+            'Technical training Programme for Bihar Govt — Geospatial data overview and analysis',
+        context:
+            'Organised by Department of Architecture and Planning, IIT Kharagpur',
+        date: '12–17 January 2025',
     },
     {
-        title: 'Preparatory Workshop on Water Urbanism in Kolkata',
+        title:
+            'Workshop on "Big data for better governance — Promoting data-driven policy making and governance in West Bengal"',
+        context: 'West Bengal',
+        date: '28–29 November 2017',
+    },
+    {
+        title: 'Preparatory workshop on Water Urbanism in Kolkata',
         context: 'With Columbia University, USA',
         date: 'October 2016',
     },
     {
-        title: 'Using GRASS and QGIS in Remote Sensing & GIS',
+        title: 'Using GRASS and QGIS',
         context:
-            'Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
-        date: '17-21 September 2010',
+            'Workshop on "Remote Sensing & GIS", Centre for Continuing Education, Indian Institute of Science, Bangalore, India',
+        date: '17–21 September 2010',
     },
     {
-        title: 'Using Open Source Software',
+        title: 'Using open source software',
         context: 'KITS College of Engineering, Guntur, Andhra Pradesh, India',
-        date: '10-15 November 2012',
+        date: '10–15 November 2012',
     },
     {
-        title: 'Using Open Source Software for Environmental Impact Assessment',
+        title: 'Using open source software for environmental impact assessment',
         context: 'RVR & JC College of Engineering, Guntur, Andhra Pradesh, India',
-        date: '2-5 June 2013',
+        date: '2–5 June 2013',
     },
     {
-        title: 'Using GRASS and QGIS in FOSS4G Tools',
+        title: 'Using GRASS and QGIS',
         context:
-            'Using Free and Open Source Geospatial (FOSS4G) Tools Workshop, Indian Institute of Science, Bangalore, India',
+            'Workshop on "Using Free and Open Source Geospatial (FOSS4G) Tools", Indian Institute of Science, Bangalore, India',
         date: '27 February 2014',
     },
     {
-        title: 'Image Processing and Applications in Urban Management Using GRASS and R',
-        context: 'CiSTUP, Indian Institute of Science, Bangalore, India',
-        date: '1-5 April 2015',
+        title:
+            'Image processing and applications in urban management using GRASS and R',
+        context: 'CiSTUP, Indian Institute of Science, Bangalore',
+        date: '1–5 April 2015',
     },
     {
-        title: 'Using GRASS in Urban Applications',
+        title:
+            'Using GRASS, a quantum open source in urban application(s)',
         context:
-            'Free & Open Source Geospatial Technologies (FOSS4G) for Urban Environment Applications Workshop, Indian Institute of Science, Bangalore, India',
+            'Workshop on Free & Open Source Geospatial Technologies (FOSS4G) for Urban Environment Applications, Indian Institute of Science, Bangalore, India',
         date: '23 August 2015',
     },
 ];
 
+// ——————————————————————————————————————
+// 5. Popular Talks (2 items)
+// ——————————————————————————————————————
 const popularTalks: Activity[] = [
     {
         title: 'Tres(s)passing',
         context:
-            'TV interview organized by Public TV on assessment of the number of trees using spatial data',
+            'TV interview organized by Public TV on work based on assessment of number of trees using spatial data',
         date: '27 October 2014',
     },
     {
-        title: 'Science in Education: Mentoring and Attracting New Talents in Science',
+        title:
+            'Science in education — mentoring and attracting new talents in science',
         context: 'Program organized by All India Radio',
         date: '21 February 2015',
     },
 ];
 
-const organizedConferences: Activity[] = [
+// ——————————————————————————————————————
+// 6. Articles in Popular Communications (3 items)
+// ——————————————————————————————————————
+const popularArticles: PopularArticle[] = [
     {
-        title: 'Lake 2010: Wetlands, Biodiversity and Climate Change',
-        context: 'Conference organised',
-        date: '22-24 December 2010',
+        text: 'Ramachandra, T.V., Bharath, S., Vinay, S., Bharath, H.A., 2020. Mitigation of Carbon Footprint, Sustainable living, Yojana, 50(1), Pp 36–41',
     },
     {
-        title: 'Lake 2012: Conservation and Management of Wetland Ecosystems',
-        context: 'Conference organised',
-        date: '6-8 November 2012',
+        text: 'Jefferey M. Sellers, Bharath Aithal, Huang Jingnan, Uttam Kumar, Mingjun Peng, T. V. Ramachandra and Liu Yong, 2014. Mega-Regional Development and Environmental Change in China and India, APN Science Bulletin, Issue 4, pp. 116–118, UIESTF',
     },
     {
-        title: 'Lake 2014: Conservation and Sustainable Management of Wetland Ecosystems in Western Ghats',
-        context: 'Conference organised',
-        date: '13-15 November 2014',
-    },
-    {
-        title: 'International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones',
-        context: 'Organised by RCGSIDM, IIT Kharagpur',
-        date: '5-6 January 2017',
+        text: 'Ramachandra, T.V., Bharath, H.A., 2014. Geo-visualisation of Urbanisation in Greater Bangalore, Geospatial world — India geospatial digest, September 2014 issue.',
     },
 ];
 
-// ——————————————————————————————————
+// ——————————————————————————————————————
+// 7. Conferences / Symposium / Virtual Webinar Series Organized (16 items)
+// ——————————————————————————————————————
+const organizedConferences: Activity[] = [
+    {
+        title: 'Lake 2010: Wetlands, Biodiversity and Climate Change',
+        context: 'Main organiser: Indian Institute of Science',
+        date: '22–24 December 2010',
+    },
+    {
+        title: 'Lake 2012: Conservation and Management of Wetland Ecosystems',
+        context: 'Main organiser: Indian Institute of Science',
+        date: '6–8 November 2012',
+    },
+    {
+        title:
+            'Lake 2014: Conservation and Sustainable Management of Wetland Ecosystems in Western Ghats',
+        context: 'Main organiser: Indian Institute of Science',
+        date: '13–15 November 2014',
+    },
+    {
+        title:
+            'International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones',
+        context: 'Organised by RCGSIDM, IIT Kharagpur',
+        date: '5–6 January 2017',
+    },
+    {
+        title:
+            'ICNDE 2018: International Conference on the Networked Digital Earth',
+        context:
+            'Organised by Indian Institute of Technology Kharagpur, India and Northeastern University, USA',
+        date: '7–9 March 2018',
+    },
+    {
+        title:
+            'Lake 2018: Conference on Conservation and Sustainable Management of Riverine Ecosystems',
+        context: 'Main organiser: Indian Institute of Science',
+        date: '22–25 November 2018',
+    },
+    {
+        title:
+            'Symposium on Infrastructure Development and Management for Future Cities',
+        context: 'Main organiser: Indian Institute of Technology Kharagpur',
+        date: '17–18 April 2019',
+    },
+    {
+        title:
+            'Lake 2020: Conference on Ecosystem Structure, Function, Goods and Services',
+        context: 'Main organiser: Indian Institute of Science',
+    },
+    {
+        title:
+            'SPARC 2021: Shared urban mobility systems — Virtual webinar series',
+        context: 'Virtual webinar series',
+        date: 'December 2021',
+    },
+    {
+        title:
+            'Lake 2022: Conservation of Wetlands — Ecosystem-based Adaptation of Climate Change',
+        context: 'Main organizer: Indian Institute of Science',
+        date: '28–30 December 2022',
+    },
+    {
+        title:
+            'GISTAM 2023, 9th International Conference on Geographical Information Systems Theory, Applications and Management',
+        context: 'Angers, France',
+    },
+    {
+        title:
+            'IBSR 2023: Annual Conference on Infrastructure and Built Environment: Towards Sustainable and Resilient Societies',
+        context: 'Main organiser: Indian Institute of Technology Kharagpur',
+        date: '2–4 February 2023',
+    },
+    {
+        title:
+            'IBSR 2024: Annual Conference on Infrastructure and Built Environment: Towards Sustainable and Resilient Societies',
+        context: 'Main organiser: Indian Institute of Technology Kharagpur',
+        date: '7–9 March 2024',
+    },
+    {
+        title:
+            'GISTAM 2024, 10th International Conference on Geographical Information Systems Theory, Applications and Management',
+        context: 'Angers, France',
+    },
+    {
+        title:
+            'Geoprocessing 2024, The Sixteenth International Conference on Advances in Satellite and Space Communications',
+        context: 'Technical Program Committee Member, Spain',
+    },
+    {
+        title:
+            'Geoprocessing 2025 & SPACOMM 2025, The Seventeenth International Conference on Advances in Satellite and Space Communications',
+        context: 'Technical Program Committee, Spain',
+    },
+];
+
+// ——————————————————————————————————————
 // Accordion component
-// ——————————————————————————————————
+// ——————————————————————————————————————
 function AccordionSection({
     eyebrow,
     title,
@@ -388,9 +696,9 @@ function AccordionSection({
 function BulletList({ activities }: { activities: Activity[] }) {
     return (
         <ul className="space-y-4">
-            {activities.map((activity) => (
+            {activities.map((activity, idx) => (
                 <li
-                    key={`${activity.title}-${activity.date}`}
+                    key={`${activity.title}-${idx}`}
                     className="flex gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm"
                 >
                     <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-sky-400" aria-hidden="true" />
@@ -416,6 +724,24 @@ function BulletList({ activities }: { activities: Activity[] }) {
     );
 }
 
+function NumberedList({ items }: { items: PopularArticle[] }) {
+    return (
+        <ol className="space-y-4">
+            {items.map((item, idx) => (
+                <li
+                    key={idx}
+                    className="flex gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm"
+                >
+                    <span className="mt-0.5 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700 w-6">
+                        {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <p className="text-sm leading-7 text-slate-800">{item.text}</p>
+                </li>
+            ))}
+        </ol>
+    );
+}
+
 export default function TalksAndTraining() {
     return (
         <main className="page-shell">
@@ -434,7 +760,7 @@ export default function TalksAndTraining() {
                         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Keynote addresses, invited lectures, hands-on training and
                             conference leadership focused on urban dynamics, remote sensing,
-                            environmental management and open geospatial technologies.
+                            environmental management and open geospatial technologies
                         </p>
                     </div>
                 </div>
@@ -481,8 +807,16 @@ export default function TalksAndTraining() {
                     </AccordionSection>
 
                     <AccordionSection
+                        eyebrow="Popular Communications"
+                        title="Articles in Popular Communications"
+                    >
+                        <NumberedList items={popularArticles} />
+                    </AccordionSection>
+
+                    <AccordionSection
                         eyebrow="Conferences Organized"
                         title="Conference Leadership"
+                        description="Conferences, symposiums and virtual webinar series organized."
                     >
                         <BulletList activities={organizedConferences} />
                     </AccordionSection>

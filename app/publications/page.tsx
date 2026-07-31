@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { peerReviewedPapers, conferenceProceedings, books, bookChapters, technicalReports } from './data';
+import { peerReviewedPapers, conferenceProceedings, books, editedBooks, bookChapters, technicalReports } from './data';
 import { SectionHeading, PaperList, ProceedingList, BookCard, ChapterList, ReportList } from './components';
 import cover1 from './papers/1.jpg';
 import cover2 from './papers/2.gif';
@@ -220,10 +220,11 @@ function ImageSlider() {
 
 export default function Publications() {
   const [open, setOpen] = useState<Record<string, boolean>>({
-    papers: false,
-    proceedings: false,
     books: false,
+    editedBooks: false,
+    papers: false,
     chapters: false,
+    proceedings: false,
     reports: false,
   });
 
@@ -244,19 +245,50 @@ export default function Publications() {
               Publications
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-              Explore peer-reviewed journal articles, conference proceedings, books, book chapters and technical reports organized into focused publication categories.
+              Explore peer-reviewed journal articles, conference proceedings, books, book chapters and technical reports organized into focused publication categories
             </p>
           </div>
         </div>
       </section>
 
       <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
-        <SectionHeading eyebrow="Publications" title="Journal Articles" />
+        <SectionHeading eyebrow="Publications" title="Publication Categories" />
+
+        <SectionBanner
+          id="books"
+          title="Book"
+          eyebrow="Category 1"
+          bg="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1600&auto=format&fit=crop"
+          open={!!open.books}
+          onToggle={() => toggle('books')}
+        >
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {books.map((book, idx) => (
+              <BookCard key={idx} book={book} index={idx} />
+            ))}
+          </div>
+        </SectionBanner>
+
+        <SectionBanner
+          id="editedBooks"
+          title="Edited Books"
+          eyebrow="Category 2"
+          bg="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop"
+          open={!!open.editedBooks}
+          onToggle={() => toggle('editedBooks')}
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            {editedBooks.map((book, idx) => (
+              <BookCard key={idx} book={book as Parameters<typeof BookCard>[0]['book']} index={idx} />
+            ))}
+          </div>
+        </SectionBanner>
 
         <SectionBanner
           id="papers"
-          title="Peer-Reviewed Papers"
-          bg="https://images.unsplash.com/photo-1526378725037-1d3f3a0f6c5f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3c0dfc6b5b9e"
+          title="Journal(s)"
+          eyebrow="Category 3"
+          bg="https://images.unsplash.com/photo-1526378725037-1d3f3a0f6c5f?q=80&w=1600&auto=format&fit=crop"
           open={!!open.papers}
           onToggle={() => toggle('papers')}
         >
@@ -264,33 +296,10 @@ export default function Publications() {
         </SectionBanner>
 
         <SectionBanner
-          id="proceedings"
-          title="Conference Proceedings"
-          bg="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7e3b8f5b5c1a"
-          open={!!open.proceedings}
-          onToggle={() => toggle('proceedings')}
-        >
-          <ProceedingList proceedings={conferenceProceedings} />
-        </SectionBanner>
-
-        <SectionBanner
-          id="books"
-          title="Books"
-          bg="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f2a6f7f1b6c"
-          open={!!open.books}
-          onToggle={() => toggle('books')}
-        >
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {books.map((book, idx) => (
-              <BookCard key={`${book.title}-${book.year}`} book={book} index={idx} />
-            ))}
-          </div>
-        </SectionBanner>
-
-        <SectionBanner
           id="chapters"
-          title="Book Chapters"
-          bg="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=6d3a1b5b8f3e"
+          title="Chapter in a book"
+          eyebrow="Category 4"
+          bg="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop"
           open={!!open.chapters}
           onToggle={() => toggle('chapters')}
         >
@@ -298,9 +307,21 @@ export default function Publications() {
         </SectionBanner>
 
         <SectionBanner
+          id="proceedings"
+          title="Conference Proceedings"
+          eyebrow="Category 5"
+          bg="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop"
+          open={!!open.proceedings}
+          onToggle={() => toggle('proceedings')}
+        >
+          <ProceedingList proceedings={conferenceProceedings} />
+        </SectionBanner>
+
+        <SectionBanner
           id="reports"
           title="Technical Reports"
-          bg="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d0f4e3b9c2a"
+          eyebrow="Category 6"
+          bg="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop"
           open={!!open.reports}
           onToggle={() => toggle('reports')}
         >

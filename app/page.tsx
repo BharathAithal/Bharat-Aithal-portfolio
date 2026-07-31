@@ -22,16 +22,40 @@ export default function Home() {
             className="hover-gradient-text font-black tracking-tight animate-fade-in-up delay-200 cursor-default inline-block leading-[1.1]"
             style={{ fontSize: 'clamp(1.7rem, 5vw, 3.5rem)' }}
           >
-            Prof. Bharath Haidas Aithal
+            Prof. Bharath Haridas Aithal
           </h1>
           <p className="mt-2 text-sm font-semibold tracking-wide text-sky-700 sm:text-lg animate-fade-in-up delay-300">
             Energy and Urban Research Group
           </p>
 
+          {/* Research focus tags */}
+          <div className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start animate-fade-in-up delay-350">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200/80 bg-sky-50/80 px-3 py-1 text-xs font-semibold text-sky-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+              Urban Remote Sensing
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200/80 bg-violet-50/80 px-3 py-1 text-xs font-semibold text-violet-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+              Geospatial AI
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3 py-1 text-xs font-semibold text-emerald-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Smart Cities
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/80 bg-amber-50/80 px-3 py-1 text-xs font-semibold text-amber-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+              ML/DL Application in Urban Resilience and Pattern Recognition
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200/80 bg-rose-50/80 px-3 py-1 text-xs font-semibold text-rose-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+              Disaster Management
+            </span>
+          </div>
+
           <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500 sm:mt-5 sm:text-lg sm:leading-8 animate-fade-in-up delay-300 md:mx-0">
             Researcher, educator, and builder focused on clear academic work,
             collaborative research, practical projects, and thoughtful training
-            experiences.
+            experiences
           </p>
 
           <div className="mt-5 flex w-full flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4 md:justify-start animate-fade-in-up delay-400">

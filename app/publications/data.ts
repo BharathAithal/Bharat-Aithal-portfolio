@@ -1,1346 +1,417 @@
 export type Publication = {
-  authors: string;
-  title: string;
-  journal: string;
-  year: number;
+  authors?: string;
+  title?: string;
+  journal?: string;
+  year?: number;
   doi?: string;
   impactFactor?: string;
   publisher?: string;
+  fullText?: string;
 };
 
 export type ConferenceProceeding = {
-  authors: string;
-  title: string;
-  conference: string;
+  authors?: string;
+  title?: string;
+  conference?: string;
   location?: string;
-  date: string;
+  date?: string;
   note?: string;
+  fullText?: string;
 };
 
 export type Book = {
-  authors: string;
-  title: string;
-  publisher: string;
-  year: number;
+  authors?: string;
+  title?: string;
+  publisher?: string;
+  year?: number;
   pages?: string;
+  isbn?: string;
+  fullText?: string;
+};
+
+export type EditedBook = {
+  authors?: string;
+  title?: string;
+  publisher?: string;
+  year?: number;
+  pages?: string;
+  isbn?: string;
+  fullText?: string;
 };
 
 export type BookChapter = {
-  authors: string;
-  title: string;
-  bookTitle: string;
-  publisher: string;
-  year: number;
+  authors?: string;
+  title?: string;
+  bookTitle?: string;
+  publisher?: string;
+  year?: number;
   isbn?: string;
   doi?: string;
+  note?: string;
+  fullText?: string;
 };
 
 export type TechnicalReport = {
-  authors: string;
-  title: string;
-  report: string;
-  institution: string;
-  year: number;
+  authors?: string;
+  title?: string;
+  report?: string;
+  institution?: string;
+  year?: number;
+  fullText?: string;
 };
 
 export const highlights = [
-  { value: '55+', label: 'Peer-Reviewed Papers' },
-  { value: '90+', label: 'Conference Proceedings' },
-  { value: '03', label: 'Authored Books' },
-  { value: '13', label: 'Book Chapters' },
-  { value: '50+', label: 'Technical Reports' },
+  { value: '86', label: 'Peer-Reviewed Papers' },
+  { value: '169', label: 'Conference Proceedings' },
+  { value: '04', label: 'Authored Books' },
+  { value: '26', label: 'Book Chapters' },
+  { value: '43', label: 'Technical Reports' },
 ];
-
 export const peerReviewedPapers: Publication[] = [
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Asulabha, K.S., Sincy, V., Bharath, S., Bharath, H.A.',
-    title: 'Appraisal of Environmental Health and Ecohydrology of Free-Flowing Aghanashini River, Karnataka, India.',
-    journal: 'Water, 14, 977',
-    year: 2022,
-    doi: 'https://doi.org/10.3390/w14060977',
-    impactFactor: '3.103',
-    publisher: 'MDPI',
-  },
-  {
-    authors: 'Bharath, H.A., Prakash, P.S.',
-    title: 'Building footprint extraction from very high-resolution satellite images using Deep learning.',
-    journal: 'Journal of Spatial Science',
-    year: 2022,
-    doi: 'https://doi.org/10.1080/14498596.2022.2037473',
-    impactFactor: '1.981',
-    publisher: 'Taylor and Francis',
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A.',
-    title: 'Digital building height preparation from satellite stereo images.',
-    journal: 'Photogrammetric Engineering & Remote Sensing, 87(8), 557–566',
-    year: 2021,
-    doi: 'https://doi.org/10.14358/PERS.87.8.557',
-    impactFactor: '3.964',
-    publisher: 'ASPRS',
-  },
-  {
-    authors: 'Aishwarya, N., Vinay, S., Bharath, H.A., Sutapa, D.',
-    title: 'Multi-dimensional parametric coastal flood risk assessment at a regional scale using GIS.',
-    journal: 'Environment, Development and Sustainability',
-    year: 2021,
-    doi: 'https://doi.org/10.1007/s10668-021-01839-6',
-    impactFactor: '3.219',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Vinay, S., Aishwarya, N., Bharath, H.A.',
-    title: 'Forecasting and Evaluation of Impacts and Risk Due to Tidal Anomalies on a Coastal Island.',
-    journal: 'Indian Journal of Remote Sensing',
-    year: 2021,
-    doi: 'https://doi.org/10.1007/s12524-021-01458-8',
-    impactFactor: '2.728',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Chandan, M.C., Bharath, H.A.',
-    title: 'Impact assessment of Corridor Oriented development: A case of urban agglomerations of India.',
-    journal: 'International Review for Spatial Planning and Sustainable Development, 9, 172–194',
-    year: 2021,
-    doi: 'https://doi.org/10.14246/irspsdc.9.2_172',
-    impactFactor: '0.227',
-    publisher: 'J-STAGE',
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A., Satrupa, M.',
-    title: 'Automatic Extraction of Buildings from UAV based Imagery Using Artificial Neural Networks.',
-    journal: 'Journal of the Indian Society of Remote Sensing, 49, 681–687',
-    year: 2020,
-    doi: 'https://doi.org/10.1007/s12524-020-01235-z',
-    impactFactor: '2.728',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Bharath, H.A.',
-    title: 'Insights of Forest Dynamics for the Regional Ecological Fragility Assessment.',
-    journal: 'Journal of the Indian Society of Remote Sensing, 48, 1169–1189',
-    year: 2020,
-    doi: 'https://doi.org/10.1007/s12524-020-01146-z',
-    impactFactor: '2.728',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Bharath, H.A., Soumya, K.D., Prakash, P.S.',
-    title: 'Urban 3D structure reconstruction through a generative adversarial network model.',
-    journal: 'Arabian Journal of Science and Engineering, 45, 10731–10741',
-    year: 2020,
-    doi: 'https://doi.org/10.1007/s13369-020-04850-7',
-    impactFactor: '2.334',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Vinay, S., Akshith, S.',
-    title: 'Land allocation model using Cellular Automata to understand housing demand and supply.',
-    journal: 'Spatial Information Research',
-    year: 2020,
-    doi: 'https://doi.org/10.1007/s41324-020-00350-w',
-    impactFactor: '0.81',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Sutapa, D., Tanaya, S., Aishwarya, N., Bharath, H.A.',
-    title: 'Assessing human vulnerability to urban flood hazard using the Analytic Hierarchy Process and Geographic Information System.',
-    journal: 'International Journal of Disaster Risk Reduction, 50, 101659',
-    year: 2020,
-    doi: 'https://doi.org/10.1016/j.ijdrr.2020.101659',
-    impactFactor: '4.32',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Aishwarya, N., Sutapa, D., Vinay, S., Bharath, H.A.',
-    title: 'Adaptive Capacity Assessment for A Flood Vulnerable Region through Land Use Modelling and Socio Economic and Physical Indicators.',
-    journal: 'Journal of Environmental Informatics Letters 3(2), 107–119',
-    year: 2020,
-    doi: 'https://doi.org/10.3808/jeil.202000031',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A.',
-    title: 'Retrieval of Building Roofs using High-Resolution Satellite Imagery through Machine Learning Approach.',
-    journal: 'Malaysian Journal of Remote Sensing & GIS, 9(1), 1–15',
-    year: 2020,
-  },
-  {
-    authors: 'Nimish, G., Bharath, H.A., Lalitha, A.',
-    title: 'Exploring temperature indices by deriving relationship between land surface temperature and urban landscape.',
-    journal: 'Remote Sensing Applications: Society and Environment, p.100299',
-    year: 2020,
-    doi: 'https://doi.org/10.1016/j.rsase.2020.100299',
-    impactFactor: '1.474',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Bharath, S., Subhash Chandran, M.D., Bharath, H.A.',
-    title: 'Insights into riverscape dynamics with the hydrological, ecological and social dimensions for water sustenance.',
-    journal: 'Current Science, 118(9), 1379–1389',
-    year: 2020,
-    impactFactor: '0.767',
-  },
-  {
-    authors: 'Ramachandra, T.V., Jeffery M.S., Bharath, H.A., Bharath, S.',
-    title: 'Micro level analyses of environmentally disastrous urbanisation in Bangalore.',
-    journal: 'Environmental Monitoring and Assessment, 191(3), 787',
-    year: 2019,
-    doi: 'https://doi.org/10.1007/s10661-019-7693-8',
-    impactFactor: '2.513',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Jeffery M.S., Bharath, H.A., Vinay, S.',
-    title: 'Geo-visualisation of landscape dynamics in the proposed mega industrial corridor.',
-    journal: 'Environmental Monitoring and Assessment, 191(3), 788',
-    year: 2019,
-    doi: 'https://doi.org/10.1007/s10661-019-7701-z',
-    impactFactor: '2.273',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Rakhi, K.R., Bharath, H.A.',
-    title: 'Valuation of Aghanashini Estuarine Ecosystem Goods and Services.',
-    journal: 'Journal of Biodiversity, 10(2), 45–58',
-    year: 2019,
-  },
-  {
-    authors: 'Ramachandra, T.V., Sudharshan, B., Gouri, K., Bharath, H.A.',
-    title: 'Assessment of Forest Dynamics in Chikkamagalur District, Central Western Ghats using Temporal Remote Sensing Data and Spatial Metrics.',
-    journal: 'Indian Forester, 145(8), 757–767',
-    year: 2019,
-    impactFactor: '0.67',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Nimish, G.',
-    title: 'Assessing land surface temperature and land use change through spatio-temporal analysis: a case study of select major cities of India.',
-    journal: 'Arabian Journal of GeoSciences, 12:367',
-    year: 2019,
-    doi: 'https://doi.org/10.1007/s12517-019-4547-1',
-    impactFactor: '1.827',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath, H.A.',
-    title: 'Analysing Spatial Patterns and Trend of Future Urban Expansion Using SLEUTH.',
-    journal: 'Spatial Information Research, 28(1), 11–23',
-    year: 2019,
-    doi: 'https://doi.org/10.1007/s41324-019-00262-4',
-    impactFactor: '0.81',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Vinay, S., Ramachandra, T.V.',
-    title: 'Modelling urban dynamics in rapidly urbanising Indian cities.',
-    journal: 'The Egyptian Journal of Remote Sensing and Space Science, 21(3), 201–210',
-    year: 2018,
-    doi: 'https://doi.org/10.1016/j.ejrs.2017.08.002',
-    impactFactor: '5.188',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Sowmya, K.D., Prakash, P.S., Bharath, H.A.',
-    title: 'Automated Building Extraction using High-Resolution Satellite Imagery through Ensemble Modelling and Machine Learning.',
-    journal: 'Remote Sensing of Land, 1(1), 1122–1136',
-    year: 2018,
-  },
-  {
-    authors: 'Ramachandra, T.V., Jeffery M.S., Bharath, H.A., Vinay, S.',
-    title: 'Modeling urban dynamics along two major industrial corridors in India.',
-    journal: 'Spatial Information Research, 27, 37–48',
-    year: 2018,
-    doi: 'https://doi.org/10.1007/s41324-018-0217-8',
-    impactFactor: '0.81',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
-    title: 'Simulating urban growth by two state modelling and connected network.',
-    journal: 'Modeling Earth Systems and Environment, 4(4), 1297–1308',
-    year: 2018,
-    doi: 'https://doi.org/10.1007/s40808-018-0506-1',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Gouri, K., Vishnu, B., Bharath, H.A., Han, S.S.',
-    title: 'Municipal Solid Waste: Generation, Composition and GHG Emissions in Bangalore, India.',
-    journal: 'Renewable and Sustainable Energy Reviews, 82(1), 1122–1136',
-    year: 2018,
-    doi: 'https://doi.org/10.1016/j.rser.2017.09.085',
-    impactFactor: '14.982',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Vinay, S., Gouri, H.A., Ramachandra, T.V.',
-    title: 'Green to gray: Silicon Valley of India.',
-    journal: 'Journal of Environmental Management, 206, 1286–1295',
-    year: 2018,
-    doi: 'https://doi.org/10.1016/j.jenvman.2017.06.072',
-    impactFactor: '6.789',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Vinay, S., Ramachandra, T.V.',
-    title: 'Modelling the growth of two rapidly urbanizing Indian Cities.',
-    journal: 'Journal of Geomatics, 11(2), 28–46',
-    year: 2017,
-    impactFactor: '1.249',
-    publisher: 'ISG',
-  },
-  {
-    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
-    title: 'Characterization and visualization of Spatial Patterns of Urbanisation and Sprawl through metrics and modelling.',
-    journal: 'Cities and the Environment (CATE), 10(1), 1–10',
-    year: 2017,
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Vinay, S., Ramachandra, T.V.',
-    title: 'Intra and Inter Spatio-Temporal Patterns of Urbanisation in Indian Megacities.',
-    journal: 'International Journal of Imaging and Robotics, 17(2), 28–39',
-    year: 2017,
-    impactFactor: '0.86',
-  },
-  {
-    authors: 'Ramachandra, T.V., Vishnu, B., Gouri, K., Bharath, H.A., Han, S.S.',
-    title: 'Economic disparity and CO2 emissions: The domestic energy sector in Greater Bangalore, India.',
-    journal: 'Renewable and Sustainable Energy Reviews, 67, 1331–1344',
-    year: 2017,
-    doi: 'https://doi.org/10.1016/j.rser.2016.09.038',
-    impactFactor: '14.982',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Modelling Urban Dynamics of Bhopal, India.',
-    journal: 'Journal of Settlements and Spatial Planning, 7(1), 18–34',
-    year: 2016,
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Visualization of Urban Growth in Chennai: spatio-temporal using Geoinformatics.',
-    journal: 'Journal of the Indian Society of Remote Sensing, 44(4), 617–633',
-    year: 2016,
-    doi: 'https://doi.org/10.1007/s12524-015-0482-0',
-    impactFactor: '2.728',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Sowmyashree, M.V.',
-    title: 'Monitoring urbanization and its implications in a mega city from space: Spatiotemporal patterns and its indicators.',
-    journal: 'Journal of Environmental Management, 148, 67–91',
-    year: 2015,
-    doi: 'https://doi.org/10.1016/j.jenvman.2014.02.015',
-    impactFactor: '6.789',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Sowmyashree, M.V.',
-    title: 'Urban Structure in Kolkata: Metrics and Modeling through Geo-informatics.',
-    journal: 'Applied Geomatics, 6(4), 229–244',
-    year: 2014,
-    doi: 'https://doi.org/10.1007/s12518-014-0135-y',
-    impactFactor: '1.249',
-    publisher: 'Springer',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Bharath, H.A.',
-    title: 'Spatio-temporal dynamics along the terrain gradient of diverse landscape.',
-    journal: 'Journal of Environmental Engineering and Landscape Management, 22(1), 50–63',
-    year: 2013,
-    doi: 'https://doi.org/10.3846/16486897.2013.808639',
-    impactFactor: '1.732',
-    publisher: 'Taylor and Francis',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Sannadurgappa, D.',
-    title: 'Insights to Urban Dynamics through Landscape Spatial Pattern Analysis.',
-    journal: 'Journal of Applied Earth Observation and Geoinformation, 18, 329–343',
-    year: 2012,
-    doi: 'https://doi.org/10.1016/j.jag.2012.03.005',
-    impactFactor: '5.933',
-    publisher: 'Elsevier',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Kumar, U., Joshi, N.V.',
-    title: 'Prediction of Shallow landslide prone regions in undulating terrain.',
-    journal: 'Disaster Advances, 6(1), 53–63',
-    year: 2013,
-    impactFactor: '2.27',
-  },
+  { fullText: "Anita, G., <b>Bharath, H. A</b>., Urban Complexity in Transition: Deep Learning and Fractal Metrics for Mapping Cities Morphological Shift. Remote Sensing Applications: Society and Environment, 41, 101814. <i><a href=\"https://doi.org/10.1016/j.rsase.2025.101814\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rsase.2025.101814</a></i>  (Impact factor:4.7) <b>Elsevier</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Mukund, B., Tanbir. S., Anita, G., Keshav, J., Emani, K., Asish, G., 2025. Assessing the impact of Urban Land Use on Air Quality – a case study of Kharagpur City, Tropical Ecology. Online. <a href=\"https://doi.org/10.1007/s42965-025-00390-z\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s42965-025-00390-z</a> (Impact Factor 1.6), <b>Springer</b>" },
+  { fullText: "Ramachandra, T.V., Rajesh, R., Vinay, S., <b>Bharath, H.A.,</b> 2025. Urban Heat Island Linkages with the Landscape Morphology, Scientific Reports,15, 24485. <a href=\"https://doi.org/10.1038/s41598-025-09141-5\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1038/s41598-025-09141-5</i></a> (Impact factor: 4.99). <b>Nature</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Madhumita, D., Chaitanya, B., 2025. Lane Segmentation and Centre Line Prediction- A Multitask Framework for Autonomous Driving Systems. Transportation Planning and Technology, 1-22, <a href=\"https://doi.org/10.1080/03081060.2025.2502413\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1080/03081060.2025.2502413</a> (Impact Factor:1.6), <b>Taylor and Francis</b>" },
+  { fullText: "Roy, D., Desai, V.R. and Aithal, B.H., 2025. A GIS-based integrated assessment of geomorphometry with land use dynamics for topographically harsh ungauged watershed. Journal of Earth System Science, 134(2), 1-21. <a href=\"https://doi.org/10.1007/s12040-025-02557-7\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s12040-025-02557-7</a> (Impact factor: 1.6), <b>Springer</b>" },
+  { fullText: "Ramachandra, T.V., Rajesh, S. R., <b>Bharath, H. A.,</b> 2025. Land Surface Temperature Responses to Landscape Structure Dynamics in the Trans-Gangetic Plain Region. IMI Konnect, 14(1), IMI" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2025. Road Width Estimator– An Automatic Tool for Calculating Road Width Leveraging Geospatial Knowledge. Journal of Geovisualization and Spatial Analysis, 9(3),  <a href=\"https://doi.org/10.1007/s41651-024-00205-0\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s41651-024-00205-0</a>  (Impact factor: 5.0), <b>Springer</b>" },
+  { fullText: "Aniruddha, K., Apratim, B., Bharath, H.A., 2025. From Image to Map: Advancing GIS Decision Support Systems" },
+  { fullText: "Aniruddha, K., Arkopal, K.G., <b>Bharath, H.A</b>., 2024. Building Type Classification Using Deep Learning for Transport Planning, TEMA Journal of Land Use Mobility and Environment, 17(3), 397-410. <a href=\"https://doi.org/10.6093/1970-9870/10729\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.6093/1970-9870/10729</a>, <b>TEMA</b>" },
+  { fullText: "Narendr, A., <b>Bharath, H.A.,</b> Sutapa, D., <b><i>2024.</b></i> A data-driven framework for enhancing coastal flood resilience in resource-crunched developing nations, Geomatics, Natural Hazards, and Risk, <i>15(1)</i>.1-29 <a href=\"https://doi.org/10.1080/19475705.2024.2396892\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1080/19475705.2024.2396892</a> (Impact factor: 4.3), <b>Taylor and Francis</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Gargi, D., Nimish, G., <b><i>2024.</b></i> Quantitative analysis of passive cooling measures in achieving a thermally comfortable urban environment, Geomatics, Natural Hazards, and Risk, <i>15(1)</i>.1-33 https://doi.org/10.1080/19475705.2024.2347415 (Impact Factor 4.3), <b>Taylor and Francis</b>" },
+  { fullText: "Roy, D., Aithal, B. H., Dhar, A. and Desai, V. R. 2024. “Impact of land use land cover change on future flash flood vulnerability and monsoon runoff in an ungauged Himalayan watershed”, Journal of Hydrologic Engineering, <a href=\"https://doi.org/10.1061/JHYEFF.HEENG-6173\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1061/JHYEFF.HEENG-6173</a> <i>29(3): 05024006</i>. (Impact factor: 2.4) <b>ASCE</b>." },
+  { fullText: "Aniruddha, K., Apratim, B., Arkopal, K.G., <b>Bharath, H.A</b>., 2024. Enhancing Geospatial Object Recognition: A YOLOV8 and Segment Anything Model Pipeline for Efficient Building Feature Extraction and Categorization, Spatial Information Research, <i>Available online</i>. (Impact factor: 2.4), <a href=\"https://doi.org/10.1007/s41324-024-00574-0\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s41324-024-00574-0</a> <b>Springer</b>" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2024. UnetEdge: A Transfer Learning-Based Framework for Road Feature Segmentation from High-Resolution Remote Sensing Images. Remote Sensing Applications: Society and Environment, <i>34</i>, 101160 (Impact factor:4.7)<a href=\"https://doi.org/10.1016/j.rsase.2024.101160\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rsase.2024.101160</a> <b>Elsevier</b>" },
+  { fullText: "Anurag, K., Bharath, H.A., Joy, S., Prashant, A., 2024. Thermal Comfort in Indian Naturally Ventilated Buildings: A Comprehensive Review and Future Prospects amidst Escalating Heatwave Energy & Buildings. <i>306, 113923</i>. (Impact factor: 6.7) <a href=\"https://doi.org/10.1016/j.enbuild.2024.113923\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.enbuild.2024.113923</a>  <b>Elsevier</b>." },
+  { fullText: "Nimish, G., Bharath, H.A., 2024. Urban Land Surface Temperature Forecasting: A Data-driven Approach Using Regression and Neural Network Models. Geocarto International. <i>39:1.</i> (Impact factor: 3.8) <a href=\"https://doi.org/10.1080/10106049.2023.2299145\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1080/10106049.2023.2299145</a> <b>Taylor and Francis</b>." },
+  { fullText: "Ramachandra, T.V., Mondal, T., Bharath, S., Bharath, H.A., 2024. Environmental consequences in the neighbourhood of rapid unplanned urbanisation in Bangalore city. Advances in Environmental and Engineering Research, 4(4), 76-83<i>.</i> <a href=\"https://doi.org/10.21926/aeer.2304052\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10<i>.21926/aeer.2304052</i></a><i>.</i>  <b>Lisden</b>" },
+  { fullText: "Ramachandra, T.V., Bharath, S., Vinay, S., <b>Bharath, H.A.,</b> 2024. Valuation of Ecosystem Services, Karnataka State, India. One Ecosystem. <i>Accepted.</i> <a href=\"https://doi.org/10.3897/arphapreprints.e111028\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><b>https://doi.org/10.3897/arphapreprints.e111028</b></a><b>. Arpha</b>" },
+  { fullText: "Narendr, A., <b>Bharath, H.A.,</b> Sutapa, D., 2023. Cost-benefit analysis of NbS using flood resilient scenario modelling (FReSMo), Sustainable and Resilient Infrastructure,8(2), 109-115. (Impact factor: 5.9) <a href=\"https://doi.org/10.1080/23789689.2023.2181552\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1080/23789689.2023.2181552</a>. <b>Springer</b>" },
+  { fullText: "Narendr, A., Aniruddha, K., Sutapa, D., <b>Bharath, H.A.,</b> 2023. Developing assessment flow for Damage estimation of Mud housing typology through a case study against coastal floods, Scientific Reports,<i>13 Article no 6712</i>. (Impact factor: 4.99) <a href=\"https://doi.org/10.1038/s41598-023-33468-6\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1038/s41598-023-33468-6</a> <b>Nature</b>" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> Devendra, P., Shivam, B., 2023. Road Segmentation: Exploiting the Efficiency of Skip Connections For Efficient Semantic Segmentation. Journal of South Asian Logistics and Transport, 3, 58-73. <a href=\"http://doi.org/10.4038/jsalt.v3i1.60\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">http://doi.org/10.4038/jsalt.v3i1.60</a>" },
+  { fullText: "Ramachandra, T.V., Bharath, S., Vinay, S., Subhash Chandran, M.D., <b>Bharath, H.A</b>. 2023. Ecologically Sensitive Regions in the Western Ghats, a Biodiversity Hotspot. Indian Forester, 149(11), 977. <a href=\"https://doi.org/10.3390/w14060977\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">10.36808/if/2023/v149i11/169382</a>" },
+  { fullText: "Nimish, G., <b>Bharath, H.A.,</b> 2022. Effects of rising urban temperatures on the wellbeing of the residents – A case study of Kolkata Metropolitan Region. The International Review for Spatial Planning and Sustainable Development. 10(4), 28-39. I: <a href=\"http://dx.doi.org/10.14246/irspsd.10.4_79\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">http://dx.doi.org/10.14246/irspsd.10.4\_79</a>. <b>J-Stage</b>" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2022. Semantic Segmentation of High-Resolution Satellite images: a Deep Learning Approach. Journal of Geomatics, 16, 28-39. <b>ISG</b>" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.,</b> 2022. Building footprint extraction from very high-resolution satellite images using Deep learning, Journal of Spatial Science, 68(3), 487-503. <a href=\"https://doi.org/10.1080/14498596.2022.2037473\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1080/14498596.2022.2037473</a> (Impact factor: 1.981) <b>Taylor and Francis</b>" },
+  { fullText: "Ramachandra, T.V., Vinay, S., Asulabha, K.S., Sincy, V., Bharath, S., <b>Bharath, H.A</b>. 2022. Appraisal of Environmental Health and Ecohydrology of Free-Flowing Aghanashini River, Karnataka, India. Water, 14, 977. <a href=\"https://doi.org/10.3390/w14060977\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.3390/w14060977</a> ((Impact factor: 3.530) <b>MDPI</b>" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A., 2021.</b> Digital building height preparation from satellite stereo images, Photogrammetric Engineering & Remote Sensing, <i>87(8),557-566(10)</i> <a href=\"https://doi.org/10.14358/PERS.87.8.557\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.14358/PERS.87.8.557</a> (Impact factor: 3.964) <b>ASPRS</b>" },
+  { fullText: "Aishwarya, N., Vinay, S., Bharath, H.A., Sutapa, D., 2021. Multi-dimensional parametric coastal flood risk assessment at a regional scale using GIS. Environment, Development and Sustainability <a href=\"https://doi.org/10.1007/s10668-021-01839-6\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s10668-021-01839-6</a> (Impact factor: 4.080) <b>Springer</b>" },
+  { fullText: "Vinay, S., Aishwarya, N., <b>Bharath, H.A. 2021.</b> Forecasting and Evaluation of Impacts and Risk Due to Tidal Anomalies on a Coastal Island, Indian Journal of Remote Sensing, 50, 99-114.  <a href=\"https://doi.org/10.1007/s12524-021-01458-8\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s12524-021-01458-8</a>  (Impact factor: 2.728) <b>Springer</b>" },
+  { fullText: "Chandan, M. C. <b>Bharath, H.A.</b> 2021. Impact assessment of Corridor Oriented development: A case of urban agglomerations of India, International review for spatial planning and sustainable development, <i>9,</i> <i>172-194 <a href=\"https://doi.org/10.14246/irspsdc.9.2_172\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.14246/irspsdc.9.2\_172</a></i> (Impact factor: 0.227) <b>J-STAGE</b>" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.,</b> Satrupa, M., 2020. Automatic Extraction of Buildings from UAV based Imagery Using Artificial Neural Networks, Journal of the Indian Society of Remote Sensing. 49, 681–687. <a href=\"https://doi.org/10.1007/s12524-020-01235-z\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1007/s12524-020-01235-z</i></a>  (Impact factor: 1.894) <b>Springer</b>" },
+  { fullText: "Ramachandra., T.V., Bharath, S., <b>Bharath, H.A.,</b> 2020. Insights of Forest Dynamics for the Regional Ecological Fragility Assessment. Journal of the Indian Society of Remote Sensing.  48, 1169–1189. <a href=\"https://doi.org/10.1007/s12524-020-01146-z\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s12524-020-01146-z</a>  (Impact factor: 1.894) <b>Springer</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Soumya, K.D., Prakash, P.S., 2020. Urban 3D structure reconstruction through a generative adversarial network model. Arabian Journal of Science and Engineering, 45, 10731–10741. <a href=\"https://doi.org/10.1007/s13369-020-04850-7\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1007/s13369-020-04850-7</i></a>  (Impact factor: 2.807) <b>Springer</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Chandan, M.C., Vinay, S., Akshith, S., 2020<b>.</b> Land allocation model using Cellular Automata to understand housing demand and supply, Spatial Information Research, <a href=\"https://doi.org/10.1007/s41324-020-00350-w\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1007/s41324-020-00350-w</i></a>  (Impact factor: 2.4) <b>Springer</b>" },
+  { fullText: "Sutapa, D., Tanaya, S., Aishwarya, N., <b>Bharath, H.A.,</b> 2020. Assessing human vulnerability to urban flood hazard using the Analytic Hierarchy Process and Geographic Information System. International Journal of Disaster Risk Reduction, 50, <i>101659. <a href=\"https://doi.org/10.1016/j.ijdrr.2020.101659\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.ijdrr.2020.101659</a></i>  (Impact factor :4.842) <b>Elsevier</b>" },
+  { fullText: "Aishwarya, N., Sutapa, D., Vinay, S., <b>Bharath, H.A.,</b> 2020.  Adaptive Capacity Assessment for A Flood Vulnerable Region through Land Use Modelling and Socio Economic and Physical Indicators.  Journal of Environmental Informatics Letters 3(2), pp. 107-119.  <a href=\"https://doi.org/10.3808/jeil.202000031\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.3808/jeil.202000031</a> <b>Elsevier</b>" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.</b> 2020. Retrieval of Building Roofs using High-Resolution Satellite Imagery though Machine Learning Approach, Malaysian Journal of Remote Sensing & GIS, 9(1), pp. 1-15" },
+  { fullText: "Nimish, G., <b>Bharath, H.A.</b>, Lalitha, A., 2020. Exploring temperature indices by deriving relationship between land surface temperature and urban landscape. Remote Sensing Applications: Society and Environment, <a href=\"https://doi.org/10.1016/j.rsase.2020.100299\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rsase.2020.100299</a>  p.100299. (Impact factor :4.7) <b>Elsevier</b>" },
+  { fullText: "Ramachandra, T.V., Vinay, S., Bharath, S., Subhash Chandran, M.D., <b>Bharath, H.A</b>., 2020<b>.</b> Insights into riverscape dynamics with the hydrological, ecological, and social dimensions for water sustenance, Current Science, 118(9), <i>pp</i>.1379-1389. (Impact factor :0.767)" },
+  { fullText: "Ramachandra, T.V., Jeffery M.S., <b>Bharath, H.A</b>., Bharath, S., 2019. Micro level analyses of environmentally disastrous urbanisation in Bangalore, Environmental Monitoring and Assessment, <i>191(3), Pp 787 <a href=\"https://doi.org/10.1007/s10661-019-7693-8\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s10661-019-7693-8</a></i> (Impact factor :3.420) <b>Springer</b>" },
+  { fullText: "Ramachandra, T.V., Jeffery M.S., <b>Bharath, H.A</b>., Vinay, S., 2019. Geo-visualisation of landscape dynamics in the proposed mega industrial corridor, Environmental Monitoring and Assessment, <i>191(3), Pp 788 <a href=\"https://doi.org/10.1007/s10661-019-7701-z\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s10661-019-7701-z</a></i>  (Impact factor :3.420) <b>Springer</b>" },
+  { fullText: "Ramachandra, T.V., Rakhi, K.R., <b>Bharath, H.A</b>., 2019. Valuation of Aghanashini Estuarine Ecosystem Goods and Services, Journal of Biodiversity, 10(2), Pp 45-58" },
+  { fullText: "Ramachandra, T.V., Sudharshan, B., Gouri, K., <b>Bharath, H. A.,</b> 2019<b>.</b> Assessment of Forest Dynamics in Chikkamagalur District, Central Western Ghats using Temporal Remote Sensing Data and Spatial Metrics, Indian Forester, 145(8), <i>pp. 757-767.</i> (Impact factor: 0.67)" },
+  { fullText: "<b>Bharath, H.A.,</b> Chandan, M.C., Nimish, G., 2019.  Assessing land surface temperature and land use change through spatio-temporal analysis: a case study of select major cities of India, Arabian Journal of GeoSciences, <i>12:367. <a href=\"https://doi.org/10.1007/s12517-019-4547-1\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s12517-019-4547-1</a></i>  (Impact factor :1.985) <b>Springer</b>" },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath, H.A.,</b> 2019<b>.</b> Analysing Spatial Patterns and Trend of Future Urban Expansion Using SLEUTH, Spatial Information Research, 28(1), Pp 11-23. <a href=\"https://doi.org/10.1007/s41324-019-00262-4\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s41324-019-00262-4</a>  (Impact factor: 2.4) <b>Springer</b>" },
+  { fullText: "<b>Bharath, H.A</b>., Chandan, M.C., Vinay, S., Ramachandra, T.V., 2018. Modelling urban dynamics in rapidly urbanising Indian cities, The Egyptian Journal of Remote Sensing and Space Science, 21(3), Pp. 201-210<i>.</i> <a href=\"https://doi.org/10.1016/j.ejrs.2017.08.002\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1016/j.ejrs.2017.08.002</i></a>  <i>(Impact factor: 6.393)</i> <b>Elsevier</b>" },
+  { fullText: "Sowmya, K.D., Prakash, P.S., <b>Bharath, H.A.</b> 2018. Automated Building Extraction using High-Resolution Satellite Imagery though Ensemble Modelling and Machine Learning, Remote Sensing of Land, 1(1) Pp. 1122-1136" },
+  { fullText: "Ramachandra, T.V., Jeffery M.S., <b>Bharath, H.A</b>., Vinay, S., 2018. Modelling urban dynamics along two major industrial corridors in India, Spatial Information Research, 27, 37-48. <i>pp. 10-28.</i> <a href=\"https://doi.org/10.1007/s41324-018-0217-8\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\"><i>https://doi.org/10.1007/s41324-018-0217-8</i></a>  (Impact factor: 2.4) <b>Springer</b>" },
+  { fullText: "<b>Bharath, H.A</b>., Vinay, S., Ramachandra, T.V., 2018. Simulating urban growth by two state modelling and connected network. Modelling Earth Systems and Environment, 4(4), 1297-1308<i>.</i>  <a href=\"https://doi.org/10.1007/s40808-018-0506-1\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s40808-018-0506-1</a> <b>Springer</b>" },
+  { fullText: "Ramachandra, T. V., Sincy, V., Asulabha, K. S., Durga, M. M., Sudarshan, B., <b>Bharath, H. A.</b> 2018. Optimal Treatment of Domestic Wastewater through Constructed Wetlands, Journal of Biodiversity, 9(2), Pp. 81-102" },
+  { fullText: "Ramachandra, T.V., Gouri, K., Vishnu, B., <b>Bharath, H. A.,</b> Han, S.S., 2018. Municipal Solid Waste:  Generation, Composition and GHG Emissions in Bangalore, India, Renewable and Sustainable Energy Reviews, <i>82(1)</i>, Pp. 1122-1136 <a href=\"https://doi.org/10.1016/j.rser.2017.09.085\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rser.2017.09.085</a> (Impact factor : 16.799) <b>Elsevier</b>" },
+  { fullText: "<b>Bharath, H.A</b>., Chandan, M.C., Vinay, S., Gouri. H.A., Ramachandra, T.V., 2018. Green to gray: Silicon Valley of India, Journal of Environmental Management, 206, pp. 1286-1295. <a href=\"https://doi.org/10.1016/j.jenvman.2017.06.072\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.jenvman.2017.06.072</a>  (Impact factor: 8.910) <b>Elsevier</b>" },
+  { fullText: "Ramachandra, T.V., Gouri, K., Vishnu, B., <b>Bharath, H. A</b>., Han, S.S., 2017. Green House Gas emissions with Mismanagement of Municipal Solid waste, International Journal of Environment and Waste Management, 20(4), Pp. 125-138" },
+  { fullText: "<b>Bharath, H.A</b>., Chandan, M.C., Vinay, S., Ramachandra, T.V., 2017. Modelling the growth of two rapidly urbanizing Indian Cities, Journal of Geomatics, <i>11(2), Pp. 28-46 (Impact Factor: 1.249) <b>ISG</b></i>" },
+  { fullText: "<b>Bharath, H.A</b>., Vinay, S., Ramachandra, T.V., 2017. Characterization and visualization of Spatial Patterns of Urbanisation and Sprawl through metrics and modelling, Cities and the Environment (CATE), 10(1), pp. 1-10." },
+  { fullText: "<b>Bharath, H.A</b>., Chandan, M.C., Vinay, S., Ramachandra, T.V., 2017. Intra and Inter Spatio-Temporal Patterns of Urbanisation in Indian Megacities, International Journal of Imaging and Robotics, 17(2), pp. 28-39. (Impact factor: 0.86)" },
+  { fullText: "Ramachandra, T.V., <b>Bharath H. A.,</b> Gouri, K., Vinay, S., 2017<b>.</b> Green spaces in Bengaluru: Quantification through geospatial techniques, Indian Forester, 143(4), <i>pp. 307-320.</i> (Impact factor: 0.67)" },
+  { fullText: "Ramachandra, T.V., Vishnu, B., Gouri, K., <b>Bharath, H. A.,</b> Han, S.S., 2017. Economic disparity and CO2 emissions: The domestic energy sector in Greater Bangalore, India, Renewable and Sustainable Energy Reviews, 67, <i>pp</i>.  1331-1344. <a href=\"https://doi.org/10.1016/j.rser.2016.09.038\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rser.2016.09.038</a> (Impact factor: 16.799) <b>Elsevier</b>" },
+  { fullText: "Vinay, S., <b>Bharath, H.A</b>., Subhash Chandran, M.D., Ramachandra, T.V., 2016.  Linkages between Catchment Landscape Dynamics and the Natural Flow Regime, International Journal of Earth Sciences and Engineering, 9(3), <i>pp</i>. 244-251. (Impact Factor: 0.042)" },
+  { fullText: "Ramachandra, T.V., Vinay, S., <b>Bharath, H.A.,</b> 2016. Environmental Flow Assessment in a Lotic Ecosystem of Central Western Ghats, India. Hydrol Current Res, 7(248), p.2." },
+  { fullText: "<b>Bharath, H.A</b>., Ramachandra, T.V., 2016<b>.</b> Modelling Urban Dynamics of Bhopal, India. Journal of Settlements and Spatial Planning, 7(1), <i>pp</i>. <i>18-34.</i>" },
+  { fullText: "<b>Bharath, H.A</b>., Ramachandra, T.V., 2016<b>.</b> Bengaluru’s reality: towards unliveable status with unplanned urban trajectory, <b>Current Science Editorial</b>, 110." },
+  { fullText: "<b>Bharath, H.A</b>., Ramachandra, T.V., 2016. Visualization of Urban Growth in Chennai: spatio-temporal using Geoinformatics, Journal of the Indian Society of Remote Sensing. <i>44(4), pp. 617-633</i>, <a href=\"https://doi.org/10.1007/s12524-015-0482-0\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1007/s12524-015-0482-0</a> (Impact factor: 1.984) <b>Springer</b>" },
+  { fullText: "Ramachandra, T.V., <b>Bharath H. A.,</b> Shreejith, K., 2015a. GHG footprint of Major cities in India, Renewable and Sustainable Energy Reviews. 44, pp.473-495. <a href=\"https://doi.org/10.1016/j.rser.2014.12.036\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.rser.2014.12.036</a> (Impact factor : 14.982) <b>Elsevier</b>" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A</b>., Sowmyashree M. V., 2015b. Monitoring urbanization and its implications in a mega city from space: Spatiotemporal patterns and its indicators, Journal of Environmental Management. 148, pp.67-91. <a href=\"https://doi.org/110.1016/j.jenvman.2014.02.015\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/1<i>10.1016/j.jenvman.2014.02.015</i></a> (Impact factor: 8.910) <b>Elsevier</b>" },
+  { fullText: "Ramachandra, T.V., Bharath, H.A., Sowmyashree M. V., 2014. Urban Structure in Kolkata: Metrics and Modeling through Geo-informatics, Applied Geomatics, 6(4), 229-244. <a href=\"https://doi.org/110.1007/s12518-014-0135-y\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/110.1007/s12518-014-0135-y</a> (Impact factor: 1.249) <b>Springer</b>" },
+  { fullText: "Ramachandra T.V., <b>Bharath, H.A</b>., Barik, B., 2014. Urbanisation Pattern of Incipient Mega Region in India, Tema. Journal of Land Use, Mobility and Environment, 7(1), pp. 83-100." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A</b>., Sowmyashree, M. V., 2014. Urban Footprint of Mumbai \- The Commercial Capital of India, Journal of Urban and Regional Analysis, Vol. 6(1), pp. 71-94." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A</b>., Sowmyashree, M. V., 2014. Monitoring spatial patterns of urban dynamics in Ahmedabad city, textile hub of India, Spatium International Review. Vol. 31, pp. 85-91. (Impact Factor :0.675)" },
+  { fullText: "Ramachandra, T.V., Bharath, S., <b>Bharath, H.A.,</b> 2013. Spatio-temporal dynamics along the terrain gradient of diverse landscape. Journal of Environmental Engineering and Landscape Management. 22 (1): 50-63. <a href=\"https://doi.org/10.3846/16486897.2013.808639\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.3846/16486897.2013.808639</a> (Impact Factor :1.732) <b>Taylor and Francis</b>" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A.,</b> Sowmyashree M. V. 2013. Analysis of spatial patterns of urbanisation using geoinformatics and spatial metrics, Theoretical and empirical researches in urban management. 8(4), 5-24. (Impact Factor :1.02)" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A.,</b> 2013. Urbanisation and Sprawl in the Tier II City:" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A.,</b> Sowmyashree M. V. 2013. Analysis of spatial patterns of urbanisation using geoinformatics and spatial metrics, Theoretical and empirical researches in urban management. 8(4), 5-24. (Impact Factor :0.072)" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> Sannadurgappa, D., 2012. Insights to Urban Dynamics through Landscape Spatial Pattern Analysis, Journal of Applied Earth Observation and Geoinformation. 18, 329-343. <a href=\"https://doi.org/10.1016/j.jag.2012.03.005\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.1016/j.jag.2012.03.005</a> (Impact Factor: 7672\) <b>Elsevier</b>" },
+  { fullText: "Bharath, S., <b>Bharath, H.A.,</b> Ramachandra, T.V., 2012. Peri-Urban to Urban Landscape" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> 2012. Spatio-Temporal Pattern of Landscape Dynamics in Shimoga, Tier II City, Karnataka State, India, International Journal of Emerging Technology and Advanced Engineering, 2(9), 563-576." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> 2012. Spatio temporal patterns of urban growth in" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> 2012. Understanding urban sprawl dynamics of" },
+  { fullText: "Vishnu, B., <b>Bharath, H.A.,</b> Kumar, U., Bharath, S., Ramachandra, T.V., 2012. Exposition of Urban Structure and Dynamics through gradient Landscape metrics for sustainable" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> Sreekantha, S., 2012. Spatial Metrics based Landscape Structure and Dynamics Assessment for an emerging Indian Megalopolis, International Journal of Advanced Research in Artificial Intelligence, 1(1), 48-57." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.,</b> 2012. Land use dynamics with the implementation of" },
+  { fullText: "Ramachandra, T.V. <b>Bharath, H.A.,</b> 2012. Spatio-Temporal Dynamics of Urbanising" },
+  { fullText: "<b>Bharath, H.A.,</b> Ramachandra, T.V. Sannadurgappa. D, 2012. Land Surface Temperature" },
+  { fullText: "<b>S</b>ubash Chandran M D, Rao G R, Prakash Mesta, <b>Bharath, H.A.,</b> Kumar, U., Ramachandra, T V., 2011. Landslides in coastal Uttara Kannada: Management towards risk reduction, Journal Applied Disaster Research, 1(1), 7-17." },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A</b>., Kumar, U., Joshi, N. V., 2013. Prediction of Shallow landslide prone regions in undulating terrain. Disaster Advances. 6(1), 53-63. (Impact Factor: 2.27)" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A.,</b> Vinay S., 2013. Land Use Land Cover Dynamics in a Rapidly Urbanising Landscape, SCIT Journal. 13, 1-14" },
 ];
 
 export const conferenceProceedings: ConferenceProceeding[] = [
-  {
-    authors: 'Madhumita, D., Bharath, H.A.',
-    title: 'Semantic Segmentation of High-Resolution Satellite images: a Deep Learning Approach.',
-    conference: 'ISG-ISRS National Symposium 2021',
-    location: 'India',
-    date: 'December 2021'
-  },
-  {
-    authors: 'Nimish, G., Bharath., H.A.',
-    title: 'Effects of rising urban temperatures on the residents – A case study of Kolkata Metropolitan Region.',
-    conference: 'International Conference 2021 on Spatial Planning and Sustainable Development, Nanjing University',
-    location: 'China',
-    date: 'November 2021'
-  },
-  {
-    authors: 'Vinay, S., Bharath, H.A.',
-    title: 'Inundation Exposure Assessment of Coastal Island using High Resolution remote sensing data.',
-    conference: '5th WCDM',
-    location: 'Delhi, India',
-    date: 'November 2021'
-  },
-  {
-    authors: 'Aishwarya, N., Bharath, H.A.',
-    title: 'Multivariate building damage model for scenario based flood risk assessment.',
-    conference: 'FOSS4G 2021',
-    location: 'Nepal',
-    date: 'November 2021'
-  },
-  {
-    authors: 'Prakash, P.S., Mansi, Bharath, H.A.',
-    title: 'Experimentation with Generative Adversarial Networks for Building Extraction from a Very High-Resolution Remote Sensing Imageries.',
-    conference: 'FOSS4G 2021',
-    location: 'Nepal',
-    date: 'November 2021'
-  },
-  {
-    authors: 'Prakash, P.S., Mansi, Bharath, H.A.',
-    title: 'Change detection in urban built-up volume using deep learning based segmentation techniques.',
-    conference: 'SPIE Remote Sensing',
-    date: 'September 2021'
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A.',
-    title: 'A Deep Learning Based Approach For Rooftop Solar Potential Estimation Of A City: A Case Study Of Indian Metropolis.',
-    conference: 'IGARSS 2021',
-    location: 'Brussels, Belgium',
-    date: 'July 2021'
-  },
-  {
-    authors: 'Vishal, S., Prakash, P.S., Bharath, H.A.',
-    title: 'Deep learning-based building rooftop extraction and classification from remote sensing imagery.',
-    conference: '17th International Conference on Computers in Urban Planning and Urban Management',
-    location: 'Helsinki',
-    date: 'June 2021'
-  },
-  {
-    authors: 'Nishanth, G., Nimish, G., Bharath., H.A.',
-    title: 'Deriving Relationship Between Urbanization and Land Surface Temperature.',
-    conference: '16th International Conference on Computers in Urban Planning and Urban Management',
-    location: 'Helsinki',
-    date: 'June 2021'
-  },
-  {
-    authors: 'Vinay, S., Bharath., H.A.',
-    title: 'Flood risk forecasting for sustainable coastal management at regional scale.',
-    conference: 'Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future',
-    date: 'June 2021'
-  },
-  {
-    authors: 'Madhumita, D., Bharath., H.A.',
-    title: 'Review of Road Feature Extraction for Sustainable Mobility.',
-    conference: 'Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future',
-    date: 'June 2021'
-  },
-  {
-    authors: 'Vinay, S., Bharath., H.A.',
-    title: 'Multi-Criteria Decision Analysis of Coastal Inundation at Regional scale.',
-    conference: 'EGU general assembly 2021',
-    date: 'April 2021',
-    note: 'https://doi.org/10.5194/egusphere-egu21-6963'
-  },
-  {
-    authors: 'Aishwarya, N., Sutapa, D., Bharath., H.A.',
-    title: 'Damage-cost assessment of vernacular buildings against coastal flooding.',
-    conference: 'EGU 2021',
-    date: 'April 2021',
-    note: 'https://doi.org/10.5194/egusphere-egu21-829'
-  },
-  {
-    authors: 'Prakash, P.S., Mansi, U., Bharath, H.A.',
-    title: 'Deep Learning based architectures for semantic segmentation of aerial imagery.',
-    conference: '2nd International Conference on Unmanned Aerial System in Geomatics - 2021',
-    location: 'IIT Roorkee Delhi, India',
-    date: 'April 2021'
-  },
-  {
-    authors: 'Vinay, S., Bharath., H.A.',
-    title: 'Role of local sea level rise on disaster exposure in Coastal Island.',
-    conference: 'Lake 2020',
-    location: 'India',
-    date: 'December 2020'
-  },
-  {
-    authors: 'Mohit, V., Chandan, M.C., Bharath., H.A.',
-    title: 'Developing a Urban Web-Based Spatial Decision Support System (SDSS): a case study.',
-    conference: 'Lake 2020',
-    location: 'India',
-    date: 'December 2020'
-  },
-  {
-    authors: 'Vishal, S., Prakash, P.S., Bharath, H.A.',
-    title: 'Solar Using Machine Learning.',
-    conference: 'ISRSNS 2020',
-    location: 'Gujarat, India',
-    date: 'December 2020'
-  },
-  {
-    authors: 'Prakash, P.S., Vishal, S., Bharath, H.A.',
-    title: 'UAV Based Sensor Data for Efficient 3D Building Extraction Using Machine Learning.',
-    conference: 'ISRSNS 2020',
-    location: 'Gujarat, India',
-    date: 'December 2020'
-  },
-  {
-    authors: 'Abhimanyu, S., Chandan, M.C., Bharath., H.A.',
-    title: 'Urban growth analysis and modelling based on socio-economic agents using Cellular Automata.',
-    conference: 'INGARSS 2020',
-    location: 'India',
-    date: 'December 2020'
-  },
-  {
-    authors: 'Nishanth, G., Nimish, G., Bharath., H.A.',
-    title: 'Using FOSS to estimate the Land Surface Temperature.',
-    conference: 'FOSS4G Korea 2020',
-    location: 'Seoul',
-    date: 'November 2020'
-  },
-  {
-    authors: 'Chandan, M.C., Abhimanyu, S., Bharath., H.A.',
-    title: 'Land Use Analysis and Modelling based on Agents using Cellular Automata.',
-    conference: 'ACRS 2020',
-    location: 'China',
-    date: 'November 2020'
-  },
-  {
-    authors: 'Aishwarya, N., Parul, S., Bharath., H.A.',
-    title: 'A Parametric Approach For Coastal Flood Risks Assessment By Integrating Hazard Data And Micro-Level Aspects Of Rural Vulnerability: Case Of Sagar Island, West Bengal.',
-    conference: 'ACRS 2020',
-    location: 'China',
-    date: 'November 2020'
-  },
-  {
-    authors: 'Chandan, M.C., Bharath., H.A.',
-    title: 'Integration of genetic algorithm and agent-based model to visualize near realistic sustainable urban growth: a comparative study.',
-    conference: 'IGARSS 2020',
-    location: 'USA',
-    date: 'July 2020'
-  },
-  {
-    authors: 'Nimish, G., Bharath., H.A.',
-    title: 'Forecasting land surface temperature using artificial neural network.',
-    conference: 'IGARSS 2020',
-    location: 'USA',
-    date: 'July 2020'
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A.',
-    title: 'Assessment of urban built-up volume using geospatial methods: a case study of Bangalore.',
-    conference: 'IGARSS 2020',
-    location: 'USA',
-    date: 'July 2020'
-  },
-  {
-    authors: 'Sowmya, K.D., Prakash, P.S., Bharath, H.A.',
-    title: 'Urban surface simulation through image-to-image translation deep learning algorithm using optical aerial imagery.',
-    conference: 'IGARSS 2020',
-    location: 'USA',
-    date: 'July 2020'
-  },
-  {
-    authors: 'Prakash, P.S., Bharath, H.A.',
-    title: 'Rooftop solar potential estimation using UAV through deep learning for efficient infrastructure development.',
-    conference: 'ASCE 2020',
-    location: 'Kolkata, India',
-    date: 'March 2020'
-  },
-  {
-    authors: 'Lalilta, A., Nimish, G., Bharath., H.A.',
-    title: 'Land use pattern anlysis and Land Surface Temperature extraction: A case study of Kolkata.',
-    conference: 'Indicon 2019',
-    location: 'Gujarat, India',
-    date: 'December 2019'
-  },
-  {
-    authors: 'Nimish, G., Bharath, H.A.',
-    title: 'Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore.',
-    conference: '5th International Conference on Countermeasures to Urban Heat Islands, International Institute of Information Technology - Hyderabad',
-    location: 'India',
-    date: 'December 2019'
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath, H.A.',
-    title: 'Mapping and assessing spatial forms of Urban Expansion through spatio-temporal metrics and modelling the future urban growth.',
-    conference: 'International Conference on Future Cities (ICFC-2019)',
-    location: 'IIT Roorkee, India',
-    date: 'December 2019'
-  },
-  {
-    authors: 'Bharath, H.A.',
-    title: 'Developing a Spatial Data Infrastructure through Urban observatory for Sustainable Urban Development.',
-    conference: 'National conference on Storing Energy for sustainable future- future energy in an Isolated world- 35th National convention of Electrical Engineers',
-    location: 'Chennai, India',
-    date: 'November 2019'
-  },
-  {
-    authors: 'Chandan, M.C., Aadithyaa, J.S., Prakash, P.S., Bharath., H.A.',
-    title: 'Integration of Particle swarm optimization with SLEUTH for Urban growth pattern visualisation.',
-    conference: '55th International Society of City and Regional Planners congress (55th ISOCARP-2019)',
-    location: 'Indonesia',
-    date: 'September 2019'
-  },
-  {
-    authors: 'Chandan, M.C., Bharath., H.A.',
-    title: 'Exploring Urbanization Pattern Change – A Case of Two Metro Cities of India.',
-    conference: 'NASA SARI LULCC meet - Land Use/Cover Changes, Environment and Emissions in South/Southeast Asia – An International Regional Science Meeting',
-    location: 'Johor Bahru, Malaysia',
-    date: 'July 2019'
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
-    title: 'Quantitative Measurement, Analysis of Land Use Change through Spatio-Temporal Pattern and Modelling.',
-    conference: '16th International Conference on Computers in Urban Planning and Urban Management',
-    location: 'China',
-    date: 'July 2019'
-  },
-  {
-    authors: 'Akshit, S., Bharath., H.A.',
-    title: 'Integrated System Dynamics Cellular Automata Housing Allocation model to understand housing demand and supply.',
-    conference: '49th Urban Affairs Conference',
-    location: 'California, USA',
-    date: 'April 2019'
-  },
-  {
-    authors: 'Nimish, G., Chandan, M.C., Prakash, P.S., Bharath., H.A.',
-    title: 'Characterizing the relationship between land use pattern and land surface temperature with automated built up extraction: Process, pattern and modelling.',
-    conference: 'EGU General Assembly 2019',
-    location: 'Vienna, Austria',
-    date: 'April 2019'
-  },
-  {
-    authors: 'Prakash, P.S., Satrupa, M., Bharath., H.A.',
-    title: 'Automatic extraction of building features from UAV using artificial neural networks.',
-    conference: '1st International Conference on Unmanned Aerial System in Geomatics - 2019',
-    location: 'IIT Roorkee Delhi, India',
-    date: 'April 2019'
-  },
-  {
-    authors: 'Sudeep, B., Nimish, G., Bharath., H.A.',
-    title: 'Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore.',
-    conference: 'International Conference on Smart Cities: Opportunities and Challenges, Jamia Millia Islamia',
-    location: 'New Delhi, India',
-    date: 'March 2019'
-  },
-  {
-    authors: 'Satrupa, M., Enosh D., Aishwarya, N., Bharath., H.A.',
-    title: 'Development of Flood Inundation Map Using Geospatial Techniques.',
-    conference: 'Climate Change Impacts, Vulnerabilities, and Adaptation: Emphasis on India and Neighbourhood (CCIVA 2019), International Institute of Technology Kharagpur',
-    location: 'India',
-    date: 'February 2019'
-  },
-  {
-    authors: 'Aishwarya, N., Das, S., Bharath, H.A.',
-    title: 'Adaptive capacity assessment of a region against flood vulnerability using GIS and remote sensing.',
-    conference: '4thWCDM: 4th World congress on Disaster management',
-    location: 'Bombay, India',
-    date: '2019'
-  },
-  {
-    authors: 'Ramachandra, T.V., Deepthi, H., Bharath, H. A., Venugopal, R., Joshi, N.V.',
-    title: 'Bioethanol from Estuarine Macroalgae, West Coast of Karnataka, India.',
-    conference: '35th Annual Symposium on Space Science and Technology',
-    location: 'IISc, India',
-    date: 'January 2019'
-  },
-  {
-    authors: 'Bharath., H.A., Chandan, M.C., Nimish, G., Prakash, P.S.',
-    title: 'Modelling and characterizing the urban growth pattern in Silicon Valley by establishing a relationship with LST and Building footprint.',
-    conference: 'AGU fall meeting',
-    location: 'USA',
-    date: 'December 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
-    title: 'Addressing sustainable agenda challenge through analysis of LST, GHG emissions and visualisation of urban growth in two Megacities of India.',
-    conference: 'AGU fall meeting',
-    location: 'USA',
-    date: 'December 2018'
-  },
-  {
-    authors: 'Prakash, P.S., Bharath., H.A.',
-    title: 'Building rooftop extraction and estimation of solar energy capabilities using machine learning.',
-    conference: 'National Symposium is Advancements in Geospatial Technology for Societal Benefits',
-    location: 'Ahmedabad, India',
-    date: 'December 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
-    title: 'Analyzing Urban Spatial Patterns and Trend of Future Urban Expansion Using SLEUTH.',
-    conference: 'FOSS 4G Asia',
-    location: 'Sri Lanka',
-    date: 'December 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Bharath., H.A.',
-    title: 'Analysis and modelling of impervious land-use expansion using remote sensing and GIS in Coimbatore, India.',
-    conference: 'Lake 2018',
-    location: 'India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath., H.A.',
-    title: 'Modelling Urban transition using Cellular Automata based Sleuth modelling.',
-    conference: 'IEEE SSCI',
-    location: 'Bangalore, India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Prakash, P.S., Soumya, K.D., Bharath., H.A.',
-    title: 'Urban building extraction using satellite imagery through Machine learning.',
-    conference: 'IEEE SSCI',
-    location: 'Bangalore, India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
-    title: 'Understanding current and future landuse dynamics with land Surface temperature alterations: a case study of chandigarh.',
-    conference: 'ISPRS technical commission v Education & outreach Geospatial technology - pixel to people- ISPRS annals',
-    location: 'Dehradun, India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Prakash, P.S., Bharath., H.A.',
-    title: 'Machine Learning for urban structure extraction using optical satellite data.',
-    conference: 'NatSYM 2018',
-    location: 'India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Bharath., H.A.',
-    title: 'Exploring spatial trends of urban growth and modelling the change of land use in Varanasi: A Case of Spiritual Capital of India.',
-    conference: 'NatSYM 2018',
-    location: 'India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
-    title: 'Satellite land surface temperature and urbansiation: Mapping modelling and understanding the trends of change.',
-    conference: 'NatSYM 2018',
-    location: 'India',
-    date: 'November 2018'
-  },
-  {
-    authors: 'Soumya, K.S., Prakash, P.S., Bharath, H. A.',
-    title: 'Automatic identification of plant species through a convolutional neural network model for UAV mounted digital Cameras.',
-    conference: 'ACRS 2018',
-    location: 'Kaula Lampur, Malaysia',
-    date: 'October 2018'
-  },
-  {
-    authors: 'Gaurav, S., Shafia, A., Bharath, H. A.',
-    title: 'Urban growth pattern with urban flood and temperature vulnerability using AI: a case study of Delhi.',
-    conference: '9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing',
-    location: 'Kuala Lumpur, Malaysia',
-    date: 'April 2018'
-  },
-  {
-    authors: 'Shafia, A., Gaurav, S., Bharath, H. A.',
-    title: 'Urban growth modelling using Cellular Automata coupled with alnd cover indices for Kolkata Metropolitan region.',
-    conference: '9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing',
-    location: 'Kuala Lumpur, Malaysia',
-    date: 'April 2018'
-  },
-  {
-    authors: 'Shafia, A., Nimish G., Bharath, H. A.',
-    title: 'Dynamics of Land Surface Temperature with changing Land-Use: Building a climate resilient smart city.',
-    conference: 'International Conference for Convergence in Technology(I2CT 2018)',
-    location: 'Pune, India',
-    date: 'April 2018'
-  },
-  {
-    authors: 'Gaurav, S., Chandan, M.C., Bharath, H. A.',
-    title: 'Combined Spatial Multi-criteria approach for assessing and mapping urban flood vulnerable zones in capital region of India.',
-    conference: 'International Conference for Convergence in Technology(I2CT 2018)',
-    location: 'Pune, India',
-    date: 'April 2018'
-  },
-  {
-    authors: 'Bharath, H.A.',
-    title: 'Urbanisation and city expansion threats: Pattern, Process and Modelling.',
-    conference: '105th Indian Science Congress 2018',
-    location: 'Manipur, India',
-    date: 'March 2018'
-  },
-  {
-    authors: 'Ramachandra, T. V., Jefferey, M.S., Bharath., H.A., Bharath S.',
-    title: 'Micro level analysis of Environmentally disastrous urbanization in Bangalore.',
-    conference: 'International Workshop on Biodiversity & Climate Change 2018',
-    location: 'Kharagpur, India',
-    date: 'Febraury 2018',
-    note: '2nd Best Oral presented paper'
-  },
-  {
-    authors: 'Nimish, G., Chandan, M.C., Bharath., H.A.',
-    title: 'Monitoring and modelling of spatiotemporal change in land use and understanding its impact on land surface temperature.',
-    conference: 'International Workshop on Biodiversity & Climate Change 2018',
-    location: 'Kharagpur, India',
-    date: 'Febraury 2018'
-  },
-  {
-    authors: 'Ramachandra, T. V., Jefferey, M.S., Bharath, H. A., Vinay, S.',
-    title: 'Geo-visualisation of landscape dynamics in the proposed mega industrial corridor.',
-    conference: 'International Workshop on Biodiversity & Climate Change 2018',
-    location: 'Kharagpur, India',
-    date: 'Febraury 2018'
-  },
-  {
-    authors: 'Shafia, A., Gaurav, S., Chandan, M.C., Bharath, H. A.',
-    title: 'Visualising urban growth pattern through agent and urban environmental factor(s) based modelling framework: A case study of Delhi.',
-    conference: 'International Workshop on Biodiversity & Climate Change 2018',
-    location: 'Kharagpur, India',
-    date: 'Febraury 2018'
-  },
-  {
-    authors: 'Dharini, J., Bharath, H.A., Arkopal, G., Joy, S.',
-    title: 'Application of Geospatial techniques to explore linkages between urban growth and cultural setting of a Historical city.',
-    conference: 'NRSC user interaction meet, Geospatial World Forum 2018',
-    location: 'Hyderabad, India',
-    date: 'January 2018'
-  },
-  {
-    authors: 'Chandan, M.C., Dharini, J., Bharath, H. A.',
-    title: 'Understanding Resilience and Sustainable Urban Growth through Land Use Simulation: Case Study of Emerging Metrocity of India.',
-    conference: 'ASCE India conference 2017',
-    location: 'Delhi, India',
-    date: 'December 2017'
-  },
-  {
-    authors: 'Nimish G., Shafia, A., Chandan, M.C., Bharath, H. A.',
-    title: 'Monitoring land use/cover change and Land surface temperature.',
-    conference: 'Second Regional Science & Technology Congress',
-    location: 'West Bengal, India',
-    date: 'November 2017',
-    note: 'Best Paper Award'
-  },
-  {
-    authors: 'Dharini, J., Chandan, M.C., Bharath, H. A.',
-    title: 'Exposition of land Use Dynamics of Coimbatore City Using Geo-informatics.',
-    conference: 'Second Regional Science & Technology Congress',
-    location: 'West Bengal, India',
-    date: 'November 2017'
-  },
-  {
-    authors: 'Chandan M.C., Gaurav Singh, Bharath, H. A.',
-    title: 'Urban growth characterization using Geospatial technologies.',
-    conference: 'Second Regional Science & Technology Congress',
-    location: 'West Bengal, India',
-    date: 'Nov. 2017'
-  },
-  {
-    authors: 'Chandan, M.C., Aishwarya, N., Nimish, G., Bharath, H. A.',
-    title: 'Multi temporal urban growth characterization using Geospatial technologies.',
-    conference: '38th Asian Conference on Remote Sensing (ACRS 2017)',
-    location: 'Delhi, India',
-    date: 'October 2017'
-  },
-  {
-    authors: 'Brigit, M.B., Bharath, H.A., Nityanandam, Y., Ramachandra, T.V.',
-    title: 'Analysis of landscape dynamics in the Pune-Mumbai industrial corridor.',
-    conference: 'International Conference on urban geoinformatics, TERI University',
-    location: 'Delhi, India',
-    date: 'February 2017'
-  },
-  {
-    authors: 'Chandan, M. C., Bharath, H.A., Ramachandra, T.V.',
-    title: 'Integrated approach to visualize urban growth: case study of rapidly urbanising city.',
-    conference: 'International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones',
-    location: 'Kolkata, India',
-    date: 'January 2017',
-    note: 'Best Paper Award'
-  },
-  {
-    authors: 'Chandan, M.C., Vinay, S., Bharath, H.A., Ramachandra, T.V.',
-    title: 'Land use assessment and urban growth monitoring in Hyderabad region, India.',
-    conference: 'Lake 2016, Alva’s college',
-    location: 'Moodabidri, India',
-    date: 'December 2016'
-  },
-  {
-    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
-    title: 'Comparative assessment of Agent based and Rule based models for urban growth visualization.',
-    conference: 'Kerala Environment Congress 2016, Energy Management Centre – Kerala',
-    location: 'India',
-    date: 'November 2016'
-  },
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Shashishankar, A.',
-    title: 'Landscape Status and Hydrological Regime of Aghanashini River Basin.',
-    conference: 'SWWEM-2016-International Conference & Exhibition On Best Practices in Sustainable Water, Waste Water & Energy Management, IISc',
-    location: 'Bangalore',
-    date: 'August 2016'
-  },
-  {
-    authors: 'Vinay, S., Bharath, H. A., Chandran, M. D. S., Shashishankar, A., Ramachandra, T. V.',
-    title: 'Linkages between catchment landscape dynamics and the natural flow regime.',
-    conference: 'ICEE 2016',
-    location: 'Coimbatore, Tamilnadu, India',
-    date: 'June 2016'
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Kumar, U., Venugopal, K. R., Joshi, N.V.',
-    title: 'Modelling and Visualization of Urban Trajectory in 4 cities of India.',
-    conference: 'IISc- ISRO-STC 2016, IISc',
-    location: 'Bangalore, India',
-    date: 'January 2016'
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Future of Indian cities: Looking at spatial growth perspective – Smart cities and Planning.',
-    conference: 'Livable Habitat & Sustainable Infrastructure: a key to smart growth, Hyatt Regency',
-    location: 'Kolkata, India',
-    date: 'January 2016'
-  },
-  {
-    authors: 'Bharath, H. A., Ramachandra, T.V.',
-    title: 'Green to Grey: Bangalore.',
-    conference: 'International LCLUC Regional Science Team Meeting in South and Southeast Asia, organized by NASA',
-    location: 'Yangon University, Yangon, Myanmar',
-    date: 'January 2016',
-    note: 'Poster'
-  },
-  {
-    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
-    title: 'Landscape dynamics modelling through integrated Markov, Fuzzy-AHP and Cellular Automata.',
-    conference: 'International Geoscience and Remote Sensing Symposium (IEEE IGARSS 2014), Quebec City convention centre',
-    location: 'Quebec, Canada',
-    date: 'July 2014'
-  },
-  {
-    authors: 'Bharath, H.A., Vishwanath, Bhat, Ramachandra, T.V.',
-    title: 'Spatial Patterns of Urban Growth with Globalization in India’s Silicon Valley.',
-    conference: 'National Conference on Open Source GIS: Opportunities and Challenges Department of Civil Engineering, IIT (BHU)',
-    location: 'Varanasi',
-    date: 'October 2015',
-    note: 'Best paper award'
-  },
-  {
-    authors: 'Bharath, H. A., Vinay, S., Ramachandra, T.V.',
-    title: 'Prediction of Spatial Patterns of Urban Dynamics in Pune, India.',
-    conference: 'IEEE-Indicon 2014',
-    location: 'Pune, Maharastra, India',
-    date: 'December 2014'
-  },
-  {
-    authors: 'Ramachandra, T.V., Chandan, M. C., Bharath, H. A., Vinay, S., Sellers, J.M., Venugopal, K. R.',
-    title: 'Monitoring and modelling patterns of urban growth in Chennai, India.',
-    conference: 'NRSC UIM 2015',
-    location: 'Hyderabad, Telagana, India',
-    date: 'January 2015'
-  },
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Bharath, S., Shashishankar, A.',
-    title: 'Landscape Status and Hydrological Regime: Insights to Linkages in Sharavati and Varada Catchments, Central Western Ghats.',
-    conference: 'NRSC UIM 2015',
-    location: 'Hyderabad, Telagana, India',
-    date: 'January 2015'
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Venugopal, K. R., Joshi, N.V.',
-    title: 'Geospatial scenario based modelling of urban revolution in five major cities in India.',
-    conference: 'IISc- STC 2015',
-    location: 'Bangalore, Karnataka, India',
-    date: 'January 2015'
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H. A., Venugopal, K. R.',
-    title: 'Modelling and geo-visulaisation of urban growth, India.',
-    conference: 'Lake 2014',
-    location: 'Uttara Kannada, Karnataka, India',
-    date: 'November 2014'
-  },
-  {
-    authors: 'Chandan, M. C., Bharath, H. A., Ramachandra, T.V., Venugopal, K. R.',
-    title: 'Quantifying urbanisation using geospatial data and spatial metrics-a case study of Madras.',
-    conference: 'Lake 2014',
-    location: 'Uttara Kannada, Karnataka, India',
-    date: 'November 2014'
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H. A., Tarun, K.K., Venugopal, K. R.',
-    title: 'Modelling of urban dynamics: a case study of Bhopal and its environs, India.',
-    conference: 'Lake 2014',
-    location: 'Uttara Kannada, Karnataka, India',
-    date: 'November 2014'
-  },
-  {
-    authors: 'Shweta, G., Swati, G., Bharath, H. A., Ramachandra, T.V.',
-    title: 'Land use dynamics of central and Southern Western Ghats.',
-    conference: 'Lake 2014',
-    location: 'Uttara Kannada, Karnataka, India',
-    date: 'November 2014'
-  },
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H. A., Bharath, S., Shashishankar, A.',
-    title: 'Environmental flow assessment in the rivers originating at the Western Ghats.',
-    conference: 'Lake 2014',
-    location: 'Uttara Kannada, Karnataka, India',
-    date: 'November 2014'
-  },
-  {
-    authors: 'Ramachandra, T.V., Nupur, N., Vinay, S., Bharath, H. A.',
-    title: 'Modeling Hydrologic regime of Lakshmanatirtha watershed, Cauvery River.',
-    conference: 'IEEE-GHTC-SAS 2014',
-    location: 'Trivandrum, Kerala, India',
-    date: 'September 2014'
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H. A., Vinay, S., Joshi, N. V., Kumar, U., Venugopal, R. K.',
-    title: 'Modelling Urban Revolution in Greater Bangalore, India.',
-    conference: '30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
-    location: 'Bangalore',
-    date: 'November 2013'
-  },
-  {
-    authors: 'Vinay, S., Bharath, S, Bharath, H.A., Ramachandra, T.V.',
-    title: 'Hydrologic model with landscape dynamics for drought monitoring.',
-    conference: 'Joint International Workshop of ISPRS on Geospatial Data for Disaster and Risk Reduction',
-    location: 'Hyderabad, India',
-    date: 'November 2013'
-  },
-  {
-    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
-    title: 'Modelling and Simulation of Urbanization in Greater Bangalore.',
-    conference: 'National Geospatial Data Infrastructure 2013, IIT Bombay',
-    location: 'Mumbai, India',
-    date: 'November 2013'
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra. T.V.',
-    title: 'Visualisation of urbanisation patterns in Greater Bangalore, India.',
-    conference: 'CES in house symposium, New Biological Science Auditorium, Indian Institute of Science',
-    location: 'Bangalore',
-    date: 'November 2013'
-  },
-  {
-    authors: 'Bharath, H.A., Vinay, S., Ramachandra, T.V.',
-    title: 'Prediction of Land use dynamics in the rapidly urbanising landscape using land change modeller.',
-    conference: 'Fourth International Joint Conference on Advances in Engineering and Technology, AET 2013',
-    location: 'NCR Delhi, India',
-    date: 'December 2013'
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra. T.V.',
-    title: 'Measuring urban sprawl in Tier II cities of Karnataka, India.',
-    conference: 'IEEE Global Humanitarian Technology Conference: South Asia Satellite (IEEE-GHTC-SAS)',
-    location: 'Techno Park, Trivandrum, Kerala, India',
-    date: 'August 2013'
-  },
-  {
-    authors: 'Bharath, H.A., Vinay S., Ramachandra. T.V.',
-    title: 'Comprehension of temporal land use dynamics in urbanising landscape.',
-    conference: '2ND National Remote Sensing Users Meet, NRSC',
-    location: 'Hyderabad, India',
-    date: 'February 2013'
-  },
-  {
-    authors: 'Bharath, S., Bharath, H.A., Sannadurgappa, D., Ramachandra, T. V.',
-    title: 'Landscape Dynamics through Spatial Metrics.',
-    conference: 'India GeoSpatial Conference, Epicentre',
-    location: 'Gurgaon, India',
-    date: 'February 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Bharath, S., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V.',
-    title: 'Spatial patterns of urbanization in Mysore: Emerging Tier II City in Karnataka.',
-    conference: 'National Remote Sensing Users Meet, NRSC',
-    location: 'Hyderabad, India',
-    date: 'February 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Sannadurgappa, D., Ramachandra, T.V.',
-    title: 'Simulation of Urban dynamics through Spatial Metrics.',
-    conference: 'Student Symposium, Centre for Sustainable Technologies, IISc',
-    location: 'Bangalore, India',
-    date: 'May 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T. V.',
-    title: 'Spatial Pattern analysis of two urbanising Tier II cities in Karnataka using open source GIS - GRASS.',
-    conference: 'OSGEO-INDIA: FOSS4G 2012- First National Conference "Open Source Geospatial Resources to Spearhead Development and Growth", IIIT Hyderabad',
-    date: 'October 2012'
-  },
-  {
-    authors: 'Bharath, S, Bharath, H.A., Rajan, K. S., Ramachandra, T. V.',
-    title: 'Cost effective mapping, monitoring and visualisation of spatial patterns of urbanisation using FOSS.',
-    conference: 'OSGEO-INDIA: FOSS4G 2012- first national conference "Open Source Geospatial Resources to Spearhead Development and Growth", IIIT Hyderabad',
-    date: 'October 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Sannadurgappa, D. Ramachandra, T.V.',
-    title: 'Status of wetlands in urbanising Tier II cities of Karnataka.',
-    conference: 'Lake 2012: Wetlands, National Conference on Conservation and Management of Wetland Ecosystems, School of Environmental Sciences, M. G. University',
-    location: 'Kerala, India',
-    date: 'November 2012'
-  },
-  {
-    authors: 'Vinay S, Bharath, H.A., and Ramachandra, T.V.',
-    title: 'Spatio Temporal dynamics of Raichur City.',
-    conference: 'Lake 2012: National Conference on Conservation and Management of Wetland Ecosystems, School of Environmental Sciences, M. G. University',
-    location: 'Kerala, India',
-    date: 'November 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V.',
-    title: 'Spatial patterns of urbanization in an emerging Tier II City, Mysore.',
-    conference: 'Samanway 2012, Indian Institute of Science',
-    location: 'Bangalore, India',
-    date: 'March 2012'
-  },
-  {
-    authors: 'Bharath, H.A., Bharath, S., Sannadurgappa, D., Ramachandra, T. V.',
-    title: 'Effectiveness of landscape Spatial Metrics with reference to the Spatial Resolutions of Remote Sensing Data.',
-    conference: 'India Conference on Geo-spatial Technologies & Applications 2012, IIT Bombay',
-    location: 'Mumbai, India',
-    date: 'April 2012'
-  },
-  {
-    authors: 'Subash Chandran, M. D., Rao, G. R., Prakash Mesta, Bharath, H.A., Kumar, U., Ramachandra, T. V.',
-    title: 'Landslides in coastal Uttara Kannada: Management towards risk reduction.',
-    conference: 'Disaster, Risk Vulnerablity Conference 2011, School of Environmental Sciences, Mahatma Gandhi University',
-    location: 'India',
-    date: 'March 2011'
-  },
-  {
-    authors: 'Ramachandra, T. V., Bharath, H.A., Vinay, S., Kumar, U., Joshi, N. V., Venugopal Rao.',
-    title: 'Modelling Urbanisation pattern.',
-    conference: '30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
-    location: 'Bangalore, India',
-    date: 'November 2010'
-  },
-  {
-    authors: 'Bharath, H. A., Sannadurgappa, D., Ramachandra, T.V.',
-    title: 'Urban growth monitoring through spatio-temporal analysis.',
-    conference: 'Lake 2010: Wetlands, Biodiversity and Climate change, Satish Dhawan Auditorium, Indian Institute of Science',
-    location: 'Bangalore',
-    date: 'December 2011'
-  },
-  {
-    authors: 'Ramachandra T. V., Kumar, U., Bharath H. A., Diwakar P. G., Joshi, N. V.',
-    title: 'Landslide Susceptible Locations in Western Ghats: Prediction through open Modeller.',
-    conference: '26th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science',
-    location: 'Bangalore, India',
-    date: 'January 2010'
-  },
-  {
-    authors: 'Bharath, H. A., Kumar, U., Ramachandra T. V.',
-    title: 'Fusion of multi resolution remote sensing data for urban sprawl analysis.',
-    conference: 'COSMAR 2009, Department of Management Studies, Indian Institute of Science',
-    location: 'Bangalore, India',
-    date: 'November 2009'
-  }
+  { fullText: "Vikash, K., <b>Bharath, H.A</b>.,  2026 Contextual Aware Hybrid Deep learning framework: Assessment with Auxiliary and Ancillary Data, EGU General Assembly 2026, Vienna, Austria, 3–8 May 2026, EGU26-1347, https://doi.org/10.5194/egusphere-egu26-1347." },
+  { fullText: "Nikunj, A., <b>Bharath, H.A</b>., 2026. Life Cycle, Environmental Co-Benefits, and Techno-Economic Assessment of Biochar Systems for Climate Change Mitigation: An Integrated Case Study from India, EGU General Assembly 2026, Vienna, Austria, 3–8 May 2026, EGU26-1344, https://doi.org/10.5194/egusphere-egu26-1344." },
+  { fullText: "Dipansh. S, Anita, G., <b>Bharath, H.A</b>., 2026. Hybrid Deep Learning Framework for Urban Land-Use Prediction and Scenario Modelling of Bangalore, EGU General Assembly 2026, Vienna, Austria, 3–8 May 2026, EGU26-160, https://doi.org/10.5194/egusphere-egu26-160." },
+  { fullText: "Sukanya, M. & <b>Bharath, H.A</b>., 2025. Crop Damage Assessment Using Sentinel-1 SAR During Cyclone Dana in Kendrapara, Odisha. In Proceedings of ISG ISRS National Symposium 2025, Kolkata, India, 25-07 November 2025." },
+  { fullText: "Rajesh, R. & <b>Bharath, H.A</b>., 2025. Evaluation of urban heat island and urban moist island to uncover the wet heat stress of a moist Indian city. In Proceedings of ISG ISRS National Symposium 2025, Kolkata, India, 25-07 November 2025." },
+  { fullText: "Vikash, K., Anita G., & <b>Bharath, H.A</b>., 2025. Beyond the Core: Leveraging Auxiliary Data for Urban Dynamics Modelling. In Proceedings of ISG ISRS National Symposium 2025, Kolkata, India, 25-07 November 2025." },
+  { fullText: "Khatua, A., Bhattacharya, A., & <b>Bharath, H.A</b>., 2025. A Deep Learning-based Approach for Object Detection and Segmentation in Geospatial Imagery Using YOLOV11 and SAM2. In Proceedings of ISG ISRS National Symposium 2025, Kolkata, India, 25-07 November 2025." },
+  { fullText: "Sumit K., Madhumita, D., & <b>Bharath, H.A</b>., 2025. Temporal Land Use Analysis and Modelling Using Remote Sensing Data: A Case Study of Bangalore. In Proceedings of ISG ISRS National Symposium 2025, Kolkata, India, 25-07 November 2025." },
+  { fullText: "Sanjana, K., Gautam, A. & <b>Bharath, H.A</b>., 2025. Quantifying and simulating urban growth through Multi-Temporal Land Use and Spatial Perspectives. In Proceedings of Geospatial Innovation & Frontier Technologies for Sustainability (GIFTS) 2025, Pune, India, 01-03 September 2025." },
+  { fullText: "Sarkar, S., Bhattacharya, A., Chaudhary, N. & <b>Bharath, H.A</b>., 2025. Enhancing Land Use Classification by integrating Multi-sensor, Auxiliary and Ancillary Data with state-of-the-art Machine Learning Technique. In Proceedings of Geospatial Innovation & Frontier Technologies for Sustainability (GIFTS) 2025, Pune, India, 01-03 September 2025." },
+  { fullText: "Khatua, A., Bhattacharya, A., Anita, G., Arkopal, K.G., & <b>Bharath, H.A</b>., 2025. Developing a Deep Learning Approach for Building Change Detection in High-Resolution Remote Sensing Imagery. In Proceedings of IEEE IGARSS 2025 Symposium, Brisbane, Australia, 03-08 August 2025.." },
+  { fullText: "Bhattacharya, A., Khatua, A., & <b>Bharath, H.A</b>., 2025. Optimizing Land Use and Land Cover Classification using Random Forests and Spectral Features. In Proceedings of IEEE IGARSS 2025 Symposium, Brisbane, Australia, 03-08 August 2025." },
+  { fullText: "Anita, G., <b>Bharath, H.A.,</b> 2025. Urban Growth Dynamics Through A Comparative Study Of Classification Techniques. In Proceedings of IEEE IGARSS 2025 Symposium, Brisbane, Australia, 03-08 August 2025." },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2025. Thermal Comfort Assessment and Optimization in Residential Buildings: Integrating Vastu Shastra Principles with Advanced Simulation Tools.  In Proceedings of the Healthy Buildings 2025 conference, Hyderabad, India, 18-21 August 2025." },
+  { fullText: "Anita, G., <b>Bharath, H.A.,</b> 2025. Elucidation of land use change through traditional and advanced classification and Spatial Metrics. In Proceedings of the 1st International Conference on Building Urban Infrastructure with leading urban Design, Chandigarh University, India, 29-31 May 2025." },
+  { fullText: "Khatua, A., Bhattacharya, A., & <b>Bharath, H.A</b>., 2025. Python-Based Open-Source Tools with Deep Learning Technologies for Enhanced and Automated Remote Sensing and GIS Applications. In Proceedings of Roorkee Urban Symposium (RUS 202R), Roorkee, India, 28-30 March 2025." },
+  { fullText: "Anita, G., <b>Bharath, H.A.,</b> 2025. Temporal Perspectives on Urbanization Using Deep Learning and Spatial Metric Analysis. In Proceedings of Roorkee Urban Symposium (RUS 202R), Roorkee, India, 28-30 March 2025." },
+  { fullText: "Abhishek, S.S., <b>Bharath, H.A</b>., 2025. Evaluating the Impact of Urban Heat on Residential Property Prices: A Case Study of Hyderabad, India. In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025." },
+  { fullText: "Angki, P., Anita, G., <b>Bharath, H.A</b>., 2025. Elucidation of spatiotemporal dynamics of Land Use Land Cover classification in an Undulating Hilly terrain. In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025." },
+  { fullText: "Rutuja, V.P., Anita, G., <b>Bharath, H.A</b>., 2025. Spatial Analysis of land use change and its relationship with Real Estate Indicators. In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025." },
+  { fullText: "Suchit, E.P., <b>Bharath, H.A</b>., Brajesh, D., 2025. Optimizing Solid Waste Collection Routes in Himalayan Tourist Destinations. In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025." },
+  { fullText: "Ipshita, J., Anurag, A.K., <b>Bharath, H.A</b>., 2025. Impact of Urban Heat on Indoor Thermal Comfort A case study of Kharagpur town, India.  In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025" },
+  { fullText: "Indra, K.M., Apratim, B., <b>Bharath, H.A</b>., 2025. Mapping Sustainability: Water Quality Monitoring and Restoration of Bengaluru’s Lake Ecosystems.  In Proceedings 5th World Conference on Climate Change and Global Warming (CCGCONF), Vienna, Austria, 7-9 March 2025" },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2025. Understanding Traditional Dandaka Planning for Urban Housing: A Multi-Method Study on Thermal Comfort in High-Density Residential Buildings.  In Proceedings of Spiritual Architecture- Foundation of The Divine Bridging Ancient Vastusastra and Modern Architecture, MANIT, Bhopal, 14-15 February 2025." },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2024. The Interconnected Wisdom: Mayamata, Mansara, and Rajvallabha Literature of Vastu Shastra.  In Proceedings of ISOCARP 2024, Siena, Italy, 8-12 October 2024." },
+  { fullText: "Khatua, A., Bhattacharya, A., & <b>Bharath, H.A</b>., 2024. From Image to Map: Advancing GIS Decision Support Systems through Automated Building Detection and Vectorization Using the EURG DETECTIFY Interface. In Proceedings The 1st International Conference on Smart Mobility and Logistics Ecosystems (SMiLE), KFUPM, Saudi Arabia,17-19, September 2024." },
+  { fullText: "Harsh, G., Vara Prasad, K., <b>Bharath, H.A.,</b> Brajesh, D., 2024. Waste Segregation: A Psychological Exploration. In Proceedings of 27th Annual Convention & National Seminar on “Challenges & Innovations in Urban Planning & Development”, Indian Building Congress, India.13-14 July 2024." },
+  { fullText: "Khatua, A., Bhattacharya, A., & <b>Bharath, H.A</b>., 2024. Automated Georeferencing and Extraction of Building Footprints from Remotely Sensed Imagery Using Deep Learning. In Proceedings of the GISTAM 2024 Conference, Angers, France, 2-4 May 2024." },
+  { fullText: "Bhattacharya, A., Prabir K. P., <b>Bharath, H.A</b>., 2024. Visualisation of urban growth and modelling land use change using cellular Automata, 12th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing (IGRSM 2024), Kuala Lumpur, Malaysia, 29-30 Apr 2024. Doi:10.1088/1755-1315/1412/1/012031" },
+  { fullText: "Vinay, S., Hemasri, T., Praneeth, T., <b>Bharath, H.A.,</b> 2024. Visualizing landscape dynamics in evolving Tier 2 smart city, In proceedings of 12th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing (IGRSM 2024), Kuala Lumpur, Malaysia, 29-30 Apr 2024." },
+  { fullText: "Anita, G., <b>Bharath, H.A.,</b> 2024. Satellite Data Analysis for Urban Land Use Pattern Recognition. In Proceedings of 12th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing (IGRSM 2024), Kuala Lumpur, Malaysia, 29-30 Apr 2024." },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2024. Mapping Urban Road Networks Using Semantic Approach. In Proceedings of 12th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing (IGRSM 2024), Kuala Lumpur, Malaysia, 29-30 Apr 2024." },
+  { fullText: "Girish., <b>Bharath, H.A</b>., 2024. Urban Heat Stress Assessment Based on Human Thermal Comfort and Built-Form Classification: A Case Study.  In Proceedings of 51st Urban Affairs Association Conference, New York, USA, 24-27 Apr 2024." },
+  { fullText: "Chaitanya, B., Madhumita, D., <b>Bharath, H.A.,</b> 2024. Development of an Urban Road Feature Extraction Pipeline through Remotely Sensed Data.  In Proceedings of 51st Urban Affairs Association Conference, New York, USA, 24-27 Apr 2024." },
+  { fullText: "Navjoth, B., <b>Bharath, H.A</b>., 2024. A Web-Based Smart Spatial System for Urban Mapping, Geo Coding and Geo Locating: A Case Study.  In Proceedings of 51st Urban Affairs Association Conference, New York, USA, 24-27 Apr 2024." },
+  { fullText: "Sarkar, T., Gautam, A., Behera, M. D., <b>Bharath, H.A</b>., 2024. Scenario-based Assessment of Land Use Change on Air Quality, EGU General Assembly 2024, Vienna, Austria, 14–19 Apr 2024, EGU24-1386, https://doi.org/10.5194/egusphere-egu24-1386" },
+  { fullText: "Bhattacharya, A., Khatua, A., <b>Bharath, H.A</b>., 2024. Deep Learning based Automation for Rooftop Solar Potential Estimation using high-resolution UAV data, EGU General Assembly 2024, Vienna, Austria, 14–19 Apr 2024, EGU24-1385, https://doi.org/10.5194/egusphere-egu24-1385" },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A.,</b> 2023. Assessment of the Impact of Building Orientation on PMV and" },
+  { fullText: "Aniruddha, K., Arkopal, K.G., <b>Bharath, H.A</b>., 2023. Deep Learning-Based Automatic Building Types Classification for Transport Planning, In proceeding of 8th International Conference on Research for Transport and Logistics Industry (R4TLI 2023), Sri Lanka, August 2023." },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2023. The Interconnected Wisdom: Mayamata, Mansara, and Rajvallabha Literature of Vastu Shastra.  In Proceedings of National Youth Conference on Indian Knowledge Systems (NYCIKS) – 2023 at IIT Roorkee, India, August 2023." },
+  { fullText: "<b>Bharath, H.A.,</b> Tanbir, S.,Anita, G. 2023. Understanding the changing LULC and its effect on Air quality through field-based measurement and model-based approach. In Proceedings of International Geoscience and Remote Sensing Symposium 2023, Pasadena, USA. July 2023" },
+  { fullText: "Anita, G., <b>Bharath, H.A.,</b> Joshi, P.K. 2023. Exploring Google Earth Engine for Natural Resources Management using Machine Learning Models. In Proceedings of International Geoscience and Remote Sensing Symposium 2023, Pasadena, USA. July 2023" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2023. Deep Learning Based Approach For Road Distress Mapping Using VHR Images. In Proceedings of International Geoscience and Remote Sensing Symposium 2023, Pasadena, USA. July 2023" },
+  { fullText: "Aishwarya, N., Sutapa, D., <b>Bharath, H.A</b>., 2023. Evaluating the impact of climate-induced flooding on the coastal built environment using FReSMo.  In Proceedings of International Research Symposium on Climate Change Adaptation in the Coastal Built Environment, Santander, Spain, June 2023" },
+  { fullText: "Praneta, N., Aishwarya, N., <b>Bharath, H.A</b>., 2023. Remote Sensing for Flood Dynamics Monitoring and Flood Mapping.  In Proceedings of European Geophysical Conference 2023, Vienna, Austria, April 2023." },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2023. Assessment of Historic Vastushastra Principles to emphasize their importance in Naturally Ventilated Buildings in the present times.  In Proceedings of 51st Urban Affairs Association Conference, Nashville, Tennessee, USA, April 2023." },
+  { fullText: "Souvick, S., <b>Bharath, H.A.,</b> Brajesh, D., 2023. Comparative Environmental and Economical Evaluation of Construction and Demolition Waste Management Systems. In Proceeding of Nineteenth International Conference on Environmental, Cultural, Economic & Social Sustainability, Ljubljana, Slovenia, February 2023." },
+  { fullText: "Shubhi, N., <b>Bharath, H.A.,</b> Brajesh, D., 2023. Predictive Spatial Modeling: A Prescriptive Tool for Managing Construction and Demolition Waste Flow. In Proceeding of Nineteenth International Conference on Environmental, Cultural, Economic & Social Sustainability, Ljubljana, Slovenia, February 2023." },
+  { fullText: "Madhumita, D., <b>Bharath, H.A.,</b> 2023. Developing Transfer Learning Techniques for Road feature Extraction Using VHR Dataset. In Proceedings of TRB annual meeting, USA. January 2023" },
+  { fullText: "<b>Bharath, H.A.,</b> Aishwarya, N., 2022. Flood Resilient Scenario Modelling (FReSMo): for assessing coastal flood impact of built infrastructure. In Proceedings of Lake 2022, IISc, India. December 2022. <i>Plenary</i>." },
+  { fullText: "Devendra, P., Madhumita, D., Bharath, H.A., 2022. Pattern Extraction Through Deep Learning: Road as A Feature Set. In Proceedings of AGU fall meeting, USA. December 2022" },
+  { fullText: "Anurag, A.K., Prashant, A., <b>Bharath, H.A</b>., 2023. Thermal comfort assessment of a naturally ventilated residential building to emphasize Vastushastra principles for the built environment.  In Proceedings of Urban Transitions 2022, Barcelona, Spain, November 2022." },
+  { fullText: "Aishwarya, N., Sutapa, D., <b>Bharath, H.A</b>., 2022. Cost-Benefit Analysis of Flood Resilient Scenario Modelling (FreSMo) Based on a Dynamic Assessment of Coastal Flood Impact on Built Infrastructure.  In Proceedings of DRI Technical Conference 2022, Delhi, India, October 2022" },
+  { fullText: "Aishwarya, N., Praneta, N.P, Sutapa, D., Bharath, H.A., 2022. Flood resilient scenario modelling (FReSMo):" },
+  { fullText: "Shantanu, A., Shankar Cheela V.R., <b>Bharath, H.A.,</b> Brajesh, D., 2022. Environmental Impact Evaluation of Health-Care Waste Management Practices during COVID-19 Pandemic. In Proceeding of ISWA World Congress 2022, Singapore, September 2022." },
+  { fullText: "Madhumita, D., Prakash, PS., Chandan, M.C., <b>Bharath, H.A.,</b> 2022. Land-use change Dynamics and Automated Feature Extraction using High-Resolution Satellite Imagery. In proceeding of 7th International Conference on Research for Transport and Logistics Industry (R4TLI 2022), Sri Lanka, August 2022. (Awarded <b>Best Research in Urban Transport</b>)" },
+  { fullText: "Prakash, P.S., Jahnavi, S., <b>Bharath, H.A.</b> 2022. Building Extraction from Remote Sensing Images Using Deep Learning and Transfer Learning, In Proceeding of IGARSS 2022. Kuala Lumpur, Malaysia, July 2022." },
+  { fullText: "Lalit, M., <b>Bharath, H.A.,</b> 2022. Multi-Criteria Decision Making for Site Suitability of a Solar Farms.  In Proceedings of EGU 22, Austria, April 2022" },
+  { fullText: "Aishwarya, N., Shantanu, A., <b>Bharath, H.A.,</b> Sutapa, D.,  2022<b>.</b> An experimental approach for developing a building damage matrix for the flood-affected vernacular housing typology.  In Proceedings of EGU 22, Austria, April 2022" },
+  { fullText: "Madhumita, D., Bharath, H.A., Semantic Segmentation of High-Resolution Satellite images: a Deep Learning Approach. In proceeding of ISG-ISRS National Symposium 2021, India, December 2021." },
+  { fullText: "Nimish, G., <b>Bharath., H.A.,</b> 2021.  Effects of rising urban temperatures on the residents – A case study of Kolkata Metropolitan Region. In proceedings of International Conference 2021 on Spatial Planning and Sustainable Development, Nanjing University, China. November 2021." },
+  { fullText: "Vinay, S., Bharath, H.A., 2021. Inundation Exposure Assessment of Coastal Island using High Resolution remote sensing data, In proceedings of 5th WCDM, Delhi, India, November 2021." },
+  { fullText: "Aishwarya, N., <b>Bharath, H.A. 2021.</b> Multivariate building damage model for scenario-based flood risk assessment In proceedings of FOSS4G 2021, Nepal, November 2021" },
+  { fullText: "Prakash, P.S., Mansi, <b>Bharath, H.A. 2021.</b> Experimentation with Generative Adversarial Networks for Building Extraction from a Very High-Resolution Remote Sensing Imageries. In proceedings of FOSS4G 2021, Nepal, November 2021" },
+  { fullText: "Prakash, P.S., Mansi, <b>Bharath, H.A. 2021.</b> Change detection in urban built-up volume using deep learning-based segmentation techniques. In proceedings of SPIE Remote Sensing, Spain, September 2021" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.</b> 2021.  A Deep Learning Based Approach For Rooftop Solar Potential Estimation Of A City: A Case Study Of Indian Metropolis. In Proceeding of IGARSS 2021, Brussels, Belgium, July 2021." },
+  { fullText: "Vishal, S., Prakash, P.S., <b>Bharath, H.A.</b> 2021. Deep learning-based building rooftop extraction and classification from remote sensing imagery. In Proceeding of 17th International Conference on Computers in Urban Planning and Urban Management, Helsinki. June 2021" },
+  { fullText: "Nishanth, G., Nimish, G., <b>Bharath., H.A.,</b> 2021. Deriving Relationship Between Urbanization and Land Surface Temperature. In Proceeding of 16th International Conference on Computers in Urban Planning and Urban Management, Helsinki. June 2021" },
+  { fullText: "Vinay, S., <b>Bharath., H.A</b>., 2021. Flood risk forecasting for sustainable coastal management at regional scale. In Proceeding of Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future, June 2021." },
+  { fullText: "Madhumita, D., <b>Bharath., H.A</b>., 2021. Review of Road Feature Extraction for Sustainable Mobility. In Proceeding of Spatial@ucsb.global2021: Spatial Data Science for a Sustainable Future, June 2021." },
+  { fullText: "Vinay, S., <b>Bharath., H.A.,</b> 2021. Multi-Criteria Decision Analysis of Coastal Inundation at Regional scale. In Proceeding of EGU general assembly 2021, April 2021. https://doi.org/10.5194/egusphere-egu21-6963" },
+  { fullText: "Aishwarya, N., Sutapa, D., <b>Bharath., H.A.,</b> 2021. Damage-cost assessment of vernacular buildings against coastal flooding. In Proceeding of EGU 2021, April 2021. <a href=\"https://doi.org/10.5194/egusphere-egu21-829\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-sky-600 hover:underline\">https://doi.org/10.5194/egusphere-egu21-829</a>" },
+  { fullText: "Prakash, P.S., Mansi, U., <b>Bharath, H.A.</b> 2021.  Deep Learning based architectures for semantic segmentation of aerial imagery. . In Proceedings of  2nd International Conference on Unmanned Aerial System in Geomatics \- 2021, April 2021, IIT Roorkee Delhi, India." },
+  { fullText: "Vinay, S., <b>Bharath., H.A.,</b> 2020. Role of local sea level rise on disaster exposure in Coastal Island. In Proceeding of Lake 2020, India. December 2020" },
+  { fullText: "Mohit, V., Chandan, M.C., <b>Bharath., H.A.,</b> 2020. Developing a Urban Web-Based Spatial Decision Support System (SDSS): a case study. In Proceeding of Lake 2020, India. December 2020" },
+  { fullText: "Vishal, S., Prakash, P.S., <b>Bharath, H.A.</b> 2020.  Solar Using Machine Learning. In Proceeding of ISRSNS 2020, Gujarat, India. December 2020." },
+  { fullText: "Prakash, P.S., Vishal, S., <b>Bharath, H.A.</b> 2020.  UAV Based Sensor Data for Efficient 3D Building Extraction Using Machine Learning. In Proceeding of ISRSNS 2020, Gujarat, India. December 2020." },
+  { fullText: "Abhimanyu, S., Chandan, M.C., <b>Bharath., H.A.,</b> 2020. Urban growth analysis and modelling based on socio-economic agents using Cellular Automata. In Proceeding of INGARSS 2020, India. December 2020" },
+  { fullText: "Nishanth, G., Nimish, G., <b>Bharath., H.A.,</b> 2020. Using FOSS to estimate the Land Surface Temperature. In Proceeding of FOSS4G Korea 2020, Seoul. November 2020" },
+  { fullText: "Chandan, M.C., Abhimanyu, S., <b>Bharath., H.A.,</b> 2020. Land Use Analysis and Modelling based on Agents using Cellular Automata. In Proceeding of ACRS 2020, China. November 2020" },
+  { fullText: "Aishwarya, N., Parul, S., <b>Bharath., H.A.,</b> 2020. A Parametric Approach For Coastal Flood Risks Assessment By Integrating Hazard Data And Micro-Level Aspects Of Rural Vulnerability: Case Of Sagar Island, West Bengal. In Proceeding of ACRS 2020, China. November 2020" },
+  { fullText: "Chandan, M.C., <b>Bharath., H.A.,</b> 2020. Integration of genetic algorithm and agent-based model to visualize near realistic sustainable urban growth: a comparative study. In Proceeding of IGARSS 2020, USA. July 2020" },
+  { fullText: "Nimish, G., <b>Bharath., H.A.,</b> 2020. Forecasting land surface temperature using artificial neural network. In Proceeding of IGARSS 2020, USA. July 2020" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.</b> 2020.  Assessment of urban built-up volume using geospatial methods: a Bangalore case study. In Proceeding of IGARSS 2020, USA. July 2020" },
+  { fullText: "Sowmya, K.D., Prakash, P.S., <b>Bharath, H.A.</b> 2020. Urban surface simulation through image-to-image translation deep learning algorithm using optical aerial imagery. In Proceeding of IGARSS 2020, USA. July 2020" },
+  { fullText: "Prakash, P.S., <b>Bharath, H.A.,</b> 2020.  Rooftop solar potential estimation using UAV through deep learning for efficient infrastructure development.  In Proceedings of ASCE 2020, Kolkata, India. March 2020" },
+  { fullText: "Lalilta, A., Nimish, G., <b>Bharath., H.A.,</b> 2019.  Land use pattern anlysis and Land Surface Temperature extraction: A case study of Kolkata, In Proceedings Indicon 2019, Gujarat, December 2019, India." },
+  { fullText: "Nimish, G., <b>Bharath, H.A.,</b> 2019. Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore. In proceedings of 5th International Conference on Countermeasures to Urban Heat Islands. International Institute of Information Technology \- Hyderabad, December 2019, India. https://doi.org/10.37285/bsp.ic2uhi.37" },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath, H.A.,</b> 2019. Mapping and assessing spatial forms of Urban Expansion through spatio-temporal metrics and modelling the future urban growth. In proceedings of  International Conference on Future Cities (ICFC-2019), December 2019, IIT Roorkee, India." },
+  { fullText: "<b>Bharath, H.A.,</b> 2019. Developing a Spatial Data Infrastructure through Urban observatory for Sustainable Urban Development. In proceedings of National conference on Storing Energy for sustainable future- future energy in an Isolated world- 35th National convention of Electrical Engineers. November 2019, Chennai, India." },
+  { fullText: "Chandan, M.C., Aadithyaa, J.S., Prakash, P.S., <b>Bharath., H.A.,</b> 2019.  Integration of Particle swarm optimization with SLEUTH for Urban growth pattern visualisation. In Proceedings of 55th International Society of City and Regional Planners Congress (55th ISOCARP-2019), September 2019, Indonesia." },
+  { fullText: "Chandan, M.C., <b>Bharath., H.A.,</b> 2019. Exploring Urbanization Pattern Change – A Case of Two Metro Cities of India. In NASA SARI LULCC meet \- Land Use/Cover Changes, Environment and Emissions in South/Southeast Asia – An International Regional Science Meeting, July 2019, Johor Bahru, Malaysia." },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath., H.A.,</b> 2019. Quantitative Measurement, Analysis of Land Use Change through Spatio-Temporal Pattern and Modelling. In proceedings of 16th International Conference on Computers in Urban Planning and Urban Management, July 2019, China." },
+  { fullText: "Akshit, S., <b>Bharath., H.A.,</b> 2019.  Integrated System Dynamics Cellular Automata Housing Allocation model to understand housing demand and supply. In proceedings of 49th Urban Affairs Conference, April 2019, California, USA." },
+  { fullText: "Nimish, G., Chandan, M.C., Prakash, P.S., <b>Bharath., H.A.,</b> 2019.  Characterizing the relationship between land use pattern and land surface temperature with automated built-up extraction: Process, pattern, and modeling. In proceedings of EGU General Assembly 2019, April 2019, Vienna, Austria." },
+  { fullText: "Prakash, P.S., Satrupa, M., <b>Bharath., H.A.,</b> 2019. Automatic extraction of building features from UAV using artificial neural networks. In proceedings of   1st International Conference on Unmanned Aerial System in Geomatics \- 2019, April 2019, IIT Roorkee Delhi, India." },
+  { fullText: "Sudeep, B., Nimish, G., <b>Bharath., H.A.,</b> 2019. Spatial-temporal impacts of urban land use land cover on land surface temperature: Coimbatore. In proceedings of International Conference on Smart Cities: Opportunities and Challenges. Jamia Millia Islamia, New Delhi, March 2019, India." },
+  { fullText: "Satrupa, M., Enosh D., Aishwarya, N., <b>Bharath., H.A.,</b> 2019. <b>Development of Flood Inundation Map Using Geospatial Techniques</b>. In proceedings of Climate Change Impacts, Vulnerabilities, and Adaptation: Emphasis on India and Neighbourhood (CCIVA 2019). International Institute of Technology Kharagpur, February 2019, India." },
+  { fullText: "Aishwarya, N., Das, S., <b>Bharath, H.A.,</b> 2019. Adaptive capacity assessment of a region against flood vulnerability using GIS and remote sensing. In Proc. of 4thWCDM: 4th World congress on Disaster management, Bombay, India" },
+  { fullText: "Ramachandra, T.V., Deepthi, H., <b>Bharath, H. A.,</b> Venugopal, R., Joshi, N.V., 2019. Bioethanol from Estuarine Macroalgae, West Coast of Karnataka, India.  In proceedings of   35th Annual Symposium on Space Science and Technology, January 2019, IISc, India" },
+  { fullText: "<b>Bharath., H.A.,</b> Chandan, M.C., Nimish, G., Prakash, P.S., 2018.  Modelling and characterizing the urban growth pattern in Silicon Valley by establishing a relationship with LST and Building footprint, In proceedings of AGU fall meeting, December 2018, USA." },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath., H.A.,</b> 2018. Addressing sustainable agenda challenge through analysis of  LST, GHG emissions and visualisation of urban growth in two Megacities of India. In proceedings of AGU fall meeting, December 2018, USA." },
+  { fullText: "Prakash, P.S., <b>Bharath., H.A.,</b> 2018. Building rooftop extraction and estimation of solar energy capabilities using machine learning. In proceedings of   National Symposium is Advancements in Geospatial Technology for Societal Benefits, December 2018, Ahmedabad, India." },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath., H.A.,</b> 2018. Analyzing Urban Spatial Patterns and Trend of Future Urban Expansion Using SLEUTH. In proceedings of  FOSS 4G Asia,  December 2018, Sri Lanka." },
+  { fullText: "Chandan, M.C., <b>Bharath., H.A.,</b> 2018.  Analysis and modelling of impervious land-use expansion using remote sensing and GIS in Coimbatore, India. In proceedings of  Lake 2018,  November 2018, India." },
+  { fullText: "Chandan, M.C.,  Nimish, G., <b>Bharath., H.A.,</b> 2018.  Modelling Urban transition using Cellular Automata based Sleuth modelling. In proceedings of  IEEE SSCI,  November 2018, Bangalore, India." },
+  { fullText: "Prakash, P.S., Soumya, K.D., <b>Bharath., H.A.,</b> 2018. Urban building extraction using satellite imagery through Machine learning. In proceedings of  IEEE SSCI,  November 2018, Bangalore, India." },
+  { fullText: "Nimish, G., Chandan, M.C., <b>Bharath., H.A.,</b> 2018.  Understanding current and future landuse dynamics with land Surface temperature alterations: a case study of chandigarh . In proceedings of  ISPRS technical commission v Education & outreach Geospatial technology \- pixel to people- ISPRS annals,  November 2018, Dehradun, India." },
+  { fullText: "Prakash, P.S., <b>Bharath., H.A.</b>, 2018. Machine Learning for urban structure extraction using optical satellite data. In proceedings of  NatSYM 2018,  November 2018, India." },
+  { fullText: "Chandan, M.C., <b>Bharath., H.A.,</b> 2018. Exploring spatial trends of urban growth and modelling the change of  land use  in Varanasi: A Case of Spiritual Capital of India. In proceedings of  NatSYM 2018,  November 2018, India." },
+  { fullText: "Nimish, G., Chandan, M.C., <b>Bharath., H.A.,</b> 2018. Satellite land surface temperature and urbansiation: Mapping modelling and understanding the trends of change. In proceedings of  NatSYM 2018,  November 2018, India." },
+  { fullText: "Soumya, K.S., Prakash, P.S., <b>Bharath, H. A</b>., 2018. Automatic identification of plant species through a convolutional neural network model for UAV mounted digital Cameras. In proceedings of ACRS 2018,  October 2018, Kaula Lampur, Malaysia." },
+  { fullText: "Gaurav, S., Shafia, A., <b>Bharath, H. A.,</b> 2018. Urban growth pattern with urban flood and temperature vulnerability using AI: a case study of Delhi. In proceedings of 9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing, April 2018, Kuala Lumpur, Malaysia." },
+  { fullText: "Shafia, A.,  Gaurav, S., <b>Bharath, H. A</b>., 2018.  Urban growth modelling using Cellular Automata coupled with alnd cover indices for Kolkata Metropolitan region. In proceedings of 9th IGRSM International Conference and Exhibition on Geospatial & Remote Sensing, April 2018, Kuala Lumpur, Malaysia." },
+  { fullText: "Shafia, A., Nimish G., <b>Bharath, H. A.,</b> 2018. Dynamics of Land Surface Temperature with changing Land-Use: Building a climate resilient smart city. In proceedings of International Conference for Convergence in Technology (I2CT 2018), April 2018, Pune, India." },
+  { fullText: "Gaurav, S., Chandan, M.C., <b>Bharath, H. A.,</b> 2018. Combined Spatial Multi-criteria approach for assessing and mapping urban flood vulnerable zones in capital region of India. In proceedings of International Conference for Convergence in Technology (I2CT 2018), April 2018, Pune, India." },
+  { fullText: "<b>Bharath, H.A.,</b> 2018. Urbanisation and city expansion threats: Pattern, Process and Modelling, In proceedings of  105th Indian Science Congress 2018, March 2018, Manipur, India" },
+  { fullText: "Ramachandra, T. V., Jefferey, M.S., <b>Bharath., H.A.,</b> Bharath S.,2018. Micro level analysis of Environmentally disastrous urbanization in Bangalore. In proceedings of International Workshop on Biodiversity & Climate Change 2018,  Febraury 2018, Kharagpur, India <b>\[2nd Best Oral presented paper\]</b>" },
+  { fullText: "Nimish, G., Chandan, M.C., <b>Bharath., H.A.,</b> 2018.Monitoring and modelling of spatiotemporal change in land use and understanding its impact on land surface temperature. In proceedings of International Workshop on Biodiversity & Climate Change 2018,  Febraury 2018, Kharagpur, India." },
+  { fullText: "Ramachandra, T. V., Jefferey, M.S., <b>Bharath, H. A.,</b> Vinay, S., 2018. Geo-visualisation of landscape dynamics in the proposed mega industrial corridor. In proceedings of International Workshop on Biodiversity & Climate Change 2018, Febraury 2018, Kharagpur, India." },
+  { fullText: "Shafia, A., Gaurav, S., Chandan, M.C., <b>Bharath, H. A.,</b> 2018.  Visualising urban growth pattern through agent and urban environmental factor(s) based modelling framework: A case study of Delhi. In proceedings of International Workshop on Biodiversity & Climate Change 2018, Febraury 2018, Kharagpur, India." },
+  { fullText: "Dharini, J., <b>Bharath, H.A.,</b> Arkopal, G., Joy, S., 2018.  Application of Geospatial techniques to explore linkages between urban growth and cultural setting of a Historical city.  In proceedings of NRSC user interaction meet, Geospatial World Forum 2018 January 2018, Hyderabad, India." },
+  { fullText: "Chandan, M.C., Dharini, J., <b>Bharath, H. A.,</b> 2017. Understanding Resilience and Sustainable Urban Growth through Land Use Simulation: Case Study of Emerging Metrocity of India. In proceedings of ASCE India conference 2017, December 2017, Delhi, India." },
+  { fullText: "Nimish G., Shafia, A., Chandan, M.C., <b>Bharath, H. A.,</b> 2017. Monitoring land use/cover change and Land surface temperature. In proceedings of Second Regional Science & Technology Congress, November 2017, West Bengal, India. \[<b>Best Paper Award</b>\]" },
+  { fullText: "Dharini, J., Chandan, M.C., <b>Bharath, H. A.,</b> 2017. Exposition of land Use Dynamics of Coimbatore City Using Geo-informatics. In proceedings of Second Regional Science & Technology Congress, November 2017, West Bengal, India." },
+  { fullText: "Chandan M.C., Gaurav Singh, <b>Bharath, H. A.,</b> 2017. Urban growth characterization using Geospatial technologies. In proceedings of Second Regional Science & Technology Congress, Nov. 2017, West Bengal, India." },
+  { fullText: "Chandan, M.C., Aishwarya, N., Nimish, G., <b>Bharath, H. A.,</b> 2017. Multi temporal urban growth characterization using Geospatial technologies, In proceedings of 38th Asian Conference on Remote Sensing (ACRS 2017), October 2017, Delhi, India" },
+  { fullText: "Brigit, M.B., <b>Bharath, H.A.,</b> Nityanandam, Y., Ramachandra, T.V., 2017. Analysis of landscape dynamics in the Pune-Mumbai industrial corridor, in proceedings of International Conference on urban geoinformatics, February 2017, TERI University, Delhi, India" },
+  { fullText: "Chandan, M. C., <b>Bharath, H.A.,</b> Ramachandra, T.V., 2017. Integrated approach to visualize urban growth: case study of rapidly urbanising city, In proceedings of International Symposium on Water Urbanism and Infrastructure Development in Eco-Sensitive Zones, January 2017, Kolkata, India \[<b>Best Paper Award</b>\]" },
+  { fullText: "Chandan, M.C., Vinay, S., <b>Bharath, H.A.,</b> Ramachandra, T.V., 2016. Land use assessment and urban growth monitoring in Hyderabad region, India, In proceedings of Lake 2016, December 2016, Alva’s college, Moodabidri, India." },
+  { fullText: "<b>Bharath, H. A.,</b> Vinay, S., Ramachandra, T.V., 2016. Comparative assessment of Agent based and Rule based models for urban growth visualization, In proceedings of Kerala Environment Congress 2016, November 2016, Energy Management Centre – Kerala, India" },
+  { fullText: "Ramachandra, T.V., Vinay, S., <b>Bharath, H. A.,</b> Shashishankar, A., 2016, Landscape Status and Hydrological Regime of Aghanashini River Basin, In proceedings of SWWEM-2016-International Conference & Exhibition On Best Practices in Sustainable Water, Waste Water & Energy Management, August 2016, IISc, Bangalore" },
+  { fullText: "Vinay, S., <b>Bharath, H. A.,</b> Chandran, M. D. S., Shashishankar, A., Ramachandra, T. V., 2016, Linkages between catchment landscape dynamics and the natural flow regime, In proceedings of ICEE 2016, June 17-18, 2016, Coimbatore, Tamilnadu, India." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A.,</b> Vinay, S., Kumar, U., Venugopal, K. R., Joshi, N.V., 2016.  Modelling and Visualization of Urban Trajectory in 4 cities of India. In proceedings of IISc- ISRO-STC 2016, January 7-8, 2016, IISc, Bangalore, India." },
+  { fullText: "<b>Bharath, H.A.,</b> Ramachandra, T.V., 2016. Future of Indian cities: Looking at spatial growth perspective – Smart cities and Planning. In proceedings of Livable Habitat & Sustainable Infrastructure: a key to smart growth, January 1-2, 2016 at Hyatt Regency, Kolkata, India." },
+  { fullText: "<b>Bharath, H. A.,</b> Ramachandra, T.V.,2016. Green to Grey: Bangalore, in International LCLUC Regional Science Team Meeting in South and Southeast Asia, organized by NASA, Poster, January 12th – January 18th 2016, Yangon University, Yangon, Myanmar." },
+  { fullText: "<b>Bharath, H. A.,</b> Vinay, S., Ramachandra, T.V., 2014. Landscape dynamics modelling through integrated Markov, Fuzzy-AHP and Cellular Automata, in the proceeding of International Geoscience and Remote Sensing Symposium (IEEE IGARSS 2014), July 13th – July 19th 2014, Quebec City convention centre, Quebec, Canada." },
+  { fullText: "<b>Bharath, H.A</b>., Vishwanath, Bhat, Ramachandra, T.V. 2015. Spatial Patterns of Urban Growth with Globalization in India’s Silicon Valley. Proceedings of National Conference on Open-Source GIS: Opportunities and Challenges Department of Civil Engineering, IIT (BHU), Varanasi. October 9-10, 2015. (<b>Best paper award</b>)" },
+  { fullText: "<b>Bharath, H. A</b>., Vinay, S., Ramachandra, T.V., 2014, Prediction of Spatial Patterns of Urban Dynamics in Pune, India, in proceedings of IEEE-Indicon 2014, December 11-13, 2014, Pune, Maharastra, India." },
+  { fullText: "Ramachandra, T.V., Chandan, M. C., <b>Bharath, H. A</b>., Vinay, S., Sellers, J.M., Venugopal, K. R., 2015.  Monitoring and modelling patterns of urban growth in Chennai, India. In proceedings of NRSC UIM 2015, January 21-22, 2015, Hyderabad, Telagana, India." },
+  { fullText: "Ramachandra, T.V., Vinay, S., <b>Bharath, H. A</b>., Bharath, S., Shashishankar, A., 2015.  Landscape Status and Hydrological Regime: Insights to Linkages in Sharavati and Varada Catchments, Central Western Ghats. In proceedings of NRSC UIM 2015, January 21-22, 2015, Hyderabad, Telagana, India." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A.,</b> Vinay, S., Venugopal, K. R., Joshi, N.V., 2015.  Geospatial scenario based modelling of urban revolution in five major cities in India. In proceedings of IISc- STC 2015, January 8-9, 2015, Bangalore, Karnataka, India." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A.,</b> Venugopal, K. R., 2014.  Modelling and geo-visulaisation of urban growth, India. In proceedings of Lake 2014, November 13-15, 2014, Uttara Kannada, Karnataka, India." },
+  { fullText: "Chandan, M. C., <b>Bharath, H. A.,</b> Ramachandra, T.V., Venugopal, K. R., 2014.  Quantifying urbanisation using geospatial data and spatial metrics-a case study of Madras. In proceedings of Lake 2014, November 13-15, 2014, Uttara Kannada, Karnataka, India." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A.,</b> Tarun, K.K., Venugopal, K. R., 2014. Modelling of urban dynamics: a case study of Bhopal and its environs, India. In proceedings of Lake 2014, November 13-15, 2014, Uttara Kannada, Karnataka, India." },
+  { fullText: "Shweta, G., Swati, G., <b>Bharath, H. A.,</b> Ramachandra, T.V., 2014. Land use dynamics of central and Southern Western Ghats. In proceedings of Lake 2014, November 13-15, 2014, Uttara Kannada, Karnataka, India." },
+  { fullText: "Ramachandra, T.V., Vinay, S., <b>Bharath, H. A.,</b> Bharath, S., Shashishankar, A., 2014.  Environmental flow assessment in the rivers originating at the Western Ghats. In proceedings of Lake 2014, November 13-15, 2014, Uttara Kannada, Karnataka, India." },
+  { fullText: "Ramachandra, T.V., Nupur, N., Vinay, S., <b>Bharath, H. A</b>., 2014, Modeling Hydrologic regime of Lakshmanatirtha watershed, Cauvery River, in proceedings of IEEE-GHTC-SAS 2014, September 26-27, 2014, Trivandrum, Kerala, India." },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H. A.,</b> Vinay, S., Joshi, N. V., Kumar, U., Venugopal, R. K., 2013. Modelling Urban Revolution in Greater Bangalore, India, 30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science, Bangalore, 7-8 November 2013." },
+  { fullText: "Vinay, S., Bharath, S, <b>Bharath, H.A.,</b> Ramachandra, T.V., 2013. Hydrologic model with landscape dynamics for drought monitoring, In proceedings Joint International Workshop of ISPRS on Geospatial Data for Disaster and Risk Reduction, November 21-22, 2013, Hyderabad, India." },
+  { fullText: "<b>Bharath, H.A.,</b> Vinay, S., Ramachandra, T.V., 2013. Modelling and Simulation of Urbanization in Greater Bangalore. In proceedings of National Geospatial Data Infrastructure 2013, November 29-30, IIT Bombay, Mumbai, India" },
+  { fullText: "<b>Bharath, H.A.,</b> Ramachandra. T.V., 2013, Visualisation of urbanisation patterns in Greater Bangalore, India, In CES in house symposium, 02-03, Nov 12, New Biological Science Auditorium, Indian Institute of Science, Bangalore." },
+  { fullText: "<b>Bharath, H.A.,</b> Vinay, S., Ramachandra, T.V., 2013. Prediction of Land use dynamics in the rapidly urbanising landscape using land change modeller in proceedings of Fourth International Joint Conference on Advances in Engineering and Technology, AET 2013, December 13-14, NCR Delhi, India." },
+  { fullText: "<b>Bharath, H.A.,</b> Ramachandra. T.V., 2013. Measuring urban sprawl in Tier II cities of Karnataka, India, In Proceedings IEEE Global Humanitarian Technology Conference: South Asia Satellite (IEEE-GHTC-SAS), 2013, Techno Park, Trivandrum, Kerala, India, 23-24 Aug., 2013." },
+  { fullText: "<b>Bharath, H.A.,</b> Vinay S., Ramachandra. T.V., 2013. Comprehension of temporal land use dynamics in urbanising landscape, In Proceedings of 2nd National Remote Sensing Users Meet, NRSC, Hyderabad, India, 20-21 February, 2013." },
+  { fullText: "Bharath, S., <b>Bharath, H.A.,</b> Sannadurgappa, D., Ramachandra, T. V., 2012, Landscape Dynamics through Spatial Metrics, Proceedings of India GeoSpatial Conference, Epicentre, Gurgaon, India, 7-9 February, 2012." },
+  { fullText: "<b>Bharath, H.A.,</b> Bharath, S., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V., 2012, Spatial patterns of urbanization in Mysore: Emerging Tier II City in Karnataka, Online Proceedings of National Remote Sensing Users Meet, NRSC, Hyderabad, India, 16-17 February, 2012." },
+  { fullText: "<b>Bharath, H.A</b>., Sannadurgappa, D., Ramachandra, T.V., 2012, Simulation of Urban dynamics through Spatial Metrics, Proceedings of Student Symposium, Centre for Sustainable Technologies, IISc, Bangalore, India, 18 May, 2012." },
+  { fullText: "<b>Bharath, H.A</b>., Ramachandra, T. V., 2012, Spatial Pattern analysis of two urbanising Tier II cities in Karnataka using open-source GIS \- GRASS, Proceedings OSGEO-INDIA: FOSS4G 2012- First National Conference \"Open-Source Geospatial Resources to Spearhead Development and Growth” 25-27th October 2012, IIIT Hyderabad." },
+  { fullText: "Bharath, S, <b>Bharath, H.A</b>., Rajan, K. S., Ramachandra, T. V., 2012. Cost effective mapping, monitoring and visualisation of spatial patterns of urbanisation using FOSS, Proceedings of OSGEO-INDIA: FOSS4G 2012- first national conference \"Open-Source Geospatial Resources to Spearhead Development and Growth”. 25-27th October 2012, IIIT Hyderabad." },
+  { fullText: "<b>Bharath, H.A.,</b> Sannadurgappa, D. Ramachandra, T.V., 2012. Status of wetlands in urbanising Tier II cities of Karnataka, In online proceedings Lake 2012: Wetlands, National Conference on Conservation and Management of Wetland Ecosystems, 06-08, Nov 2012, School of Environmental Sciences, M. G. University, Kerala, India." },
+  { fullText: "Vinay S, <b>Bharath, H.A.,</b> and Ramachandra, T.V., 2012. Spatio Temporal dynamics of Raichur City, In proceedings Lake 2012: National Conference on Conservation and Management of Wetland Ecosystems, 06-08, Nov 2012, School of Environmental Sciences, M. G. University, Kerala, India." },
+  { fullText: "<b>Bharath, H.A</b>., Sreekantha, S., Sannadurgappa, D., Ramachandra, T. V., 2012, Spatial patterns of urbanization in an emerging Tier II City, Mysore, Samanway 2012, Indian Institute of Science, Bangalore, India, 03-04 March, 2012." },
+  { fullText: "<b>Bharath, H.A.,</b> Bharath, S., Sannadurgappa, D., Ramachandra, T. V., 2012, Effectiveness of landscape Spatial Metrics with reference to the Spatial Resolutions of Remote Sensing Data, Proceedings of India Conference on Geo-spatial Technologies & Applications 2012, IIT Bombay, Mumbai, India, 12-14 April, 2012." },
+  { fullText: "Subash Chandran, M. D., Rao, G. R., Prakash Mesta, <b>Bharath, H.A.,</b> Kumar, U., Ramachandra, T. V., 2011. Landslides in coastal Uttara Kannada: Management towards risk reduction. Disaster, Risk Vulnerablity Conference 2011, School of Environmental Sciences, Mahatma Gandhi University, India. March 12- 14, 2011, pp. 7-22." },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A</b>., Vinay, S., Kumar, U., Joshi, N. V., Venugopal Rao. 2013. Modelling Urbanisation pattern. In proceedings of the 30th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science, Bangalore, India, 7-8 November, 2010." },
+  { fullText: "<b>Bharath, H. A.,</b> Sannadurgappa, D., Ramachandra, T.V., 2010. Urban growth monitoring through spatio-temporal analysis, in online proceedings Lake 2010: Wetlands, Biodiversity and Climate change, 22-24 Dec 2011, Satish Dhawan Auditorium, Indian Institute of Science, Bangalore." },
+  { fullText: "Ramachandra T. V., Kumar, U., <b>Bharath H. A</b>., Diwakar P. G., Joshi, N. V., 2009. Landslide Susceptible Locations in Western Ghats: Prediction through open Modeller, In proceedings of the 26th Annual In-House Symposium on Space Science and Technology, ISRO-IISc Space Technology Cell, Indian Institute of Science, Bangalore, India, 28-29 January, 2010." },
+  { fullText: "<b>Bharath, H. A</b>., Kumar, U., Ramachandra T. V., 2009. Fusion of multi resolution remote sensing data for urban sprawl analysis, Proceedings of COSMAR 2009, Department of Management Studies, Indian Institute of Science, Bangalore, India, 5-6 November, 2009." },
 ];
 
 export const books: Book[] = [
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Insights of urban dynamics for sustainable design of Smart Cities.',
-    publisher: 'Lap Lambert Academic Publishing',
-    year: 2016,
-    pages: '240',
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Urban Growth Patterns in India: Spatial Analysis for Sustainable Development.',
-    publisher: 'CRC Press',
-    year: 2020,
-    pages: '195',
-  },
-  {
-    authors: 'Bharath, H.A., Prakash, P.S.',
-    title: 'Building Feature Extraction with Machine Learning: Geospatial Applications.',
-    publisher: 'CRC Press',
-    year: 2022,
-    pages: '180',
-  },
+  { fullText: "<b>Bharath, H.A.,</b> Ramachandra, T.V., 2016. Insights of Urban Dynamics for Sustainable Design of Smart Cities, Lap Lambert Academic Publishing, pp. 240. <b>ISBN 978-3-330-00171-8</b>" },
+  { fullText: "<b>Bharath, H.A</b>., Ramachandra, T.V., 2020. Urban Growth Patterns in India: Spatial Analysis for Sustainable Development. CRC Press, pp. 196. <b>ISBN 9781032474724</b>" },
+  { fullText: "<b>Bharath, H</b>.A., Prakash PS, 2023.  Building Feature Extraction with Machine Learning: Geospatial Applications. CRC Press, CRC Press, pp. 180. <b>ISBN 9781032263830</b>" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A</b>., Vinay S., Bharath, S., Sincy, V., Asulabha, 2024. Natural Capital Accounting and Valuation of Ecosystem Services, Karnataka State, India, Springer, pp. 673. <b>ISBN 978-981-97-2404-8</b>" },
+];
+
+export const editedBooks: EditedBook[] = [
+  { fullText: "Arkopal, K.G., <b>Bharath, H</b>.<b>A</b>., Swati, M., Ankhi, B., 2024.  Infrastructure and Built Environment for Sustainable" },
+  { fullText: "Ankhi, B., Gajanand, S.S., <b>Bharath, H</b>.<b>A</b>., Swati, M., Arkopal, K.G., 2026.  Infrastructure and Built Environment for Sustainable and Resilient Societies. Springer, pp. 573. <b>ISBN:  978-981-95-6749-2</b>" },
 ];
 
 export const bookChapters: BookChapter[] = [
-  {
-    authors: 'Vinay, S., Bharath, H.A.',
-    title: 'Geo-spatial modelling of flood risk due to local sea-level rise and landscape dynamics: A case of Sagar Island.',
-    bookTitle: 'Applications of Remote Sensing and GIS in Natural Resources and Built Infrastructure Management',
-    publisher: 'Springer',
-    year: 2021,
-  },
-  {
-    authors: 'Nimish, G., Bharath, H.A., Ramachandra, T.V.',
-    title: 'Visualisation of Land use Change Pattern and Its Impact on Urban Heat Islands.',
-    bookTitle: 'Global Urban Heat Island Mitigation',
-    publisher: 'Elsevier',
-    year: 2021,
-    isbn: '9780323897945',
-  },
-  {
-    authors: 'Chandan, M.C., Nimish, G., Bharath, H.A.',
-    title: 'Analysing and predicting urban expansion and its effects on surface temperature for two Indian megacities: Bengaluru and Chennai.',
-    bookTitle: 'Geo Spatial Technology and Smart City Development',
-    publisher: 'Springer',
-    year: 2021,
-    isbn: '978-3-030-71944-9',
-  },
-  {
-    authors: 'Prakash, P.S., Nimish, G., Chandan, M.C., Bharath, H.A.',
-    title: 'Urbanization: pattern, effects and modelling.',
-    bookTitle: 'Machine Learning for Urban Computing',
-    publisher: 'Springer',
-    year: 2021,
-    isbn: '978-981-16-0934-3',
-  },
-  {
-    authors: 'Chandan, M.C., Bharath, H.A.',
-    title: 'Visualising future trends of Urban Expansion Through Spatio-Temporal Metrics and land use modelling.',
-    bookTitle: 'Future Cities',
-    publisher: 'Springer',
-    year: 2020,
-    isbn: '978-81-927014-5-5',
-  },
-  {
-    authors: 'Nimish, G., Sudeep, V.B., Bharath, H.A.',
-    title: 'Impacts of Urban Land Use Land Cover Pattern on Land Surface Temperature.',
-    bookTitle: 'Smart Cities—Opportunities and Challenges',
-    publisher: 'Springer',
-    year: 2020,
-    isbn: '978-981-15-2544-5',
-  },
-  {
-    authors: 'Bharath, H.A., Nimish, G., Chandan, M.C.',
-    title: 'Exposition of spatial urban growth pattern using PSO-SLEUTH and identifying its effects on surface temperature.',
-    bookTitle: 'Urban Ecology',
-    publisher: 'Elsevier',
-    year: 2020,
-    isbn: '9780128207307',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Vinay, S., Chandan, M.C.',
-    title: 'Simulation and modelling the urban dynamics in Bangalore - Silicon Valley of India.',
-    bookTitle: 'Planning Megacities in the Global South',
-    publisher: 'Routledge',
-    year: 2020,
-    isbn: '9780367223724',
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A.',
-    title: 'Bangalore: Unplanned Urban Revolution and Consequent Environmental Sustainability.',
-    bookTitle: 'Wiley-Blackwell Encyclopedia of Urban and Regional Studies',
-    publisher: 'John Wiley & Sons',
-    year: 2019,
-    isbn: '9781118568453',
-    doi: 'https://doi.org/10.1002/9781118568446.eurs0014',
-  },
-  {
-    authors: 'Bharath, H.A., Chandan, M.C., Ramachandra, T.V.',
-    title: 'Urbanisation in India: Patterns, Visualisation of cities and developing an Urban observatory.',
-    bookTitle: 'Urban Remote Sensing, Second Edition',
-    publisher: 'Taylor and Francis',
-    year: 2018,
-    isbn: '9781138054608',
-  },
-  {
-    authors: 'Ramachandra, T.V., Shreejith, K., Bharath, H.A.',
-    title: 'Sector-Wise Assessment of Carbon Footprint across Major Cities in India.',
-    bookTitle: 'Assessment of Carbon Footprint in Different Industrial Sectors (Eds. Muthu, S.S.), Eco-Production',
-    publisher: 'Springer',
-    year: 2014,
-    isbn: '9789814585743',
-  },
-  {
-    authors: 'Ramachandra, T.V., Kumar, U., Bharath, H.A.',
-    title: 'Ecological Approach for Mitigation of Urban Flood Risks.',
-    bookTitle: 'Ecosystem Approach to Disaster Risk Reduction (Eds. Gupta et al.)',
-    publisher: 'National Institute of Disaster Management, New Delhi',
-    year: 2012,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A., Kumar, U.',
-    title: 'Conservation of wetlands to mitigate urban floods.',
-    bookTitle: 'Resources, Energy, and Development, Issue 9(1)',
-    publisher: 'TERI, New Delhi',
-    year: 2012,
-  },
+  { fullText: "Bharath, H.A., Abhishek S.S, Rajesh S. R, Evaluating the Effect of Urban Heat Islands on Residential Property Prices, Published by Springer. ICWEES 2025 <b><i>Under review</b></i>" },
+  { fullText: "Anita G., <b>Bharath, H.A.,</b> Urbanization Dynamics in Bangalore Metropolitan Region with a Deep Learning Perspective of High-resolution Satellite Data, Cities and effects (Lake 2024), Published by Springer. <b><i>Under review</b></i>" },
+  { fullText: "<b>Bharath, H.A.,</b> Anita G., Characterizing Urban Growth Dynamics through Remote Sensing and Geospatial Deep Learning: A Spatial Perspective from Bangalore, India), ICWEES 2025. Published by Springer. <b><i>Under review</b></i>" },
+  { fullText: "Aniruddha, K., Apratim, B., <b>Bharath, H.A.,</b> Integrating SAR and optical imagery for improved LU classification: A machine learning approach. GeoAI Frontiers: Machine Learning for Intelligent Geospatial Solutions, Published by Springer. <b><i>Under review</b></i>" },
+  { fullText: "<b>Bharath, H.A.,</b> Aniruddha, K., Apratim, B., 2026. Advancements in Geospatial Data Utilization: Driving Smart City Innovations and Sustainable Urban Management. Spatial Synergy: Integrating Geospatial Solutions for Smart Cities and Sustainable Development. Published by Springer. <b>ISBN: 978-3-032-08717-1</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Madhumita, D., Apratim, B., Aniruddha, K., 2025. Data-Driven Urban Insights: Enhancing Geospatial Analyses and Applications. Geospatial Innovation: Igniting Smart Cities, Eco-Synergy, and Urban Resurgence, Published by Springer. <b>ISBN:  978-3-031-96964-5</b>" },
+  { fullText: "<b>Bharath, H.A.,</b> Anita G., Devireddy Girish, K.D., 2025. Urbanization’s Effects on Heat Dynamics in Bangaluru City Using UTCI and LCZ Classification. Remote Sensing of Land Use/Cover Changes in South/Southeast Asian Countries. Published by CRC Press, Taylor and Francis. eBook <b>ISBN: 978-1-032-49966-6</b>" },
+  { fullText: "Madhumita, D., <b>Bharath, H.A</b>., 2024. Integrating Topology and Geospatial Knowledge for Mapping Road Network Layers from High-Resolution Remote Sensing Images. In:  IoT Sensors, ML and AI: A Smarter world with AI/Machine Learning Models and IoT Sensor Data, In series of Smart Sensors Measurement and Instrumentation. Published by Springer. <b>ISBN: 978-3-031-68601-6</b>" },
+  { fullText: "Shubhi, N., <b>Bharath, H.A</b>., Brajesh, D., 2024. Managing Construction and Demolition Waste Flow through GIS for Effective Urban Planning. In: Sustainable Development using Geospatial Techniques. In: Sustainable Development Using Geospatial Techniques, Scrivener Publishing Ltd and Wiley, <b>ISBN: 978-1-394-21439-6</b>" },
+  { fullText: "Praneta, N., Aishwarya, N., <b>Bharath, H.A</b>. 2024. Dynamic coastal flood risk assessment of a Coastal Island in West Bengal, India. In: Sustainable Development Using Geospatial Techniques, Scrivener Publishing Ltd and Wiley, <b>ISBN: 978-1-394-21439-6</b>" },
+  { fullText: "Ramachandra, T.V., Bharath, S., Vinay S., <b>Bharath, H.A</b>, 2024. Forest Ecosystems Goods and Services: Challenges and Opportunities for Conservation. In:  Ecosystem Services Valuation for Sustainable Development, Springer. <b>ISBN 978-981-97-4687-3</b>" },
+  { fullText: "Aishwarya, N., <b>Bharath, H.A</b>. 2023. Assessing coastal flood impact on buildings: A climate change perspective from the developing nation. In: Geohazards and Disaster Risk Reduction: Multidisciplinary and Integrated Approaches, Springer. <b>ISBN 978-3-031-24540-4</b>" },
+  { fullText: "Vinay, S., <b>Bharath, H.A</b>. 2023. Geo-spatial modelling of flood risk due to local sea-level rise and landscape dynamics: A case of Sagar Island. In: Applications of Remote Sensing and GIS in Natural Resources and Built Infrastructure Management, Springer. <b>978-3-031-14095-2</b>" },
+  { fullText: "Nimish, G., <b>Bharath, H.A</b>., 2023. Land Surface Temperature responses to urban landscape dynamics. In:  Handbook of Himalayan Ecosystems and Sustainability: Spatio-Temporal Monitoring of Water Resources and Climate, Volume 2, CRC Press. <b>ISBN 978-1-032-20315-7</b>" },
+  { fullText: "Nimish, G., <b>Bharath, H.A</b>., Ramachandra, T.V., 2022.  Visualisation of Land use Change Pattern and Its Impact on Urban Heat Islands. In:  Global Urban Heat Island Mitigation, Elsevier. <b>ISBN</b> <b>9780323897945</b>" },
+  { fullText: "Chandan, M.C., Nimish, G., <b>Bharath, H.A</b>. 2021. Analysing and predicting urban expansion and its effects on surface temperature for two Indian megacities: Bengaluru and Chennai. In: Geo-Spatial Technology and Smart City Development, Springer. <b>ISBN</b> <b>978-3-030-71944-9</b>" },
+  { fullText: "Prakash, P. S., Nimish, G., Chandan, M.C., <b>Bharath, H.A</b>. 2021. Urbanization: pattern, effects, and modelling. In: Machine Learning for Urban Computing, Springer. <b>ISBN 978-981-16-0934-3</b>" },
+  { fullText: "Chandan, M.C., <b>Bharath, H.A. 2020.</b> Visualising future trends of Urban Expansion Through Spatio-Temporal Metrics and land use modelling. In Future Cities<b>, Springer. ISBN 978- 81-927014-5-5.</b>" },
+  { fullText: "Nimish, G., Sudeep, V.B., <b>Bharath, H.A., 2020.</b>  Impacts of Urban Land Use Land Cover Pattern on Land" },
+  { fullText: "<b>Bharath, H.A.,</b> Nimish, G., Chandan, M.C., 2020.  Exposition of spatial urban growth pattern using PSO-SLEUTH and identifying its effects on surface temperature. In: Urban Ecology, Elsevier. <b>ISBN: 9780128207307</b>" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.</b> Vinay, S., Chandan, M.C., 2020.  Simulation and modelling the urban dynamics in Bangalore \- Silicon Valley of India. In:  Planning Megacities in the Global South, Routledge. <b>ISBN: 9780367223724</b>" },
+  { fullText: "Ramachandra, T.V., <b>Bharath, H.A.</b> 2019. Bangalore: Unplanned Urban Revolution and Consequent Environmental Sustainability. Wiley-Blackwell Encyclopedia of Urban and Regional Studies, Published by John Wiley & Sons, <b>ISBN <i>9781118568453</b></i><i>, DOI: 10.1002/9781118568446.eurs0014</i>" },
+  { fullText: "<b>Bharath, H.A.,</b> Chandan, M.C., Ramachandra, T.V. 2018. Urbanisation in India: Patterns, Visualisation of cities and developing an urban observatory. Urban Remote Sensing, Second Edition, Published by Taylor and Francis, <b>ISBN 9781138054608</b>" },
+  { fullText: "Ramachandra, T.V., Shreejith, K., <b>Bharath, H. A.,</b> 2014. Sector-Wise Assessment of Carbon Footprint across Major Cities in India. Chapter 8 (Vol. 2).  In: Assessment of Carbon Footprint in Different Industrial Sectors (Eds. Muthu, S. S.). Eco-Production, Springer, Pp. 207-267. <b>ISBN: 9789814585743</b>" },
+  { fullText: "Ramachandra, T. V., Kumar, U., <b>Bharath, H. A.,</b> 2012. Ecological Approach for Mitigation of Urban Flood Risks. Chapter 7 (in part II). In: Ecosystem Approach to Disaster Risk Reduction (Eds. Gupta et al.). National Institute of Disaster Management, New Delhi, Pp. 103-120." },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H. A.,</b> Kumar, U., 2012. Conservation of wetlands to mitigate urban floods. Issue 9(1) In: Resources, Energy, and Development. TERI, New Delhi. Pp. 1–22." },
 ];
 
 export const technicalReports: TechnicalReport[] = [
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Vinay, S., Bharath, H.A.',
-    title: 'Ecosystem extent account for Karnataka state.',
-    report: 'UNEP Technical Report',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2021,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Vinay, S., Rakesh, D.R., Bharath, H.A.',
-    title: 'Ecosystem condition account for Karnataka state.',
-    report: 'UNEP Technical Report',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2021,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Vinay, S., Bharath, H.A.',
-    title: 'Valuation of Ecosystem services.',
-    report: 'UNEP Technical Report',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2021,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Vinay, S., Chandan, M.C., Bharath, H.A.',
-    title: 'Scenario based assessment of policy interventions in Karnataka state.',
-    report: 'UNEP Technical Report',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2021,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Vinay, S., Asulabha, K.S., Sincy, V., Bharath, H.A.',
-    title: 'National Environmental Survey (NES)-Select Districts of India.',
-    report: 'ENVIS Technical Report 163',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2020,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, S., Sneha, H., Chandran, M.D.S., Bharath, H.A.',
-    title: 'Profile of Rivers in Karnataka.',
-    report: 'ENVIS Technical Report 145, Sahyadri Conservation Series 81',
-    institution: 'Energy & Wetlands Research Group, CES, Indian Institute of Science, Bangalore',
-    year: 2019,
-  },
-  {
-    authors: 'Bharath, H.A., Arkopal, K.G., Bhargab, M., Ankhi, B., Swati, M., Soumya, K.G., Uday, S.',
-    title: 'Roadmap to Develop Urban Observatory in India.',
-    report: 'Draft Report to British Deputy High Commission, Kolkata',
-    institution: 'IIT Kharagpur',
-    year: 2018,
-  },
-  {
-    authors: 'Ramachandra, T.V., Vinay, S., Bharath, H.A.',
-    title: 'Frequent Floods in Bangalore: Causes and Remedial Measures.',
-    report: 'ENVIS Technical Report 123',
-    institution: 'Environmental Information System, CES, Indian Institute of Science, Bangalore',
-    year: 2017,
-  },
-  {
-    authors: 'Ramachandra, T.V., Bharath, H.A.',
-    title: 'Urban sprawl in tier-ii cities of Karnataka: Analysis of patterns, process and environmental sustainability.',
-    report: 'CiSTUP Technical Report CIST033',
-    institution: 'Centre for Infrastructure, Sustainable Transportation and Urban Planning, Indian Institute of Science, Bangalore',
-    year: 2013,
-  },
-  {
-    authors: 'Bharath, H.A., Ramachandra, T.V.',
-    title: 'Modelling the Spatial Patterns of Landscape dynamics: Review.',
-    report: 'CES Technical Report No. 127',
-    institution: 'Centre for Ecological Sciences, Indian Institute of Science, Bangalore',
-    year: 2012,
-  },
+  { fullText: "Ramachandra, T. V., Bharath, S., Vinay, S., <b>Bharath, H. A.,</b> 2021. Ecosystem extent account for Karnataka state. UNEP Technical Report, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Bharath, S., Vinay, S., Rakesh, D.R., <b>Bharath, H. A.,</b> 2021. Ecosystem conditiion account for Karnataka state. UNEP Technical Report, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Bharath, S., Vinay, S., <b>Bharath, H. A.,</b> 2021. Valuation of Ecosystem services. UNEP Technical Report, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Bharath, S., Vinay, S., Chandan, M.C., <b>Bharath, H. A.,</b> 2021. Scenario based assesment of policy interventions in Karnataka state. UNEP Technical Report, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Bharath S., Vinay, S., Asulabha, K. S., Sincy, V., <b>Bharath, H. A.,</b> 2020. National Environmental Survey (NES)-Select Districts of India. ENVIS Technical Report 163, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Bharath S., Sneha, H., Chandran, M.D.S., <b>Bharath H. A.,</b> 2019. Profile of Rivers in Karnataka, ENVIS Technical Report 145, Sahyadri Conservation Series 81, Energy & Wetlands Research Group, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "<b>Bharath, H.A.,</b> Arkopal, K.G., Bhargab, M., Ankhi, B., Swati, M., Soumya, K.G., Uday, S., 2018.  Roadmap to Develop Urban Observatory in India. Draft report to British Deputy High commission, Kolkata, India" },
+  { fullText: "Uday, S., Bhargab, M., Arkopal, K.G., <b>Bharath, H.A.,</b> Ankhi, B., Swati, M., Soumya, K.G., 2018.  Legal and Policy Perspectives of Developing Urban Observatory in India. Draft report to British Deputy High commission, Kolkata, India" },
+  { fullText: "Ramachandra, T. V., Jeffery, M.S., <b>Bharath, H. A.,</b> Uttam, K., Vinay, S., Brigit M.B., 2018. Spatial patterns of land use dynamics in Mumbai Pune express corridor. ENVIS Technical Report 137, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Jeffery, M.S., <b>Bharath, H. A.,</b> Uttam, K., Vinay, S., Revathi N., 2018. Urban dynamics in proposed Mangalore Bangalore Chennai Industrial corridor. ENVIS Technical Report 115, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., Sudarshan, B., Bharath S., <b>Bharath, H. A.,</b> 2017. Unbated Violations in Agara-Bellandur wetlands. ENVIS Technical Report 134, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., <b>Bharath, H. A.,</b> 2017. Koramangala Floods: Causes, Mismanagement of Landscape: Abuse of Bellandur-Agara wetlands, Narrowing and Concretising RajaKaluve and encroachment of storm water drains, dumping of solid waste & building debris, Apathy of Civic Agencies. ENVIS Technical Report 131, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., Bhargavi, R., <b>Bharath, H. A.,</b> 2017. Integrated watershed management for water & food security in Kolar and Chikballapur districts, Karnataka. ENVIS Technical Report 133, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra T V, Vinay S, Bharath S., <b>Bharath H. A.,</b> 2017. Profile of Rivers in Karnataka, ENVIS Technical Report 129, Sahyadri Conservation Series 71, Energy & Wetlands Research Group, CES, Indian Institute of Science, Bangalore 560012" },
+  { fullText: "Ramachandra, T. V., Vinay, S., Asulabha, K. S., Sincy, V., Sudarshan, B., Durga, M. M., <b>Bharath, H. A.,</b> 2017. Rejuvenation Blueprint for Lakes in Vrishabhavathi Valley (V. Valley). ENVIS Technical Report 122, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., <b>Bharath H. A.,</b> 2017. Frequent Floods in Bangalore: Causes and Remedial Measures, ENVIS Technical Report 123, Environmental Information System, CES, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Durga M., M., Vinay, S., Sincy, V., Asulabha, K.S., Sudharshan, B., <b>Bharath, H.A.,</b> 2017. Bellandur and Varthur Lake rejuvenation blueprint. ETR 116, Energy & Wetlands Research Group, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., Durga M., M., Sincy, V., <b>Bharath, H.A.,</b> 2016. Water situation in Bengaluru, ETR 114, Energy & Wetlands Research Group, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Subhash chandran, M.D., Bharath, S., Gouri, K., <b>Bharath, H.A.,</b> et al., 2016. My Village Biodiversity: Documentation of Western Ghats Biodiversity through Network of Students and Teachers, ETR 113, Sahyadri Conservation Series 61, Energy & Wetlands Research Group, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Gouri, K., <b>Bharath, H.A</b>., Bharath, S., Vinay, S., Harish, B., 2016. Mini forest at Indian Institute of Science: The Success Model for Rejuvenating Ecology and Hydrology in Rapidly Urbanizing Landscapes, ETR 110, Sahyadri Conservation Series 58, Energy & Wetlands Research Group, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., Sincy, V., Asulabha, K. S., Sudarshan, P. B., and <b>Bharath H. A.</b>, 2016.  Devarabisanahalli Lake: Path towards Ecological restoration, ENVIS Technical Report 104, Energy & Wetlands Research Group, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Subhash Chandran, M.D., Vinay, S., <b>Bharath, H. A., 2016.</b> Sacred Groves (Kan forests) of Sagara taluk, Shimoga district. ENVIS Technical Report No. 102, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Asulabha, Sincy, V., <b>Bharath, H. A., 2016.</b> Wetlands: Treasure of Bangalore. ENVIS Technical Report No. 101, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Asulabha, Sincy, V., Vinay, S., <b>Bharath, H. A., 2015.</b> Sankey lake: waiting for an immediate sensible action, Pathetic status of wetlands in Bangalore: epitome of inefficient and Uncoordinated governance. ENVIS Technical Report No. 74, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Asulabha, Sincy, V., <b>Bharath, H. A.,</b> Vinay, S., Durga M., M., <b>2015.</b> Varthur Fiasco: Pathetic status of wetlands in Bangalore: epitome of inefficient and Uncoordinated governance. ENVIS Technical Report No. 93, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T.V., Shreejith, K., Bharath, H. A., 2014. Wetlands: The Kidneys of Bangalore’s Landscape In: wetlands newsletter. Environmental law institute, Pp. 12-16." },
+  { fullText: "Ramachandra, T.V., Harish, R.B., <b>Bharath, H. A.,</b> Rao, G. R., Sudarshan, P.B., Vinay, S., Ganesh, H., Gouri, K., Vishnu, D. M., 2015., Biodiversity, ecology, energy, landscape dynamics & hydrology of Agastya foundation campus, Kuppam, ENVIS Technical Report No. 89, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., <b>Bharath, H. A.,</b> 2015. Environmental Flow Assessment in Yettinahole, ENVIS Technical Report No. 91, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H. A.,</b> Vinay, S., Bharath, S., Asulabha, K. S., Sincy, V., Sudarshan, P. B., 2015. Vanishing Lakes Interconnectivity & Violations in Valley Zone: Lack of Co-ordination among Para-State Agencies, ENVIS Technical Report No. 85, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Vinay, S., <b>Bharath, H. A.,</b> 2015. Detrimental landuse changes in Agara-Bellandur wetland, ENVIS Technical Report No. 95, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Subash Chandran, M.D, Vinay, S., <b>Bharath, H.A</b>., 2014, Water Scarcity in Varada Catchment: Need to arrest Deforestation on Priority, ENVIS Technical Report No. 82, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Subash Chandran, M.D, Joshi N.V., Vinay, S., <b>Bharath, H.A</b>., Gouri, K., 2014, Waterbodies of Uttara Kannada, ENVIS Technical Report No. 81, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A</b>., Vinay, S., Gouri, K., Nupur N., 2014, Trees of Bangalore, ENVIS Technical Report No. 75, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T.V., Durga Madhab M., Sudarshan P. B., Asulabha, K.S., Sincy, V., <b>Bharath, H. A</b>., 2014. Integrated Wetlands Ecosystem: Sustainable Model to Mitigate Water Crisis in Bangalore, ENVIS Technical Report 76, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore." },
+  { fullText: "Ramachandra, T. V., Asulabha, K. S., <b>Bharath H. A</b>., Bharath, S., Durga Madhab M., et al., 2014, Environment monitoring in the neighborhood, ENVIS Technical Report No. 77. Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A</b>., Vinay, S., Aamir Amin l.., 2013, Conservation of Bellandur wetlands: Obligation of decision makers to ensure Intergenerational equity, ENVIS Technical Report No. 55, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Subash Chandran, M.D, Joshi, N.V., Vinay S., <b>Bharath, H.A.,</b> Bharath, S., 2013. Carrying capacity of river basins considering ecological and social demands, ENVIS Technical Report No. 66. Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., <b>Bharath, H.A</b>., 2013. Urban sprawl in tier-ii cities of Karnataka: Analysis of patterns, process and environmental sustainability, CiSTUP Technical report: CIST033, pp 76, Centre for <i>infrastructure</i>, Sustainable Transportation and Urban Planning (CiSTUP), Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T.V., Subash Chandran, M.D., Sudarshan P. B., <b>Bharath, H.A</b>., Rao G.R., Vishnu M., 2013. Status of Forest in Shimoga District, Karnataka. Sahyadri Conservation Series 23, ENVIS Technical Report: 53. Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "<b>Bharath H. A.</b>, Ramachandra, T. V., 2012, Modelling the Spatial Patterns of Landscape dynamics: Review. Centre for Ecological Science, Indian Institute of Science, Bangalore. CES Technical Report No. 127, Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T. V., Ramakrishna Y. B., Gautham Krishnadas, Sudarshan P. B., Durga Madhab M., <b>Bharath H. A.,</b> 2012, Environmental profile and people's livelihood aspects in the vicinity of coal based thermal power plant at Yellur panchayat, Udupi district, CES Technical Report No. 126. Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra, T.V., Subash Chandran, M.D, Joshi N.V., Pallav Julka, Kumar, U., <b>Bharath, H.A</b>., Prakash Mesta, Rao, G.R., Vishnu Mukri, 2012. Sahyadri Conservation Series 7, ENVIS Technical Report No. 28, Environmental Information System (ENVIS), Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
+  { fullText: "Ramachandra T. V., Subhash Chandran, M.D., Ananth A., Rao, G.R, Bharath S, <b>Bharath, H.A</b>., 2012, Tragedy of the KAN sacred forests of Shimoga district: Need for urgent policy interventions for conservations, CES Technical Report No. 128. Centre for Ecological Sciences, Indian Institute of Science, Bangalore" },
 ];
+

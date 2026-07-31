@@ -68,30 +68,13 @@ const coordinatedCourses = [
     },
 ];
 
-const reviewerJournals = [
-    'IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (J-STARS)',
-    'Remote Sensing of Environment',
-    'Cities',
-    'Journal of Environmental Management',
-    'Journal of Environmental Engineering and Landscape Management',
-    'Landscape and Urban Planning',
-    'IEEE Geosciences',
-    'Journal of The Institution of Engineers (India): Series C',
-    'The Egyptian Journal of Remote Sensing and Space Sciences',
-    'Urban Design International',
-    'Current Science',
-    'SpringerPlus',
-];
 
 // Board affiliations — three new entries at top, existing four below
 const editorialBoards = [
-    'Scientific Report – Area Editor',
-    'Indian Journal of Remote Sensing – Area Editor',
+    'Scientific Reports – Senior Editor',
+    'Indian Journal of Remote Sensing – Subject Editor',
     'PLOS Climate – Subject Editor',
-    'Imperial International Journal',
-    'International Journal of Computer Sciences and its Applications',
-    'SF Journal of Environmental and Earth Science, Science Forecast Publication',
-    'Open Urban Studies and Demography Journal',
+    'ACM Journal on Computing and Sustainable Societies (JCSS) – Area Editor',
 ];
 
 export default function ProfessionalActivities() {
@@ -112,7 +95,7 @@ export default function ProfessionalActivities() {
                         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
                             Contributions through professional societies, course coordination,
                             journal peer review and editorial-board responsibilities across
-                            geospatial science, environment and urban infrastructure.
+                            geospatial science, environment and urban infrastructure
                         </p>
                     </div>
                 </div>
@@ -191,35 +174,7 @@ export default function ProfessionalActivities() {
                 </div>
 
                 <div className="mt-14 grid gap-12 border-t border-slate-300 pt-12 lg:grid-cols-[1.18fr_0.82fr] lg:gap-14">
-                    <section aria-labelledby="reviewer-heading">
-                        <div className="border-b border-slate-300 pb-5">
-                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
-                                Reviewer
-                            </p>
-                            <h2
-                                id="reviewer-heading"
-                                className="mt-3 text-2xl font-semibold tracking-tight text-slate-950"
-                            >
-                                Journals and Publications
-                            </h2>
-                        </div>
-
-                        <ol className="grid border-b border-slate-300 sm:grid-cols-2">
-                            {reviewerJournals.map((journal, index) => (
-                                <li
-                                    key={journal}
-                                    className="flex gap-4 border-b border-slate-200 py-5 last:border-b-0 sm:odd:pr-6 sm:even:border-l sm:even:pl-6 transition-all duration-300 hover:bg-white/80 hover:shadow-sm rounded-xl"
-                                >
-                                    <span className="shrink-0 text-sm font-semibold tracking-[0.14em] text-sky-700">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <p className="text-sm font-medium leading-7 text-slate-800 min-w-0 break-words">
-                                        {journal}
-                                    </p>
-                                </li>
-                            ))}
-                        </ol>
-                    </section>
+                    
 
                     <section aria-labelledby="editorial-heading">
                         <div className="border-b border-slate-300 pb-5">
