@@ -256,8 +256,7 @@ export default function Publications() {
 
         <SectionBanner
           id="books"
-          title="Book"
-          eyebrow="Category 1"
+          title="Books"
           bg="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1600&auto=format&fit=crop"
           open={!!open.books}
           onToggle={() => toggle('books')}
@@ -272,7 +271,6 @@ export default function Publications() {
         <SectionBanner
           id="editedBooks"
           title="Edited Books"
-          eyebrow="Category 2"
           bg="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop"
           open={!!open.editedBooks}
           onToggle={() => toggle('editedBooks')}
@@ -287,7 +285,6 @@ export default function Publications() {
         <SectionBanner
           id="papers"
           title="Journal(s)"
-          eyebrow="Category 3"
           bg="https://ik.imagekit.io/krishdheniya/images/alumni/IMG-20260731-WA0009.jpg"
           open={!!open.papers}
           onToggle={() => toggle('papers')}
@@ -298,7 +295,6 @@ export default function Publications() {
         <SectionBanner
           id="chapters"
           title="Chapter in a book"
-          eyebrow="Category 4"
           bg="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop"
           open={!!open.chapters}
           onToggle={() => toggle('chapters')}
@@ -309,7 +305,6 @@ export default function Publications() {
         <SectionBanner
           id="proceedings"
           title="Conference Proceedings"
-          eyebrow="Category 5"
           bg="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop"
           open={!!open.proceedings}
           onToggle={() => toggle('proceedings')}
@@ -320,7 +315,6 @@ export default function Publications() {
         <SectionBanner
           id="reports"
           title="Technical Reports"
-          eyebrow="Category 6"
           bg="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop"
           open={!!open.reports}
           onToggle={() => toggle('reports')}
