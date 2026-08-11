@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="home-grid-bg relative h-[calc(100dvh-73px)] overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#f1f5f9_48%,#eef2f7_100%)] text-slate-900">
+    <main className="home-grid-bg relative min-h-[calc(100dvh-73px)] overflow-x-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#f1f5f9_48%,#eef2f7_100%)] text-slate-900">
       {/* Decorative blobs — hidden on small screens to avoid overflow */}
       <div className="pointer-events-none absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sky-100/60 blur-3xl animate-float-1 hidden sm:block" />
       <div className="pointer-events-none absolute right-[-6rem] top-32 h-80 w-80 rounded-full bg-violet-100/50 blur-3xl animate-float-2 hidden sm:block" />
@@ -12,15 +12,15 @@ export default function Home() {
       <div className="pointer-events-none absolute right-20 top-56 h-4 w-4 rounded-full bg-slate-200/80 hidden md:block" />
       <div className="pointer-events-none absolute bottom-28 right-28 h-2.5 w-2.5 rounded-full bg-slate-300/80 hidden md:block" />
 
-      <section className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center gap-5 px-4 py-4 sm:px-6 md:flex-row md:gap-10 md:px-8 lg:gap-14">
+      <section className="relative z-10 mx-auto flex min-h-[calc(100dvh-73px)] w-full max-w-6xl flex-col items-center justify-start gap-5 px-4 py-8 sm:px-6 md:flex-row md:justify-center md:gap-10 md:px-8 md:py-6 lg:gap-14">
         {/* Text content */}
         <div className="relative flex w-full max-w-xl flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
 
 
           {/* Name + Group title */}
           <h1
-            className="hover-gradient-text font-black tracking-tight animate-fade-in-up delay-200 cursor-default inline-block leading-[1.1]"
-            style={{ fontSize: 'clamp(1.7rem, 5vw, 3.5rem)' }}
+            className="hover-gradient-text font-black tracking-tight animate-fade-in-up delay-200 cursor-default inline-block leading-[1.15] pb-1"
+            style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)' }}
           >
             Prof. Bharath Haridas Aithal
           </h1>
