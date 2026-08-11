@@ -26,7 +26,7 @@
    ========================================= */
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -35,10 +35,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
+  min-height: 100dvh;
+  overflow-x: clip;
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -78,7 +80,7 @@ li {
    OVERFLOW PREVENTION — main content areas
    ========================================= */
 main {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Safe-area insets for notched devices (iPhone X+) */

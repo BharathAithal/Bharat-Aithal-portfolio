@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="home-grid-bg relative min-h-[calc(100dvh-73px)] overflow-x-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#f1f5f9_48%,#eef2f7_100%)] text-slate-900">
+    <main className="home-grid-bg relative min-h-[calc(100dvh-73px)] bg-[linear-gradient(180deg,#f8fbff_0%,#f1f5f9_48%,#eef2f7_100%)] text-slate-900">
       {/* Decorative blobs — hidden on small screens to avoid overflow */}
       <div className="pointer-events-none absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-sky-100/60 blur-3xl animate-float-1 hidden sm:block" />
       <div className="pointer-events-none absolute right-[-6rem] top-32 h-80 w-80 rounded-full bg-violet-100/50 blur-3xl animate-float-2 hidden sm:block" />
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="pointer-events-none absolute right-20 top-56 h-4 w-4 rounded-full bg-slate-200/80 hidden md:block" />
       <div className="pointer-events-none absolute bottom-28 right-28 h-2.5 w-2.5 rounded-full bg-slate-300/80 hidden md:block" />
 
-      <section className="relative z-10 mx-auto flex min-h-[calc(100dvh-73px)] w-full max-w-6xl flex-col items-center justify-start gap-5 px-4 py-8 sm:px-6 md:flex-row md:justify-center md:gap-10 md:px-8 md:py-6 lg:gap-14">
+      <section className="relative z-10 mx-auto flex min-h-[calc(100dvh-73px)] w-full max-w-6xl flex-col items-center justify-start gap-6 px-4 pt-6 pb-16 sm:px-6 sm:py-8 md:flex-row md:justify-center md:gap-10 md:px-8 md:py-6 lg:gap-14">
         {/* Text content */}
         <div className="relative flex w-full max-w-xl flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
 
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="pointer-events-none absolute right-4 top-4 h-4 w-4 rounded-full bg-violet-100/90 hidden sm:block" />
           <div className="pointer-events-none absolute bottom-8 left-6 h-3 w-3 rounded-full bg-slate-300/70 hidden sm:block" />
 
-          <div className="relative aspect-square w-[min(54vw,28dvh,210px)] sm:w-full sm:max-w-[300px] md:max-w-[360px] lg:h-[30rem] lg:w-[30rem] lg:max-w-[30rem] group">
+          <div className="relative aspect-square w-[min(65vw,250px)] sm:w-full sm:max-w-[300px] md:max-w-[360px] lg:h-[30rem] lg:w-[30rem] lg:max-w-[30rem] group">
             {/* Outer rotating solid sky-blue border */}
             <div className="absolute inset-0 rounded-[42%_58%_52%_48%/45%_38%_62%_55%] border-[3px] border-sky-400/80 animate-spin-slow transition-transform duration-700 group-hover:scale-[1.02]" />
             {/* Outer rotating dashed indigo border running in reverse */}
