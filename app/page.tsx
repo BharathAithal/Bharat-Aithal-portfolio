@@ -17,6 +17,15 @@ export default function Home() {
         <div className="relative flex w-full max-w-xl flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
 
 
+          {/* Institution & Lab affiliation badge */}
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-sky-50/90 px-3.5 py-1 text-xs font-semibold text-sky-800 shadow-sm animate-fade-in-up delay-100">
+            <span>IIT Kharagpur</span>
+            <span className="text-slate-300">•</span>
+            <span>IISc Alumnus</span>
+            <span className="text-slate-300">•</span>
+            <span>EURG Lab</span>
+          </div>
+
           {/* Name + Group title */}
           <h1
             className="hover-gradient-text font-black tracking-tight animate-fade-in-up delay-200 cursor-default inline-block leading-[1.15] pb-1"
@@ -25,37 +34,43 @@ export default function Home() {
             Prof. Bharath Haridas Aithal
           </h1>
           <p className="mt-2 text-sm font-semibold tracking-wide text-sky-700 sm:text-lg animate-fade-in-up delay-300">
-            Energy and Urban Research Group
+            Energy and Urban Research Group (EURG) — IIT Kharagpur
           </p>
 
           {/* Research focus tags */}
           <div className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start animate-fade-in-up delay-350">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200/80 bg-sky-50/80 px-3 py-1 text-xs font-semibold text-sky-700 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-              Urban Remote Sensing
+              Urban Remote Sensing &amp; GIS
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-blue-50/80 px-3 py-1 text-xs font-semibold text-blue-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+              Land Use Land Cover (LULC)
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200/80 bg-cyan-50/80 px-3 py-1 text-xs font-semibold text-cyan-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              Satellite Data Analysis
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200/80 bg-violet-50/80 px-3 py-1 text-xs font-semibold text-violet-700 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-              Geospatial AI
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3 py-1 text-xs font-semibold text-emerald-700 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Smart Cities
+              Geospatial AI &amp; Urban Analytics
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/80 bg-amber-50/80 px-3 py-1 text-xs font-semibold text-amber-700 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-              ML/DL Application in Urban Resilience and Pattern Recognition
+              Machine Learning &amp; Deep Learning
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200/80 bg-rose-50/80 px-3 py-1 text-xs font-semibold text-rose-700 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-              Disaster Management
+              Urban Floods &amp; Disaster Management
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3 py-1 text-xs font-semibold text-emerald-700 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Smart Cities &amp; Resilience
             </span>
           </div>
 
           <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500 sm:mt-5 sm:text-lg sm:leading-8 animate-fade-in-up delay-300 md:mx-0">
-            Researcher, educator, and builder focused on clear academic work,
-            collaborative research, practical projects, and thoughtful training
-            experiences
+            Associate Professor at Ranbir &amp; Chitra Gupta School of Infrastructure Design and Management, IIT Kharagpur. Leading advanced academic research in urbanisation, satellite data mining, cellular automata modeling, and disaster resilience.
           </p>
 
           <div className="mt-5 flex w-full flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4 md:justify-start animate-fade-in-up delay-400">
@@ -116,7 +131,7 @@ export default function Home() {
               <div className="relative h-full w-full overflow-hidden rounded-[46%_54%_40%_60%/57%_43%_57%_43%] border border-dashed border-slate-300/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(241,245,249,0.88)_100%)]">
                 <Image
                   src="/bharat.png"
-                  alt="Prof. Bharath H Aithal"
+                  alt="Prof. Bharath Haridas Aithal - Associate Professor, Energy and Urban Research Group, IIT Kharagpur"
                   fill
                   sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 480px"
                   className="object-cover object-center"
