@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bharataithal.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bharathhaithal.com";
 
 export const viewport: Viewport = {
   width: "device-width",
