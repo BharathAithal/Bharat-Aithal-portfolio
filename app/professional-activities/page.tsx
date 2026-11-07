@@ -77,6 +77,27 @@ const editorialBoards = [
     'ACM Journal on Computing and Sustainable Societies (JCSS) – Area Editor',
 ];
 
+const awards = [
+    { date: 'June 2002', title: 'Rajyapuraskar Scout(s)' },
+    { date: 'Jun 2014', title: 'ISRO STC IISC Grant' },
+    { date: 'Jun 2014', title: 'IEEE GRSS Travel Grant' },
+    { date: 'Jul 2014', title: 'DST International Travel Grant' },
+    { date: 'Nov 2014', title: 'Sahyadri Young Ecologist Award, Lake 2014' },
+    { date: 'Oct 2015', title: 'Best Paper Award, OSGIS 2015' },
+    { date: 'Oct 2016', title: 'Young Scientist of the Year, NESA' },
+    { date: 'December 2016', title: 'Sahyadri Young Researcher Award, Lake 2016' },
+    { date: 'January 2017', title: 'Best Paper Award, EcoUrbanism, IIT Kharagpur' },
+    { date: 'November 2017', title: 'Best Paper Award, Regional Science Congress' },
+    { date: 'Feb 2018', title: 'Best (2nd Prize) Oral Presented Paper, BDCC, IIT Kharagpur' },
+    { date: 'Feb 2019', title: 'Best Paper Award, CCIVA, IIT Kharagpur' },
+    { date: 'March 2019', title: 'Best Paper Award, International Conference on Smart Cities, Jamia Milia Islamia' },
+    { date: 'November 2019', title: 'IEI Young Engineer Award' },
+    { date: 'November 2019', title: 'Indian National Geospatial Award 2019 by ISRS' },
+    { date: 'July 2021', title: 'Schlich Prize by Indian Forester' },
+    { date: 'August 2022', title: 'Faculty Excellence Award (AP) – IIT Kharagpur' },
+    { date: 'August 2022', title: 'Best Research Paper in Urban Transport, Sri Lanka Society of Transportation' },
+];
+
 export default function ProfessionalActivities() {
     return (
         <main className="page-shell">
@@ -84,18 +105,19 @@ export default function ProfessionalActivities() {
                 <div className="page-container py-10 md:px-6 md:py-12 lg:px-8 lg:py-16">
                     <div className="max-w-4xl animate-fade-in-up delay-100">
                         <p className="eyebrow-pill mb-4 text-xs font-semibold uppercase tracking-[0.3em]">
-                            Professional Activities
+                            Awards and Professional Activity
                         </p>
                         <h1
                             className="font-bold leading-[1.1] tracking-tight text-slate-950"
                             style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
                         >
-                            Academic service and professional engagement
+                            Awards, recognitions and professional engagement
                         </h1>
                         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                            Contributions through professional societies, course coordination,
-                            journal peer review and editorial-board responsibilities across
-                            geospatial science, environment and urban infrastructure
+                            Awards and recognitions received, contributions through professional
+                            societies, course coordination, journal peer review and
+                            editorial-board responsibilities across geospatial science,
+                            environment and urban infrastructure
                         </p>
                     </div>
                 </div>
@@ -103,6 +125,42 @@ export default function ProfessionalActivities() {
 
             <section className="page-container py-12 md:px-6 lg:px-8 lg:py-16 animate-fade-in-up delay-300">
                 <div className="content-panel p-5 sm:p-7 lg:p-8">
+
+                    <section aria-labelledby="awards-heading" className="mb-14">
+                        <div className="border-b border-slate-300 pb-5">
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">
+                                Awards/Recognitions
+                            </p>
+                            <h2
+                                id="awards-heading"
+                                className="mt-3 text-2xl font-semibold tracking-tight text-slate-950"
+                            >
+                                Awards and Recognitions
+                            </h2>
+                        </div>
+
+                        <ol className="mt-6 grid gap-x-10 sm:grid-cols-2">
+                            {awards.map((award, index) => (
+                                <li
+                                    key={award.title}
+                                    className="flex gap-4 border-b border-slate-200 py-4 px-2 transition-all duration-300 hover:bg-white/80 hover:shadow-sm rounded-xl group"
+                                >
+                                    <span className="w-8 shrink-0 pt-0.5 text-sm font-semibold tracking-[0.14em] text-sky-700">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                    <div className="min-w-0">
+                                        <h3 className="font-medium leading-6 text-slate-900">
+                                            {award.title}
+                                        </h3>
+                                        <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+                                            {award.date}
+                                        </p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                    </section>
+
                 <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
                     <section aria-labelledby="memberships-heading">
                         <div className="border-b border-slate-300 pb-5">

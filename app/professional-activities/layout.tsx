@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Professional Activities, Editorial Roles & Memberships',
+  title: 'Awards, Professional Activities, Editorial Roles & Memberships',
   description:
-    'Professional leadership, journal editorial boards, peer reviewing, academic committees, and institutional memberships of Prof. Bharath Haridas Aithal at IIT Kharagpur.',
+    'Awards and recognitions, professional leadership, journal editorial boards, peer reviewing, academic committees, and institutional memberships of Prof. Bharath Haridas Aithal at IIT Kharagpur.',
   keywords: [
+    'Prof. Bharath Haridas Aithal awards',
     'Prof. Bharath Haridas Aithal professional activities',
     'Journal reviewer remote sensing',
     'Editorial board member urban analytics',
@@ -16,9 +17,9 @@ export const metadata: Metadata = {
     canonical: '/professional-activities',
   },
   openGraph: {
-    title: 'Professional Activities | Prof. Bharath Haridas Aithal',
+    title: 'Awards and Professional Activity | Prof. Bharath Haridas Aithal',
     description:
-      'Editorial appointments, professional memberships, and academic service of Prof. Bharath Haridas Aithal.',
+      'Awards and recognitions, editorial appointments, professional memberships, and academic service of Prof. Bharath Haridas Aithal.',
     url: '/professional-activities',
   },
 };

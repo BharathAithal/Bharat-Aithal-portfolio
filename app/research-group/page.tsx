@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Image as IKImage, ImageKitProvider } from '@imagekit/next';
+import NextImage from 'next/image';
 
 type DoctoralStudent = {
     name: string;
@@ -34,6 +35,8 @@ type PredocFellow = {
 
 const RS_FOLDER = '/images/rs';
 const ALUMNI_FOLDER = '/images/alumni';
+// Photos not yet hosted on ImageKit are served locally from /public/research-group
+const LOCAL_FOLDER = '/research-group';
 
 const doctoralStudents: DoctoralStudent[] = [
     {
@@ -211,6 +214,28 @@ const doctoralStudents: DoctoralStudent[] = [
         email: 'SUKANYAM10425@KGPIAN.IITKGP.AC.IN',
         images: [`${RS_FOLDER}/13.jpg`],
     },
+    {
+        name: 'Neetu Yadav',
+        status: 'Current',
+        tenure: 'Autumn 2026 –',
+        startYear: '2026',
+        endYear: 'current',
+        researchArea: 'Optical Remote Sensing',
+        qualification: 'M.Sc. Geoinformatics, Central University of Haryana',
+        email: 'NEETU26@KGPIAN.IITKGP.AC.IN',
+        images: [`${LOCAL_FOLDER}/neetu-yadav.jpeg`],
+    },
+    {
+        name: 'Ayush Ranjan',
+        status: 'Current',
+        tenure: 'Autumn 2026 –',
+        startYear: '2026',
+        endYear: 'current',
+        researchArea: 'Crop Disease Modelling',
+        qualification: 'M.Tech Remote Sensing, BIT Mesra, Ranchi',
+        email: 'ayushranjan_phd@iitkgp.ac.in',
+        images: [`${LOCAL_FOLDER}/ayush-ranjan.jpg`],
+    },
 ];
 
 const postdocFellows: PostdocFellow[] = [
@@ -242,10 +267,6 @@ const predocFellows: PredocFellow[] = [
         tenure: '2026-2027',
     },
 ];
-
-const researchAssistants: string[] = [];
-
-const researchAssistantImage = `${RS_FOLDER}/15.png`;
 
 const alumniPG: Array<{ name: string; image?: string }> = [
     { name: 'Abhimanyu Akshit Shah', image: `${ALUMNI_FOLDER}/01_Abhimanyu_Akshit_Shah.jpg` },
@@ -317,21 +338,41 @@ const summerInterns: string[] = [
     'Priyanka Karmakar',
     'Anoushka Anand',
     'Rhine Nath',
-    'Aishwarya N',
+    'Vignesh M',
     'Krish Dheniya',
     'Pranav Pathak',
     'Sushabhan Majumdar',
 ];
 
 const highlights = [
-    { value: '13', label: 'Doctoral Students' },
+    { value: '15', label: 'Doctoral Students' },
     { value: '08', label: 'Awarded PhDs' },
     { value: '01', label: 'Postdoctoral Fellow' },
     { value: '34', label: 'Alumni (Post Graduates)' },
 ];
 
 function yearRange(startYear: string, endYear: string): string {
-    return endYear === 'current' ? `${startYear} – current` : `${startYear} – ${endYear}`;
+    return endYear === 'current' ? `${startYear} – Present` : `${startYear} – ${endYear}`;
+}
+
+function MemberPhoto({
+    src,
+    alt,
+    width,
+    height,
+    className,
+}: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    className?: string;
+}) {
+    return src.startsWith('/images/') ? (
+        <IKImage src={src} alt={alt} width={width} height={height} className={className} />
+    ) : (
+        <NextImage src={src} alt={alt} width={width} height={height} className={className} />
+    );
 }
 
 function SectionHeading({
@@ -369,7 +410,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
             <div className="grid grid-cols-[5rem_1fr] gap-4 sm:hidden">
                 <div className="h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
                     {student.images && student.images.length > 0 && (
-                        <IKImage
+                        <MemberPhoto
                             src={student.images[0]}
                             alt={student.name}
                             width={80}
@@ -387,7 +428,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         <h3 className="text-base font-semibold leading-7 text-slate-950">{student.name}</h3>
                         {student.status === 'Awarded' && (
                             <span className="border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
-                                PhD Awarded
+                                PhD Awarded {student.graduatingYear}
                             </span>
                         )}
                         {student.status === 'Thesis Submitted' && (
@@ -399,7 +440,6 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
                     <p className="mt-0.5 text-xs text-slate-500">
                         {student.qualification}
-                        <span className="ml-2 text-slate-400">({range})</span>
                     </p>
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-6 text-slate-600 italic">&ldquo;{student.thesisTitle}&rdquo;</p>
@@ -420,7 +460,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                             {student.email}
                         </a>
                     )}
-                    <p className="mt-2 text-xs font-medium text-slate-400">{student.tenure}</p>
+                    <p className="mt-2 text-xs font-medium text-slate-400">Tenure: {range}</p>
                 </div>
             </div>
 
@@ -432,7 +472,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
 
                 <div className="h-28 w-32 shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
                     {student.images && student.images.length > 0 ? (
-                        <IKImage
+                        <MemberPhoto
                             src={student.images[0]}
                             alt={student.name}
                             width={128}
@@ -451,7 +491,7 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                         <h3 className="font-semibold leading-7 text-slate-950">{student.name}</h3>
                         {student.status === 'Awarded' && (
                             <span className="border border-emerald-100 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-700">
-                                PhD Awarded
+                                PhD Awarded {student.graduatingYear}
                             </span>
                         )}
                         {student.status === 'Thesis Submitted' && (
@@ -463,8 +503,8 @@ function StudentRow({ student, index }: { student: DoctoralStudent; index: numbe
                     <p className="mt-1 text-sm font-medium text-sky-700">{student.researchArea}</p>
                     <p className="mt-1 text-sm text-slate-500">
                         {student.qualification}
-                        <span className="ml-2 text-slate-400">({range})</span>
                     </p>
+                    <p className="mt-1 text-xs text-slate-400">Tenure: {range}</p>
                     {student.thesisTitle && (
                         <p className="mt-2 text-sm leading-7 text-slate-600 italic">
                             <span className="font-semibold text-slate-700 not-italic">Thesis Title : </span>&ldquo;{student.thesisTitle}&rdquo;
@@ -763,44 +803,6 @@ export default function ResearchGroup() {
                                 </li>
                             ))}
                         </ol>
-                    </div>
-
-                    {/* Research Assistants */}
-                    <div className="mt-14 border-t border-slate-300 pt-12">
-                        <SectionHeading
-                            eyebrow="Research Support"
-                            title="Research Assistant (Current)"
-                            description="Research assistants currently supporting the group's initiatives."
-                        />
-                        {researchAssistants.length === 0 ? (
-                            <div className="polish-card mt-7 p-6 rounded-2xl">
-                                <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                                    <div className="h-28 w-full max-w-[12rem] shrink-0 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm sm:w-32">
-                                        <IKImage
-                                            src={researchAssistantImage}
-                                            alt="Research Assistant"
-                                            width={128}
-                                            height={112}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <div className="text-center sm:text-left sm:pt-2">
-                                        <p className="text-sm text-slate-600"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        ) : (
-                            <ol className="mt-7 divide-y divide-slate-200/80">
-                                {researchAssistants.map((name, index) => (
-                                    <li key={name} className="flex items-center gap-4 py-3">
-                                        <span className="w-10 shrink-0 text-xs font-semibold tracking-[0.14em] text-sky-700">
-                                            {String(index + 1).padStart(2, '0')}
-                                        </span>
-                                        <span className="text-sm text-slate-700">{name}</span>
-                                    </li>
-                                ))}
-                            </ol>
-                        )}
                     </div>
 
                     {/* Alumni & Interns */}

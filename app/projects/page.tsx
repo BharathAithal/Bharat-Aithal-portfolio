@@ -53,8 +53,18 @@ const projects: { title: string; agency: string; years: string }[] = [
     },
     {
         title: 'Assessing Urban Infrastructure Quality And Flood Vulnerability In Indian Cities Using High-Resolution Satellite Imagery: Impacts On Monsoon Resilience And Service Access For Slum Areas',
-        agency: 'Funded Project',
+        agency: 'Funded by ISRO SAC',
         years: '2026–2029',
+    },
+    {
+        title: 'Integrated Smart Digital Twin Platform for IIT Kharagpur Campus (IoE Grant)',
+        agency: 'IIT Kharagpur',
+        years: '',
+    },
+    {
+        title: 'Strategic Reorganisation of Ownership and Jurisdiction of Roads in the Kolkata City to Facilitate Efficient Road Maintenance',
+        agency: 'West Bengal Govt. Exe. Engg. (PWD), Howrah Divn',
+        years: '',
     },
 ];
 
@@ -78,7 +88,7 @@ export default function Projects() {
                             Funded urban, climate and geospatial projects
                         </h1>
                         <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-                            Eleven sponsored projects addressing energy-aware infrastructure,
+                            Thirteen sponsored projects addressing energy-aware infrastructure,
                             climate resilience, urban transport, smart cities, spatial
                             decision support, and disaster management
                         </p>

@@ -92,7 +92,7 @@ export default function Home() {
 
             {/* NPTEL SWAYAM Course button */}
             <a
-              href="https://onlinecourses.nptel.ac.in/e-learning/preview/noc21_de11"
+              href="https://onlinecourses.nptel.ac.in/e-learning/preview/noc26_de28"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex min-h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-800 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gradient-to-r from-emerald-500 to-emerald-700 hover:shadow-lg hover:shadow-emerald-500/30 active:scale-95 sm:px-6 sm:py-3"
@@ -130,7 +130,7 @@ export default function Home() {
             <div className="relative h-full w-full rounded-[42%_58%_52%_48%/45%_38%_62%_55%] border border-white/80 bg-white/60 p-3 shadow-[0_25px_60px_rgba(15,23,42,0.10)] backdrop-blur transition-transform duration-700 group-hover:scale-[1.01]">
               <div className="relative h-full w-full overflow-hidden rounded-[46%_54%_40%_60%/57%_43%_57%_43%] border border-dashed border-slate-300/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(241,245,249,0.88)_100%)]">
                 <Image
-                  src="/bharat.png"
+                  src="/bharat.jpeg"
                   alt="Prof. Bharath Haridas Aithal - Associate Professor, Energy and Urban Research Group, IIT Kharagpur"
                   fill
                   sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 480px"

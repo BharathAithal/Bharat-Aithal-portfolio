@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     siteName: "Prof. Bharath H Aithal - EURG IIT Kharagpur",
     images: [
       {
-        url: "/bharat.png",
-        width: 800,
-        height: 800,
+        url: "/bharat.jpeg",
+        width: 1222,
+        height: 1287,
         alt: "Prof. Bharath Haridas Aithal - IIT Kharagpur",
       },
     ],
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     title: "Prof. Bharath Haridas Aithal | IIT Kharagpur",
     description:
       "Urban Remote Sensing, Geospatial AI, Disaster Management, and Urban Analytics at Energy and Urban Research Group (EURG), IIT Kharagpur.",
-    images: ["/bharat.png"],
+    images: ["/bharat.jpeg"],
   },
   robots: {
     index: true,
@@ -144,12 +144,12 @@ const jsonLd = {
         url: `${siteUrl}/research-group`,
       },
       url: siteUrl,
-      image: `${siteUrl}/bharat.png`,
+      image: `${siteUrl}/bharat.jpeg`,
       sameAs: [
         "https://scholar.google.co.in/citations?user=j-trcFUAAAAJ&hl=en&oi=ao",
         "https://www.researchgate.net/profile/Dr_Bharath_Aithal",
         "https://orcid.org/0000-0002-4323-6254",
-        "https://onlinecourses.nptel.ac.in/e-learning/preview/noc21_de11",
+        "https://onlinecourses.nptel.ac.in/e-learning/preview/noc26_de28",
       ],
       knowsAbout: [
         "Urban Analytics",

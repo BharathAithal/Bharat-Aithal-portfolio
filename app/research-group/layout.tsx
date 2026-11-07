@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     'Rajesh Singh Rana',
     'Apratim Bhattacharya',
     'Sukanya Mukherjee',
+    'Neetu Yadav',
+    'Ayush Ranjan',
     'Dr. Vinay S',
     'Prioritizing Critical Infrastructures for Urban Flood-Prone Areas',
     'Urban Land Use Modelling Spatial Decision Support System',
