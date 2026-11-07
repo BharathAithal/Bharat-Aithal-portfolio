@@ -35,33 +35,34 @@ export default function Navbar() {
     <>
       {/* ── HEADER ── */}
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-2 md:px-6 lg:px-8">
+        <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between gap-3 px-4 py-2 md:px-6 lg:px-8">
 
-          {/* IIT Kharagpur logo — extreme left */}
-          <Link href="/" className="shrink-0" aria-label="Home">
-            <div className="relative h-9 w-9">
-              <Image
-                src="https://ik.imagekit.io/krishdheniya/images/alumni/iitkgp-logo.jpg"
-                alt="IIT Kharagpur"
-                fill
-                sizes="36px"
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
+          {/* Left branding: IIT Kharagpur logo + Site wordmark */}
+          <div className="flex shrink-0 items-center gap-3">
+            <Link href="/" className="shrink-0" aria-label="Home">
+              <div className="relative h-9 w-9">
+                <Image
+                  src="https://ik.imagekit.io/krishdheniya/images/alumni/iitkgp-logo.jpg"
+                  alt="IIT Kharagpur"
+                  fill
+                  sizes="36px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Link>
 
-          {/* Site wordmark */}
-          <Link
-            href="/"
-            className="shrink-0 text-lg font-black tracking-tight text-slate-900 hover:text-sky-600"
-            style={{ minHeight: "44px", display: "flex", alignItems: "center" }}
-          >
-            Bharath H Aithal
-          </Link>
+            <Link
+              href="/"
+              className="shrink-0 text-lg font-black tracking-tight text-slate-900 hover:text-sky-600"
+              style={{ minHeight: "44px", display: "flex", alignItems: "center" }}
+            >
+              Bharath H Aithal
+            </Link>
+          </div>
 
-          {/* Desktop nav — visible at 1024px+ */}
-          <nav className="hidden flex-1 flex-wrap items-center justify-center gap-1 lg:flex lg:gap-1">
+          {/* Desktop nav — visible on desktop (xl: 1280px+) */}
+          <nav className="hidden flex-1 flex-nowrap items-center justify-center gap-1 xl:flex 2xl:gap-1.5">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -69,9 +70,9 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-2 text-sm font-medium lg:px-3 ${
+                  className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[13px] font-medium transition-colors 2xl:px-3.5 2xl:py-2 2xl:text-sm ${
                     isActive
-                      ? "bg-sky-50 text-sky-600"
+                      ? "bg-sky-50 text-sky-600 font-semibold"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                   }`}
                 >
@@ -81,10 +82,10 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Hamburger — visible below 1024px */}
+          {/* Hamburger — visible below xl */}
           <button
             onClick={() => setIsOpen(true)}
-            className="hamburger-btn ml-auto flex items-center justify-center rounded-lg hover:bg-slate-100 lg:hidden"
+            className="hamburger-btn ml-auto flex items-center justify-center rounded-lg hover:bg-slate-100 xl:hidden"
             style={{
               width: "44px",
               height: "44px",
@@ -113,7 +114,7 @@ export default function Navbar() {
           </button>
 
           {/* EURG logo — extreme right (desktop only) */}
-          <div className="relative hidden h-8 w-20 shrink-0 lg:block">
+          <div className="relative hidden h-8 w-20 shrink-0 xl:block">
             <Image
               src="https://ik.imagekit.io/krishdheniya/images/alumni/eurg-logo.png"
               alt="Energy and Urban Research Group"
@@ -129,7 +130,7 @@ export default function Navbar() {
       <div
         aria-hidden="true"
         onClick={() => setIsOpen(false)}
-        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden"
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm xl:hidden"
         style={{
           opacity: isOpen ? 1 : 0,
           pointerEvents: isOpen ? "auto" : "none",
@@ -143,7 +144,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className="fixed left-0 top-0 z-50 h-full w-72 max-w-[85vw] bg-white shadow-2xl lg:hidden"
+        className="fixed left-0 top-0 z-50 h-full w-72 max-w-[85vw] bg-white shadow-2xl xl:hidden"
         style={{
           transform: isOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.3s ease-in-out",
